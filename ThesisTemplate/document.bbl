@@ -1,0 +1,182 @@
+\begin{thebibliography}{}
+
+\bibitem[Aroba et~al., 2023]{axmmnm23}
+Aroba, O.~J., Xulu, T., Msani, N.~N., Mohlakoana, T.~T., Ndlovu, E.~E., and
+  Mthethwa, S.~M. (2023).
+\newblock The adoption of an intelligent waste collection system in a smart
+  city.
+\newblock {\em 2023 Conference on Information Communications Technology and
+  Society (ICTAS)}, pages 1--6.
+\newblock doi:10.1109/ICTAS56421.2023.10082750.
+
+\bibitem[Choubey et~al., 2024]{cmmpp24}
+Choubey, A., Mishra, S., Misra, R., Pandey, A.~K., and Pandey, D. (2024).
+\newblock Smart e-waste management: a revolutionary incentive-driven iot
+  solution with lpwan and edge-ai integration for environmental sustainability.
+\newblock {\em Environmental Monitoring and Assessment}, 196(8).
+\newblock doi:10.1007/s10661-024-12854-1.
+
+\bibitem[Dassi et~al., 2021]{dkb21}
+Dassi, R., Kamal, S., and Babu, B.~S. (2021).
+\newblock E-waste detection and collection assistance system using yolov5.
+\newblock {\em pp}, pages 1--6.
+\newblock doi:10.1109/csitss54238.2021.9682806.
+
+\bibitem[Dutta et~al., 2023]{djkkm23}
+Dutta, R., Jeetasha, J., Kaur, H.~J., Kaur, D.~P., and Malhotra, P. (2023).
+\newblock Sort-o-matic: An efficient waste segregation system for sustainable
+  waste management.
+\newblock {\em pp}, pages 398--403.
+\newblock doi:10.1109/icdabi60145.2023.10629584.
+
+\bibitem[Elangovan et~al., 2021]{eskbss21}
+Elangovan, S., Sasikala, S., Kumar, S.~A., Bharathi, M., Sangath, E.~N., and
+  Subashini, T. (2021).
+\newblock A deep learning based multiclass segregation of e-waste using
+  hardware software co-simulation.
+\newblock {\em Journal of Physics Conference Series}, 1997(1):012039.
+\newblock doi:10.1088/1742-6596/1997/1/012039.
+
+\bibitem[Flores and Tan, 2019]{ft19}
+Flores, M. and Tan, Jr., J. (2019).
+\newblock Literature review of automated waste segregation system using machine
+  learning: A comprehensive analysis.
+\newblock {\em International Journal of Simulation Systems Science &
+  Technology}.
+\newblock doi:10.5013/ijssst.a.20.s2.15.
+
+\bibitem[Han et~al., 2022]{hsql22}
+Han, Y., Shevchenko, T., Qu, D., and Li, G. (2022).
+\newblock Smart e-waste management in china: a review.
+\newblock {\em Lecture Notes on Data Engineering and Communications
+  Technologies}, pages 515--533.
+\newblock doi:10.1007/978-981-16-9113-3\_38.
+
+\bibitem[Islam et~al., 2024]{inhrcfaiar24}
+Islam, M., Niloy, N.~T., Hasan, I., Rupin, R.~J., Chowdhury, M., Fahim, S.~F.,
+  Ashhab, M.~M., Islam, M.~M., Ali, M.~S., and Rashid, M. R.~A. (2024).
+\newblock An extensive photographic dataset to classify laptop components for
+  automating e-waste management by recycling old laptops.
+\newblock {\em Data in Brief}, 57:111122.
+\newblock doi:10.1016/j.dib.2024.111122.
+
+\bibitem[Jamdaade et~al., 2024]{jbp24}
+Jamdaade, K.~M., Biswal, M., and Pitre, Y.~N. (2024).
+\newblock A review on categorization of the waste using transfer learning.
+\newblock {\em BENTHAM SCIENCE PUBLISHERS eBooks}, pages 76--91.
+\newblock doi:10.2174/9789815179606124010006.
+
+\bibitem[Kang et~al., 2019]{kkic19}
+Kang, K.~D., Kang, H., Ilankoon, I., and Chong, C.~Y. (2019).
+\newblock Electronic waste collection systems using internet of things (iot):
+  Household electronic waste management in malaysia.
+\newblock {\em Journal of Cleaner Production}, 252:119801.
+\newblock doi:10.1016/j.jclepro.2019.119801.
+
+\bibitem[Madhav et~al., 2021]{mrhk21}
+Madhav, A.~S., Rajaraman, R., Harini, S., and Kiliroor, C.~C. (2021).
+\newblock Application of artificial intelligence to enhance collection of
+  e-waste: A potential solution for household weee collection and segregation
+  in india.
+\newblock {\em Waste Management & Research the Journal for a Sustainable
+  Circular Economy}, 40(7):1047--1053.
+\newblock doi:10.1177/0734242x211052846.
+
+\bibitem[Nafiz et~al., 2023]{10070078}
+Nafiz, M.~S., Das, S.~S., Morol, M.~K., Al~Juabir, A., and Nandi, D. (2023).
+\newblock Convowaste: An automatic waste segregation machine using deep
+  learning.
+\newblock In {\em 2023 3rd International Conference on Robotics, Electrical and
+  Signal Processing Techniques (ICREST)}, pages 181--186.
+
+\bibitem[Nowakowski and Pamuła, 2020]{NOWAKOWSKI20201}
+Nowakowski, P. and Pamuła, T. (2020).
+\newblock Application of deep learning object classifier to improve e-waste
+  collection planning.
+\newblock {\em Waste Management}, 109:1--9.
+
+\bibitem[Nowakowski et~al., 2020]{NOWAKOWSKI2020138726}
+Nowakowski, P., Szwarc, K., and Boryczka, U. (2020).
+\newblock Combining an artificial intelligence algorithm and a novel vehicle
+  for sustainable e-waste collection.
+\newblock {\em Science of The Total Environment}, 730:138726.
+
+\bibitem[Pavan et~al., 2021]{pakk21}
+Pavan, V. K.~S., Akhil, V. S. S.~S., Kumar, P. N.~S., and K, P.~B. (2021).
+\newblock Implementation of reverse vending machine technique for dry waste and
+  e-waste.
+\newblock In {\em 2021 5th International Conference on Electronics, Materials
+  Engineering & Nano-Technology (IEMENTech)}, pages 1--7.
+\newblock doi:10.1109/IEMENTech53263.2021.9614824.
+
+\bibitem[Periyasamy et~al., 2024]{prsrm24}
+Periyasamy, K., Reddy, P. P.~K., Sonukumar, N., Ramachandran, G., and
+  Muthumanickam, T. (2024).
+\newblock Analysis of iot based digital waste management collections garbage
+  disposal and its applications.
+\newblock In {\em 2024 3rd International Conference on Applied Artificial
+  Intelligence and Computing (ICAAIC)}, pages 1738--1743.
+\newblock doi:10.1109/icaaic60222.2024.10575201.
+
+\bibitem[Ramya et~al., 2023]{rrr23}
+Ramya, P., Ramya, V., and Rao, M.~B. (2023).
+\newblock Iot-based household electronic waste management systems for
+  electronic waste collection.
+\newblock {\em 2022 International Conference on Inventive Computation
+  Technologies (ICICT)}, pages 1371--1376.
+\newblock doi:10.1109/icict57646.2023.10134184.
+
+\bibitem[Rani et~al., 2021]{rrojysmjah21}
+Rani, K. N.~A., Rahim, H.~A., Ong, B.~T., Jusoh, M., Yasin, M. N.~M.,
+  Sabapathy, T., Mustafa, W.~A., Jamlos, M.~A., Ahmad, R.~B., and Hammood,
+  D.~A. (2021).
+\newblock Mobile green e-waste management systems using iot for smart campus.
+\newblock {\em Journal of Physics: Conference Series}, 1962(1):012056.
+\newblock doi:10.1088/1742-6596/1962/1/012056.
+
+\bibitem[Roy et~al., 2023]{10070081}
+Roy, M.~S., Lusan, M. N.~I., Khan, M. A.~R., Khan, M.~P., Ahmed, A., and
+  Zishan, M. S.~R. (2023).
+\newblock Design and development of e-waste monitoring, segregation and
+  recycling system.
+\newblock In {\em 2023 3rd International Conference on Robotics, Electrical and
+  Signal Processing Techniques (ICREST)}, pages 363--367.
+
+\bibitem[Sarswat et~al., 2024]{ssp24}
+Sarswat, P.~K., Singh, R.~S., and Pathapati, S. V. S.~H. (2024).
+\newblock Real time electronic-waste classification algorithms using the
+  computer vision based on convolutional neural network (cnn): Enhanced
+  environmental incentives.
+\newblock {\em Resources Conservation and Recycling}, 207:107651.
+\newblock doi:10.1016/j.resconrec.2024.107651.
+
+\bibitem[Sharma et~al., 2024]{10545202}
+Sharma, A., Swami, N.~K., Mittal, R., and Hiran, K.~K. (2024).
+\newblock Smart trash management: Iot and machine learning solutions for
+  effective e-waste management.
+\newblock In {\em 2024 International Conference on Trends in Quantum Computing
+  and Emerging Business Technologies}, pages 1--6.
+
+\bibitem[Singh et~al., 2024]{sskw24}
+Singh, K., Singh, P., Kumar, A., and Walde, V. (2024).
+\newblock Iot-enabled cvm design & architecture for e-waste management: A
+  solution towards environmental sustainability.
+\newblock {\em Evergreen}, 11(1):343--353.
+\newblock doi:10.5109/7172291.
+
+\bibitem[Sinha et~al., 2024]{10751187}
+Sinha, A., Sharma, N., Chanti, Y., and Rawat, A.~S. (2024).
+\newblock Revolutionizing waste management ai-powered solutions for electronic
+  waste in india.
+\newblock In {\em 2023 International Conference on Smart Devices (ICSD)}, pages
+  1--5.
+
+\bibitem[Zhou et~al., 2024]{zwsvzp24}
+Zhou, C., Wu, Y., Sterkens, W., Vandewalle, P., Zhang, J., and Peeters, J.~R.
+  (2024).
+\newblock Multi-view graph transformer for waste of electric and electronic
+  equipment classification and retrieval.
+\newblock {\em Resources Conservation and Recycling}, 215:108112.
+\newblock doi:10.1016/j.resconrec.2024.108112.
+
+\end{thebibliography}
