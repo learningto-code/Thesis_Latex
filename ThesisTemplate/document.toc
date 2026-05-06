@@ -1,10 +1,10 @@
 \contentsline {chapter}{Abstract}{ii}{section*.1}%
-\contentsline {chapter}{Table of Contents}{iii}{section*.3}%
-\contentsline {chapter}{List of Figures}{vi}{section*.4}%
-\contentsline {chapter}{List of Tables}{vii}{section*.5}%
-\contentsline {chapter}{Abbreviations and Acronyms}{viii}{section*.6}%
-\contentsline {chapter}{Notations}{ix}{section*.8}%
-\contentsline {chapter}{Glossary}{x}{section*.10}%
+\contentsline {chapter}{Table of Contents}{iii}{chapter*.4}%
+\contentsline {chapter}{List of Figures}{vi}{chapter*.5}%
+\contentsline {chapter}{List of Tables}{vii}{chapter*.6}%
+\contentsline {chapter}{Abbreviations and Acronyms}{viii}{section*.7}%
+\contentsline {chapter}{Notations}{ix}{section*.10}%
+\contentsline {chapter}{Glossary}{x}{section*.13}%
 \contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introduction}}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background of the Study}{2}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Prior Studies}{5}{section.1.2}%
@@ -23,7 +23,7 @@
 \contentsline {section}{\numberline {1.7}Assumptions, Scope, and Delimitations}{19}{section.1.7}%
 \contentsline {subsection}{\numberline {1.7.1}Assumptions}{19}{subsection.1.7.1}%
 \contentsline {subsection}{\numberline {1.7.2}Scope}{21}{subsection.1.7.2}%
-\contentsline {subsection}{\numberline {1.7.3}Delimitations}{23}{subsection.1.7.3}%
+\contentsline {subsection}{\numberline {1.7.3}Delimitations}{22}{subsection.1.7.3}%
 \contentsline {section}{\numberline {1.8}Description and Methodology}{24}{section.1.8}%
 \contentsline {section}{\numberline {1.9}Estimated Work Schedule and Budget}{25}{section.1.9}%
 \contentsline {subsection}{\numberline {1.9.1}Gantt Chart}{25}{subsection.1.9.1}%
@@ -70,5 +70,5 @@
 \contentsline {subsection}{\numberline {5.2.5}IPO Chart}{68}{subsection.5.2.5}%
 \contentsline {section}{\numberline {5.3}Evaluation}{70}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Summary}{71}{section.5.4}%
-\contentsline {chapter}{References}{73}{chapter*.26}%
+\contentsline {chapter}{References}{73}{chapter*.31}%
 \contentsfinish 

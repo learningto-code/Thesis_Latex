@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d
+This is BibTeX, Version 0.99e
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: document.aux
 Reallocating 'name_of_file' (item size: 1) to 17 items.
@@ -15,9 +15,6 @@ Reallocating 'name_of_file' (item size: 1) to 8 items.
 The style file: apalike.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
-Warning--I didn't find a database entry for "oasismqtt"
-Warning--I didn't find a database entry for "fairprinciples"
-Warning--I didn't find a database entry for "gdpr"
 Warning--to sort, need author or key in automatic2019fuel
 Warning--to sort, need author or key in iso15143
 Warning--to sort, need author or key in iec61131
@@ -55,7 +52,7 @@ Warning--empty year in maurya_nodate_real
 Warning--can't use both volume and number fields in prasanna2023iot
 You've used 60 entries,
             1935 wiz_defined-function locations,
-            737 strings with 13721 characters,
+            734 strings with 13694 characters,
 and the built_in function-call counts, 20989 in all, are:
 = -- 2150
 > -- 611
@@ -94,4 +91,4 @@ warning$ -- 35
 while$ -- 158
 width$ -- 0
 write$ -- 754
-(There were 38 warnings)
+(There were 35 warnings)
