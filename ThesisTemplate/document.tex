@@ -137,8 +137,8 @@
 	%answers_to_questions,
 	%revisions_to_the_proposal,
 	%revisions_to_the_final,
-	usage_examples,
-	publication,
+%	usage_examples,
+%	publication,
 %	vita,
 }
 
@@ -188,7 +188,7 @@
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\phantomsection
 		\addcontentsline{toc}{chapter}{Glossary}
-		{
+		{	
 			\printterms[database=glossary, style=indexalign, prelocation=none, location=hide, columns=1, postname=\hspace{3em}]
 			\thispagestyle{plain}
 		}
@@ -222,66 +222,6 @@
 	%\stopcontents[chapters]
 	\cleardoublepage
 	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%\chapter{Theoretical Considerations}
-	%\chaptermark{Theoretical Considerations} % uncomment this and put a shorter version of the chapter title for the TOC and chapter markings (i.e., header or footer)
-	\label{ch:theorycon}
-	%\startcontents[chapters]
-	%\begin{SingleSpace}	
-	%	\Mprintcontents 
-	%\end{SingleSpace}
-	\include{theoretical_considerations}
-	%\stopcontents[chapters]
-	\cleardoublepage
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%\chapter{Design Considerations} 
-	\label{ch:designcon} 
-	%\startcontents[chapters]
-	%\begin{SingleSpace}	
-	%	\Mprintcontents 
-	%\end{SingleSpace}
-	\include{design_considerations}
-	%\stopcontents[chapters]
-	\cleardoublepage
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%\chapter{Methodology} 
-	\label{ch:method} 
-	%\startcontents[chapters]
-	%\begin{SingleSpace}	
-	%	\Mprintcontents 
-	%\end{SingleSpace}
-	\include{methodology}
-	%\stopcontents[chapters]
-	\cleardoublepage
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%\ifResultDiscuss 
-	%\chapter{Results and Discussions} 
-	%	\label{ch:result_discuss} 
-	%	\startcontents[chapters]
-	%	\begin{SingleSpace}	
-	%		\Mprintcontents 
-	%	\end{SingleSpace}
-		\include{results_and_discussions}
-	%	\stopcontents[chapters]
-	\cleardoublepage
-	\fi
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%\ifConc
-	%\chapter{Conclusions, Recommendations, and Future Directives} 
-	\label{ch:conc} 
-	%	\startcontents[chapters]
-	%	\begin{SingleSpace}	
-	%		\Mprintcontents 
-	%	\end{SingleSpace}
-		\include{conclusions}
-	%	\stopcontents[chapters]
-	\cleardoublepage
-	\fi
-	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\renewcommand{\UrlFont}{\normalfont}
 	%\bibliographystyle{IEEEtr} % for IEEE referencing format
@@ -290,17 +230,11 @@
 	\begin{SingleSpace}
 		{\small \bibliography{references}}
 		\vfill
-		\LaTeX-comment this and the following texts after you have implemented them. See the following references for helpful guides for the bibliography and script editing in general.  Note that the links might be unavailable, but the names can be searched in the Web.
+		%\LaTeX-comment this and the following texts after you have implemented them. See the following references for helpful guides for the bibliography and script editing in general.  Note that the links might be unavailable, but the names can be searched in the Web.
 		
-		\begin{enumerate}
-			\item IEEE Citation Reference: \url{www.ieee.org/documents/ieeecitationref.pdf}
-			
-			\item IEEE Editorial Style manual: \url{www.ieee.org/documents/style_manual.pdf} 
-			
-			\item IEEE Abbreviations for Transactions, Journals, Letters, and Magazines: \url{www.ieee.org/documents/trans_journal_names.pdf}
-		\end{enumerate}
 		
-d		
+		
+		
 	\end{SingleSpace}
 	\vfill
 	\begin{flushright}
@@ -308,86 +242,6 @@ d
 	\end{flushright}
 	\cleardoublepage 
 	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\SingleSpacing
-	\appendix
-	\renewcommand{\thechapter}{\Alph{chapter}}
-	\renewcommand{\thesection}{\thechapter\arabic{section}}
-	\appto\appendix{\renewcommand\thechapter{\AlphAlph{\value{chapter}}}} % for increasing appendix chapters beyond Z, i.e. AA, AB, etc.
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\chapter{Student Research Ethics Clearance}
-	\includepdf[pages={1},%
-	offset=3.5mm -10mm,%
-	scale=0.75,%
-	pagecommand={},]
-	{./figure/STUDENT_RESEARCH_ETHICS_CLEARANCE.pdf}
-	\cleardoublepage
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%\chapter{Answers to Questions to this \documentType}
-	%\startcontents[chapters]
-	%\Mprintcontents 
-	\include{answers_to_questions}
-	%\stopcontents[chapters]
-	\cleardoublepage
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%\chapter{Revisions to the Proposal} 
-	\label{ch:revisions_to_the_proposal}
-	%\startcontents[chapters]
-	%\Mprintcontents  
-	\include{revisions_to_the_proposal}
-	%\stopcontents[chapters]
-	\cleardoublepage
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%\chapter{Revisions to the Final} 
-	\label{ch:revisions_to_the_final}
-	%\startcontents[chapters]
-	%\Mprintcontents  
-	\include{revisions_to_the_final}
-	%\stopcontents[chapters]
-	\cleardoublepage
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\chapter{Usage Examples} 
-	\label{ch:usage_examples}
-	%\startcontents[chapters]
-	%\Mprintcontents  
-	\include{usage_examples}
-	%\stopcontents[chapters]
-	\cleardoublepage
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%\ifPubList
-	%\include{publication}
-	%\fi
-	%\cleardoublepage
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%\ifVita
-	%\include{vita}
-	%\fi
-	%\cleardoublepage
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%\ifIndex
-	%\printindex
-	\fi
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\chapter{Article Paper(s)} 
-	\label{ch:article_paper}
-	\cleardoublepage
-	{
-	\ClearWallPaper
-	\includepdf[pages=-,%
-	scale=1.0,%
-	frame,%
-	]
-	{article_forum_paper.pdf}
-	}
-	\cleardoublepage
 
-\end{document}
+
+\end{document}s
