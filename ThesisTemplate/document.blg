@@ -1,0 +1,97 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: document.aux
+Reallocating 'name_of_file' (item size: 1) to 17 items.
+A level-1 auxiliary file: introduction.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
+A level-1 auxiliary file: literature_review.aux
+Reallocating 'name_of_file' (item size: 1) to 31 items.
+A level-1 auxiliary file: theoretical_considerations.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
+A level-1 auxiliary file: design_considerations.aux
+Reallocating 'name_of_file' (item size: 1) to 16 items.
+A level-1 auxiliary file: methodology.aux
+Reallocating 'name_of_file' (item size: 1) to 8 items.
+The style file: apalike.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--I didn't find a database entry for "oasismqtt"
+Warning--I didn't find a database entry for "fairprinciples"
+Warning--I didn't find a database entry for "gdpr"
+Warning--to sort, need author or key in automatic2019fuel
+Warning--to sort, need author or key in iso15143
+Warning--to sort, need author or key in iec61131
+Warning--to sort, need author or key in iso7637
+Warning--to sort, need author or key in cecert
+Warning--to sort, need author or key in fcc
+Warning--to sort, need author or key in iso19510
+Warning--to sort, need author or key in rfc791
+Warning--to sort, need author or key in iso27001
+Warning--to sort, need author or key in iso29119
+Warning--to sort, need author or key in iso42010
+Warning--to sort, need author or key in iso27018
+Warning--to sort, need author or key in iso45001
+Warning--to sort, need author or key in iso26262
+Warning--to sort, need author or key in iso39001
+Warning--to sort, need author or key in ieeep7003
+Warning--to sort, need author or key in iso14001
+Warning--to sort, need author or key in iso50001
+Warning--to sort, need author or key in iso8800
+Warning--empty year in iec61131
+Warning--empty year in ieeep7003
+Warning--empty year in fcc
+Warning--empty year in iso26262
+Warning--empty year in iso39001
+Warning--empty year in iso45001
+Warning--empty year in iso7637
+Warning--empty year in iso19510
+Warning--empty year in iso27018
+Warning--empty year in iso42010
+Warning--empty year in rfc791
+Warning--empty author in automatic2019fuel
+Warning--empty year in husak_nodate_intelligent
+Warning--empty year in ieee1451
+Warning--empty year in maurya_nodate_real
+Warning--can't use both volume and number fields in prasanna2023iot
+You've used 60 entries,
+            1935 wiz_defined-function locations,
+            737 strings with 13721 characters,
+and the built_in function-call counts, 20989 in all, are:
+= -- 2150
+> -- 611
+< -- 47
++ -- 215
+- -- 204
+* -- 1546
+:= -- 3462
+add.period$ -- 190
+call.type$ -- 60
+change.case$ -- 402
+chr.to.int$ -- 53
+cite$ -- 114
+duplicate$ -- 955
+empty$ -- 1614
+format.name$ -- 251
+if$ -- 4277
+int.to.chr$ -- 8
+int.to.str$ -- 0
+missing$ -- 35
+newline$ -- 313
+num.names$ -- 123
+pop$ -- 429
+preamble$ -- 1
+purify$ -- 402
+quote$ -- 0
+skip$ -- 665
+stack$ -- 0
+substring$ -- 1375
+swap$ -- 158
+text.length$ -- 22
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 360
+warning$ -- 35
+while$ -- 158
+width$ -- 0
+write$ -- 754
+(There were 38 warnings)

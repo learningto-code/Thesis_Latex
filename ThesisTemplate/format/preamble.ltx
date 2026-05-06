@@ -4,8 +4,35 @@
 
 \newcommand{\DLSUdtpVersion}{2020.10.22}
 
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % the following are for typesetting math symbols, equations, etc.
+
+
+
+
+\usepackage[normalem]{ulem}  % For underlining
+\usepackage{tabularx}      % For flexible column width tables
+\usepackage{longtable}     % For tables spanning multiple pages
+\usepackage{array}         % For better column formatting
+\usepackage{caption}
+\usepackage{longtable}  % Allows tables to span multiple pages
+\usepackage{tabularx}   % Provides auto-adjusting columns
+\usepackage{caption}    % Improves table captions
+\renewcommand{\arraystretch}{1.3} % Increase row height
+\documentclass[a4paper,12pt]{article} 
+\usepackage{longtable} 
+\usepackage{tabularx} 
+\usepackage{geometry} 
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm} 
+\usepackage{array} 
+
+\documentclass[12pt]{book}
+\usepackage[margin=2cm]{geometry}
+\usepackage{longtable, array}
+\renewcommand{\arraystretch}{1.2}
 
 \usepackage[cmex10]{amsmath} % for providing many useful and powerful commands for dealing with math typesetting using AMS facilities; the cmex10 option ensures that only type 1 fonts will utilized at all point sizes. Without this option, it is possible that some math symbols, particularly those within footnotes, will be rendered in bitmap form.
 
@@ -111,7 +138,6 @@
 	}
 }
 \ExplSyntaxOff
-
 
 \usepackage{datetime} % for obtaining time info
 \newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR}

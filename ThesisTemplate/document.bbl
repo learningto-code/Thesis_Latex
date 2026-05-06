@@ -1,182 +1,373 @@
 \begin{thebibliography}{}
 
-\bibitem[Aroba et~al., 2023]{axmmnm23}
-Aroba, O.~J., Xulu, T., Msani, N.~N., Mohlakoana, T.~T., Ndlovu, E.~E., and
-  Mthethwa, S.~M. (2023).
-\newblock The adoption of an intelligent waste collection system in a smart
-  city.
-\newblock {\em 2023 Conference on Information Communications Technology and
-  Society (ICTAS)}, pages 1--6.
-\newblock doi:10.1109/ICTAS56421.2023.10082750.
+\bibitem[iec, ]{iec61131}
+Iec 61131-2:2017.
+\newblock \url{https://webstore.iec.ch/en/publication/31007}.
+\newblock Accessed: 2025-11-27.
 
-\bibitem[Choubey et~al., 2024]{cmmpp24}
-Choubey, A., Mishra, S., Misra, R., Pandey, A.~K., and Pandey, D. (2024).
-\newblock Smart e-waste management: a revolutionary incentive-driven iot
-  solution with lpwan and edge-ai integration for environmental sustainability.
-\newblock {\em Environmental Monitoring and Assessment}, 196(8).
-\newblock doi:10.1007/s10661-024-12854-1.
+\bibitem[iee, ]{ieeep7003}
+Ieee p7003: Algorithmic bias considerations.
+\newblock \url{https://standards.ieee.org/ieee/7003/11357/}.
+\newblock Accessed: 2025-11-27.
 
-\bibitem[Dassi et~al., 2021]{dkb21}
-Dassi, R., Kamal, S., and Babu, B.~S. (2021).
-\newblock E-waste detection and collection assistance system using yolov5.
-\newblock {\em pp}, pages 1--6.
-\newblock doi:10.1109/csitss54238.2021.9682806.
+\bibitem[fcc, ]{fcc}
+Ieee xplore full-text pdf.
+\newblock \url{https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10602499}.
+\newblock Accessed: 2025-11-27.
 
-\bibitem[Dutta et~al., 2023]{djkkm23}
-Dutta, R., Jeetasha, J., Kaur, H.~J., Kaur, D.~P., and Malhotra, P. (2023).
-\newblock Sort-o-matic: An efficient waste segregation system for sustainable
-  waste management.
-\newblock {\em pp}, pages 398--403.
-\newblock doi:10.1109/icdabi60145.2023.10629584.
+\bibitem[iso, a]{iso26262}
+Iso 26262-1:2011.
+\newblock \url{https://www.iso.org/standard/43464.html}.
+\newblock Accessed: 2025-11-27.
 
-\bibitem[Elangovan et~al., 2021]{eskbss21}
-Elangovan, S., Sasikala, S., Kumar, S.~A., Bharathi, M., Sangath, E.~N., and
-  Subashini, T. (2021).
-\newblock A deep learning based multiclass segregation of e-waste using
-  hardware software co-simulation.
-\newblock {\em Journal of Physics Conference Series}, 1997(1):012039.
-\newblock doi:10.1088/1742-6596/1997/1/012039.
+\bibitem[iso, b]{iso39001}
+Iso 39001:2012.
+\newblock \url{https://www.iso.org/standard/44958.html}.
+\newblock Accessed: 2025-11-27.
 
-\bibitem[Flores and Tan, 2019]{ft19}
-Flores, M. and Tan, Jr., J. (2019).
-\newblock Literature review of automated waste segregation system using machine
-  learning: A comprehensive analysis.
-\newblock {\em International Journal of Simulation Systems Science &
-  Technology}.
-\newblock doi:10.5013/ijssst.a.20.s2.15.
+\bibitem[iso, c]{iso45001}
+Iso 45001:2018.
+\newblock \url{https://www.iso.org/standard/63787.html}.
+\newblock Accessed: 2025-11-27.
 
-\bibitem[Han et~al., 2022]{hsql22}
-Han, Y., Shevchenko, T., Qu, D., and Li, G. (2022).
-\newblock Smart e-waste management in china: a review.
-\newblock {\em Lecture Notes on Data Engineering and Communications
-  Technologies}, pages 515--533.
-\newblock doi:10.1007/978-981-16-9113-3\_38.
+\bibitem[iso, d]{iso7637}
+Iso 7637-2:2011.
+\newblock \url{https://www.iso.org/standard/50925.html}.
+\newblock Accessed: 2025-11-27.
 
-\bibitem[Islam et~al., 2024]{inhrcfaiar24}
-Islam, M., Niloy, N.~T., Hasan, I., Rupin, R.~J., Chowdhury, M., Fahim, S.~F.,
-  Ashhab, M.~M., Islam, M.~M., Ali, M.~S., and Rashid, M. R.~A. (2024).
-\newblock An extensive photographic dataset to classify laptop components for
-  automating e-waste management by recycling old laptops.
-\newblock {\em Data in Brief}, 57:111122.
-\newblock doi:10.1016/j.dib.2024.111122.
+\bibitem[iso, e]{iso19510}
+Iso/iec 19510:2013.
+\newblock \url{https://www.iso.org/standard/62652.html}.
+\newblock Accessed: 2025-11-27.
 
-\bibitem[Jamdaade et~al., 2024]{jbp24}
-Jamdaade, K.~M., Biswal, M., and Pitre, Y.~N. (2024).
-\newblock A review on categorization of the waste using transfer learning.
-\newblock {\em BENTHAM SCIENCE PUBLISHERS eBooks}, pages 76--91.
-\newblock doi:10.2174/9789815179606124010006.
+\bibitem[iso, f]{iso27018}
+Iso/iec 27018:2025.
+\newblock \url{https://www.iso.org/standard/27018}.
+\newblock Accessed: 2025-11-27.
 
-\bibitem[Kang et~al., 2019]{kkic19}
-Kang, K.~D., Kang, H., Ilankoon, I., and Chong, C.~Y. (2019).
-\newblock Electronic waste collection systems using internet of things (iot):
-  Household electronic waste management in malaysia.
-\newblock {\em Journal of Cleaner Production}, 252:119801.
-\newblock doi:10.1016/j.jclepro.2019.119801.
+\bibitem[iso, g]{iso42010}
+Iso/iec/ieee 42010:2022.
+\newblock \url{https://www.iso.org/standard/74393.html}.
+\newblock Accessed: 2025-11-27.
 
-\bibitem[Madhav et~al., 2021]{mrhk21}
-Madhav, A.~S., Rajaraman, R., Harini, S., and Kiliroor, C.~C. (2021).
-\newblock Application of artificial intelligence to enhance collection of
-  e-waste: A potential solution for household weee collection and segregation
-  in india.
-\newblock {\em Waste Management & Research the Journal for a Sustainable
-  Circular Economy}, 40(7):1047--1053.
-\newblock doi:10.1177/0734242x211052846.
+\bibitem[rfc, ]{rfc791}
+Rfc 791: Internet protocol.
+\newblock \url{https://datatracker.ietf.org/doc/html/rfc791}.
+\newblock Accessed: 2025-11-27.
 
-\bibitem[Nafiz et~al., 2023]{10070078}
-Nafiz, M.~S., Das, S.~S., Morol, M.~K., Al~Juabir, A., and Nandi, D. (2023).
-\newblock Convowaste: An automatic waste segregation machine using deep
-  learning.
-\newblock In {\em 2023 3rd International Conference on Robotics, Electrical and
-  Signal Processing Techniques (ICREST)}, pages 181--186.
+\bibitem[iso, 2015]{iso14001}
+ (2015).
+\newblock Iso 14001:2015 environmental management systems.
+\newblock \url{https://www.iso.org/standard/60857.html}.
+\newblock ISO.
 
-\bibitem[Nowakowski and Pamuła, 2020]{NOWAKOWSKI20201}
-Nowakowski, P. and Pamuła, T. (2020).
-\newblock Application of deep learning object classifier to improve e-waste
-  collection planning.
-\newblock {\em Waste Management}, 109:1--9.
+\bibitem[aut, 2019]{automatic2019fuel}
+ (2019).
+\newblock Automatic fuel monitoring system.
+\newblock {\em International Journal of Recent Technology and Engineering},
+  8(4S2):348--352.
 
-\bibitem[Nowakowski et~al., 2020]{NOWAKOWSKI2020138726}
-Nowakowski, P., Szwarc, K., and Boryczka, U. (2020).
-\newblock Combining an artificial intelligence algorithm and a novel vehicle
-  for sustainable e-waste collection.
-\newblock {\em Science of The Total Environment}, 730:138726.
+\bibitem[iso, 2020]{iso15143}
+ (2020).
+\newblock Iso/ts 15143-3:2020: Earth-moving machinery and mobile machines —
+  worksite data exchange — part 3: Telematics data.
+\newblock \url{https://www.iso.org/standard/76394.html}.
+\newblock ISO.
 
-\bibitem[Pavan et~al., 2021]{pakk21}
-Pavan, V. K.~S., Akhil, V. S. S.~S., Kumar, P. N.~S., and K, P.~B. (2021).
-\newblock Implementation of reverse vending machine technique for dry waste and
-  e-waste.
-\newblock In {\em 2021 5th International Conference on Electronics, Materials
-  Engineering & Nano-Technology (IEMENTech)}, pages 1--7.
-\newblock doi:10.1109/IEMENTech53263.2021.9614824.
+\bibitem[cec, 2022]{cecert}
+ (2022).
+\newblock Ce marking – obtaining the certificate, eu requirements.
+\newblock
+  \url{https://europa.eu/youreurope/business/product-requirements/labels-markings/ce-marking/index_en.htm}.
+\newblock Accessed: 2025-11-27.
 
-\bibitem[Periyasamy et~al., 2024]{prsrm24}
-Periyasamy, K., Reddy, P. P.~K., Sonukumar, N., Ramachandran, G., and
-  Muthumanickam, T. (2024).
-\newblock Analysis of iot based digital waste management collections garbage
-  disposal and its applications.
-\newblock In {\em 2024 3rd International Conference on Applied Artificial
-  Intelligence and Computing (ICAAIC)}, pages 1738--1743.
-\newblock doi:10.1109/icaaic60222.2024.10575201.
+\bibitem[iso, 2022a]{iso27001}
+ (2022a).
+\newblock Iso/iec 27001:2022 information security management systems.
+\newblock \url{https://www.iso.org/standard/27001}.
+\newblock ISO.
 
-\bibitem[Ramya et~al., 2023]{rrr23}
-Ramya, P., Ramya, V., and Rao, M.~B. (2023).
-\newblock Iot-based household electronic waste management systems for
-  electronic waste collection.
-\newblock {\em 2022 International Conference on Inventive Computation
-  Technologies (ICICT)}, pages 1371--1376.
-\newblock doi:10.1109/icict57646.2023.10134184.
+\bibitem[iso, 2022b]{iso29119}
+ (2022b).
+\newblock Iso/iec/ieee 29119-1:2022 software and systems engineering —
+  software testing.
+\newblock \url{https://www.iso.org/standard/81291.html}.
+\newblock ISO.
 
-\bibitem[Rani et~al., 2021]{rrojysmjah21}
-Rani, K. N.~A., Rahim, H.~A., Ong, B.~T., Jusoh, M., Yasin, M. N.~M.,
-  Sabapathy, T., Mustafa, W.~A., Jamlos, M.~A., Ahmad, R.~B., and Hammood,
-  D.~A. (2021).
-\newblock Mobile green e-waste management systems using iot for smart campus.
-\newblock {\em Journal of Physics: Conference Series}, 1962(1):012056.
-\newblock doi:10.1088/1742-6596/1962/1/012056.
+\bibitem[iso, 2023]{iso50001}
+ (2023).
+\newblock Iso 50001 — energy management systems.
+\newblock \url{https://www.iso.org/iso-50001-energy-management.html}.
+\newblock ISO.
 
-\bibitem[Roy et~al., 2023]{10070081}
-Roy, M.~S., Lusan, M. N.~I., Khan, M. A.~R., Khan, M.~P., Ahmed, A., and
-  Zishan, M. S.~R. (2023).
-\newblock Design and development of e-waste monitoring, segregation and
-  recycling system.
-\newblock In {\em 2023 3rd International Conference on Robotics, Electrical and
-  Signal Processing Techniques (ICREST)}, pages 363--367.
+\bibitem[iso, 2024]{iso8800}
+ (2024).
+\newblock Iso/pas 8800:2024 road vehicles — safety and artificial
+  intelligence.
+\newblock \url{https://www.iso.org/standard/83303.html}.
+\newblock ISO.
 
-\bibitem[Sarswat et~al., 2024]{ssp24}
-Sarswat, P.~K., Singh, R.~S., and Pathapati, S. V. S.~H. (2024).
-\newblock Real time electronic-waste classification algorithms using the
-  computer vision based on convolutional neural network (cnn): Enhanced
-  environmental incentives.
-\newblock {\em Resources Conservation and Recycling}, 207:107651.
-\newblock doi:10.1016/j.resconrec.2024.107651.
+\bibitem[Ahmed et~al., 2017]{ahmed2017fuel}
+Ahmed, A. A.~I., Mohammed, S. A.~E., and Satte, M. A. M.~H. (2017).
+\newblock Fuel management system.
+\newblock In {\em 2017 International Conference on Communication, Control,
+  Computing and Electronics Engineering (ICCCCEE)}, pages 1--7.
 
-\bibitem[Sharma et~al., 2024]{10545202}
-Sharma, A., Swami, N.~K., Mittal, R., and Hiran, K.~K. (2024).
-\newblock Smart trash management: Iot and machine learning solutions for
-  effective e-waste management.
-\newblock In {\em 2024 International Conference on Trends in Quantum Computing
-  and Emerging Business Technologies}, pages 1--6.
+\bibitem[Alquhali et~al., 2019]{alquhali2019iot}
+Alquhali, A.~H., Roslee, M., Alias, M.~Y., and Mohamed, K.~S. (2019).
+\newblock Iot based real-time vehicle tracking system.
+\newblock In {\em 2019 IEEE Conference on Sustainable Utilization and
+  Development in Engineering and Technologies (CSUDET)}, pages 265--270.
 
-\bibitem[Singh et~al., 2024]{sskw24}
-Singh, K., Singh, P., Kumar, A., and Walde, V. (2024).
-\newblock Iot-enabled cvm design & architecture for e-waste management: A
-  solution towards environmental sustainability.
-\newblock {\em Evergreen}, 11(1):343--353.
-\newblock doi:10.5109/7172291.
+\bibitem[Alsanad et~al., 2020]{alsanad2020real}
+Alsanad, H.~R., Ucan, O.~N., Ilyas, M., Khan, A. U.~R., and Bayat, O. (2020).
+\newblock Real-time fuel truck detection algorithm based on deep convolutional
+  neural network.
+\newblock {\em IEEE Access}, 8:118808--118817.
 
-\bibitem[Sinha et~al., 2024]{10751187}
-Sinha, A., Sharma, N., Chanti, Y., and Rawat, A.~S. (2024).
-\newblock Revolutionizing waste management ai-powered solutions for electronic
-  waste in india.
-\newblock In {\em 2023 International Conference on Smart Devices (ICSD)}, pages
-  1--5.
+\bibitem[Aquize et~al., 2017]{aquize2017self}
+Aquize, V.~G., Emery, E., and de~Lima~Neto, F.~B. (2017).
+\newblock Self-organizing maps for anomaly detection in fuel consumption. case
+  study: Illegal fuel storage in bolivia.
+\newblock In {\em 2017 IEEE Latin American Conference on Computational
+  Intelligence (LA-CCI)}, pages 1--6.
 
-\bibitem[Zhou et~al., 2024]{zwsvzp24}
-Zhou, C., Wu, Y., Sterkens, W., Vandewalle, P., Zhang, J., and Peeters, J.~R.
+\bibitem[Barbado and Corcho, 2022]{barbado2022interpretable}
+Barbado, A. and Corcho, �. (2022).
+\newblock Interpretable machine learning models for predicting and explaining
+  vehicle fuel consumption anomalies.
+\newblock {\em Engineering Applications of Artificial Intelligence},
+  115:105222.
+
+\bibitem[Beteto, 2022]{beteto2022anomaly}
+Beteto, A. e.~a. (2022).
+\newblock Anomaly and cyber fraud detection in pipelines and supply chains for
+  liquid fuels.
+\newblock {\em Environment Systems and Decisions}, 42(2):306--324.
+
+\bibitem[Crisgar, 2021]{crisgar2021gps}
+Crisgar, P. V. e.~a. (2021).
+\newblock Gps-based vehicle tracking and theft detection systems using google
+  cloud iot core & firebase.
+\newblock In {\em 2021 International Symposium on Electronics and Smart Devices
+  (ISESD)}, pages 1--6.
+
+\bibitem[Dhivyasri and Mariappan, 2015]{dhivyasri2015advanced}
+Dhivyasri, G. and Mariappan, R. (2015).
+\newblock Advanced fuel level tracking system using telematic unit.
+\newblock In {\em 2015 IEEE International Conference on Electrical, Computer
+  and Communication Technologies (ICECCT)}.
+
+\bibitem[Farzana, 2020]{farzana2020real}
+Farzana, F. e.~a. (2020).
+\newblock A real-time motion based fuel monitoring technique for vehicle
+  tracking systems.
+\newblock In {\em 2020 Emerging Technology in Computing, Communication and
+  Electronics (ETCCE)}, pages 1--6.
+
+\bibitem[Fortela, 2023]{fortela2023unsupervised}
+Fortela, D. L. B. e.~a. (2023).
+\newblock Unsupervised machine learning to detect impending anomalies in
+  testing of fuel economy and emissions of light-duty vehicles.
+\newblock {\em Clean Technologies}, 5(1):418--435.
+
+\bibitem[G, 2022]{g2022real}
+G, P. e.~a. (2022).
+\newblock Real time automatic vehicle monitoring system using iot.
+\newblock In {\em 2022 8th International Conference on Smart Structures and
+  Systems (ICSSS)}, pages 1--6.
+
+\bibitem[G, 2023]{g2023fuel}
+G, Y. e.~a. (2023).
+\newblock Fuel monitoring in bike vehicles based on iot.
+\newblock In {\em 2023 Intelligent Computing and Control for Engineering and
+  Business Systems (ICCEBS)}, pages 1--5.
+
+\bibitem[Garcia~Vega, 2022]{garcia2022development}
+Garcia~Vega, P. (2022).
+\newblock Development of a method for anomaly detection in time series applied
+  to vehicle monitoring.
+\newblock Master's thesis, Polytechnique Montréal.
+
+\bibitem[Husak, ]{husak_nodate_intelligent}
+Husak, V. e.~a.
+\newblock Intelligent real-time vehicle tracking information system.
+\newblock n.d.
+
+\bibitem[{IEEE Standards Association}, ]{ieee1451}
+{IEEE Standards Association}.
+\newblock Ieee standards association.
+\newblock \url{https://standards.ieee.org/ieee/1451.0/11001/}.
+\newblock Accessed: 2025-11-27.
+
+\bibitem[Jose, 2015]{jose2015intelligent}
+Jose, D. e.~a. (2015).
+\newblock Intelligent vehicle monitoring using global positioning system and
+  cloud computing.
+\newblock {\em Procedia Computer Science}, 50:440--446.
+
+\bibitem[Joshi, 2024]{joshi2024intelligent}
+Joshi, P. e.~a. (2024).
+\newblock Intelligent iot-enabled real-time monitoring system for logistics
+  management.
+\newblock In {\em 2024 International Conference on Computing, Sciences and
+  Communications (ICCSC)}, pages 1--5.
+
+\bibitem[Komal Shoukat~Ali, 2018]{komal2018automatic}
+Komal Shoukat~Ali, K. e.~a. (2018).
+\newblock Automatic fuel tank monitoring, tracking & theft detection system.
+\newblock In {\em MATEC Web of Conferences}, volume 184.
+
+\bibitem[Krishnasamy, 2019]{krishnasamy2019}
+Krishnasamy, R. (2019).
+\newblock Automatic fuel monitoring system.
+\newblock {\em International Journal of Recent Technology and Engineering
+  (IJRTE)}, 8(4S2):348--352.
+\newblock Accessed: 2025-11-18.
+
+\bibitem[M, 2021]{m2021digital}
+M, S. e.~a. (2021).
+\newblock Digital fuel monitoring system for automobiles.
+\newblock In {\em 2021 Second International Conference on Electronics and
+  Sustainable Communication Systems (ICESC)}, pages 6--10.
+
+\bibitem[Mathi, 2024]{mathi2024development}
+Mathi, S. C. e.~a. (2024).
+\newblock Development of an intelligent fuel monitoring and theft detection
+  system equipped with gps \& gsm integration, state of charge monitoring and
+  realtime alarm generation.
+\newblock In {\em 2024 International Conference on Innovative Computing and
+  Communication Technologies (ICICT)}, pages 2095--2102.
+
+\bibitem[Maurya, ]{maurya_nodate_real}
+Maurya, K. e.~a.
+\newblock Real time vehicle tracking system using gsm and gps technology- an
+  anti-theft tracking system.
+\newblock n.d.
+
+\bibitem[Mukesh, 2010]{mukesh2010real}
+Mukesh, P.~R. (2010).
+\newblock Real time web based vehicle tracking using gps.
+
+\bibitem[Mumcuoglu, 2023]{mumcuoglu2023fuel}
+Mumcuoglu, M. E. e.~a. (2023).
+\newblock Fuel consumption classification for heavy-duty vehicles: A novel
+  approach to identifying driver behavior and system anomalies.
+\newblock In {\em 2023 AEIT International Conference on Electrical and
+  Electronic Technologies for Automotive (AEIT AUTOMOTIVE)}, pages 1--6.
+
+\bibitem[Nada, 2017]{nada2017design}
+Nada, Y.~A. (2017).
+\newblock Design and implementation for trucks tracking system using gps based
+  on semantic web.
+\newblock {\em International Journal of Trend in Scientific Research and
+  Development}, 1(4).
+
+\bibitem[{NASA EarthData}, 2025]{gpsstd}
+{NASA EarthData} (2025).
+\newblock Global navigation satellite system.
+\newblock
+  \url{https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss}.
+\newblock Accessed: 2025-11-27.
+
+\bibitem[Obikoya, 2014]{obikoya2014design}
+Obikoya, G.~D. (2014).
+\newblock Design, construction, and implementation of a remote fuel-level
+  monitoring system.
+\newblock {\em EURASIP Journal on Wireless Communications and Networking},
+  2014(1):76.
+
+\bibitem[Patil and Patil, 2024]{patil2024iot}
+Patil, A. and Patil, S. (2024).
+\newblock Iot enabled vehicle monitoring and theft prevention system (i-vmtps).
+\newblock In {\em 2024 2nd International Conference on Advancements and Key
+  Challenges in Green Energy and Computing (AKGEC)}, pages 1--7.
+
+\bibitem[Prabhu et~al., 2022]{prabhu2022iot}
+Prabhu, S.~B., Deepa, K., and Nithya, M. (2022).
+\newblock Iot enabled fuel level monitoring and automatic fuel theft detection
+  system.
+\newblock In {\em 2022 13th International Conference on Computing Communication
+  and Networking Technologies (ICCCNT)}.
+
+\bibitem[Prasanna et~al., 2023]{prasanna2023iot}
+Prasanna, J.~L., Santhosh, C., Kumar, M.~R., and Gayathri, K. (2023).
+\newblock Iot based automatic fuel level monitoring system for automobiles.
+\newblock In {\em IET Conference Proceedings}, volume 2023, pages 56--61.
+
+\bibitem[RS et~al., 2024]{rs2024fuel}
+RS, S., Narayanan~CS, S., G, R., S, P., Alagarsamy, M., and William, P. (2024).
+\newblock Fuel quantity and quality detection in automobiles using iot.
+\newblock In {\em 2024 4th International Conference on Innovative Practices in
+  Technology and Management (ICIPTM)}, pages 1--6.
+
+\bibitem[S et~al., 2024]{s2024iot}
+S, S., Sowmya, J.~M., Siva, M.~V., Rishitha, N., Sagar, M. K. G.~S., and
+  Ganesh, M. (2024).
+\newblock Iot enabled smart fuel station management system.
+\newblock In {\em 2024 2nd International Conference on Networking and
+  Communications (ICNWC)}, pages 1--5.
+
+\bibitem[Samainstage, 2025]{ieee80211}
+Samainstage (2025).
+\newblock The evolution of wi-fi technology and standards.
+\newblock
+  \url{https://standards.ieee.org/beyond-standards/the-evolution-of-wi-fi-technology-and-standards/}.
+\newblock Accessed: 2025-11-27.
+
+\bibitem[Semenov et~al., 2024]{semenov2024concept}
+Semenov, I., Świderski, A., Borucka, A., and Guzanek, P. (2024).
+\newblock Concept of early prediction and identification of truck vehicle
+  failures supported by in-vehicle telematics platform based on abnormality
+  detection algorithm.
+\newblock {\em Applied Sciences (Switzerland)}, 14(16).
+
+\bibitem[Tatababu et~al., 2024]{tatababu2024smart}
+Tatababu, D., Ranga, M.~R., Satyannarayana, D., Jyothi, Y., and Devi, A.~R.
   (2024).
-\newblock Multi-view graph transformer for waste of electric and electronic
-  equipment classification and retrieval.
-\newblock {\em Resources Conservation and Recycling}, 215:108112.
-\newblock doi:10.1016/j.resconrec.2024.108112.
+\newblock Smart fuel monitoring system for diesel generator.
+\newblock In {\em 2024 International Conference on Computational Intelligence
+  for Green and Sustainable Technologies (ICCIGST)}, pages 1--6.
+
+\bibitem[Thajudheen et~al., 2023]{thajudheen2023vehicular}
+Thajudheen, S., Shanmugarathinum, G., and Jesudoss, A.~G. (2023).
+\newblock Vehicular data retrieval system.
+\newblock In {\em 2023 International Conference on New Frontiers in
+  Communication, Automation, Management and Security (ICCAMS)}.
+
+\bibitem[Turan et~al., 2024]{turan2024detecting}
+Turan, B.~B., Gene, E., Akcig, I.~N., Goztepe, N., Mumeuoglu, M.~E., and Unel,
+  M. (2024).
+\newblock Detecting high fuel consumption in hdvs with ensemble of anomaly
+  detection models.
+\newblock In {\em 2024 IEEE 22nd International Conference on Industrial
+  Informatics (INDIN)}, pages 1--6.
+
+\bibitem[Uddin et~al., 2017]{uddin2017smart}
+Uddin, M.~S., Ahmed, M.~M., Alam, J.~B., and Islam, M. (2017).
+\newblock Smart anti-theft vehicle tracking system for bangladesh based on
+  internet of things.
+\newblock In {\em 2017 4th International Conference on Advances in Electrical
+  Engineering (ICAEE)}, pages 624--628.
+
+\bibitem[Usama et~al., 2019]{usama2019unsupervised}
+Usama, M., Qadir, �., Raza, A., Arif, H., Yau, �.~A., Elkhatib, �., Hussain,
+  �., and Al‑Fuqaha, A. (2019).
+\newblock Unsupervised machine learning for networking: Techniques,
+  applications and research challenges.
+\newblock {\em IEEE Access}, 7:65579--65615.
+
+\bibitem[Vigneshwaran et~al., 2020]{vigneshwaran2020design}
+Vigneshwaran, S., Nithya, B., Raghul, K., Nivas, B., and Kishore, V.~M. (2020).
+\newblock Design of bus tracking and fuel monitoring system.
+\newblock In {\em 2020 6th International Conference on Advanced Computing and
+  Communication Systems (ICACCS)}, pages 348--351.
+
+\bibitem[Weiwei et~al., 2024]{weiwei2024research}
+Weiwei, Q., Longbin, L., Xingyu, W., Yulong, L., and Weiqian, D. (2024).
+\newblock Research on diesel consumption prediction and early warning analysis
+  of dump trucks in smart mines.
+\newblock In {\em 2024 IEEE 22nd International Conference on Industrial
+  Informatics (INDIN)}, pages 1--6.
 
 \end{thebibliography}

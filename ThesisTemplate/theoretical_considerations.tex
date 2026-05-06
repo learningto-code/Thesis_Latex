@@ -1,16 +1,99 @@
-Before starting the first section, provide an overview of the purpose of this chapter and its contents, and how they are relevant to your methodology.  Discuss in this chapter the relevant theories and concepts that should support your proposed solutions.
+This chapter establishes the theoretical foundations underpinning the proposed IoT-based fleet fuel monitoring and anomaly detection system. It presents the essential concepts, mathematical models, and scientific principles that guide the development of the system. These theories act as the main foundation of the study, supporting the methodological decisions described in Chapter~\ref{ch:method}. By understanding the underlying theories—ranging from cyber-physical systems to signal processing and machine learning—the relevance and rigor of the chosen approach become clear.
 
-This chapter is for providing the context to your panelist/reader.  It is actually an expanded form of the Background of the Study that you have put in Chapter~\ref{ch:intro}.
+\section{Overview}
 
-\graytx{\Blindtext}
+The methodologies used in the system are grounded in established theories in embedded systems, time-series processing, IoT architectures, unsupervised machine learning, and vehicular telematics. These theoretical concepts justify the design choices made in the development of real-time fuel monitoring components, GPS-based tracking, and anomaly detection models. This chapter explains the foundations behind the signal models, communication processes, and machine learning algorithms that make accurate and robust system performance possible.
 
-\begin{figure}[!htbp]
-	\centering
-		\includegraphics[width=0.5\textwidth]{example_gray_box}
-	\caption{A quadrilateral image example.}
-	\label{fig:exampletc}
-\end{figure}
+\section{Theoretical Foundations}
+
+\subsection{Cyber-Physical Systems (CPS)}
+
+The proposed solution functions as a Cyber-Physical System, integrating embedded sensors, microcontroller-based processing, cloud computation, and real-time communication. CPS theory emphasizes:
+\begin{itemize}
+    \item the tight coupling between physical signals and digital processing,
+    \item deterministic timing and synchronized data flow,
+    \item continuous monitoring and computational feedback loops.
+\end{itemize}
+These principles justify the system’s architecture, where fuel-level signals, GPS data, and operational states are processed and transmitted in real time.
+
+\subsection{Sensor Theory and Signal Measurement}
+
+Fuel-level readings extracted through the CAN bus/OBD-II interface follow digital measurement theory. Sensor signals can exhibit noise, quantization error, and environmental fluctuation. To improve stability, the system uses a Simple Moving Average (SMA) filter, a standard smoothing method defined as:
+\begin{equation}
+x_{t}^{\text{smooth}} = \frac{1}{N} \sum_{i=0}^{N-1} x_{t-i}
+\label{eq:sma-ch3}
+\end{equation}
+
+This reduces high-frequency noise and creates a clearer trend for anomaly detection algorithms.
+
+\subsection{Time-Series Synchronization Theory}
+
+Sensor streams often arrive at irregular timestamps. Synchronizing them requires interpolation theory. For two samples at timestamps $T_i$ and $T_{i+1}$, the interpolated point at $t_j$ is computed as:
+\begin{equation}
+x_j = x_i + \left( \frac{x_{i+1} - x_i}{T_{i+1} - T_i} \right)(t_j - T_i)
+\label{eq:interpolation-ch3}
+\end{equation}
+
+This ensures aligned and consistent time-series data across fuel level, GPS speed, and distance.
+
+\subsection{IoT Communication Theory}
+
+The communication subsystem relies on Internet of Things (IoT) principles and long-range wireless communication theory. LoRa operates using Chirp Spread Spectrum (CSS) modulation, characterized by:
+\begin{itemize}
+    \item long-range transmission,
+    \item low power consumption,
+    \item robustness to interference.
+\end{itemize}
+
+Theoretical latency between sender and cloud receiver is expressed as:
+\begin{equation}
+L = T_{\text{received}} - T_{\text{sent}}
+\label{eq:latency-ch3}
+\end{equation}
+
+Understanding latency is essential for analyzing responsiveness and real-time performance.
+
+\subsection{GPS Temporal and Spatial Theory}
+
+GPS logging follows Global Navigation Satellite System (GNSS) principles. To evaluate consistency of GPS sampling, the inter-arrival interval is computed as:
+\begin{equation}
+t_i = T_i - T_{i-1}
+\label{eq:gps-ch3}
+\end{equation}
+
+Maintaining a stable interval ensures accurate reconstruction of routes and distance traveled.
+
+\subsection{Unsupervised Anomaly Detection Theory}
+
+The anomaly detection component relies on non-parametric, unsupervised machine learning. These methods identify unusual behaviors in multivariate time-series data without labeled training samples.
+
+\subsubsection{Matrix Profile Theory}
+
+Matrix Profile computes similarity between subsequences within a time series. For a time series $T$ of length $n$ and window size $m$, the profile value is:
+\begin{equation}
+P[i] = \min_{j \neq i} \left\| T_{i:i+m-1} - T_{j:j+m-1} \right\|
+\label{eq:mp-ch3}
+\end{equation}
+
+The subsequences with the highest $P[i]$ values, known as discords, are likely anomalies. This method is ideal for detecting sudden fuel drops or siphoning patterns.
+
+\subsubsection{Isolation Forest Theory}
+
+Isolation Forest isolates anomalies through random partitioning. An anomaly score is expressed as:
+\begin{equation}
+s(x) = 2^{-\frac{E(h(x))}{c(n)}}
+\label{eq:iforest-ch3}
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item $E(h(x))$ is the expected path length for observation $x$,
+    \item $c(n)$ normalizes the tree depth by dataset size.
+\end{itemize}
+
+Higher scores indicate higher likelihood of anomalous fuel behavior.
 
 \section{Summary}
 
-Provide the gist of this chapter such that it reflects the contents and the message.
+This chapter presented the theoretical foundation for the system’s methodology. It discussed the key concepts supporting real-time sensing, signal preprocessing, GPS logging, IoT communication, and unsupervised anomaly detection. By establishing these theoretical pillars, this chapter clarifies the scientific basis that makes the system’s design viable, accurate, and aligned with established models in engineering and data science.
+

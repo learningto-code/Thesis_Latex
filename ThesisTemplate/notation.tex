@@ -1,58 +1,185 @@
 \DTLgidxSetDefaultDB{notation}
-% NOTE: It seems datagidx only wants items here to be those that are in the document. Please comment out unused notations. Also, please be careful with the commas and brackets.
 
 \newterm
-[%
-label={not:set},
-description={a collection of distinct objects},
-sort={s}
+[% 
+label={not:xt}, 
+description={current raw sensor value at time \ensuremath{t}}, 
+sort={xt} 
 ]%
-{ \ensuremath{\mathcal{S}} }
+{\ensuremath{x_t}}
 
 \newterm
-[%
-label={not:universalSet},
-description={the set containing everything},
-sort={u}
+[% 
+label={not:xtsmooth}, 
+description={smoothed sensor value at time \ensuremath{t} after applying moving average}, 
+sort={xtsmooth} 
 ]%
-{ \ensuremath{\mathcal{U}} }
+{\ensuremath{x^{\text{smooth}}_t}}
 
 \newterm
-[%
-label={not:emptySet},
-description={the set with no elements},
-sort={e}
+[% 
+label={not:N}, 
+description={window size for the moving average filter}, 
+sort={N} 
 ]%
-{ \ensuremath{\emptyset} }
+{\ensuremath{N}}
 
 \newterm
-[%
-label={not:cardinality},
-description={the number of elements in the set \ensuremath{\mathcal{S}}},
-sort={c}
+[% 
+label={not:Vsensori}, 
+description={fuel volume estimated by the sensor at sample \ensuremath{i}}, 
+sort={Vsensori} 
 ]%
-{ \ensuremath{|\mathcal{S}|} }
+{\ensuremath{V_{\text{sensor},i}}}
 
 \newterm
-[%
-label={not:ir},% label
-description={impulse response},%
-sort={h}
+[% 
+label={not:Vmanuali}, 
+description={actual (manual) fuel volume measurement at sample \ensuremath{i}}, 
+sort={Vmanuali} 
 ]%
-{ \ensuremath{ h \left( t \right) } }
+{\ensuremath{V_{\text{manual},i}}}
 
 \newterm
-[%
-label={not:input_sigt},% label
-description={input signal represented in the time domain},%
-sort={x}
+[% 
+label={not:Tsent}, 
+description={timestamp when a data packet is sent}, 
+sort={Tsent} 
 ]%
-{\ensuremath{ x \left( t \right) } }
+{\ensuremath{T_{\text{sent}}}}
 
 \newterm
-[%
-label={not:output_sigt},% label
-description={output signal represented in the time domain},%
-sort={y}
+[% 
+label={not:Treceived}, 
+description={timestamp when a data packet is received}, 
+sort={Treceived} 
 ]%
-{\ensuremath{ y \left( t \right) } }
+{\ensuremath{T_{\text{received}}}}
+
+\newterm
+[% 
+label={not:L}, 
+description={data transmission latency}, 
+sort={L} 
+]%
+{\ensuremath{L}}
+
+\newterm
+[% 
+label={not:Ti}, 
+description={GPS timestamp at index \ensuremath{i}}, 
+sort={Ti} 
+]%
+{\ensuremath{T_i}}
+
+\newterm
+[% 
+label={not:ti}, 
+description={time difference between successive GPS logs}, 
+sort={ti} 
+]%
+{\ensuremath{t_i}}
+
+\newterm
+[% 
+label={not:Tseries}, 
+description={time series of fuel usage}, 
+sort={T} 
+]%
+{\ensuremath{T}}
+
+\newterm
+[% 
+label={not:m}, 
+description={window length for subsequence in time series analysis}, 
+sort={m} 
+]%
+{\ensuremath{m}}
+
+\newterm
+[% 
+label={not:Pi}, 
+description={matrix profile value at index \ensuremath{i}}, 
+sort={Pi} 
+]%
+{\ensuremath{P[i]}}
+
+\newterm
+[% 
+label={not:xvec}, 
+description={input feature vector for anomaly detection}, 
+sort={x} 
+]%
+{\ensuremath{\mathbf{x}}}
+
+\newterm
+[% 
+label={not:sx}, 
+description={anomaly score for vector \ensuremath{\mathbf{x}} from Isolation Forest}, 
+sort={sx} 
+]%
+{\ensuremath{s(\mathbf{x})}}
+
+\newterm
+[% 
+label={not:Ehx}, 
+description={expected path length for \ensuremath{\mathbf{x}} in an Isolation Forest}, 
+sort={Ehx} 
+]%
+{\ensuremath{E(h(\mathbf{x}))}}
+
+\newterm
+[% 
+label={not:cn}, 
+description={average path length for unsuccessful search in a BST with \ensuremath{n} points}, 
+sort={cn} 
+]%
+{\ensuremath{c(n)}}
+
+\newterm
+[% 
+label={not:TP}, 
+description={true positive}, 
+sort={TP} 
+]%
+{\ensuremath{TP}}
+
+\newterm
+[% 
+label={not:FP}, 
+description={false positive}, 
+sort={FP} 
+]%
+{\ensuremath{FP}}
+
+\newterm
+[% 
+label={not:TN}, 
+description={true negative}, 
+sort={TN} 
+]%
+{\ensuremath{TN}}
+
+\newterm
+[% 
+label={not:FN}, 
+description={false negative}, 
+sort={FN} 
+]%
+{\ensuremath{FN}}
+
+\newterm
+[
+ label={not:Tdetected},
+ description={timestamp when an anomaly is detected},
+ sort={Tdetected}
+]%
+{\ensuremath{T_{\text{detected}}}}
+
+\newterm
+[
+ label={not:Tactual},
+ description={timestamp of actual anomaly occurrence},
+ sort={Tactual}
+]%
+{\ensuremath{T_{\text{actual}}}}

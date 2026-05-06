@@ -1,18 +1,174 @@
-Before starting the first section, provide an overview of the purpose of this chapter and its contents, and how they are relevant to your methodology. 
+This chapter presents the design considerations that guided the development of the proposed IoT- and AI-driven fuel monitoring and anomaly detection system. Whereas Chapter~\ref{ch:theorycon} established the theoretical foundations of IoT architectures, cyber-physical systems, signal processing, and unsupervised anomaly detection, the present chapter translates those theories into practical engineering decisions that were directly implemented in Chapter~\ref{ch:method}. 
 
-Your primary goal in the Design Considerations chapter is to describe to your panelist/readers the key topics that fall further under Theoretical Considerations, but should be placed here instead since they are geared towards your Methodology. These key topics are those that you have directly adopted in making your solution/methodology.  You can think of the connection of the Design Considerations chapter to the Theoretical Considerations chapter in this way: if your Theoretical Considerations chapter serves as the main foundation of a building, then the Design Considerations chapter functions as the columns. 
-
-The  Design Considerations chapter is an avenue for explaining why you considered the topics here for your proposed methodology. This chapter is different from your methodology, because topics you discuss here are already accepted as part of the body of knowledge, and may have not been developed by you.  
-
-
-\graytx{\Blindtext}
+These design considerations serve as the structural “columns’’ of the system: grounded in accepted standards, ethical guidelines, and engineering best practices, but tailored to support the procedural steps carried out in Chapter~\ref{ch:method}. The discussion begins with a comprehensive account of the technical standards that ensure reliability, safety, interoperability, and data security, followed by software and hardware design decisions. Ethical considerations—including privacy, responsible AI, and driver safety—are also presented.
 
 \section{Standards}
+\label{sec:standards}
 
-Standards are essential for successful projects and impactful research. They provide a common framework and ensure consistency, quality, and safety across various disciplines. By adhering to established standards, your work becomes more reliable, interoperable, and valuable in real-world applications. Standards also demonstrate your understanding of industry best practices and enhance the credibility of your research.
+\subsection{Adherence to Technical Standards}
 
-To effectively integrate standards into your project, begin by identifying relevant standards related to your specific field. Thoroughly research and understand the requirements and guidelines outlined within these standards. Align your project objectives and methodologies to meet or exceed these standards. Document your use of standards \underline{in this section}, including how and why specific standards were chosen. Finally, evaluate your results against the established standards, justifying any deviations from the norm with sound reasoning and evidence.
+To ensure reliability, accuracy, and safety, the proposed fuel anomaly detection system is developed in accordance with established engineering and IT standards. These standards ensure interoperability, scalability, and long-term viability. They directly influence the system architecture, data handling, and model implementation workflows outlined in Chapter~\ref{ch:method}.
+
+\begin{enumerate}
+    \item \textbf{Standards for Sensors and Hardware}
+
+    The system integrates sensors and modules that employ standard communication protocols—\textbf{CAN bus/OBD-II, UART, I2C, and GPIO}—consistent with IEEE~1451 smart transducer guidelines \cite{ieee1451}. The CAN bus/OBD-II fuel data acquisition aligns with industry telematics conventions \cite{iso15143}, while the GPS module adheres to global navigation and timing standards \cite{gpsstd}.
+
+    Safety-related components (buzzer, indicators, MCU GPIO outputs) comply with IEC~61131-2 and ISO~7637 automotive power and electromagnetic compatibility guidelines \cite{iec61131, iso7637}. All embedded electronics meet CE and FCC certifications \cite{cecert,fcc} to ensure environmental and electrical safety.
+
+    \item \textbf{Data Acquisition and Signal Processing}
+
+    Signal conditioning and acquisition follow recommended standards for reliable sensor data handling \cite{iso19510}. A Simple Moving Average (SMA) filter is applied to the fuel-level signal to reduce noise while preserving sharp variations indicative of anomalies.
+
+    Time alignment of fuel, GPS, speed, and engine readings follows ISO/IEC~19510 principles for structured time-series data \cite{iso19510}. These standard-aligned preprocessing steps feed into the anomaly detection models described in Chapter~\ref{ch:method}.
+
+    \item \textbf{Communication and Data Transmission}
+
+    Communication follows TCP/IP standards under IETF and IEEE~802.11 \cite{rfc791, ieee80211}, while MQTT serves as the primary IoT protocol following OASIS specifications. End-to-end encryption via TLS/SSL aligns with ISO/IEC~27001 cybersecurity requirements \cite{iso27001}.
+
+    These communication strategies form the basis for the system’s message-handling and cloud-upload mechanisms in Chapter~\ref{ch:method}.
+
+    \item \textbf{Machine Learning and Model Validation}
+
+    The Matrix Profile and Isolation Forest models are implemented using open-source libraries, and their evaluation follows ISO/IEC~29119 software quality standards \cite{iso29119}. Validation metrics—confusion matrices, ROC curves, precision–recall graphs—provide statistical grounding for model evaluation, as presented in Chapter~\ref{ch:method}.
+
+    \item \textbf{Software Architecture and Data Management}
+
+    The modular software design complies with ISO/IEC/IEEE~42010 architectural principles \cite{iso42010}. ACID-compliant storage and GDPR-/ISO~27018-aligned data protection protocols \cite{iso27018} ensure data integrity and privacy. All processed datasets follow FAIR principles.
+\end{enumerate}
+
+\subsection{Observance of Research Ethics}
+
+Ethical considerations guide the responsible deployment of the system, especially given the safety-critical and privacy-sensitive context of transportation fleets. Three major ethical domains were identified: data privacy, system safety, and responsible AI.
+
+\subsubsection*{Data Privacy and Security}
+
+The system adopts:
+
+\begin{itemize}
+    \item informed consent prior to any data collection,
+    \item strict access control and secure data storage,
+    \item anonymization and aggregation when feasible,
+    \item transparency in data usage and access rights,
+    \item compliance with national and international privacy regulations.
+\end{itemize}
+
+\subsubsection*{System Safety and Occupational Risk Management}
+
+Given the operational risks of fleet environments, the design aligns with ISO~45001, ISO~26262, and ISO~39001 \cite{iso45001, iso26262, iso39001}. Safety-oriented measures include:
+
+\begin{itemize}
+    \item minimizing driver distraction,
+    \item reducing false alarms through validation,
+    \item providing adequate training for users,
+    \item implementing clear protocols for anomaly response.
+\end{itemize}
+
+\subsubsection*{Responsible AI and Algorithmic Accountability}
+
+Consistent with IEEE~P7003 \cite{ieeep7003}, the system incorporates:
+
+\begin{itemize}
+    \item explainability mechanisms for anomaly outputs,
+    \item documentation of roles and responsibilities in alert handling,
+    \item defined liability procedures for system errors,
+    \item safeguards against algorithmic bias.
+\end{itemize}
+
+\section{Technical Design Considerations}  
+\label{sec:techdesign}  
+
+This section elaborates on the engineering decisions and standards that guided the development of the proposed IoT- and AI-driven fuel monitoring and anomaly detection system. Each component, software layer, algorithm, and communication protocol is grounded in established standards to ensure reliability, safety, interoperability, and security. The references indicate where each design decision is applied in the implementation procedures described in Chapter~\ref{ch:method}.  
+
+\subsection{Hardware Selection and Integration}  
+
+The hardware configuration is designed to support the end-to-end workflow of the system (see Chapter~\ref{sec:implement}). The following standards and implementation points apply:  
+
+\begin{itemize}  
+    \item \textbf{MCU:} ESP32/NodeMCU serves as the edge processing device for real-time acquisition and preprocessing of fuel, GPS, and vehicle telemetry data. It complies with IEC~61131-2 for embedded controllers \cite{iec61131} and ISO~7637 for automotive electrical transients \cite{iso7637}. In Chapter~\ref{sec:implement}, the MCU handles sensor filtering, timestamping, and local anomaly scoring.  
+
+    \item \textbf{Fuel Sensor:} A resistive fuel-level sensor provides analog voltage proportional to the fuel level. The sensor integration aligns with IEEE~1451 smart transducer communication standards \cite{ieee1451}. Chapter~\ref{sec:implement} describes the calibration process, analog-to-digital conversion, and SMA filtering of sensor data.  
+
+    \item \textbf{GPS Module:} The UART-connected GPS module provides geolocation and speed data, adhering to global navigation standards \cite{gpsstd}. Its signals are synchronized with fuel readings during preprocessing in Chapter~\ref{sec:implement}.  
+
+    \item \textbf{CAN/OBD-II Interface:} Vehicle telemetry (engine RPM, ignition status, and ECU-reported fuel consumption) is captured using the CAN/OBD-II interface, following ISO~15765 and ISO~15031 telematics standards \cite{iso15143}. Chapter~\ref{sec:implement} details how this data is collected and correlated with sensor readings.  
+
+    \item \textbf{Safety Indicators:} Buzzer and LED outputs comply with IEC~61131-2 and ISO~26262 functional safety requirements \cite{iso26262}. These indicators provide immediate alerts to drivers (Chapter~\ref{sec:implement}, Subsection on Driver Alerts).  
+\end{itemize}  
+
+\subsection{Software Architecture}  
+
+The modular software layers are designed according to ISO/IEC/IEEE~42010 software architecture standards \cite{iso42010}, supporting scalability, maintainability, and interoperability. Each layer’s function is mapped to its implementation in Chapter~\ref{sec:implement}:  
+
+\begin{itemize}  
+    \item \textbf{Data Acquisition Layer:} Captures sensor and telemetry data, applies SMA and median filters, and performs anomaly threshold checks. Implementation details are in Chapter~\ref{sec:implement}.  
+
+    \item \textbf{Processing Layer:} Performs edge anomaly detection, timestamping, and data aggregation. Standards for real-time processing and task scheduling ensure predictable latency. Implementation is in Chapter~\ref{sec:implement}.  
+
+    \item \textbf{Cloud Integration Layer:} MQTT-based JSON payloads are used for cloud ingestion, following OASIS MQTT v5 and ISO/IEC~27001 security standards \cite{iso27001}. TLS/SSL ensures encrypted transmission (Chapter~\ref{sec:implement}.  
+
+    \item \textbf{User Interface Layer:} Dashboards display real-time fuel levels, GPS locations, anomaly alerts, and historical trends. Web standards (HTML5, CSS3, JavaScript) and secure REST APIs are employed, as described in Chapter~\ref{sec:implement}.  
+\end{itemize}  
+
+\subsection{Machine Learning and Algorithms}  
+
+Machine learning components follow ISO/IEC~29119 software quality standards \cite{iso29119} and IEEE~P7003 AI accountability guidelines \cite{ieeep7003}:  
+
+\begin{itemize}  
+    \item \textbf{Models:} Isolation Forest and Matrix Profile detect anomalies both at edge and cloud levels. Their implementation and evaluation are detailed in Chapter~\ref{sec:implement}.  
+
+    \item \textbf{Evaluation Metrics:} Confusion matrices, ROC curves, and precision–recall graphs are used for model validation, ensuring alignment with ISO/IEC 25010 software quality characteristics. Chapter~\ref{sec:implement}, Chapter~\ref{sec:evaluate} provides practical application in performance evaluation.  
+
+    \item \textbf{Alternative Models:} Autoencoders and LSTM networks were considered but excluded due to edge processing constraints, as justified in Chapter~\ref{sec:alt_software_cost}.  
+\end{itemize}  
+
+\subsection{Communication and Security}  
+
+Communication protocols and security measures are aligned with ISO/IEC~27018, ISO/IEC~27001, and GDPR standards to ensure data privacy, encryption, and secure access control:  
+
+\begin{itemize}  
+    \item \textbf{MQTT Protocol:} Supports lightweight, reliable IoT messaging, implemented with QoS 1 to guarantee delivery. Applied in Chapter~\ref{sec:implement}.  
+
+    \item \textbf{TLS/SSL Encryption:} Provides end-to-end encryption for transmitted data. Compliance with ISO/IEC~27001 ensures data integrity and confidentiality. Applied in Chapter~\ref{sec:implement}.  
+
+    \item \textbf{Role-Based Access and Anonymization:} Enforces secure data access policies and anonymizes sensitive driver information, complying with ISO/IEC~27018 and GDPR principles. Applied in Chapter~\ref{sec:implement}.  
+
+    \item \textbf{JSON Serialization:} Standardized data format for cloud compatibility, ensuring interoperability with cloud services and dashboards. Applied in Chapter~\ref{sec:implement}.  
+\end{itemize}  
+
+
+\section{Alternative Software Designs and Cost Considerations}
+\label{sec:alt_software_cost}
+
+During the planning and prototype development phase, several candidate software designs were evaluated for their suitability to the system’s requirements. Table~\ref{tab:alt_software} summarizes the strengths, potential risks, and fit relative to specifications. The hybrid Matrix Profile + Isolation Forest (MP + IF) configuration was selected for implementation and used during prototype testing due to its balance of accuracy, computational efficiency, and anomaly coverage.
+
+\begin{table}[h!]
+\centering
+\caption{Alternative Software Designs Evaluated for the Prototype}
+\label{tab:alt_software}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|p{4.5cm}|p{4.5cm}|c|}
+\hline
+\textbf{Candidate} & \textbf{Strengths} & \textbf{Risks / Trade-offs} & \textbf{Fit vs. Spec} \\
+\hline
+Isolation Forest (IF) & Fast, unsupervised, handles multivariate data; simple to deploy using scikit-learn & Limited temporal context; sensitivity to contamination parameter may affect false alarms & High \\
+Matrix Profile (MP) & Shape-based time-series discord detection; ideal for sudden fuel drops or irregular usage patterns; efficient in local runtime & Requires window-size tuning; primarily one-dimensional unless extended for multivariate data & Very High \\
+Clustering (KMeans / DBSCAN) & Captures collective anomalies (trip-level patterns) and provides intuitive grouping for fleet behavior & Requires feature engineering; parameter sensitivity can reduce consistency & Medium \\
+Hybrid (MP + IF / IF + LOF) & Combines time-series and statistical strengths; reduces false positives and broadens anomaly coverage & Higher computational cost and added complexity in fusion or ensemble scoring & Very High \\
+Deep Learning (LSTM / TCN) & Learns complex multivariate temporal relationships and adapts well with large real-world datasets & Data-hungry, less interpretable, requires more computing resources for training and deployment & Medium \\
+\hline
+\end{tabular}%
+}
+\end{table}
+
+A cost study was conducted after prototype testing to confirm that the system configuration was cost-effective. This study reviewed hardware, software, and development resources, comparing the chosen open-source and local execution setup against alternative configurations such as commercial analytics tools, cloud-based computing, or hardware-integrated telemetry systems. 
+
+The total estimated budget for developing and implementing the prototype system is \textbf{PHP 10,320}, confirming that the selected configuration remains the optimal and sustainable choice for achieving the project’s objectives.
+
 
 \section{Summary}
+\label{sec:summary}
 
-Provide the gist of this chapter such that it reflects the contents and message.
+This chapter presented the key technical and ethical design considerations that shape the system. By grounding the project in ISO, IEEE, OASIS, GDPR, and FAIR standards, the system ensures reliable data acquisition, secure communication, validated machine learning, and responsible AI use.
+
+These design elements establish the foundation for the procedures described in Chapter~\ref{ch:method}, bridging theoretical concepts from Chapter~\ref{ch:theorycon} with the practical implementation steps of the system.

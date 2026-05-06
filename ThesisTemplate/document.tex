@@ -95,16 +95,16 @@
 \defineAuthor{firstname4}{Alyssa S.}
 
 
-\newcommand{\documentTitle}{Smart IoT-Integrated Waste Management: Advanced E-Waste Dataset Creation, Real-Time MobileNet Classification, and Optimized Collection Scheduling} % put tilde (~) between words to indicate non-breaking adjacent words
+\newcommand{\documentTitle}{An IoT-Enabled System for Real-Time Fuel Monitoring, GPS Tracking, and Anomaly Detection in Trucks Using Non-Parametric Unsupervised Machine Learning} % put tilde (~) between words to indicate non-breaking adjacent words
 
-%\newcommand{\keywords}{alloy system, characterization, InP, InGaAs (see IEEE Taxonomy and Thesaurus)}
+\newcommand{\keywords}{Fuel Monitoring, GPS Tracking, Anomaly Detection, Internet Of Things, Unsupervised Model Learning, Isolation Forest, Matrix Profile}
 
-\newcommand{\finalDefenseDate}{\usdate\today} % replace ''\usdate\today'' by your final defense date; you may need to use non-breaking space with the use of tildes (~); if so, do not remove the tildes in order to not break the date
+%\newcommand{\finalDefenseDate}{\usdate\today} % replace ''\usdate\today'' by your final defense date; you may need to use non-breaking space with the use of tildes (~); if so, do not remove the tildes in order to not break the date
 
 \ifGrad
-\newcommand{\scannedApprovalSheetFileName}{./figure/Signed_Thesis_Approval_Sheet_Graduate.pdf} % filename of the signed approval sheet (for graduate)
+%\newcommand{\scannedApprovalSheetFileName}{./figure/Signed_Thesis_Approval_Sheet_Graduate.pdf} % filename of the signed approval sheet (for graduate)
 \else	
-\newcommand{\scannedApprovalSheetFileName}{./figure/Signed_Thesis_Approval_Sheet_Undergraduate.pdf} % filename of the signed approval sheet (for undergraduate)
+%\newcommand{\scannedApprovalSheetFileName}{./figure/Signed_Thesis_Approval_Sheet_Undergraduate.pdf} % filename of the signed approval sheet (for undergraduate)
 \fi
 
 \hyphenation{op-tical net-works semi-conduc-tor evi-dent re-la-tive re-si-den-tial po-la-ri-za-tion so-lu-tion/s} % for correcting bad hyphenation
@@ -129,9 +129,9 @@
 \includeonly{% just comment those portions that you do not want to be included in the parsing
 	introduction,
 	literature_review,
-%	theoretical_considerations,
-%	design_considerations,
-%	methodology,
+	theoretical_considerations,
+	design_considerations,
+	methodology,
 	%results_and_discussions,
 	%conclusions,
 	%answers_to_questions,
@@ -176,10 +176,10 @@
 		\phantomsection
 		\addcontentsline{toc}{chapter}{Notations}
 		{
-			\printterms[database=notation, style=indexalign, prelocation=dotfill, location=first, columns=1, postname=\hspace{3em}]
+			\printterms[database=notation, style=indexalign, used=false, prelocation=dotfill, location=first, columns=1, postname=\hspace{3em}]
 			{
 				\vspace{3ex}
-				\noindent Throughout this \MakeTextLowercase{\documentType}, mathematical notations conform to ISO~80000-2 standard, e.g., variable names are printed in italics, the only exception being acronyms like, e.g., $\mathrm{SNR}$, which are printed in regular font.  Constants are also set in regular font like $\mathrm{j}$.  Standard functions and operators are also set in regular font, e.g., in $\sin \left( \cdot \right)$, $\max \{ \cdot \} $.  Commonly used notations are $t$, $f$, $\mathrm{j} = \sqrt{-1}$, $n$ and $\exp \left( \cdot \right)$, which refer to the time variable, frequency variable, imaginary unit, $n$th variable, and exponential function, respectively.
+				
 			}
 			\thispagestyle{plain}
 		}
@@ -195,8 +195,8 @@
 		\cleardoublepage
 		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		\lstlistoflistings
-		\cleardoublepage
+		%\lstlistoflistings
+		%\cleardoublepage
 	\end{SingleSpace}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -221,7 +221,41 @@
 	\include{literature_review}
 	%\stopcontents[chapters]
 	\cleardoublepage
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\chapter{Theoretical Considerations}
+	%\chaptermark{Theoretical Considerations} % uncomment this and put a shorter version of the chapter title for the TOC and chapter markings (i.e., header or footer)
+	\label{ch:theorycon}
+	%\startcontents[chapters]
+	%\begin{SingleSpace}	
+	%	\Mprintcontents 
+	%\end{SingleSpace}
+	\include{theoretical_considerations}
+	%\stopcontents[chapters]
+	\cleardoublepage
 	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\chapter{Design Considerations} 
+	\label{ch:designcon} 
+	%\startcontents[chapters]
+	%\begin{SingleSpace}	
+	%	\Mprintcontents 
+	%\end{SingleSpace}
+	\include{design_considerations}
+	%\stopcontents[chapters]
+	\cleardoublepage
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\chapter{Methodology} 
+	\label{ch:method} 
+	%\startcontents[chapters]
+	%\begin{SingleSpace}	
+	%	\Mprintcontents 
+	%\end{SingleSpace}
+	\include{methodology}
+	%\stopcontents[chapters]
+	\cleardoublepage
+
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\renewcommand{\UrlFont}{\normalfont}
 	%\bibliographystyle{IEEEtr} % for IEEE referencing format
@@ -244,4 +278,4 @@
 	
 
 
-\end{document}s
+\end{document}

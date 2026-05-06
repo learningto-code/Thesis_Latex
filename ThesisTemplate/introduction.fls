@@ -1,0 +1,11 @@
+PWD /workspaces/Thesis_Latex/ThesisTemplate
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /home/codespace/.texlive2019/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /workspaces/Thesis_Latex/ThesisTemplate/introduction.tex
+OUTPUT /workspaces/Thesis_Latex/ThesisTemplate/introduction.log
+INPUT /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+OUTPUT /workspaces/Thesis_Latex/ThesisTemplate/introduction.pdf
+INPUT /usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map

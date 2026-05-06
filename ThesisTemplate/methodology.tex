@@ -1,90 +1,213 @@
-Put an overview of the contents of chapter. Mention here your methodology flow through a figure and provide an overview of it and how your methodology achieves your objectives.  How your methodology achieves each of your specific objectives is what your panelists/examiners will be looking for.  Specify how your methodology achieves your general objective and specific objectives.  A point-by-point comparison how your methodology achieves each of your specific objectives is expected in the final \documentType.
+This chapter presents the research methodology employed for the development of an AI-driven fuel monitoring and anomaly detection system for fleet vehicles. The methodology integrates a multi-layered approach combining sensor-level data acquisition, edge computing, IoT communication, cloud-based machine learning, and client-side visualization. The approach emphasizes real-time anomaly detection, accurate fuel monitoring, operational transparency, and actionable driver and fleet management insights.
 
-Also make sure that you refer clearly to the chapters on the Literature Review, Theoretical Considerations, and Design Considerations showing how your methodology ties with those that you have discussed in those chapters.
-
-Make an overview of the contents of the chapter. Put here your methodology flow through a figure and provide an overview of it.  
-
-
-In summative form, Table~\ref{tab:methods_per_objective} indicates the approaches, designs, modes, processes, programs, techniques, and/or ways that the \documentType reaches the objectives. 
-
-
+The research methodology is structured to address both general and specific objectives, ensuring that the system is technically feasible, scalable, and reliable. Figure~\ref{fig:system_architecture} and Table~\ref{tab:methods_per_objective} summarize the methods and approaches for each objective.
 \begin{center}
-	{\scriptsize
-		\begin{tabularx}{\textwidth}{p{0.2\textwidth}|p{0.6\textwidth}|p{0.1\textwidth}}
-			\caption{Summary of methods for reaching the objectives} \label{tab:methods_per_objective} \\
-			\hline 
-			\hline 
-			\textbf{Objectives} & 
-			\textbf{Methods} &
-			\textbf{Locations}\\ 
-			\hline 
-			\endfirsthead
-			\multicolumn{3}{c}%
-			{\textit{Continued from previous page}} \\
-			\hline
-			\hline 
-			\textbf{Objectives} & 
-			\textbf{Methods} &
-			\textbf{Locations}\\ 
-			\hline 
-			\endhead
-			\hline 
-			\multicolumn{3}{r}{\textit{Continued on next page}} \\ 
-			\endfoot
-			\hline 
-			\endlastfoot
-			\hline
-			
-			
-			\Paste{GO} & \blindlist{enumerate} & Sec.~\ref{sec:implement} on p.~\pageref{sec:implement}\\ \hline
-			
-			
-			\Paste{SO1} & \blindlist{enumerate} & Sec.~\ref{sec:implement} on p.~\pageref{sec:implement} \\ \hline
-			
-			
-			\Paste{SO2} & \blindlist{enumerate} & Sec.~\ref{sec:implement} on p.~\pageref{sec:implement}\\ \hline
-			
-			
-			\Paste{SO3} & \blindlist{enumerate} & Sec.~\ref{sec:implement} on p.~\pageref{sec:implement}\\ \hline
-			
-			
-			\Paste{SO4} & \blindlist{enumerate} & Sec.~\ref{sec:implement} on p.~\pageref{sec:implement} \\ \hline
-			
-			
-			\Paste{SO5} & \blindlist{enumerate} & Sec.~\ref{sec:implement} on p.~\pageref{sec:implement} \\ \hline
-			
-		\end{tabularx}
-	}
+\scriptsize
+\begin{tabularx}{\textwidth}{p{0.2\textwidth}|X|p{0.1\textwidth}}
+\caption{Summary of methods for reaching the objectives} \label{tab:methods_per_objective} \\
+\hline 
+\hline 
+\textbf{Objectives} & \textbf{Methods / Approaches} & \textbf{Locations} \\ 
+\hline 
+GO: Develop and evaluate an IoT-based system for trucks in collaboration with Hino Parañaque Subic GS Auto Inc. (SGSA) that monitors real-time fuel levels, tracks routes using GPS, and detects unusual fuel consumption using machine learning, improving driver safety, supporting rest scheduling, and facilitating proactive vehicle maintenance through automated alerts. &
+\begin{itemize}
+    \item Embedded MCU preprocessing and aggregation
+    \item LoRa/GSM communication for low-latency and fail-safe data transfer
+    \item Cloud-based machine learning for anomaly detection
+    \item Web dashboard for visualization
+    \item Driver alert subsystem for operational safety
+\end{itemize} & Sec.~\ref{sec:implement} \\
+\hline 
+SO1: Measure fuel levels using digital float sensors integrated through the truck’s ECU/diagnostic connector, achieving ±5\% accuracy compared to manual readings in controlled conditions. &
+\begin{itemize}
+    \item Digital fuel sensors interfaced with ECU/OBD-II
+    \item Signal filtering and smoothing
+    \item Calibration against manual measurements
+    \item Continuous validation for measurement reliability
+\end{itemize} & Sec.~\ref{sec:implement} \\
+\hline 
+SO2: Transmit real-time fuel and GPS data through IoT-based communication modules to a cloud server and central web dashboard with latency not exceeding 3 seconds. &
+\begin{itemize}
+    \item Real-time IoT transmission via LoRa (primary) and GSM (backup)
+    \item Cloud ingestion APIs
+    \item Latency measurement and benchmarking to ensure timely reporting
+\end{itemize} & Sec.~\ref{sec:implement} \\
+\hline 
+SO3: Capture and log GPS location data every 5 seconds via an embedded module, correlating route information with fuel and time data for behavior tracking. &
+\begin{itemize}
+    \item GPS-based location logging at 5-second intervals
+    \item Synchronization with fuel data
+    \item Structured cloud database for multi-source data storage and route–fuel correlation
+\end{itemize} & Sec.~\ref{sec:implement} \\
+\hline 
+SO4: Design and evaluate a context-aware fuel usage deviation modeling approach using non-parametric unsupervised ML models (Matrix Profile or Isolation Forest), achieving ≥90\% precision and ≤10\% false positives. &
+\begin{itemize}
+    \item Offline training of anomaly detection models using Isolation Forest and Matrix Profile
+    \item Evaluation using precision, FPR, and accuracy
+    \item Context-aware thresholding to reduce false positives
+\end{itemize} & Sec.~\ref{sec:implement} \\
+\hline 
+SO5: Develop and integrate hardware-based rest alerts and maintenance reminders for long-haul driver safety linked to a cloud-based dashboard hosted at the partner trucking company's base, using cumulative fuel and distance data to guide break schedules and service intervals (300 km or 6-hour rest recommendations, 5,000 km oil check reminders). &
+\begin{itemize}
+    \item Driver rest and maintenance alert system with cumulative distance/time tracking
+    \item Cloud-based monitoring and logging
+    \item Alert notification via dashboard and in-vehicle signals
+\end{itemize} & Sec.~\ref{sec:implement} \\
+\hline
+\end{tabularx}
 \end{center}
 
+
+\section{System Architecture and Conceptual Design}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=1\textwidth]{concep_diagram.png}
+	\caption{Proposed Conceptual Diagram}
+	\label{fig:Description and Methodology}
+\end{figure}
+
+The system follows a layered architecture with a focus on modularity, scalability, and reliability. The conceptual framework (Figure~\ref{fig:Description and Methodology}) integrates the following:
+
+\begin{itemize}
+    \item \textbf{Vehicle Sensing Subsystem:} Digitally calibrated fuel-level sensors, GPS modules, and driver rest-time monitors. Sensor signals are collected via ECU or OBD-II ports.
+    \item \textbf{Edge Processing:} The MCU performs signal preprocessing, filtering, smoothing, synchronization, and timestamping before transmission.
+    \item \textbf{IoT Communication:} LoRa transceivers enable low-power, long-range data transmission; GSM acts as a backup channel for essential alerts, balancing cost and bandwidth considerations.
+    \item \textbf{Cloud Intelligence:} Historical data is used to train unsupervised ML models (Isolation Forest, Matrix Profile) to detect anomalies. The cloud evaluates incoming real-time data and triggers alerts.
+    \item \textbf{Client Visualization:} A web-based dashboard provides real-time visualization of fuel levels, routes, alerts, and historical playback for decision-making.
+\end{itemize}
+
+\begin{figure}[!htbp]
+    \centering
+        \includegraphics[width=0.8\textwidth]{concep_archi.png}
+    \caption{Proposed System Architecture Diagram}
+    \label{fig:system_architecture}
+\end{figure}
+
+The system architecture (Figure~\ref{fig:system_architecture}) follows a layered, end-to-end IoT design composed of three major layers: the data acquisition layer, the communication and cloud processing layer, and the data visualization layer. This structure supports real-time fuel monitoring, GPS-based route tracking, driver safety alerts, and cloud-based anomaly detection.
+
+At the data acquisition layer, the vehicle is outfitted with digitally calibrated float sensors integrated through the truck’s ECU/diagnostic connector to obtain accurate fuel-level measurements. The microcontroller (MCU) serves as the primary edge device, interfacing with the float sensor, GPS module (logging coordinates at 5-second intervals), rest alert subsystem, and time-tracking module. A LoRa transceiver functions as the main channel for transmitting fuel, location, and operating-hour data to the cloud, while a GSM module is used strictly as a fallback communication interface, activated only when LoRa connectivity is unavailable and limited to essential alerts due to bandwidth and cost constraints.
+
+The communication and cloud processing layer handles real-time data ingestion and anomaly detection. Incoming packets from the vehicle are received through cloud-based API endpoints and routed to processing services where the trained machine learning model—developed offline using Matrix Profile or Isolation Forest—is deployed for fuel anomaly evaluation. A Python-based alert engine evaluates fuel–location–time patterns and generates automated rest reminders, maintenance notifications, and anomaly flags. All validated data and event logs are stored in a centralized cloud database for long-term analysis.
+
+The data visualization layer consists of a web-based monitoring dashboard that retrieves information from the cloud database. Through this interface, clients can view real-time truck locations, fuel levels, distance traveled, driver operating hours, and alert notifications. The dashboard also supports historical playback of route and fuel usage trends, enabling improved operational awareness and proactive decision-making.
+
+Overall, the architecture highlights the complete data flow—from ECU-integrated sensing and MCU preprocessing, to LoRa/GSM communication, to cloud-based machine learning and dashboard visualization—demonstrating a scalable and modular IoT system for fleet monitoring and anomaly detection.
 
 
 
 \section{Implementation}
+
 \label{sec:implement}
 
-Summarize the process used to create/set-up the work with an explanation of such process, instruments, and materials that you used if any. If the description is lengthy, use condensed bullet points. 
+\subsection{Data Acquisition and Preprocessing}
 
-\noindent \textit{Rule of thumb}: Implementation is how you made your  work; (keywords: implemented, created, made, soldered, programmed, etc.).
+Data acquisition and preprocessing are crucial for reliable anomaly detection. The methodology includes:
 
-If you wrote a program or made a simulation, you must state how the program or simulation functions in this section.	An algorithm or a pseudocode as shown in Table~\ref{tab:calcxn} is a good example.
+\begin{enumerate}
+    \item \textbf{Sensor Calibration:} Fuel-level sensors are calibrated using known volumes, verified with manual measurements, and cross-checked with historical data trends.
+    \item \textbf{Signal Filtering:} Raw sensor signals are filtered using moving-average and median filters to reduce noise caused by vehicle motion or fuel sloshing.
+    \item \textbf{Synchronization:} Fuel, GPS, and operating-hour data are timestamped and synchronized to ensure consistent data alignment for model evaluation.
+    \item \textbf{Feature Engineering:} Derived features include fuel consumption rate, distance-to-fuel ratio, route segment performance, and driver behavior metrics, which feed into anomaly detection models.
+\end{enumerate}
 
+\subsection{System Methodology}
+The system was implemented as follows:
 
-\graytx{\Blindtext}
+\begin{itemize}
+    \item \textbf{MCU and Edge Layer:} ESP32/NodeMCU microcontrollers for filtering, timestamping, and initial anomaly scoring.
+    \item \textbf{Vehicle Interfaces:} CAN bus or OBD-II for fuel-level readings; GPS module for location and speed tracking.
+    \item \textbf{Communication Layer:} LoRa transceivers for real-time cloud updates; GSM backup for critical alerts.
+    \item \textbf{Cloud Layer:} Python-based ML models for anomaly detection deployed on cloud servers; REST APIs for data ingestion; PostgreSQL/NoSQL database for structured storage.
+    \item \textbf{Visualization Layer:} Web dashboard for real-time monitoring, historical trend analysis, and alert management.
+\end{itemize}
 
+\subsection{Anomaly Detection and ML Methodology}
 
+The anomaly detection workflow is as follows:
+
+\begin{enumerate}
+    \item \textbf{Offline Model Training:} Historical datasets are used to train Isolation Forest and Matrix Profile models to detect abnormal fuel usage patterns.
+    \item \textbf{Context-Aware Thresholding:} Thresholds are dynamically adjusted based on vehicle type, route segment, and driver behavior to reduce false positives.
+    \item \textbf{Evaluation Metrics:} Precision, FPR, accuracy, and detection latency are calculated; confusion matrices, ROC, and PR curves visualize performance.
+\end{enumerate}
+
+\subsection{IPO Chart and Design Pipeline}
+
+The data design  outlines a cohesive pipeline which integrates sensor acquisition, synchronization, cloud transmission, and model-based analysis to enable real-time anomaly detection in fleet fuel systems. Data collection begins with embedded sensors capturing raw signals such as fuel level, fuel flow, GPS coordinates, and ignition events. These signals are preprocessed using filters and signal conditioning circuits to reduce noise and ensure clean input for analysis.
+
+To ensure temporal alignment, all sensor outputs are timestamped and resampled onto a uniform time grid using linear interpolation. This synchronization step is critical for comparing trends across sensor modalities and detecting correlated anomalies. The processed signals are then uploaded to a cloud-based platform for storage and remote access.
+
+For anomaly detection, the synchronized time-series data are used to train and evaluate unsupervised models such as Isolation Forest and Matrix Profile. These models are tested on a dataset composed of real-world and simulated scenarios to reflect both normal and anomalous behavior. Key performance metrics (including MAPE, timestamp drift, detection latency, precision, and false positive rate) are used to assess system effectiveness. This pipeline supports scalable, automated monitoring while laying the groundwork for further model refinement in future stages.
+
+\subsection{IPO Chart}
+
+\begin{figure}[!htbp]
+    \centering
+        \includegraphics[width=1\textwidth]{IPO.png}
+    \caption{IPO Chart}
+    \label{fig:ipo_chart}
+\end{figure}
+
+The IPO (Input-Process-Output) chart provides a structured overview of the IoT-based fleet fuel monitoring and anomaly detection system (Figure~\ref{fig:ipo_chart}). The input data consists of real-time readings from the truck’s CAN bus/OBD-II fuel signal, GPS module capturing coordinates and speed at 5-second intervals, ignition status, and in-cab rest alert subsystem signals. These inputs are supplemented by historical fuel anomaly datasets and synthetic anomalies to simulate rare or edge-case events. Moderating variables such as driving behavior (idle times, acceleration patterns, terrain), network conditions (signal strength, transmission delays), and environmental factors (temperature, vibration) also influence the data.
+
+The process begins with signal preprocessing, where the MCU filters, calibrates, and timestamps fuel, GPS, and ignition data to reduce noise and ensure synchronization. The preprocessed data is then transmitted through LoRa as the primary communication channel, with GSM acting as a backup for essential alerts, and stored in a cloud-based backend. Anomaly detection is carried out in the cloud using machine learning models, including Matrix Profile (STUMPY) for time-series discord identification and Isolation Forest for feature-based outlier detection. Model validation and evaluation are performed using labeled and test datasets, calculating performance metrics such as precision, false positive rate (FPR), detection latency, and overall accuracy.
+
+The system outputs include fuel anomaly flags, such as potential theft or leakage, and driver rest alerts based on cumulative distance or driving duration. Additionally, it provides real-time GPS tracking on a web dashboard, estimated fuel levels as a percentage of tank capacity, and quantitative performance metrics for operational evaluation. This end-to-end flow ensures accurate, real-time monitoring, proactive safety notifications, and actionable insights for fleet management.
 
 \section{Evaluation}
 \label{sec:evaluate}
 
-Describe the procedures for evaluating the correct behavior and outcome of your  work, including what information you need to gather and how you will obtain or measure it.  
+To evaluate these models, the outputs are validated against manually labeled ground truth data. From this, the number of true positives (TP), false positives (FP), true negatives (TN), and false negatives (FN) are counted. Key metrics are computed as follows:
 
-\textit{Rule of thumb}: Evaluation is how you tested your  work; (keywords: measured, tested, compared, simulated, etc.).
+\textbf{Precision}  
+\begin{equation}
+\mathrm{Precision} = \frac{\gls{not:TP}}{\gls{not:TP} + \gls{not:FP}}
+\label{eq:precision}
+\end{equation}
 
-\graytx{\Blindtext}
+Precision reflects how many detected anomalies are truly anomalous. A high precision means fewer false alarms, which is important for maintaining trust in the alerting system.
 
+\textbf{False Positive Rate (FPR)}
+\begin{equation}
+\mathrm{FPR} = \frac{\gls{not:FP}}{\gls{not:FP} + \gls{not:TN}}
+\label{eq:fpr}
+\end{equation}
 
+FPR quantifies the likelihood of incorrectly classifying normal behavior as anomalous. Lower FPR values are desired to reduce noise in the system's alerts.
+
+\textbf{Accuracy}
+\textbf{Accuracy}  
+\begin{equation}
+\mathrm{Accuracy} = \frac{\gls{not:TP} + \gls{not:TN}}{\gls{not:TP} + \gls{not:TN} + \gls{not:FP} + \gls{not:FN}}
+\label{eq:accuracy}
+\end{equation}
+
+Accuracy provides an overall view of model correctness but can be misleading in imbalanced datasets, which is why it's used alongside precision and FPR.
+
+All these metrics use the following classification outcomes:
+\begin{align*}
+\text{TP (True Positives)} &= \text{Number of correctly identified anomalies}, \\
+\text{FP (False Positives)} &= \text{Number of normal events incorrectly flagged as anomalies}, \\
+\text{TN (True Negatives)} &= \text{Number of correctly identified normal cases}, \\
+\text{FN (False Negatives)} &= \text{Anomalies that were missed by the model}.
+\end{align*}
+
+\textbf{Detection Latency}
+
+\begin{equation}
+\gls{not:L}_{\mathrm{det}} = \gls{not:Tdetected} - \gls{not:Tactual}
+\label{eq:latency-detection}
+\end{equation}
+
+where:
+\begin{align*}
+T_{\text{detected}} &= \text{the time the anomaly truly occurred}, \\
+T_{\text{actual}} &= \text{the time it was identified by the system}.
+\end{align*}
+
+The objective is achieved if the unsupervised system attains at least 90\% precision (indicating that the majority of flagged events are correct), a false positive rate not exceeding 10\%, and average detection latency under 10 seconds. For interpretability, confusion matrices and performance plots such as ROC and PR curves will be used. Detection events will also be overlaid on synchronized GPS location maps and fuel-level graphs for context-aware validation.
 
 \section{Summary}
 
-Provide the gist of this chapter such that it reflects the contents and the message.
+This chapter presented a comprehensive methodology for an AI-driven fuel monitoring and anomaly detection system. The approach integrates sensor-level calibration, edge preprocessing, IoT-based communication, cloud ML evaluation, and client-side visualization to achieve accurate, real-time, and actionable insights.  

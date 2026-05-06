@@ -1,0 +1,16 @@
+# Fdb version 3
+["pdflatex"] 1742055810 "/workspaces/Thesis_Latex/ThesisTemplate/introduction.tex" "/workspaces/Thesis_Latex/ThesisTemplate/introduction.pdf" "introduction" 1742055810
+  "/etc/texmf/web2c/texmf.cnf" 1740465458 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/codespace/.texlive2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1740466404 8257371 5b057b6a75193d97965c7e7dd093ca58 ""
+  "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1579913679 4764993 c0116ef24294806236ea904930459baf ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/workspaces/Thesis_Latex/ThesisTemplate/introduction.aux" 1742055810 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/workspaces/Thesis_Latex/ThesisTemplate/introduction.tex" 1742055807 54896 6eb0e275f735e59d352552c27e1a7a7b ""
+  "introduction.tex" 1742055807 54896 6eb0e275f735e59d352552c27e1a7a7b ""
+  (generated)
+  "introduction.log"
+  "/workspaces/Thesis_Latex/ThesisTemplate/introduction.log"
+  "/workspaces/Thesis_Latex/ThesisTemplate/introduction.pdf"
