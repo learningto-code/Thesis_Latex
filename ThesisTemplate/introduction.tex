@@ -247,7 +247,7 @@ GO: To develop and evaluate an IoT-based system for trucks in collaboration with
     \end{itemize}
     \item \textbf{Embedded In-Truck HMI}
     \begin{itemize}
-        \item Driver-friendly interface displaying live fuel data, GPS route, and recommended safe routes.
+        \item Driver-friendly interface displaying driver credentials (name, PIN, and assigned truck), current trip activity, and alert notifications.
     \end{itemize}
     \item \textbf{Cloud Backend Infrastructure}
     \begin{itemize}
@@ -262,16 +262,15 @@ GO: To develop and evaluate an IoT-based system for trucks in collaboration with
 
 SO1: To measure fuel levels using digital float sensors integrated through the truck’s ECU/diagnostic connector, achieving ±5\% accuracy compared to manual readings in controlled conditions. &
 \begin{enumerate}
-    \item Calibrated digital float sensor assembly interfaced with the truck ECU.
+    \item Calibrated fuel-level acquisition module interfaced through the truck ECU/diagnostic connector.
     \item Accuracy validation report comparing sensor data with manual dipstick levels.
     \item Embedded firmware for fuel data acquisition, filtering, and preprocessing.
-    \item Drift, noise, and variance analysis across different tank levels and conditions.
 \end{enumerate} \\
 \hline
 
-SO2: To transmit real-time fuel and GPS data through IoT-based communication modules to a cloud server and central web dashboard with latency not exceeding 3 seconds. &
+SO2: To transmit real-time fuel and GPS data through IoT-based communication modules to a cloud server and central web dashboard with latency not exceeding 10 seconds. &
 \begin{enumerate}
-    \item Integrated IoT communication module (LoRa primary, GSM backup) linked to sensor microcontroller.
+    \item Integrated IoT communication module with GSM as the primary communication path, with local cache buffering and delayed synchronization to ensure offline data continuity.
     \item Cloud backend with secure API endpoints for receiving fuel and GPS data.
     \item Latency benchmarking report under variable network environments.
     \item Optimized MQTT/HTTP transmission logic with buffering and fail-safe retries.
