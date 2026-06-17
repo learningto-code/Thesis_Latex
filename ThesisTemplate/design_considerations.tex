@@ -140,7 +140,7 @@ Communication protocols and security measures are aligned with ISO/IEC~27018, IS
 \section{Alternative Software Designs and Cost Considerations}
 \label{sec:alt_software_cost}
 
-During the planning and prototype development phase, several candidate software designs were evaluated for their suitability to the system’s requirements. Table~\ref{tab:alt_software} summarizes the strengths, potential risks, and fit relative to specifications. The hybrid Matrix Profile + Isolation Forest (MP + IF) configuration was selected for implementation and used during prototype testing due to its balance of accuracy, computational efficiency, and anomaly coverage.
+During the planning and prototype development phase, several candidate software designs were evaluated for their suitability to the system’s requirements. Table~\ref{tab:alt_software} summarizes the strengths, potential risks, and fit relative to the system specifications. Matrix Profile (MP), Isolation Forest (IF), and a combined Matrix Profile + Isolation Forest (MP + IF) configuration were implemented and tested to compare their effectiveness in detecting fuel-related anomalies. The comparison considered detection accuracy, computational efficiency, and deployment feasibility on the target hardware platform. The findings from these tests were used to determine the most appropriate approach for the final system implementation.
 
 \begin{table}[h!]
 \centering
@@ -153,9 +153,6 @@ During the planning and prototype development phase, several candidate software 
 \hline
 Isolation Forest (IF) & Fast, unsupervised, handles multivariate data; simple to deploy using scikit-learn & Limited temporal context; sensitivity to contamination parameter may affect false alarms & High \\
 Matrix Profile (MP) & Shape-based time-series discord detection; ideal for sudden fuel drops or irregular usage patterns; efficient in local runtime & Requires window-size tuning; primarily one-dimensional unless extended for multivariate data & Very High \\
-Clustering (KMeans / DBSCAN) & Captures collective anomalies (trip-level patterns) and provides intuitive grouping for fleet behavior & Requires feature engineering; parameter sensitivity can reduce consistency & Medium \\
-Hybrid (MP + IF / IF + LOF) & Combines time-series and statistical strengths; reduces false positives and broadens anomaly coverage & Higher computational cost and added complexity in fusion or ensemble scoring & Very High \\
-Deep Learning (LSTM / TCN) & Learns complex multivariate temporal relationships and adapts well with large real-world datasets & Data-hungry, less interpretable, requires more computing resources for training and deployment & Medium \\
 \hline
 \end{tabular}%
 }

@@ -23,7 +23,7 @@
 \contentsline {section}{\numberline {1.7}Assumptions, Scope, and Delimitations}{19}{section.1.7}%
 \contentsline {subsection}{\numberline {1.7.1}Assumptions}{19}{subsection.1.7.1}%
 \contentsline {subsection}{\numberline {1.7.2}Scope}{21}{subsection.1.7.2}%
-\contentsline {subsection}{\numberline {1.7.3}Delimitations}{22}{subsection.1.7.3}%
+\contentsline {subsection}{\numberline {1.7.3}Delimitations}{23}{subsection.1.7.3}%
 \contentsline {section}{\numberline {1.8}Description and Methodology}{24}{section.1.8}%
 \contentsline {section}{\numberline {1.9}Research Dissemination Plan}{25}{section.1.9}%
 \contentsline {section}{\numberline {1.10}Conflict of Interest}{27}{section.1.10}%
@@ -62,15 +62,15 @@
 \contentsline {subsection}{\numberline {4.2.4}Communication and Security}{56}{subsection.4.2.4}%
 \contentsline {section}{\numberline {4.3}Alternative Software Designs and Cost Considerations}{57}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Summary}{58}{section.4.4}%
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Methodology}}{60}{chapter.5}%
-\contentsline {section}{\numberline {5.1}System Architecture and Conceptual Design}{64}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Implementation}{68}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Data Acquisition and Preprocessing}{68}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}System Methodology}{73}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Anomaly Detection and ML Methodology}{74}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}IPO Chart and Design Pipeline}{74}{subsection.5.2.4}%
-\contentsline {subsection}{\numberline {5.2.5}IPO Chart}{75}{subsection.5.2.5}%
-\contentsline {section}{\numberline {5.3}Evaluation}{77}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Summary}{78}{section.5.4}%
-\contentsline {chapter}{References}{80}{chapter*.39}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Methodology}}{59}{chapter.5}%
+\contentsline {section}{\numberline {5.1}System Architecture and Conceptual Design}{63}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Implementation}{67}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Data Acquisition and Preprocessing}{67}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}System Methodology}{72}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Anomaly Detection and ML Methodology}{73}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}IPO Chart and Design Pipeline}{73}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}IPO Chart}{74}{subsection.5.2.5}%
+\contentsline {section}{\numberline {5.3}Evaluation}{76}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Summary}{77}{section.5.4}%
+\contentsline {chapter}{References}{79}{chapter*.39}%
 \contentsfinish 
