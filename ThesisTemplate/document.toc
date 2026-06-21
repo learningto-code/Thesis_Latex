@@ -8,69 +8,74 @@
 \contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introduction}}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background of the Study}{2}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Prior Studies}{5}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Research Gaps Identified}{8}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}\noindent to Address the Gaps}{9}{subsection.1.2.2}%
-\contentsline {section}{\numberline {1.3}Problem Statement}{10}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Objectives and Deliverables}{13}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}General Objective (GO)}{13}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Specific Objectives (SOs)}{13}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3}Expected Deliverables}{14}{subsection.1.4.3}%
-\contentsline {section}{\numberline {1.5}Expected Deliverables per Objective}{14}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Significance of the Study}{17}{section.1.6}%
-\contentsline {subsection}{\numberline {1.6.1}Technical Benefit}{17}{subsection.1.6.1}%
-\contentsline {subsection}{\numberline {1.6.2}Social Impact}{18}{subsection.1.6.2}%
-\contentsline {subsection}{\numberline {1.6.3}Environmental Welfare}{19}{subsection.1.6.3}%
-\contentsline {section}{\numberline {1.7}Assumptions, Scope, and Delimitations}{19}{section.1.7}%
-\contentsline {subsection}{\numberline {1.7.1}Assumptions}{19}{subsection.1.7.1}%
-\contentsline {subsection}{\numberline {1.7.2}Scope}{21}{subsection.1.7.2}%
-\contentsline {subsection}{\numberline {1.7.3}Delimitations}{23}{subsection.1.7.3}%
-\contentsline {section}{\numberline {1.8}Description and Methodology}{24}{section.1.8}%
-\contentsline {section}{\numberline {1.9}Research Dissemination Plan}{25}{section.1.9}%
-\contentsline {section}{\numberline {1.10}Conflict of Interest}{27}{section.1.10}%
-\contentsline {section}{\numberline {1.11}Estimated Work Schedule and Budget}{27}{section.1.11}%
-\contentsline {subsection}{\numberline {1.11.1}Gantt Chart}{27}{subsection.1.11.1}%
-\contentsline {subsection}{\numberline {1.11.2}Estimated Budget}{29}{subsection.1.11.2}%
-\contentsline {section}{\numberline {1.12}Overview of the Thesis Proposal}{30}{section.1.12}%
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Literature Review}}{32}{chapter.2}%
-\contentsline {subsection}{\numberline {2.0.1}Literature Review}{33}{subsection.2.0.1}%
-\contentsline {section}{\numberline {2.1}Existing Work}{34}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Vehicle Tracking and Fuel Sensing Technologies}{34}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Anomaly Detection}{36}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Machine Learning Applications}{38}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Lacking in the Approaches}{38}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Summary}{40}{section.2.3}%
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Theoretical Considerations}}{43}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Overview}{44}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Theoretical Foundations}{44}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Cyber-Physical Systems (CPS)}{44}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Sensor Theory and Signal Measurement}{45}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Time-Series Synchronization Theory}{45}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}IoT Communication Theory}{46}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}GPS Temporal and Spatial Theory}{46}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}Unsupervised Anomaly Detection Theory}{47}{subsection.3.2.6}%
-\contentsline {subsubsection}{\numberline {3.2.6.1}Matrix Profile Theory}{47}{subsubsection.3.2.6.1}%
-\contentsline {subsubsection}{\numberline {3.2.6.2}Isolation Forest Theory}{47}{subsubsection.3.2.6.2}%
-\contentsline {section}{\numberline {3.3}Summary}{48}{section.3.3}%
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Design Considerations}}{49}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Standards}{50}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Adherence to Technical Standards}{50}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Observance of Research Ethics}{52}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Technical Design Considerations}{54}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Hardware Selection and Integration}{54}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Software Architecture}{55}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Machine Learning and Algorithms}{56}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Communication and Security}{56}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}Alternative Software Designs and Cost Considerations}{57}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Summary}{58}{section.4.4}%
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Methodology}}{59}{chapter.5}%
-\contentsline {section}{\numberline {5.1}System Architecture and Conceptual Design}{63}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Implementation}{67}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Data Acquisition and Preprocessing}{67}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}System Methodology}{72}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Anomaly Detection and ML Methodology}{73}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}IPO Chart and Design Pipeline}{73}{subsection.5.2.4}%
-\contentsline {subsection}{\numberline {5.2.5}IPO Chart}{74}{subsection.5.2.5}%
-\contentsline {section}{\numberline {5.3}Evaluation}{76}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Summary}{77}{section.5.4}%
-\contentsline {chapter}{References}{79}{chapter*.39}%
+\contentsline {subsection}{\numberline {1.2.1}Research Gaps Identified}{7}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}\noindent to Address the Gaps}{8}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Problem Statement}{9}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Objectives and Deliverables}{11}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}General Objective (GO)}{11}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Specific Objectives (SOs)}{12}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Expected Deliverables}{13}{subsection.1.4.3}%
+\contentsline {section}{\numberline {1.5}Expected Deliverables per Objective}{13}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Significance of the Study}{15}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Technical Benefit}{15}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Social Impact}{16}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.3}Environmental Welfare}{16}{subsection.1.6.3}%
+\contentsline {section}{\numberline {1.7}Assumptions, Scope, and Delimitations}{17}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}Assumptions}{17}{subsection.1.7.1}%
+\contentsline {subsection}{\numberline {1.7.2}Scope}{19}{subsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.7.3}Delimitations}{20}{subsection.1.7.3}%
+\contentsline {section}{\numberline {1.8}Description and Methodology}{21}{section.1.8}%
+\contentsline {section}{\numberline {1.9}Research Dissemination Plan}{23}{section.1.9}%
+\contentsline {section}{\numberline {1.10}Conflict of Interest}{24}{section.1.10}%
+\contentsline {section}{\numberline {1.11}Estimated Work Schedule and Budget}{24}{section.1.11}%
+\contentsline {subsection}{\numberline {1.11.1}Gantt Chart}{24}{subsection.1.11.1}%
+\contentsline {subsection}{\numberline {1.11.2}Estimated Budget}{27}{subsection.1.11.2}%
+\contentsline {section}{\numberline {1.12}Overview of the Thesis Proposal}{27}{section.1.12}%
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Literature Review}}{29}{chapter.2}%
+\contentsline {subsection}{\numberline {2.0.1}Literature Review}{30}{subsection.2.0.1}%
+\contentsline {section}{\numberline {2.1}Existing Work}{31}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Vehicle Tracking and Fuel Sensing Technologies}{31}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}LoRa Technology}{33}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}LoRa Gateway}{34}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Technical Performance Metrics and Environmental Factors}{34}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Real-World Implementation: LoRa-Based Telemetry and Fleet Management Systems}{35}{subsection.2.1.5}%
+\contentsline {subsection}{\numberline {2.1.6}GSM and LTE Technologies}{36}{subsection.2.1.6}%
+\contentsline {subsection}{\numberline {2.1.7}Anomaly Detection}{40}{subsection.2.1.7}%
+\contentsline {subsection}{\numberline {2.1.8}Machine Learning Applications}{42}{subsection.2.1.8}%
+\contentsline {section}{\numberline {2.2}Lacking in the Approaches}{42}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Summary}{44}{section.2.3}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Theoretical Considerations}}{47}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Overview}{48}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Theoretical Foundations}{48}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Cyber-Physical Systems (CPS)}{48}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Sensor Theory and Signal Measurement}{49}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Time-Series Synchronization Theory}{49}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}IoT Communication Theory}{50}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}GPS Temporal and Spatial Theory}{50}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Unsupervised Anomaly Detection Theory}{51}{subsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.6.1}Matrix Profile Theory}{51}{subsubsection.3.2.6.1}%
+\contentsline {subsubsection}{\numberline {3.2.6.2}Isolation Forest Theory}{51}{subsubsection.3.2.6.2}%
+\contentsline {section}{\numberline {3.3}Summary}{52}{section.3.3}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Design Considerations}}{53}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Standards}{54}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Adherence to Technical Standards}{54}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Observance of Research Ethics}{56}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Technical Design Considerations}{58}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Hardware Selection and Integration}{58}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Software Architecture}{59}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Machine Learning and Algorithms}{60}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Communication and Security}{60}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Alternative Software Designs and Cost Considerations}{61}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Summary}{62}{section.4.4}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Methodology}}{63}{chapter.5}%
+\contentsline {section}{\numberline {5.1}System Architecture and Conceptual Design}{67}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Implementation}{70}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Data Acquisition and Preprocessing}{70}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}System Methodology}{76}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Anomaly Detection and ML Methodology}{76}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}IPO Chart and Design Pipeline}{77}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}IPO Chart}{77}{subsection.5.2.5}%
+\contentsline {section}{\numberline {5.3}Evaluation}{79}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Summary}{80}{section.5.4}%
+\contentsline {chapter}{References}{82}{chapter*.42}%
 \contentsfinish 

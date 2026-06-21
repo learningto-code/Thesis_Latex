@@ -87,13 +87,11 @@ The hardware configuration is designed to support the end-to-end workflow of the
 \begin{itemize}  
     \item \textbf{MCU:} ESP32/NodeMCU serves as the edge processing device for real-time acquisition and preprocessing of fuel, GPS, and vehicle telemetry data. It complies with IEC~61131-2 for embedded controllers \cite{iec61131} and ISO~7637 for automotive electrical transients \cite{iso7637}. In Chapter~\ref{sec:implement}, the MCU handles sensor filtering, timestamping, and local anomaly scoring.  
 
-    \item \textbf{Fuel Sensor:} A resistive fuel-level sensor provides analog voltage proportional to the fuel level. The sensor integration aligns with IEEE~1451 smart transducer communication standards \cite{ieee1451}. Chapter~\ref{sec:implement} describes the calibration process, analog-to-digital conversion, and SMA filtering of sensor data.  
-
     \item \textbf{GPS Module:} The UART-connected GPS module provides geolocation and speed data, adhering to global navigation standards \cite{gpsstd}. Its signals are synchronized with fuel readings during preprocessing in Chapter~\ref{sec:implement}.  
 
     \item \textbf{CAN/OBD-II Interface:} Vehicle telemetry (engine RPM, ignition status, and ECU-reported fuel consumption) is captured using the CAN/OBD-II interface, following ISO~15765 and ISO~15031 telematics standards \cite{iso15143}. Chapter~\ref{sec:implement} details how this data is collected and correlated with sensor readings.  
 
-    \item \textbf{Safety Indicators:} Buzzer and LED outputs comply with IEC~61131-2 and ISO~26262 functional safety requirements \cite{iso26262}. These indicators provide immediate alerts to drivers (Chapter~\ref{sec:implement}, Subsection on Driver Alerts).  
+    \item \textbf{Safety Indicators:} Buzzer output comply with IEC~61131-2 and ISO~26262 functional safety requirements \cite{iso26262}. These indicators provide immediate alerts to drivers (Chapter~\ref{sec:implement}, Subsection on Driver Alerts).  
 \end{itemize}  
 
 \subsection{Software Architecture}  

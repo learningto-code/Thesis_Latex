@@ -133,7 +133,7 @@ Aquize, V.~G., Emery, E., and de~Lima~Neto, F.~B. (2017).
   Intelligence (LA-CCI)}, pages 1--6.
 
 \bibitem[Barbado and Corcho, 2022]{barbado2022interpretable}
-Barbado, A. and Corcho, Ã. (2022).
+Barbado, A. and Corcho, {\'O}. (2022).
 \newblock Interpretable machine learning models for predicting and explaining
   vehicle fuel consumption anomalies.
 \newblock {\em Engineering Applications of Artificial Intelligence},
@@ -145,12 +145,26 @@ Beteto, A. e.~a. (2022).
   liquid fuels.
 \newblock {\em Environment Systems and Decisions}, 42(2):306--324.
 
+\bibitem[{Chengdu Ebyte Electronic Technology Co., Ltd.},
+  2024]{ebyte2024lora_range}
+{Chengdu Ebyte Electronic Technology Co., Ltd.} (2024).
+\newblock Lora module range: Key factors affecting lora communication.
+\newblock \url{https://www.cdebyte.com/news/622}.
+\newblock Accessed: 2026-06-19.
+
 \bibitem[Crisgar, 2021]{crisgar2021gps}
 Crisgar, P. V. e.~a. (2021).
 \newblock Gps-based vehicle tracking and theft detection systems using google
-  cloud iot core & firebase.
+  cloud iot core \& firebase.
 \newblock In {\em 2021 International Symposium on Electronics and Smart Devices
   (ISESD)}, pages 1--6.
+
+\bibitem[Devalal and Karthikeyan, 2018]{devalal2018lora}
+Devalal, S. and Karthikeyan, A. (2018).
+\newblock Lora technology - an overview.
+\newblock In {\em 2018 Second International Conference on Electronics,
+  Communication and Aerospace Technology (ICECA)}, pages 284--290, Coimbatore,
+  India.
 
 \bibitem[Dhivyasri and Mariappan, 2015]{dhivyasri2015advanced}
 Dhivyasri, G. and Mariappan, R. (2015).
@@ -189,6 +203,12 @@ Garcia~Vega, P. (2022).
   to vehicle monitoring.
 \newblock Master's thesis, Polytechnique MontrÃ©al.
 
+\bibitem[{GSMA}, 2026]{gsma2026coverage}
+{GSMA} (2026).
+\newblock Network coverage maps.
+\newblock \url{https://www.gsma.com/coverage/#433}.
+\newblock Accessed: 2026-06-19.
+
 \bibitem[Husak, ]{husak_nodate_intelligent}
 Husak, V. e.~a.
 \newblock Intelligent real-time vehicle tracking information system.
@@ -213,9 +233,15 @@ Joshi, P. e.~a. (2024).
 \newblock In {\em 2024 International Conference on Computing, Sciences and
   Communications (ICCSC)}, pages 1--5.
 
+\bibitem[Kanchi et~al., 2013]{kanchi2013ltea}
+Kanchi, S., Sandilya, S., Bhosale, D., Pitkar, A., and Gondhalekar, M. (2013).
+\newblock Overview of lte-a technology.
+\newblock In {\em 2013 IEEE Global High Tech Congress on Electronics}, pages
+  195--200, Shenzhen, China.
+
 \bibitem[Komal Shoukat~Ali, 2018]{komal2018automatic}
 Komal Shoukat~Ali, K. e.~a. (2018).
-\newblock Automatic fuel tank monitoring, tracking & theft detection system.
+\newblock Automatic fuel tank monitoring, tracking \& theft detection system.
 \newblock In {\em MATEC Web of Conferences}, volume 184.
 
 \bibitem[Krishnasamy, 2019]{krishnasamy2019}
@@ -225,11 +251,30 @@ Krishnasamy, R. (2019).
   (IJRTE)}, 8(4S2):348--352.
 \newblock Accessed: 2025-11-18.
 
+\bibitem[Lee et~al., 2007]{lee2007wireless_protocols}
+Lee, J.~S., Su, Y.~W., and Shen, C.~C. (2007).
+\newblock A comparative study of wireless protocols: Bluetooth, uwb, zigbee,
+  and wi-fi.
+\newblock In {\em Proceedings of the 33rd Annual Conference of the IEEE
+  Industrial Electronics Society}, China.
+
 \bibitem[M, 2021]{m2021digital}
 M, S. e.~a. (2021).
 \newblock Digital fuel monitoring system for automobiles.
 \newblock In {\em 2021 Second International Conference on Electronics and
   Sustainable Communication Systems (ICESC)}, pages 6--10.
+
+\bibitem[Majeed, 2015]{majeed2015comparative}
+Majeed, A. (2015).
+\newblock Comparative studies of 3g, 4g \& 5g mobile network \& data offloading
+  method a survey.
+\newblock {\em International Journal of Research in Information Technology}.
+
+\bibitem[Manalu et~al., 2023]{manalu2023lora_performance}
+Manalu, I.~P., Sigiro, M. M.~T., Wowiling, G.~I., and Simatupang, F. (2023).
+\newblock Lora performance analysis with study case a moving object.
+\newblock {\em International Journal of Engineering Research in Computer
+  Science and Engineering}, 10(12):11--16.
 
 \bibitem[Mathi, 2024]{mathi2024development}
 Mathi, S. C. e.~a. (2024).
@@ -244,6 +289,18 @@ Maurya, K. e.~a.
 \newblock Real time vehicle tracking system using gsm and gps technology- an
   anti-theft tracking system.
 \newblock n.d.
+
+\bibitem[{Meitrack}, ]{meitrack_lora_fleet}
+{Meitrack}.
+\newblock Lora-based fleet tracking solution.
+\newblock \url{https://www.meitrack.com/lora-based-fleet-tracking-solution/}.
+\newblock Accessed: 2026-06-19.
+
+\bibitem[Miyim and Wakili, 2019]{miyim2019lte_performance}
+Miyim, A. and Wakili, A. (2019).
+\newblock Performance evaluation of lte networks.
+\newblock In {\em 2019 15th International Conference on Electronics, Computer
+  and Computation (ICECCO)}.
 
 \bibitem[Mukesh, 2010]{mukesh2010real}
 Mukesh, P.~R. (2010).
@@ -276,6 +333,18 @@ Obikoya, G.~D. (2014).
   monitoring system.
 \newblock {\em EURASIP Journal on Wireless Communications and Networking},
   2014(1):76.
+
+\bibitem[{Opensignal}, ]{opensignal_seasia_coverage}
+{Opensignal}.
+\newblock Se asia - coverage.
+\newblock
+  \url{https://www.tutela.com/state-of-mobile-networks-southeast-asia/coverage}.
+\newblock Accessed: 2026-06-19.
+
+\bibitem[{Orange Connected Objects \& Partnerships},
+  2016]{orange2016lora_guide}
+{Orange Connected Objects \& Partnerships} (2016).
+\newblock {\em LoRa Device Developer Guide}.
 
 \bibitem[Patil and Patil, 2024]{patil2024iot}
 Patil, A. and Patil, S. (2024).
@@ -335,6 +404,12 @@ Thajudheen, S., Shanmugarathinum, G., and Jesudoss, A.~G. (2023).
 \newblock In {\em 2023 International Conference on New Frontiers in
   Communication, Automation, Management and Security (ICCAMS)}.
 
+\bibitem[{The International Engineering Consortium}, ]{iec_gsm_tutorial}
+{The International Engineering Consortium}.
+\newblock {\em Global System for Mobile Communication (GSM)}.
+\newblock Web ProForum Tutorials.
+\newblock Tutorial.
+
 \bibitem[Turan et~al., 2024]{turan2024detecting}
 Turan, B.~B., Gene, E., Akcig, I.~N., Goztepe, N., Mumeuoglu, M.~E., and Unel,
   M. (2024).
@@ -351,8 +426,8 @@ Uddin, M.~S., Ahmed, M.~M., Alam, J.~B., and Islam, M. (2017).
   Engineering (ICAEE)}, pages 624--628.
 
 \bibitem[Usama et~al., 2019]{usama2019unsupervised}
-Usama, M., Qadir, â., Raza, A., Arif, H., Yau, â.~A., Elkhatib, â., Hussain,
-  â., and Alâ€‘Fuqaha, A. (2019).
+Usama, M., Qadir, J., Raza, A., Arif, H., Yau, K.-L.~A., Elkhatib, Y., Hussain,
+  A., and Al-Fuqaha, A. (2019).
 \newblock Unsupervised machine learning for networking: Techniques,
   applications and research challenges.
 \newblock {\em IEEE Access}, 7:65579--65615.

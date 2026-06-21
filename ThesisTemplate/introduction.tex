@@ -35,7 +35,7 @@ These gaps underline the need for a robust, scalable, and integrated IoT-enabled
 
 
 \section{Prior Studies}
-\begin{singlespace} % single spacing
+\begin{SingleSpace} % single spacing
 \renewcommand{\arraystretch}{1} % single row spacing
 \scriptsize % smaller font to fit text
 
@@ -136,7 +136,7 @@ Only analyzed individual feature relevance; not fully integrated in real-time sy
 \hline
 
 \end{longtable}
-\end{singlespace}
+\end{SingleSpace}
 
 
 \subsection{Research Gaps Identified}
@@ -195,6 +195,7 @@ Efficient fuel monitoring and route tracking are essential components of sustain
 			\item Vehicle lifespan shortens and maintenance costs rise when alerts are not tied to real-time usage, resulting in unexpected breakdowns and downtime.
 			\item Decision-makers are unable to make informed, data-driven decisions due to fragmented systems and the absence of an integrated monitoring and alert platform.
 			\item These issues collectively hinder operational efficiency, safety, and environmental responsibility, particularly for logistics providers in developing regions lacking advanced fleet management tools.
+	\end{itemize}
 
 \end{enumerate}
 
@@ -206,21 +207,21 @@ Efficient fuel monitoring and route tracking are essential components of sustain
 \subsection{Specific Objectives (SOs)}
 
 \begin{itemize}
-    \item \Copy{SO1}{SO1: To measure fuel levels using digital float sensors integrated through the truck’s ECU/diagnostic connector, achieving ±5\% accuracy compared to manual readings in controlled conditions.}
+    \item \Copy{SO1}{SO1: To measure fuel levels using digital float sensors integrated via the truck’s ECU/diagnostic connector and GPS module, ensuring non-invasive installation and real-time accuracy within ±5\%.}
     
-    \item \Copy{SO2}{SO2: To transmit real-time fuel and GPS data through IoT-based communication modules to a cloud server and central web dashboard with latency not exceeding 3 seconds.}
+    \item \Copy{SO2}{SO2: To transmit real-time fuel and GPS data through IoT-based communication to a cloud server, accessible through a centralized dashboard.}
     
     \item \Copy{SO3}{SO3: To capture and log GPS location data every 5 seconds via an embedded module, correlating route information with fuel and time data for behavior tracking.}
     
     \item \Copy{SO4}{SO4: To design and evaluate a context-aware fuel usage deviation modeling approach using non-parametric unsupervised machine learning models, like Matrix Profile or Isolation Forest, achieving ≥90\% precision and ≤10\% false positives in identifying anomalous fuel consumption patterns within controlled environments.}
     
-    \item \Copy{SO5}{SO5: To develop and integrate hardware-based rest alerts and maintenance reminders for long-haul driver safety linked to a cloud-based dashboard hosted at the partner trucking company's base, using cumulative fuel and distance data to guide break schedules and service intervals (300 km or 6-hour rest recommendations, 5,000 km oil check reminders).}
+    \item \Copy{SO5}{SO5: To develop and integrate hardware-based rest and maintenance alert mechanisms (e.g., Start/Stop button, buzzer indicators) tied to the web dashboard using cumulative fuel and distance data.}
 \end{itemize}
 
 \subsection{Expected Deliverables}
 \section{Expected Deliverables per Objective}
 
-\begin{singlespace} % single spacing
+\begin{SingleSpace} % single spacing
 \renewcommand{\arraystretch}{1} % single row spacing
 \scriptsize % smaller font to fit content
 \begin{longtable}{|p{0.25\textwidth}|p{0.65\textwidth}|}
@@ -260,18 +261,18 @@ GO: To develop and evaluate an IoT-based system for trucks in collaboration with
 \end{enumerate} \\
 \hline
 
-SO1: To measure fuel levels using digital float sensors integrated through the truck’s ECU/OBD2 connector, achieving ±5\% accuracy compared to manual readings in controlled conditions. &
+SO1: To measure fuel levels using digital float sensors integrated via the truck’s ECU/diagnostic connector and GPS module, ensuring non-invasive installation and real-time accuracy within ±5\%. &
 \begin{enumerate}
     \item Calibrated fuel-level acquisition module interfaced through the truck ECU/OBD2 connector.
-    \item Accuracy validation report comparing sensor data with manual dipstick levels.
+    \item Accuracy validation report comparing gotten data with fuel gauge levels.
     \item Embedded firmware for fuel data acquisition, filtering, and preprocessing.
     \item Drift, noise, and variance analysis across different tank levels and conditions.
 \end{enumerate} \\
 \hline
 
-SO2: To transmit real-time fuel and GPS data through IoT-based communication modules to a cloud server and central web dashboard with latency not exceeding 10 seconds. &
+SO2: To transmit real-time fuel and GPS data through IoT-based communication to a cloud server, accessible through a centralized dashboard. &
 \begin{enumerate}
-    \item Integrated IoT communication module with GSM as the primary communication path, with local cache buffering and delayed synchronization to ensure offline data continuity.
+    \item Integrated IoT communication module with Lora as the primary communication path, Cellular Modules (LTE \& GSM) as backup, with an option to connect to other existing hotspots are WIFI Connections.
     \item Cloud backend with secure API endpoints for receiving fuel and GPS data.
     \item Latency benchmarking report under variable network environments.
     \item Optimized MQTT/HTTP transmission logic with buffering and fail-safe retries.
@@ -300,19 +301,19 @@ SO4: Design and evaluate a context-aware fuel usage deviation modeling approach 
 \end{enumerate} \\
 \hline
 
-SO5: To develop and integrate hardware-based rest alerts and maintenance reminders for long-haul driver safety linked to a cloud-based dashboard hosted at the partner trucking company's base, using cumulative fuel and distance data to guide break schedules and service intervals (300 km or 6-hour rest recommendations, 5,000 km oil check reminders). &
+SO5: To develop and integrate hardware-based rest and maintenance alert mechanisms (e.g., Start/Stop button, buzzer indicators) tied to the web dashboard using cumulative fuel and distance data. &
 \begin{enumerate}
     \item Cloud dashboard showing fuel usage, distance, operating hours, and maintenance status.
     \item Rule-based alert engine for 300 km / 6-hour rest reminders and 5,000 km oil maintenance alerts.
     \item Physical embedded module: Start/Stop button, buzzer/light indicators for rest and maintenance alerts.
     \item Backend logic computing distance-based and time-based safety thresholds.
     \item Dashboard filters for alert logs, historical events, and driver compliance summaries.
-    \item Extended safety monitoring: speed tracking and overspeed alerts, lane departure detection (if sensors installed), sudden braking / harsh acceleration detection, optional fatigue detection (camera or sensor-based).
+    \item Extended safety monitoring: speed tracking and overspeed alerts.
 \end{enumerate} \\
 \hline
 
 \end{longtable}
-\end{singlespace}
+\end{SingleSpace}
 
 
 
@@ -349,12 +350,12 @@ The system will improve operational efficiency through minimizing waste in fuel,
 		\item Consistent internet connection is required to maintain real time data exchange between the IoT sensors, GPS module, and cloud sensor.
 		\item The system integration between the hardware and cloud based infrastructure operates smoothly without significant technical issues.
 		\item The system will have access to a stable power supply for an uninterrupted operation of the on board IoT system.
-		\item Mobile network coverage is able to handle a low latency data communication (within a 3 second threshold).		
+		\item Mobile network coverage is able to handle a low latency data communication.		
 	\end{itemize}
 
 \item Data Accuracy
     \begin{itemize}
-        \item Digitally calibrated float sensors integrated through the truck’s ECU are able to provide fuel-level measurements with a validated accuracy of ±5\% when compared to manual dipstick readings.
+        \item Digitally calibrated float sensors integrated through the truck’s OBD2 are able to provide fuel-level measurements with a validated accuracy of ±5\% when compared to manual dipstick readings.
         \item The GPS module captures and logs precise coordinates at 5-second intervals, enabling accurate route reconstruction and correlation with fuel consumption and time data.
     \end{itemize}
 
@@ -368,7 +369,7 @@ The system will improve operational efficiency through minimizing waste in fuel,
 \item User Interaction
 	\begin{itemize}
 		\item It is assumed that users (e.g., truck drivers, fleet operators, and system administrators) will interact with the system according to their roles and available tools.
-		\item Truck drivers are not required to use personal mobile devices; instead, they will rely on a simple onboard interface consisting of a small display and buzzer for receiving rest alerts, maintenance reminders, and status notifications.
+		\item Truck drivers are not required to use personal mobile devices; instead, they will rely on a simple onboard interface consisting of a small display and buzzer for receiving rest alerts, maintenance reminders, and status notifications. However, a mobile web application was also developed as a supplementary HMI component to support navigation and provide additional convenience for drivers with personal mobile devices.
 		\item Fleet operators and system administrators will interact with the cloud-based dashboard using standard office computers to monitor fuel data, GPS routes, alerts, and maintenance logs.
         \item Fleet personnel are expected to follow system recommendations (e.g., rest intervals, maintenance reminders) based on real-time fuel, distance, and performance metrics.
 	\end{itemize}
@@ -386,12 +387,13 @@ The scope of the study encompasses the development and implementation of a smart
 \begin{enumerate}
     \item \textbf{Real-Time Fuel Monitoring}
     \begin{enumerate}
-        \item Deployment of digitally calibrated float sensors integrated through the truck’s ECU, providing continuous fuel-level monitoring with a validated ±5\% accuracy compared to manual dipstick measurements.
+        \item Deployment of a calibrated fuel-level acquisition module interfaced through the truck's ECU/OBD-II diagnostic connector, providing continuous fuel-level monitoring with a validated accuracy of ±5% compared to manual dipstick measurements.
     \end{enumerate}
 	
 	\item \textbf{Cloud Based Data Transmission}
     \begin{enumerate}
-        \item Implementation of mobile network communication protocols to transmit data from the vehicle to a centralized cloud server with a latency not exceeding 3 seconds.    \end{enumerate}
+        \item Implementation of GSM-based communication protocols to transmit fuel-level and GPS data from the vehicle to a centralized cloud server with a latency not exceeding 3 seconds.    
+    \end{enumerate}
 
     \item \textbf{GPS Enabled Route Tracking}
     \begin{enumerate}
@@ -421,9 +423,9 @@ The scope of the study encompasses the development and implementation of a smart
     \item \textbf{Hardware and Communication Constraints}
         \begin{itemize}
             \item The system utilizes digitally calibrated float sensors, an embedded GPS module, and a microcontroller interfaced through the truck’s ECU/diagnostic connector; higher-end industrial sensing platforms are not employed.
-            \item Real-time data transmission primarily uses IoT communication protocols (e.g., LoRa as the main channel), enabling low-latency delivery of fuel and GPS data to the cloud backend.
-            \item A GSM module functions as a fallback communication pathway, activated only during IoT connectivity loss, and is limited to transmitting essential alerts and critical status messages due to bandwidth and cost constraints.
-            \item Other wireless communication technologies beyond the selected IoT and GSM modules are not implemented within the system.
+            \item Real-time data transmission primarily uses IoT communication protocols, enabling low-latency delivery of fuel and GPS data to the cloud backend.
+            \item A cellular module (LTE \& GSM) functions as a fallback communication pathway, activated only during LoRa connectivity loss, and is limited to transmitting essential alerts and critical status messages due to bandwidth and cost constraints.
+            \item Other wireless communication technologies beyond the selected IoT modules are not implemented within the system.
         \end{itemize}
 
 
@@ -507,9 +509,7 @@ None.
 
 \FloatBarrier  % Ensures the Gantt chart is placed before proceeding
 
-\begin{singlespace} % single spacing
-\renewcommand{\arraystretch}{1} % single row spacing
-\begin{singlespace} % single spacing
+\begin{SingleSpace} % single spacing
 \renewcommand{\arraystretch}{1} % single row spacing
 \scriptsize
 \begin{longtable}{|p{0.22\textwidth}|p{0.07\textwidth}|p{0.05\textwidth}|p{0.10\textwidth}|p{0.10\textwidth}|p{0.28\textwidth}|}
@@ -533,32 +533,36 @@ None.
 \multicolumn{6}{|l|}{\textbf{A. Covered by Hino Motors}} \\
 \hline
 Use of truck for testing & Truck & 2 & Sponsored & - & Provided by Hino \\
-Fuel for testing runs & Tank fill & 6 & Sponsored & - & Provided by Hino \\
-On-site sensor installation support & Lump sum & 1 & Sponsored & - & Technician/vehicle access \\
-Access to maintenance data logs & Lump sum & 1 & Sponsored & - & Data-sharing support \\
 \hline
 
 \multicolumn{6}{|l|}{\textbf{B. Covered by Research Team}} \\
 \hline
-MCU Development Board & - & 1 & 1,800 & 1,800 & Central controller for sensor interfacing \\
-CAN Bus / OBD-II Interface Module & - & 1 & 1,200 & 1,200 & Reads fuel levels and vehicle parameters from ECU \\
-GPS Module (5s logging) & - & 1 & 650 & 650 & Route tracking and speed monitoring \\
-LoRa Transceiver Module & - & 1 & 850 & 850 & Primary IoT communication channel \\
-GSM Module (SIM800L or similar) & - & 1 & 900 & 900 & Backup communication for critical alerts \\
-Data SIM for GSM module & Monthly & 3 & 200 & 600 & For real-time fallback transmissions \\
-Rest Alert Module (Buzzer + LED) & - & 1 & 400 & 400 & Driver fatigue / rest notification system \\
-Breadboard, jumper wires, resistors, soldering tools & Lump sum & 1 & 700 & 700 & Hardware prototyping components \\
-Transportation to Hino facility (testing/deployment) & Trip & 6 & 250 & 1,500 & Team visits for deployment and testing \\
-Printing of documents and final reports & Pages & 200 & 5 & 1,000 & For panel copies and submission \\
-Binding of final manuscript & Copies & 4 & 200 & 800 & Panel and archive copies \\
-Contingency Fund (10\% of total) & Lump sum & 1 & - & 970 & For unforeseen expenses \\
+\multicolumn{6}{|l|}{\textbf{Hardware Components}} \\
+\hline
+CAN Bus / OBD-II Interface Module & & 1 & 1,200 & 1,200 & Reads fuel levels and vehicle parameters from ECU \\
+GPS Module & - & 1 & 650 & 650 & Route tracking and speed monitoring \\
+ESP32 DevKit 30 pins & - & 2 & 350 & 700 & Main microcontroller boards \\
+A7670E & - & 1 & 1,300 & 1,300 & Cellular communication module \\
+MCP2515 CAN Bus Module & - & 1 & 91 & 91 & CAN bus interface module \\
+Buzzer Module & - & 1 & 45 & 45 & Audio alert component \\
+Buttons & - & 2 & 10 & 20 & Driver input controls \\
+Arduino TFT Screen 3.5 in & - & 1 & 648 & 648 & In-vehicle display interface \\
+LoRa Module Ra-02 433 MHz & - & 2 & 218 & 436 & Long-range communication modules \\
+OBD2 16-pin connector & - & 1 & 154 & 154 & Vehicle diagnostic connector \\
+GPS Module NEO-M8N & - & 1 & 600 & 600 & GPS tracking module \\
+Resistors (1x220 ohms, 1x5 kohms) & - & 2 & 1 & 2 & Circuit protection components \\
+SIM card (TNT) & - & 1 & 100 & 100 & Cellular network access \\
+\hline
+\multicolumn{6}{|l|}{\textbf{Prototype Case}} \\
+\hline
+3D Model and Printing & - & 1 & 4,500 & 4,500 & Prototype enclosure fabrication \\
 \hline
 
-\multicolumn{4}{|l|}{\textbf{Total Estimated Budget}} & \textbf{10,320} & \\
+\multicolumn{4}{|l|}{\textbf{Total Estimated Budget}} & \textbf{10,446} & \\
 \hline
 
 \end{longtable}
-\end{singlespace}
+\end{SingleSpace}
 
 
 \ifPhD

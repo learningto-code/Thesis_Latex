@@ -1,4 +1,4 @@
-This chapter presents the research methodology employed for the development of an AI-driven fuel monitoring and anomaly detection system for fleet vehicles. The methodology integrates a multi-layered approach combining sensor-level data acquisition, edge computing, IoT communication, cloud-based machine learning, and client-side visualization. The approach emphasizes real-time anomaly detection, accurate fuel monitoring, operational transparency, and actionable driver and fleet management insights.
+This chapter presents the research methodology employed for the development of an Machine Learning-driven fuel monitoring and anomaly detection system for fleet vehicles. The methodology integrates a multi-layered approach combining sensor-level data acquisition, edge computing, IoT communication, cloud-based machine learning, and client-side visualization. The approach emphasizes real-time anomaly detection, accurate fuel monitoring, operational transparency, and actionable driver and fleet management insights.
 
 The research methodology is structured to address both general and specific objectives, ensuring that the system is technically feasible, scalable, and reliable. Figure~\ref{fig:system_architecture} and Table~\ref{tab:methods_per_objective} summarize the methods and approaches for each objective.
 \begin{center}
@@ -12,13 +12,13 @@ The research methodology is structured to address both general and specific obje
 GO: Develop and evaluate an IoT-based system for trucks in collaboration with Hino Parañaque Subic GS Auto Inc. (SGSA) that monitors real-time fuel levels, tracks routes using GPS, and detects unusual fuel consumption using machine learning, improving driver safety, supporting rest scheduling, and facilitating proactive vehicle maintenance through automated alerts. &
 \begin{itemize}
     \item Embedded MCU preprocessing and aggregation
-    \item LoRa/GSM communication for low-latency and fail-safe data transfer
+    \item LoRa/Cellular communication for low-latency and fail-safe data transfer
     \item Cloud-based machine learning for anomaly detection
     \item Web dashboard for visualization
     \item Driver alert subsystem for operational safety
 \end{itemize} & Sec.~\ref{sec:implement} \\
 \hline 
-SO1: Measure fuel levels using digital float sensors integrated through the truck’s ECU/diagnostic connector, achieving ±5\% accuracy compared to manual readings in controlled conditions. &
+SO1: Measure fuel levels using digital float sensors integrated via the truck’s ECU/diagnostic connector and GPS module, ensuring non-invasive installation and real-time accuracy within ±5\%. &
 \begin{itemize}
     \item Digital fuel sensors interfaced with ECU/OBD-II
     \item Signal filtering and smoothing
@@ -26,9 +26,9 @@ SO1: Measure fuel levels using digital float sensors integrated through the truc
     \item Continuous validation for measurement reliability
 \end{itemize} & Sec.~\ref{sec:implement} \\
 \hline 
-SO2: Transmit real-time fuel and GPS data through IoT-based communication modules to a cloud server and central web dashboard with latency not exceeding 3 seconds. &
+SO2: Transmit real-time fuel and GPS data through IoT-based communication to a cloud server, accessible through a centralized dashboard. &
 \begin{itemize}
-    \item Real-time IoT transmission via LoRa (primary) and GSM (backup)
+    \item Real-time IoT transmission via LoRa (primary) and Cellular Connection (backup)
     \item Cloud ingestion APIs
     \item Latency measurement and benchmarking to ensure timely reporting
 \end{itemize} & Sec.~\ref{sec:implement} \\
@@ -47,7 +47,7 @@ SO4: Design and evaluate a context-aware fuel usage deviation modeling approach 
     \item Context-aware thresholding to reduce false positives
 \end{itemize} & Sec.~\ref{sec:implement} \\
 \hline 
-SO5: Develop and integrate hardware-based rest alerts and maintenance reminders for long-haul driver safety linked to a cloud-based dashboard hosted at the partner trucking company's base, using cumulative fuel and distance data to guide break schedules and service intervals (300 km or 6-hour rest recommendations, 5,000 km oil check reminders). &
+SO5: Develop and integrate hardware-based rest and maintenance alert mechanisms (e.g., Start/Stop button, buzzer indicators) tied to the web dashboard using cumulative fuel and distance data. &
 \begin{itemize}
     \item Driver rest and maintenance alert system with cumulative distance/time tracking
     \item Cloud-based monitoring and logging
@@ -72,7 +72,7 @@ The system follows a layered architecture with a focus on modularity, scalabilit
 \begin{itemize}
     \item \textbf{Vehicle Sensing Subsystem:} Digitally calibrated fuel-level sensors, GPS modules, and driver rest-time monitors. Sensor signals are collected via ECU or OBD-II ports.
     \item \textbf{Edge Processing:} The MCU performs signal preprocessing, filtering, smoothing, synchronization, and timestamping before transmission.
-    \item \textbf{IoT Communication:} LoRa transceivers enable low-power, long-range data transmission; GSM acts as a backup channel for essential alerts, balancing cost and bandwidth considerations.
+    \item \textbf{IoT Communication:} LoRa transceivers enable low-power, long-range data transmission; cellular backup, balancing cost and bandwidth considerations.
     \item \textbf{Cloud Intelligence:} Historical data is used to train unsupervised ML models (Isolation Forest, Matrix Profile) to detect anomalies. The cloud evaluates incoming real-time data and triggers alerts.
     \item \textbf{Client Visualization:} A web-based dashboard provides real-time visualization of fuel levels, routes, alerts, and historical playback for decision-making.
 \end{itemize}
@@ -86,13 +86,13 @@ The system follows a layered architecture with a focus on modularity, scalabilit
 
 The system architecture (Figure~\ref{fig:system_architecture}) follows a layered, end-to-end IoT design composed of three major layers: the data acquisition layer, the communication and cloud processing layer, and the data visualization layer. This structure supports real-time fuel monitoring, GPS-based route tracking, driver safety alerts, and cloud-based anomaly detection.
 
-At the data acquisition layer, the vehicle is outfitted with digitally calibrated float sensors integrated through the truck’s ECU/diagnostic connector to obtain accurate fuel-level measurements. The microcontroller (MCU) serves as the primary edge device, interfacing with the float sensor, GPS module (logging coordinates at 5-second intervals), rest alert subsystem, and time-tracking module. A LoRa transceiver functions as the main channel for transmitting fuel, location, and operating-hour data to the cloud, while a GSM module is used strictly as a fallback communication interface, activated only when LoRa connectivity is unavailable and limited to essential alerts due to bandwidth and cost constraints.
+At the data acquisition layer, the vehicle is outfitted with digitally calibrated float sensors integrated through the truck’s ECU/diagnostic connector to obtain accurate fuel-level measurements. The microcontroller (MCU) serves as the primary edge device, interfacing with the float sensor, GPS module (logging coordinates at 5-second intervals), rest alert subsystem, and time-tracking module. A LoRa transceiver functions as the main channel for transmitting fuel, location, and operating-hour data to the cloud, while the cellular module is used as fallback.
 
 The communication and cloud processing layer handles real-time data ingestion and anomaly detection. Incoming packets from the vehicle are received through cloud-based API endpoints and routed to processing services where the trained machine learning model—developed offline using Matrix Profile or Isolation Forest—is deployed for fuel anomaly evaluation. A Python-based alert engine evaluates fuel–location–time patterns and generates automated rest reminders, maintenance notifications, and anomaly flags. All validated data and event logs are stored in a centralized cloud database for long-term analysis.
 
 The data visualization layer consists of a web-based monitoring dashboard that retrieves information from the cloud database. Through this interface, clients can view real-time truck locations, fuel levels, distance traveled, driver operating hours, and alert notifications. The dashboard also supports historical playback of route and fuel usage trends, enabling improved operational awareness and proactive decision-making.
 
-Overall, the architecture highlights the complete data flow—from ECU-integrated sensing and MCU preprocessing, to LoRa/GSM communication, to cloud-based machine learning and dashboard visualization—demonstrating a scalable and modular IoT system for fleet monitoring and anomaly detection.
+Overall, the architecture highlights the complete data flow—from ECU-integrated sensing and MCU preprocessing, to IoT communication, to cloud-based machine learning and dashboard visualization—demonstrating a scalable and modular IoT system for fleet monitoring and anomaly detection.
 
 
 
@@ -201,8 +201,8 @@ The system was implemented as follows:
 \begin{itemize}
     \item \textbf{MCU and Edge Layer:} ESP32/NodeMCU microcontrollers for filtering, timestamping, and initial anomaly scoring.
     \item \textbf{Vehicle Interfaces:} CAN bus or OBD-II for fuel-level readings; GPS module for location and speed tracking.
-    \item \textbf{Communication Layer:} LoRa transceivers for real-time cloud updates; GSM backup for critical alerts.
-    \item \textbf{Cloud Layer:} Python-based ML models for anomaly detection deployed on cloud servers; REST APIs for data ingestion; PostgreSQL/NoSQL database for structured storage.
+    \item \textbf{Communication Layer:} LoRa transceivers for real-time cloud updates; cellular backup for critical alerts.
+    \item \textbf{Cloud Layer:} Python-based ML models for anomaly detection deployed on cloud servers; REST APIs for data ingestion; PostgreSQL database for structured storage.
     \item \textbf{Visualization Layer:} Web dashboard for real-time monitoring, historical trend analysis, and alert management.
 \end{itemize}
 

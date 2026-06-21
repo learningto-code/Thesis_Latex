@@ -17,13 +17,97 @@ Various fuel monitoring systems have been proposed, discussed, and developed in 
 
 In the automotive domain, several studies aim to enhance the accuracy of fuel management through sensor integration. The digital system by Sakthimohan et al. \cite{m2021digital} employs ultrasonic and flow sensors with an Arduino UNO to display real-time measurements on an LCD, providing a replacement for imprecise analog gauges. Meanwhile, Farzana et al. \cite{farzana2020real} proposed a motion-based fuel monitoring technique that integrates vehicle motion parameters with fuel level sensor readings, achieving 80\% success in accurately determining fuel levels and 100\% detection success in identifying fuel theft and refills via a smartphone application.
 
-Studies focused on fuel theft detection, such as those by Tatababu et al. \cite{tatababu2024smart} and Mathi et al. \cite{mathi2024development}, utilize capacitive or ultrasonic sensors, GPS tracking, and GSM-based alerts to detect tampering or fuel loss and notify operators immediately. In the Intelligent Fuel Monitoring and Theft Detection System using GPS & GSM, Mathi et al. \cite{mathi2024development} also monitored battery charge (SoC), with applicability for both hybrid and conventional vehicles, making it suitable for logistics and fleet management.
+Studies focused on fuel theft detection, such as those by Tatababu et al. \cite{tatababu2024smart} and Mathi et al. \cite{mathi2024development}, utilize capacitive or ultrasonic sensors, GPS tracking, and GSM-based alerts to detect tampering or fuel loss and notify operators immediately. In the Intelligent Fuel Monitoring and Theft Detection System using GPS \& GSM, Mathi et al. \cite{mathi2024development} also monitored battery charge (SoC), with applicability for both hybrid and conventional vehicles, making it suitable for logistics and fleet management.
 
 Ali et al. \cite{komal2018automatic} presented an automatic fuel tank monitoring, tracking, and theft detection system integrating Arduino-based fuel circuits with GSM/GPS modules and LabVIEW for database management. This system replaces manual fuel tracking with automated alerts and volume monitoring, offering a cost-effective solution for transportation industries. Overall, these systems indicate a trend toward inexpensive, sensor-based, remotely accessible fuel monitoring technologies with high priority on accuracy, security, and real-time data analysis.
 
 \textbf{GPS and Vehicle Telematics}
 
 Global Positioning System (GPS) and vehicle telematics technologies have become essential components in modern vehicle monitoring and fleet management systems. These technologies allow real-time tracking, remote diagnostics, and performance analysis by collecting and reporting data such as location, speed, fuel consumption, and engine status. A common trend in these studies is the combination of GPS and GSM modules to facilitate real-time vehicle tracking, usually complemented by cloud-based or mobile-supported platforms. Joshi et al. \cite{joshi2024intelligent} proposed a system enabling real-time monitoring for logistic management using sensors, GPS tracking, and cloud-based data analytics. Similarly, Alquhali et al. \cite{alquhali2019iot} and Nada \cite{nada2017design} employed GPS and GSM modules to send live location data, show vehicle tracks on electronic maps, and record location history for future reference and analysis. Vigneshwaran et al. \cite{vigneshwaran2020design} presented a GPS-GSM-based bus tracking system supporting student notifications for bus arrival, emergency notifications, and route alerts, enhancing safety and saving waiting time. The system further offered a framework for real-time fuel monitoring with implications for broader fleet management applications.
+
+\subsection{LoRa Technology}
+
+LoRa (Long Range) is a wireless communication technology engineered for Internet of Things (IoT) and machine-to-machine (M2M) communication. It supports low-power, battery-operated embedded systems that transmit small amounts of data over long distances \cite{orange2016lora_guide}. Traditional cellular networks such as GSM, 2G, 3G, and 4G prioritize high data throughput, which can result in inefficient power consumption for IoT applications that require infrequent, small data transmissions \cite{majeed2015comparative,lee2007wireless_protocols}. Unlike cellular networks or short-range protocols such as Wi-Fi and Bluetooth, LoRa is optimized for applications where energy efficiency and communication range are more important than high throughput \cite{devalal2018lora}.
+
+The LoRa communication architecture follows a structured flow of information so that small data packets can reach cloud-based systems efficiently:
+
+\begin{itemize}
+    \item \textbf{LoRa Node or End Device:} This component includes the sensors or applications where sensing and control take place. It collects telemetry data and transmits them as small, optimized data packets.
+    \item \textbf{LoRa Gateway:} The gateway receives packets from end nodes and acts as a bridge between LoRa nodes and the internet.
+    \item \textbf{Cloud Backend:} Once the gateway forwards data through a backhaul connection, the information reaches a network or application server where it can be processed, visualized on dashboards, or stored for further analysis.
+\end{itemize}
+
+\subsection{LoRa Gateway}
+
+LoRa gateways are multi-channel, multi-modem transceivers capable of simultaneous reception and decoding of LoRa packets from numerous end nodes. Each gateway acts as a bridge that connects LoRa nodes to the internet by capturing transmitted node data and forwarding them through standard backhaul connections such as Wi-Fi, Ethernet, or cellular data. Data from different gateways are processed through a network server, which functions as the central intelligence of the LoRa architecture. This server performs security authentication, filters messages, manages adaptive data rates, and relays appropriate acknowledgments back to the gateways \cite{orange2016lora_guide}.
+
+Gateway deployment varies according to coverage requirements. Micro gateways are typically deployed in public networks to provide broad city-wide or nationwide connectivity, while pico gateways are used in dense or challenging environments to improve network capacity and service quality. To support these deployment scenarios, LoRa base stations may use omni-directional or multi-sector antenna configurations \cite{devalal2018lora}.
+
+\subsection{Technical Performance Metrics and Environmental Factors}
+
+The operational effectiveness of LoRa networks depends on the interaction between transceiver hardware configuration and environmental conditions. According to Chengdu Ebyte Electronic Technology, the communication distance of a LoRa module is influenced by transmit power, receiver sensitivity, and antenna gain \cite{ebyte2024lora_range}. In open rural areas, a standard LoRa layout can achieve communication links of approximately 15 to 20 kilometers. In dense urban environments, however, coverage may decrease to approximately 1 to 5 kilometers because of building penetration losses and multipath propagation effects \cite{ebyte2024lora_range}.
+
+Manalu et al. \cite{manalu2023lora_performance} evaluated the performance of a LoRa-based vehicle tracking system using a HopeRF-RFM95W transceiver module operating at 915 MHz on a moving vehicle. The study analyzed link-quality parameters in a Non-Line-of-Sight (N-LoS) suburban environment at speeds of 10 km/h, 20 km/h, and 30 km/h. The evaluation focused on how buildings, vegetation, and other wireless signals affect key performance metrics. Received Signal Strength Indicator (RSSI) measures absolute signal power and degrades behind thick barriers, vegetation, or dense buildings. Signal-to-Noise Ratio (SNR) measures signal clarity against electromagnetic interference and may drop significantly because of disruptions from pedestrians, structures, vehicles, and Wi-Fi towers. Packet loss may also increase sharply near major structural obstacles, showing that LoRa performance in mobile fleet applications must account for physical barriers and N-LoS conditions \cite{manalu2023lora_performance}.
+
+\subsection{Real-World Implementation: LoRa-Based Telemetry and Fleet Management Systems}
+
+The long-range and low-power characteristics of LoRa make it suitable for geographic areas with limited commercial telecommunication infrastructure. Common applications include smart agriculture, pasture health monitoring, and isolated industrial operations. However, reliance on a single low-power wide-area network (LPWAN) protocol may introduce communication risks when asset-tracking nodes move between remote rural spaces and dense urban areas.
+
+To reduce blind spots, industrial systems may use hybrid communication architectures. The Meitrack LoRa Fleet Tracking Solution illustrates this approach in large-scale agricultural operations, such as orchards and palm plantations, where GSM coverage may be unreliable or unavailable \cite{meitrack_lora_fleet}. In such environments, multi-modem tracking hardware can use a dual LoRa and GPRS switching configuration based on network availability. While operating in cellular dead zones, localized sensor payloads, including ultrasonic fuel-level data, driver authentication logs, and safety alerts, can be routed through LoRa to a local base station. This architecture helps preserve asset visibility when standard cellular infrastructure is unavailable \cite{meitrack_lora_fleet}.
+
+\subsection{GSM and LTE Technologies}
+
+The Global System for Mobile Communication (GSM) is a widely recognized standard for digital cellular technology. It originated from a group formed in 1982 to develop a unified European mobile telephone standard for cellular radio systems operating at 900 MHz \cite{iec_gsm_tutorial}. GSM is known for broad geographic coverage and supports voice calls and basic data services through second-generation cellular communication. Long-Term Evolution (LTE), by contrast, is a wireless broadband communication standard that succeeded 3G and became a cornerstone of 4G mobile networks. LTE development began as a Third Generation Partnership Project (3GPP) effort in 2004 to provide a new radio access technology focused on packet-switched data \cite{miyim2019lte_performance}.
+
+LTE was developed to address increasing demand for mobile broadband services by improving network capacity, data rates, quality of service, and latency. These improvements support mobile wireless connectivity that aligns with performance benchmarks established by the International Telecommunication Union (ITU). After LTE was established in 2009, further performance requirements led to LTE-Advanced (LTE-A), which satisfied International Mobile Telecommunications (IMT) requirements for fourth-generation networks and achieved peak data rates of up to 1 Gbps \cite{miyim2019lte_performance,kanchi2013ltea}.
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison between GSM and LTE}
+\label{tab:gsm_lte_comparison}
+\renewcommand{\arraystretch}{1.2}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{3.5cm}|p{5.5cm}|p{6cm}|}
+\hline
+\textbf{Feature} & \textbf{GSM (2G)} & \textbf{LTE (4G)} \\
+\hline
+Network Architecture & Circuit-switched & Packet-switched (All-IP) \\
+\hline
+Primary Focus & Voice and text services & High-speed mobile broadband \\
+\hline
+Coverage & Extensive broad geographical reach, including rural and remote areas & High-capacity and density-dependent coverage that requires closer proximity to modern cell towers \\
+\hline
+Frequency Band & 900 MHz and 1800 MHz & Bands 1 to 25 for Frequency Division Duplex and bands 33 to 41 for Time Division Duplex \\
+\hline
+Signal Propagation & Excellent because of lower frequencies & Variable because higher frequencies generally have shorter range \\
+\hline
+Infrastructure Needs & Lower base station density & Higher base station density \\
+\hline
+Data Capability & Low, supporting basic data and messaging & Very high, supporting multimedia and internet access \\
+\hline
+\end{tabular}%
+}
+\end{table}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{GlobeCoverage.png}
+    \caption{Globe GSM (pink) and LTE (orange) Coverage Map Philippines (GSMA Intelligence)}
+    \label{fig:globe_gsm_lte_coverage}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{SmartCoverage.png}
+    \caption{Smart GSM (pink) and LTE (orange) Coverage Map Philippines (GSMA Intelligence)}
+    \label{fig:smart_gsm_lte_coverage}
+\end{figure}
+
+\clearpage
+
+The coverage maps in Figures~\ref{fig:globe_gsm_lte_coverage} and~\ref{fig:smart_gsm_lte_coverage} illustrate GSM and LTE coverage patterns in the Philippines based on GSMA Intelligence coverage data \cite{gsma2026coverage}. Comparing the two networks, Globe shows a noticeably denser and more contiguous spread of both GSM and LTE coverage, particularly through the Visayas and Mindanao, where its colored patches connect more continuously along coastal and lowland routes. Smart's coverage, while still following the same population centers, appears comparatively more fragmented, with more isolated patches and gaps between cities, especially in the southern islands.
+
+In both cases, LTE coverage appears as a smaller subset within the broader GSM footprint. This indicates that 4G service is generally concentrated in and around cities and main highway corridors, while 2G/GSM extends farther into surrounding rural areas as a fallback connectivity layer. This difference is important for fleet monitoring systems because mobile assets may move between high-capacity LTE areas and wider but lower-bandwidth GSM fallback zones \cite{opensignal_seasia_coverage,gsma2026coverage}.
 
 \subsection{Anomaly Detection}
 

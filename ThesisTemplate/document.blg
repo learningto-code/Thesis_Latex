@@ -49,46 +49,49 @@ Warning--empty author in automatic2019fuel
 Warning--empty year in husak_nodate_intelligent
 Warning--empty year in ieee1451
 Warning--empty year in maurya_nodate_real
+Warning--empty year in meitrack_lora_fleet
+Warning--empty year in opensignal_seasia_coverage
 Warning--can't use both volume and number fields in prasanna2023iot
-You've used 60 entries,
+Warning--empty year in iec_gsm_tutorial
+You've used 72 entries,
             1935 wiz_defined-function locations,
-            734 strings with 13694 characters,
-and the built_in function-call counts, 20989 in all, are:
-= -- 2150
-> -- 611
-< -- 47
-+ -- 215
-- -- 204
-* -- 1546
-:= -- 3462
-add.period$ -- 190
-call.type$ -- 60
-change.case$ -- 402
-chr.to.int$ -- 53
-cite$ -- 114
-duplicate$ -- 955
-empty$ -- 1614
-format.name$ -- 251
-if$ -- 4277
+            797 strings with 15788 characters,
+and the built_in function-call counts, 25097 in all, are:
+= -- 2567
+> -- 755
+< -- 58
++ -- 263
+- -- 250
+* -- 1831
+:= -- 4187
+add.period$ -- 230
+call.type$ -- 72
+change.case$ -- 483
+chr.to.int$ -- 65
+cite$ -- 129
+duplicate$ -- 1138
+empty$ -- 1904
+format.name$ -- 313
+if$ -- 5091
 int.to.chr$ -- 8
 int.to.str$ -- 0
-missing$ -- 35
-newline$ -- 313
-num.names$ -- 123
-pop$ -- 429
+missing$ -- 41
+newline$ -- 377
+num.names$ -- 159
+pop$ -- 511
 preamble$ -- 1
-purify$ -- 402
+purify$ -- 485
 quote$ -- 0
-skip$ -- 665
+skip$ -- 796
 stack$ -- 0
-substring$ -- 1375
-swap$ -- 158
-text.length$ -- 22
+substring$ -- 1604
+swap$ -- 186
+text.length$ -- 24
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 360
-warning$ -- 35
-while$ -- 158
+type$ -- 432
+warning$ -- 38
+while$ -- 190
 width$ -- 0
-write$ -- 754
-(There were 35 warnings)
+write$ -- 909
+(There were 38 warnings)
