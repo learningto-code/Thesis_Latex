@@ -132,6 +132,13 @@ Aquize, V.~G., Emery, E., and de~Lima~Neto, F.~B. (2017).
 \newblock In {\em 2017 IEEE Latin American Conference on Computational
   Intelligence (LA-CCI)}, pages 1--6.
 
+\bibitem[{Asian Development Bank}, 2016]{adb2016fuel_smuggling}
+{Asian Development Bank} (2016).
+\newblock Fuel smuggling: 12 things to know.
+\newblock
+  \url{https://www.adb.org/news/features/fuel-smuggling-12-things-know}.
+\newblock Accessed: 2026-06-21.
+
 \bibitem[Barbado and Corcho, 2022]{barbado2022interpretable}
 Barbado, A. and Corcho, {\'O}. (2022).
 \newblock Interpretable machine learning models for predicting and explaining
@@ -151,6 +158,12 @@ Beteto, A. e.~a. (2022).
 \newblock Lora module range: Key factors affecting lora communication.
 \newblock \url{https://www.cdebyte.com/news/622}.
 \newblock Accessed: 2026-06-19.
+
+\bibitem[Cherdo et~al., 2023]{cherdo2023can_anomaly}
+Cherdo, Y., Miramond, B., Pegatoquet, A., and Vallauri, A. (2023).
+\newblock Unsupervised anomaly detection for cars can sensors time series using
+  small recurrent and convolutional neural networks.
+\newblock {\em Sensors}, 23(11):5013--5013.
 
 \bibitem[Crisgar, 2021]{crisgar2021gps}
 Crisgar, P. V. e.~a. (2021).
@@ -179,6 +192,18 @@ Farzana, F. e.~a. (2020).
 \newblock In {\em 2020 Emerging Technology in Computing, Communication and
   Electronics (ETCCE)}, pages 1--6.
 
+\bibitem[{Fleet Complete}, 2026]{fleetcomplete2026fuel}
+{Fleet Complete} (2026).
+\newblock Fleet management and fuel reporting.
+\newblock \url{https://www.fleetcomplete.com/}.
+\newblock Accessed: 2026-06-21.
+
+\bibitem[{Fleetio}, 2026]{fleetio2026fuel_management}
+{Fleetio} (2026).
+\newblock Fuel management system.
+\newblock \url{https://www.fleetio.com/solutions/fuel-management-software}.
+\newblock Accessed: 2026-06-08.
+
 \bibitem[Fortela, 2023]{fortela2023unsupervised}
 Fortela, D. L. B. e.~a. (2023).
 \newblock Unsupervised machine learning to detect impending anomalies in
@@ -203,11 +228,24 @@ Garcia~Vega, P. (2022).
   to vehicle monitoring.
 \newblock Master's thesis, Polytechnique Montréal.
 
+\bibitem[{Geotab}, 2024]{geotab2024fuel_management}
+{Geotab} (2024).
+\newblock Fleet fuel management systems.
+\newblock
+  \url{https://www.geotab.com/fleet-management-solutions/fleet-fuel-management/}.
+\newblock Accessed: 2026-06-09.
+
 \bibitem[{GSMA}, 2026]{gsma2026coverage}
 {GSMA} (2026).
 \newblock Network coverage maps.
 \newblock \url{https://www.gsma.com/coverage/#433}.
 \newblock Accessed: 2026-06-19.
+
+\bibitem[Hirth et~al., 2025]{hirth2025truck_survey}
+Hirth, M., Meier, D., Gehring, O., Jazdi, N., and Kasneci, E. (2025).
+\newblock Unsupervised deep learning for anomaly detection in automotive
+  trucks: A survey.
+\newblock {\em ACM Computing Surveys}, 58(5).
 
 \bibitem[Husak, ]{husak_nodate_intelligent}
 Husak, V. e.~a.
@@ -219,6 +257,20 @@ Husak, V. e.~a.
 \newblock Ieee standards association.
 \newblock \url{https://standards.ieee.org/ieee/1451.0/11001/}.
 \newblock Accessed: 2025-11-27.
+
+\bibitem[{Japan International Cooperation Agency}, 2022]{jica2022metro_traffic}
+{Japan International Cooperation Agency} (2022).
+\newblock The project for comprehensive traffic management plan for metro
+  manila final report main text.
+\newblock Technical report, Japan International Cooperation Agency.
+
+\bibitem[{Japan International Cooperation Agency}, 2025]{jica2025mmda_its}
+{Japan International Cooperation Agency} (2025).
+\newblock Jica and mmda commence a project on intelligent transportation system
+  in line with the comprehensive traffic management plan for metro manila.
+\newblock
+  \url{https://www.jica.go.jp/english/overseas/philippine/information/press/2024/rdsigningctmp02212025.html}.
+\newblock Accessed: 2026-06-21.
 
 \bibitem[Jose, 2015]{jose2015intelligent}
 Jose, D. e.~a. (2015).
@@ -257,6 +309,24 @@ Lee, J.~S., Su, Y.~W., and Shen, C.~C. (2007).
   and wi-fi.
 \newblock In {\em Proceedings of the 33rd Annual Conference of the IEEE
   Industrial Electronics Society}, China.
+
+\bibitem[Liu et~al., 2008]{liu2008isolation_forest}
+Liu, F.~T., Ting, K.~M., and Zhou, Z.-H. (2008).
+\newblock Isolation forest.
+\newblock In {\em 2008 Eighth IEEE International Conference on Data Mining},
+  pages 413--422, Pisa, Italy.
+
+\bibitem[Llanto, 2017]{llanto2017truck_ban}
+Llanto, G. (2017).
+\newblock Cargo truck ban: Bad timing, faulty analysis, policy failure.
+\newblock Technical report, Philippine Institute for Development Studies.
+
+\bibitem[Lu et~al., 2022]{lu2022matrix_profile_xxiv}
+Lu, Y., Wu, R., Mueen, A., Zuluaga, M.~A., and Keogh, E. (2022).
+\newblock Matrix profile xxiv: Scaling time series anomaly detection to
+  trillions of datapoints and ultra-fast arriving data streams.
+\newblock In {\em Proceedings of the 28th ACM SIGKDD Conference on Knowledge
+  Discovery and Data Mining}.
 
 \bibitem[M, 2021]{m2021digital}
 M, S. e.~a. (2021).
@@ -327,6 +397,13 @@ Nada, Y.~A. (2017).
   \url{https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss}.
 \newblock Accessed: 2025-11-27.
 
+\bibitem[{Navixy}, 2026]{navixy2026fuel_sensors}
+{Navixy} (2026).
+\newblock Sensors setup and configuration.
+\newblock
+  \url{https://www.navixy.com/docs/expert-center/vehicle-telematics-technology/fuel-management/fuel-control-in-navixy/sensors-setup-and-configuration}.
+\newblock Accessed: 2026-06-08.
+
 \bibitem[Obikoya, 2014]{obikoya2014design}
 Obikoya, G.~D. (2014).
 \newblock Design, construction, and implementation of a remote fuel-level
@@ -345,6 +422,18 @@ Obikoya, G.~D. (2014).
   2016]{orange2016lora_guide}
 {Orange Connected Objects \& Partnerships} (2016).
 \newblock {\em LoRa Device Developer Guide}.
+
+\bibitem[Patalinghug et~al., 2015a]{patalinghug2015port_congestion}
+Patalinghug, E. et~al. (2015a).
+\newblock Port congestion and underutilization in the greater capital region:
+  Unpacking the issues.
+\newblock Technical report, Philippine Institute for Development Studies.
+
+\bibitem[Patalinghug et~al., 2015b]{patalinghug2015logistics}
+Patalinghug, E. et~al. (2015b).
+\newblock A system-wide study of the logistics industry in the greater capital
+  region.
+\newblock Technical report, Philippine Institute for Development Studies.
 
 \bibitem[Patil and Patil, 2024]{patil2024iot}
 Patil, A. and Patil, S. (2024).
@@ -383,6 +472,13 @@ Samainstage (2025).
 \newblock
   \url{https://standards.ieee.org/beyond-standards/the-evolution-of-wi-fi-technology-and-standards/}.
 \newblock Accessed: 2025-11-27.
+
+\bibitem[{Samsara}, 2026]{samsara2026fuel_management}
+{Samsara} (2026).
+\newblock Fleet fuel management.
+\newblock
+  \url{https://www.samsara.com/products/telematics/fleet-fuel-management-system}.
+\newblock Accessed: 2026-06-09.
 
 \bibitem[Semenov et~al., 2024]{semenov2024concept}
 Semenov, I., Świderski, A., Borucka, A., and Guzanek, P. (2024).
@@ -444,5 +540,24 @@ Weiwei, Q., Longbin, L., Xingyu, W., Yulong, L., and Weiqian, D. (2024).
   of dump trucks in smart mines.
 \newblock In {\em 2024 IEEE 22nd International Conference on Industrial
   Informatics (INDIN)}, pages 1--6.
+
+\bibitem[{Wialon}, 2026]{wialon2026fuel_control}
+{Wialon} (2026).
+\newblock Fuel control.
+\newblock \url{https://wialon.com/en/fuel-control}.
+\newblock Accessed: 2026-06-21.
+
+\bibitem[Yeh et~al., 2016]{yeh2016matrix_profile}
+Yeh, C.-C.~M. et~al. (2016).
+\newblock Matrix profile i: All pairs similarity joins for time series: A
+  unifying view that includes motifs, discords and shapelets.
+\newblock In {\em 2016 IEEE 16th International Conference on Data Mining
+  (ICDM)}, pages 1317--1322, Barcelona, Spain.
+
+\bibitem[Yeh et~al., 2024]{yeh2024matrix_profile_multidim}
+Yeh, C.-C.~M. et~al. (2024).
+\newblock Matrix profile for anomaly detection on multidimensional time series.
+\newblock In {\em 2024 IEEE International Conference on Data Mining (ICDM)},
+  pages 911--916, Abu Dhabi, United Arab Emirates.
 
 \end{thebibliography}

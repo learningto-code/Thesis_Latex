@@ -120,18 +120,29 @@ Aquize et al. \cite{aquize2017self} applied Self-Organizing Maps (SOM) to detect
 Garcia Vega \cite{garcia2022development} emphasized time series anomaly detection for vehicle monitoring, developing an iterative approach to detect unusual driving patterns through preprocessing, subsequence segmentation, scoring, clustering, and expert validation. Applied in an industrial context, it identified over 120 validated anomalies, helping diagnose mechanical failures or unsafe driving behavior. The study highlights the importance of visual interpretability tools and recommends future improvements via real-time data processing.
 
 \subsection{Machine Learning Applications}
+\normalsize
 
 Recent advances in machine learning have been integrated into vehicle systems to improve fuel efficiency, detect anomalies, and enhance operational transparency. In fuel monitoring and anomaly detection, machine learning methodologies extract actionable insights from complex, high-dimensional vehicle data. Fortela et al. \cite{fortela2023unsupervised} applied unsupervised machine learning algorithms (Principal Components Analysis, K-Means Clustering, Self-Organizing Maps) to detect anomalies in fuel economy and emission data from light-duty vehicles (2015–2023). These methods revealed clusters where CO emissions were positively linked to fuel economy, contrary to expected patterns, highlighting irregularities caused by specific fuel test procedures. Barbado and Corcho \cite{barbado2022interpretable} combined unsupervised anomaly detection with domain knowledge and interpretable machine learning (XAI) to explain potential causes of fuel consumption anomalies. Their models demonstrated up to 88\% potential fuel savings on larger datasets and across various user roles.
-\begin{table}[htbp]
-\centering
+
+More recent work sharpens the methodological basis for unsupervised, on-vehicle detection. Cherdo et al. \cite{cherdo2023can_anomaly} applied small recurrent and convolutional neural networks to automotive CAN sensor time series, demonstrating that bus data of the kind exposed through an OBD-II interface is amenable to unsupervised anomaly detection, although their models still require gradient-based training. Surveying the domain, Hirth et al. \cite{hirth2025truck_survey} formalize anomaly detection in trucks as identifying deviations across multivariate signals at each time step of a stream, and observe that deep architectures impose retraining and computational burdens that complicate continuous deployment. These observations motivate the two non-parametric methods adopted in this study: Isolation Forest \cite{liu2008isolation_forest}, which isolates anomalous individual observations without modeling a distribution of normal behavior, and the Matrix Profile \cite{yeh2016matrix_profile}, which detects anomalous subsequences and has been extended to live data streams \cite{lu2022matrix_profile_xxiv} and to multiple sensor channels \cite{yeh2024matrix_profile_multidim}. The mathematical formulation of both methods is presented in Chapter~\ref{ch:theorycon}.
+
+\FloatBarrier
+{\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{longtable}{|p{0.17\textwidth}|p{0.18\textwidth}|p{0.20\textwidth}|p{0.16\textwidth}|p{0.20\textwidth}|}
 \caption{Summary of Existing Works}
-\label{tab:existingworks}
-\renewcommand{\arraystretch}{1.2} % Adjust row height for readability
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|p{3cm}|p{3cm}|p{4cm}|p{3cm}|p{4cm}|}
+\label{tab:existingworks} \\
 \hline
 \textbf{Study} & \textbf{Technology Used} & \textbf{Key Features} & \textbf{Strengths} & \textbf{Limitations} \\
 \hline
+\endfirsthead
+
+\hline
+\textbf{Study} & \textbf{Technology Used} & \textbf{Key Features} & \textbf{Strengths} & \textbf{Limitations} \\
+\hline
+\endhead
+
 Tatababu et al. (2024) \cite{tatababu2024smart} & Ultrasonic/Capacitive sensors, GSM, GPS, Smartphone/Web interface & Theft detection, fuel level alert, real-time remote access & Accurate for remote generator monitoring, GPS-based tracking & Findings specific to the tested generator systems and environments \\
 \hline
 Joshi et al. (2024) \cite{joshi2024intelligent} & IoT, GPS, RFID, Cloud Computing & Real-time vehicle/asset tracking, data analytics, cloud-based monitoring & High tracking accuracy, improved logistics efficiency, responsive alert system & Limited by hardware and logistics test case set \\
@@ -146,9 +157,55 @@ Barbado \& Corcho (2022) \cite{barbado2022interpretable} & Unsupervised Anomaly 
 \hline
 Aquize et al. (2017) \cite{aquize2017self} & Self-Organizing Maps (SOM) & Detects fraudulent fuel usage based on RFID data patterns & 80\% accuracy applied to real socio-economic problem & Used only simple SOM model; accuracy can improve with more context variables \\
 \hline
+Liu et al. (2008) \cite{liu2008isolation_forest} & Isolation Forest & Ensemble of isolation trees that identify anomalies through random partitioning & Non-parametric anomaly detection with linear-time complexity and low memory requirements & No labeled data required; superior AUC compared with ORCA and LOF; computationally efficient \\
+\hline
+Yeh et al. (2016) \cite{yeh2016matrix_profile} & Matrix Profile (STAMP) & Z-normalized nearest-neighbor similarity profile for motif and discord discovery & Exact subsequence anomaly detection with minimal parameter tuning & Deterministic, interpretable, and near parameter-free \\
+\hline
+Lu et al. (2022) \cite{lu2022matrix_profile_xxiv} & DAMP Streaming Matrix Profile & Real-time Matrix Profile computation for high-volume streaming data & Detects discords in continuously arriving data streams at very large scales & Suitable for online and real-time deployment \\
+\hline
+Yeh et al. (2024) \cite{yeh2024matrix_profile_multidim} & Multidimensional Matrix Profile & Extension of Matrix Profile for multivariate time-series anomaly detection & Simultaneously analyzes multiple sensor channels & Competitive performance across numerous benchmark datasets and highly interpretable results \\
+\hline
+Hirth et al. (2025) \cite{hirth2025truck_survey} & Deep Learning-Based Truck Anomaly Detection (Survey) & Comprehensive review and taxonomy of anomaly detection methods for trucks & Defines anomaly detection in multivariate truck telemetry streams & Provides truck-specific insights and identifies current research directions \\
+\hline
+Cherdo et al. (2023) \cite{cherdo2023can_anomaly} & Small RNN and CNN Models & Unsupervised anomaly detection using automotive CAN-bus sensor data & Demonstrates feasibility of on-vehicle anomaly detection under limited hardware resources & Effective for OBD-II/CAN sensor environments and embedded deployment \\
+\hline
+\end{longtable}
+}
+\normalsize
+
+\clearpage  % Forces everything before moving on
+
+\section{Comparison of Commercial Fleet Management Systems}
+
+Beyond the academic literature, six widely deployed commercial fleet management platforms were examined to establish the detection methodologies available to operators in practice: Geotab, Samsara, Fleetio, Wialon, Fleet Complete, and Navixy. Each platform's own product documentation was used as primary evidence of its capabilities. Despite mature telematics infrastructure, fuel-loss detection across these systems reduces to fixed or manually configured rules. Samsara's documentation describes its fuel theft detection as a configurable alert on any sudden fuel drop of five percent or more \cite{samsara2026fuel_management}. Navixy requires operators to configure rate-of-change drain thresholds per sensor and can be set to ignore drains while a vehicle is moving \cite{navixy2026fuel_sensors}. Geotab and Fleetio approach the problem from the fuel-card transaction side, flagging exceptions such as purchases exceeding tank capacity or fueling locations inconsistent with vehicle position \cite{geotab2024fuel_management,fleetio2026fuel_management}. Wialon detects drain events from fuel-level sensor data and commonly relies on operator review for verification \cite{wialon2026fuel_control}, while Fleet Complete's public documentation centers on fuel usage reporting without specifying an adaptive detection method \cite{fleetcomplete2026fuel}. Across all six, no platform learns a vehicle's normal consumption behavior, adapts to operating context, or is designed specifically for Philippine fleet conditions.
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison of Commercial Fleet Management Systems}
+\label{tab:commercial_fleet_management_systems}
+\renewcommand{\arraystretch}{1.2}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{2.2cm}|p{3.1cm}|p{3.1cm}|p{2cm}|p{3.4cm}|p{3.6cm}|}
+\hline
+\textbf{System} & \textbf{Data Sources} & \textbf{Fuel Monitoring Method} & \textbf{ML for Fuel Anomalies?} & \textbf{Detection Methodology} & \textbf{Limitations} \\
+\hline
+Geotab \cite{geotab2024fuel_management} & OBD/telematics device, fuel cards, GPS & Fuel-up records and engine data reporting & No (rule checks) & Capacity mismatch, purchase greater than capacity, and location discrepancy & Transaction-rule logic; no learned consumption behavior \\
+\hline
+Samsara \cite{samsara2026fuel_management} & Telematics gateway, fuel sensor/OBD, fuel cards, GPS & Real-time fuel level and usage reports & No (threshold) & Configurable sudden-drop alert ($\geq$5\%) & Static threshold; blind to gradual loss; one rule for all conditions \\
+\hline
+Fleetio \cite{fleetio2026fuel_management} & Fuel card transactions and telematics integrations & Transaction-based fuel management & No & Exception alerts for location mismatch and volume greater than tank capacity & Sees only fill-up events; blind between refuels \\
+\hline
+Wialon \cite{wialon2026fuel_control} & Fuel level sensors, GPS trackers, optional cameras & Sensor-based fuel charts and drain/refill detection & No & Sensor-threshold drain events with human/video verification & Threshold-based and manually reviewed; reactive \\
+\hline
+Fleet Complete \cite{fleetcomplete2026fuel} & Telematics device, GPS, vehicle data, fuel reports & Fuel usage and fleet reporting & No specified adaptive model & Reporting-based fuel monitoring and exception review & Public documentation does not specify adaptive anomaly detection \\
+\hline
+Navixy \cite{navixy2026fuel_sensors} & Fuel level sensors, OBD/CAN, GPS & Drain/refill event detection from sensor data & No & Per-sensor rate-of-change drain thresholds; option to ignore in-motion drains & Manual tuning; in-motion exclusion can hide moving theft or leaks \\
+\hline
 \end{tabular}%
 }
 \end{table}
+
+\clearpage  % Forces everything before moving on
 
 \section{Lacking in the Approaches}
 
@@ -156,15 +213,22 @@ While existing technologies in vehicle tracking, fuel sensing, and anomaly detec
 
 Ultimately, there is no prior system that provides a full solution that brings together a cloud-connected solution for real-time fuel monitoring with integration of GPS tracking and anomaly detection. Further, it completely lacks features such as automatic rest alerts and predictive maintenance reminders, which are necessary for safe, efficient, and compliant operations. Such shortcomings create an opportunity for a more integrated, intelligent, and real-time solution, and this is what the thesis proposes to address.
 
-\begin{table}[htbp]
-\centering
+\FloatBarrier
+{\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{longtable}{|p{0.20\textwidth}|p{0.36\textwidth}|p{0.36\textwidth}|}
 \caption{Identified Gaps, Limitations, and Proposed Solutions}
-\label{tab:identifiedgaps}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|p{3.5cm}|p{5cm}|p{7cm}|}
+\label{tab:identifiedgaps} \\
 \hline
 \textbf{Gap Identified} & \textbf{Limitations} & \textbf{Proposed Solution} \\
 \hline
+\endfirsthead
+
+\hline
+\textbf{Gap Identified} & \textbf{Limitations} & \textbf{Proposed Solution} \\
+\hline
+\endhead
 
 Area of precision & Existing models lack context-awareness and show lower precision. Models presented in the study of Barbado \& Corcho \cite{barbado2022interpretable} performed up to 80\% of anomalous instances explained. & (SO4) To design and evaluate a context-aware fuel usage deviation modeling approach using non-parametric unsupervised machine learning models, like Matrix Profile and Isolation Forest, achieving $\geq$90\% precision and $\leq$10\% false positives in identifying anomalous fuel consumption patterns within controlled environments. \\
 \hline
@@ -172,10 +236,23 @@ Area of precision & Existing models lack context-awareness and show lower precis
 Absence of a comprehensive system integrating fuel anomaly detection with GPS-based tracking, and predictive maintenance and alerts & Previous works, including those by Joshi et al. \cite{joshi2024intelligent} and Nada \cite{nada2017design}, focus on real-time tracking using GPS/GSM, but lack integration with anomaly detection methods for analyzing fuel consumption patterns or predicting vehicle maintenance issues. & (SO3, SO4, SO5) To capture and log GPS location data via an embedded module, correlating route information with fuel and time data for behavior tracking; design and evaluate a context-aware fuel usage deviation modeling approach using non-parametric unsupervised machine learning models; develop and integrate rest alerts and maintenance reminders into a cloud-based dashboard. \\
 \hline
 
-\end{tabular}%
-}
-\end{table}
+No Philippine transportation context & No reviewed study or platform models local conditions: Metro Manila congestion, estimated at approximately PHP 3.5 billion per day \cite{jica2025mmda_its}; Port of Manila utilization of about 94\% \cite{patalinghug2015port_congestion}; the 2014 Manila truck ban, estimated to have caused about PHP 43.85 billion in losses \cite{llanto2017truck_ban}; and fuel fraud costing up to USD 750 million per year \cite{adb2016fuel_smuggling}. & (GO, SO4) Collect and train on operational data from the partner fleet, Hino Paranaque Subic GS Auto Inc., so congestion-shaped idling and consumption are learned as baseline behavior. \\
+\hline
 
+One detection rule for all trucks & Single fleet-wide settings \cite{samsara2026fuel_management} or manual per-sensor tuning \cite{navixy2026fuel_sensors}; prior studies were validated on one vehicle class, generators \cite{tatababu2024smart}, or motorcycles \cite{rs2024fuel}. & (SO4) Learn per-vehicle baselines that update from each truck's own operating history, removing dependence on a shared manual threshold. \\
+\hline
+
+Detection of sudden drops only & Threshold and transaction logic may miss slow siphoning and gradual leaks \cite{samsara2026fuel_management,fleetio2026fuel_management}; Navixy can ignore in-motion drains \cite{navixy2026fuel_sensors}. & (SO4) Apply the Matrix Profile for anomalous-subsequence or discord detection of gradual loss, paired with Isolation Forest for sudden point anomalies. \\
+\hline
+
+No real-time analytics or live alerts & Machine learning studies were validated offline \cite{fortela2023unsupervised,barbado2022interpretable}; deep models burden streams \cite{hirth2025truck_survey,cherdo2023can_anomaly}; and Wialon relies on human review \cite{wialon2026fuel_control}. & (SO2, SO5) Deploy a cloud pipeline scoring live OBD-II/GPS streams with Isolation Forest and a streaming Matrix Profile \cite{lu2022matrix_profile_xxiv}, issuing live alerts to the dashboard, HMI, and mobile application. \\
+\hline
+
+\end{longtable}
+}
+\normalsize
+
+\clearpage  % Forces everything before moving on
 
 \section{Summary}
 With this chapter, it was discovered that there have been various studies on vehicle tracking, fuel sensing, and anomaly detection. The PRISMA diagram shows the systematic approach that was used in the identification of the studies, out of which the 41 initial records were narrowed down to 28 after excluding the duplicates, outdated/irrelevant, and not retrieved records. Moreover, the existing studies presented that though a lot has been done to develop individual systems for fuel level monitoring, GPS tracking, and anomaly detection, most of these works are either narrowly focused or operate in isolation. Many rely on basic sensor integrations without advanced analytics, or implement machine learning models without connecting them to real-time, in-vehicle data streams.
