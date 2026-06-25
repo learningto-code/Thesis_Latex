@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.6)  25 JUN 2026 01:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.6)  25 JUN 2026 11:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1859,7 +1859,7 @@ Package hyperref Info: Link coloring ON on input line 146.
 
 \c@lstlisting=\count574
  (format/pre_toc.ltx (format/titlep.ltx
-<figure/../format/DLSU_Logo.png, id=330, 158.994pt x 158.994pt>
+<figure/../format/DLSU_Logo.png, id=342, 158.994pt x 158.994pt>
 File: figure/../format/DLSU_Logo.png Graphic file (type png)
 <use figure/../format/DLSU_Logo.png>
 Package pdftex.def Info: figure/../format/DLSU_Logo.png  used on input line 7.
@@ -1881,7 +1881,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./figure/../forma
 t/DLSU_Logo.png>]) (format/defense.ltx) (format/approval.ltx) (format/aaa.ltx (
 abstract.tex)
-<figure/../format/dlsu_thesis_paper_letterhead.pdf, id=340, 614.295pt x 794.97p
+<figure/../format/dlsu_thesis_paper_letterhead.pdf, id=352, 614.295pt x 794.97p
 t>
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
@@ -2044,7 +2044,7 @@ d on input line 11.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [3]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-7.
+9.
 
 (C:\Users\Eliza\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
@@ -2064,718 +2064,717 @@ Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 33.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [5]
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
 []\OT1/ptm/b/n/9 (+20) Literature Ti-tle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
 []\OT1/ptm/b/n/9 (+20) Literature Ti-tle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
 []\OT1/ptm/m/n/9 (+20) Intelligent IoT-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
 \OT1/ptm/m/n/9 (+20) Enabled Real-Time
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
 \OT1/ptm/m/n/9 (+20) Mon-i-tor-ing Sys-tem
  []
 
 
-Underfull \hbox (badness 5105) in paragraph at lines 56--56
+Underfull \hbox (badness 5105) in paragraph at lines 58--58
 \OT1/ptm/m/n/9 (+20) for Lo-gis-tics Man-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--57
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
 []\OT1/ptm/m/n/9 (+20) Logistics sys-tems
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--57
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
 \OT1/ptm/m/n/9 (+20) lack in-te-gra-tion and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--57
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
 \OT1/ptm/m/n/9 (+20) real-time mon-i-tor-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--58
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
 []\OT1/ptm/m/n/9 (+20) Hybrid IoT-based
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--58
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
 \OT1/ptm/m/n/9 (+20) com-bin-ing sen-sors,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--58
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
 \OT1/ptm/m/n/9 (+20) GPS, RFID, and
  []
 
 
-Underfull \hbox (badness 3942) in paragraph at lines 58--58
+Underfull \hbox (badness 3942) in paragraph at lines 60--60
 \OT1/ptm/m/n/9 (+20) cloud an-a-lyt-ics for
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--59
+Underfull \hbox (badness 10000) in paragraph at lines 61--61
 \OT1/ptm/m/n/9 (+20) of as-sets,
  []
 
 
-Underfull \hbox (badness 1325) in paragraph at lines 59--59
+Underfull \hbox (badness 1325) in paragraph at lines 61--61
 \OT1/ptm/m/n/9 (+20) ve-hi-cles, and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 []\OT1/ptm/m/n/9 (+20) Constrained by
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 \OT1/ptm/m/n/9 (+20) lacks ad-vanced
  []
 
 
-Underfull \hbox (badness 3158) in paragraph at lines 60--61
+Underfull \hbox (badness 3158) in paragraph at lines 62--63
 \OT1/ptm/m/n/9 (+20) AI for anomaly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--63
+Underfull \hbox (badness 10000) in paragraph at lines 65--65
 \OT1/ptm/m/n/9 (+20) Ve-hi-cle Mon-i-tor-ing
  []
 
 
-Underfull \hbox (badness 4886) in paragraph at lines 65--65
+Underfull \hbox (badness 4886) in paragraph at lines 67--67
 \OT1/ptm/m/n/9 (+20) with cloud stor-age
  []
 
 
-Underfull \hbox (badness 2343) in paragraph at lines 66--66
+Underfull \hbox (badness 2343) in paragraph at lines 68--68
 []\OT1/ptm/m/n/9 (+20) Enabled real-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--66
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
 \OT1/ptm/m/n/9 (+20) of lo-ca-tion,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--66
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
 \OT1/ptm/m/n/9 (+20) speed, and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--66
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
 \OT1/ptm/m/n/9 (+20) pas-sen-ger
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 []\OT1/ptm/m/n/9 (+20) Limited to in-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 \OT1/ptm/m/n/9 (+20) sti-tu-tional use;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 \OT1/ptm/m/n/9 (+20) lacks anomaly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 \OT1/ptm/m/n/9 (+20) de-tec-tion and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 \OT1/ptm/m/n/9 (+20) com-mer-cial
  []
 
 
-Underfull \hbox (badness 5548) in paragraph at lines 70--70
+Underfull \hbox (badness 5548) in paragraph at lines 72--72
 []\OT1/ptm/m/n/9 (+20) GPS-Based Ve-hi-cle
  []
 
 
-Underfull \hbox (badness 1810) in paragraph at lines 70--70
+Underfull \hbox (badness 1810) in paragraph at lines 72--72
 \OT1/ptm/m/n/9 (+20) Track-ing and Theft
  []
 
 
-Underfull \hbox (badness 7869) in paragraph at lines 70--70
+Underfull \hbox (badness 7869) in paragraph at lines 72--72
 \OT1/ptm/m/n/9 (+20) ing Google Cloud
  []
 
 
-Underfull \hbox (badness 1838) in paragraph at lines 71--71
+Underfull \hbox (badness 1838) in paragraph at lines 73--73
 []\OT1/ptm/m/n/9 (+20) Ineffective ve-hi-cle re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--72
+Underfull \hbox (badness 10000) in paragraph at lines 74--74
 []\OT1/ptm/m/n/9 (+20) Implemented GPS-
  []
 
 
-Underfull \hbox (badness 5592) in paragraph at lines 72--72
+Underfull \hbox (badness 5592) in paragraph at lines 74--74
 \OT1/ptm/m/n/9 (+20) Google Cloud IoT
  []
 
 
-Underfull \hbox (badness 2302) in paragraph at lines 72--72
+Underfull \hbox (badness 2302) in paragraph at lines 74--74
 \OT1/ptm/m/n/9 (+20) Core, MQTT, Fire-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--72
+Underfull \hbox (badness 10000) in paragraph at lines 74--74
 \OT1/ptm/m/n/9 (+20) base, and PWA
  []
 
 
-Underfull \hbox (badness 2343) in paragraph at lines 73--73
+Underfull \hbox (badness 2343) in paragraph at lines 75--75
 []\OT1/ptm/m/n/9 (+20) Enabled real-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--73
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
 \OT1/ptm/m/n/9 (+20) time ve-hi-cle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--73
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
 \OT1/ptm/m/n/9 (+20) de-tec-tion,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--73
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
 \OT1/ptm/m/n/9 (+20) and re-mote
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 \OT1/ptm/m/n/9 (+20) adap-ta-tion for
  []
 
 
-Underfull \hbox (badness 6893) in paragraph at lines 77--77
+Underfull \hbox (badness 6893) in paragraph at lines 79--79
 []\OT1/ptm/m/n/9 (+20) Fuel Quan-tity and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--77
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
 \OT1/ptm/m/n/9 (+20) Au-to-mo-biles Us-ing
  []
 
 
-Underfull \hbox (badness 3557) in paragraph at lines 79--79
+Underfull \hbox (badness 3557) in paragraph at lines 81--81
 \OT1/ptm/m/n/9 (+20) gauges and qual-ity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
 []\OT1/ptm/m/n/9 (+20) Achieved
  []
 
 
-Underfull \hbox (badness 1552) in paragraph at lines 80--80
+Underfull \hbox (badness 1552) in paragraph at lines 82--82
 \OT1/ptm/m/n/9 (+20) ac-cu-rate real-
  []
 
 
-Underfull \hbox (badness 1292) in paragraph at lines 80--80
+Underfull \hbox (badness 1292) in paragraph at lines 82--82
 \OT1/ptm/m/n/9 (+20) time quan-tity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
 \OT1/ptm/m/n/9 (+20) and qual-ity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--84
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
 []\OT1/ptm/m/n/9 (+20) Fuel Con-sump-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--84
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
 \OT1/ptm/m/n/9 (+20) Clas-si-fi-ca-tion for
  []
 
 
-Underfull \hbox (badness 2717) in paragraph at lines 84--84
+Underfull \hbox (badness 2717) in paragraph at lines 86--86
 \OT1/ptm/m/n/9 (+20) [[][]Mum-cuoglu et al.,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--85
+Underfull \hbox (badness 10000) in paragraph at lines 87--87
 []\OT1/ptm/m/n/9 (+20) Identifying ab-nor-mal
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 85--85
+Underfull \hbox (badness 1331) in paragraph at lines 87--87
 \OT1/ptm/m/n/9 (+20) fuel con-sump-tion due
  []
 
 
-Underfull \hbox (badness 1990) in paragraph at lines 85--85
+Underfull \hbox (badness 1990) in paragraph at lines 87--87
 \OT1/ptm/m/n/9 (+20) to driver be-hav-ior or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--86
+Underfull \hbox (badness 10000) in paragraph at lines 88--88
 []\OT1/ptm/m/n/9 (+20) Machine learn-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--86
+Underfull \hbox (badness 10000) in paragraph at lines 88--88
 \OT1/ptm/m/n/9 (+20) con-sid-er-ing weight
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--87
+Underfull \hbox (badness 10000) in paragraph at lines 89--89
 []\OT1/ptm/m/n/9 (+20) 92.2% ac-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--87
+Underfull \hbox (badness 10000) in paragraph at lines 89--89
 \OT1/ptm/m/n/9 (+20) cu-racy; F1
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--87
+Underfull \hbox (badness 10000) in paragraph at lines 89--89
 \OT1/ptm/m/n/9 (+20) score 0.78
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--87
+Underfull \hbox (badness 10000) in paragraph at lines 89--89
 \OT1/ptm/m/n/9 (+20) for out-lier
  []
 
 
-Underfull \hbox (badness 5726) in paragraph at lines 91--91
+Underfull \hbox (badness 5726) in paragraph at lines 93--93
 \OT1/ptm/m/n/9 (+20) & Theft De-tec-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--91
+Underfull \hbox (badness 10000) in paragraph at lines 93--93
 \OT1/ptm/m/n/9 (+20) Sys-tem [[][]Ko-mal
  []
 
 
-Underfull \hbox (badness 2582) in paragraph at lines 91--91
+Underfull \hbox (badness 2582) in paragraph at lines 93--93
 \OT1/ptm/m/n/9 (+20) Shoukat Ali et al.,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--93
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
 []\OT1/ptm/m/n/9 (+20) Fuel sen-sors, Ar-
  []
 
 
-Underfull \hbox (badness 2941) in paragraph at lines 93--93
+Underfull \hbox (badness 2941) in paragraph at lines 95--95
 \OT1/ptm/m/n/9 (+20) duino, GSM, GPS,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--93
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
 \OT1/ptm/m/n/9 (+20) Lab-View for data
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
 []\OT1/ptm/m/n/9 (+20) Real-time
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
 \OT1/ptm/m/n/9 (+20) mon-i-tor-ing,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
 \OT1/ptm/m/n/9 (+20) alerts for
  []
 
 
-Underfull \hbox (badness 2894) in paragraph at lines 95--96
+Underfull \hbox (badness 2894) in paragraph at lines 97--98
 []\OT1/ptm/m/n/9 (+20) Tested on ba-sic
  []
 
 
-Underfull \hbox (badness 3568) in paragraph at lines 95--96
+Underfull \hbox (badness 3568) in paragraph at lines 97--98
 \OT1/ptm/m/n/9 (+20) hard-ware; lacks
  []
 
 
-Underfull \hbox (badness 2073) in paragraph at lines 95--96
+Underfull \hbox (badness 2073) in paragraph at lines 97--98
 \OT1/ptm/m/n/9 (+20) ad-vanced an-a-lyt-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--98
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
 []\OT1/ptm/m/n/9 (+20) Development of
  []
 
 
-Underfull \hbox (badness 5147) in paragraph at lines 98--98
+Underfull \hbox (badness 5147) in paragraph at lines 100--100
 \OT1/ptm/m/n/9 (+20) an In-tel-li-gent Fuel
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--98
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
 \OT1/ptm/m/n/9 (+20) De-tec-tion Sys-tem
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--99
+Underfull \hbox (badness 10000) in paragraph at lines 101--101
 []\OT1/ptm/m/n/9 (+20) Fuel theft and bat-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--99
+Underfull \hbox (badness 10000) in paragraph at lines 101--101
 \OT1/ptm/m/n/9 (+20) tery anoma-lies in
  []
 
 
-Underfull \hbox (badness 1308) in paragraph at lines 100--100
+Underfull \hbox (badness 1308) in paragraph at lines 102--102
 \OT1/ptm/m/n/9 (+20) GPS, GSM, buzzer,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--101
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
 []\OT1/ptm/m/n/9 (+20) Reliable
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--101
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
 \OT1/ptm/m/n/9 (+20) mon-i-tor-ing
  []
 
 
-Underfull \hbox (badness 4254) in paragraph at lines 101--101
+Underfull \hbox (badness 4254) in paragraph at lines 103--103
 \OT1/ptm/m/n/9 (+20) and anomaly
  []
 
 
-Underfull \hbox (badness 7869) in paragraph at lines 102--103
+Underfull \hbox (badness 7869) in paragraph at lines 104--105
 []\OT1/ptm/m/n/9 (+20) Lacks ad-vanced
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
 \OT1/ptm/m/n/9 (+20) sen-sors for en-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
 \OT1/ptm/m/n/9 (+20) hanced leak
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--105
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
 []\OT1/ptm/m/n/9 (+20) Unsupervised Ma-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--105
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
 \OT1/ptm/m/n/9 (+20) chine Learn-ing to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--105
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
 \OT1/ptm/m/n/9 (+20) De-tect Im-pend-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--105
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
 \OT1/ptm/m/n/9 (+20) Emis-sions [[][]Fortela
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 106--106
+Underfull \hbox (badness 1377) in paragraph at lines 108--108
 \OT1/ptm/m/n/9 (+20) sions test-ing of light-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
+Underfull \hbox (badness 10000) in paragraph at lines 109--109
 []\OT1/ptm/m/n/9 (+20) Unsupervised ML
  []
 
 
-Underfull \hbox (badness 5490) in paragraph at lines 107--107
+Underfull \hbox (badness 5490) in paragraph at lines 109--109
 \OT1/ptm/m/n/9 (+20) meth-ods (PCA, K-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
+Underfull \hbox (badness 10000) in paragraph at lines 109--109
 \OT1/ptm/m/n/9 (+20) Means, SOM) on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
 []\OT1/ptm/m/n/9 (+20) Trend de-tec-
  []
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 108--108
+Underfull \hbox (badness 2057) in paragraph at lines 110--110
 \OT1/ptm/m/n/9 (+20) tion in large
  []
 
 
-Underfull \hbox (badness 3769) in paragraph at lines 109--110
+Underfull \hbox (badness 3769) in paragraph at lines 111--112
 \OT1/ptm/m/n/9 (+20) time op-er-a-tional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
 []\OT1/ptm/m/n/9 (+15) Ultrasonic/capacitive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
 \OT1/ptm/m/n/9 (+20) sen-sors, flow sen-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
 \OT1/ptm/m/n/9 (+20) sors, GSM, GPS,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
 \OT1/ptm/m/n/9 (+20) in-tel-li-gent theft
  []
 
 
-Underfull \hbox (badness 5939) in paragraph at lines 119--119
+Underfull \hbox (badness 5939) in paragraph at lines 121--121
 []\OT1/ptm/m/n/9 (+20) Design and Im-ple-
  []
 
 
-Underfull \hbox (badness 1668) in paragraph at lines 119--119
+Underfull \hbox (badness 1668) in paragraph at lines 121--121
 \OT1/ptm/m/n/9 (+20) ing GPS Based on
  []
 
 
-Underfull \hbox (badness 6125) in paragraph at lines 120--120
+Underfull \hbox (badness 6125) in paragraph at lines 122--122
 []\OT1/ptm/m/n/9 (+20) Inefficient GPS-based
  []
 
 
-Underfull \hbox (badness 6173) in paragraph at lines 121--121
+Underfull \hbox (badness 6173) in paragraph at lines 123--123
 \OT1/ptm/m/n/9 (+20) in-te-grated with se-
  []
 
 
-Underfull \hbox (badness 4779) in paragraph at lines 122--122
+Underfull \hbox (badness 4779) in paragraph at lines 124--124
 \OT1/ptm/m/n/9 (+20) tion track-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 []\OT1/ptm/m/n/9 (+20) Dependent on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 \OT1/ptm/m/n/9 (+20) GSM/GPS re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 \OT1/ptm/m/n/9 (+20) li-a-bil-ity; lacks
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 \OT1/ptm/m/n/9 (+20) IoT in-te-gra-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 \OT1/ptm/m/n/9 (+20) and anomaly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--128
+Underfull \hbox (badness 10000) in paragraph at lines 130--130
 []\OT1/ptm/m/n/9 (+20) Fuel sen-sors and
  []
 
 
-Underfull \hbox (badness 3735) in paragraph at lines 128--128
+Underfull \hbox (badness 3735) in paragraph at lines 130--130
 \OT1/ptm/m/n/9 (+20) GSM mod-ule with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--129
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
 []\OT1/ptm/m/n/9 (+20) Monitors
  []
 
 
-Underfull \hbox (badness 2096) in paragraph at lines 129--129
+Underfull \hbox (badness 2096) in paragraph at lines 131--131
 \OT1/ptm/m/n/9 (+20) fuel, trig-gers
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--129
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
 \OT1/ptm/m/n/9 (+20) alarms, and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--129
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
 \OT1/ptm/m/n/9 (+20) sends GPS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 []\OT1/ptm/m/n/9 (+20) Basic sen-sors;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 \OT1/ptm/m/n/9 (+20) and an-a-lyt-ics
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 \OT1/ptm/m/n/9 (+20) in com-plex
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--133
+Underfull \hbox (badness 10000) in paragraph at lines 135--135
 []\OT1/ptm/m/n/9 (+20) Interpretable Ma-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--133
+Underfull \hbox (badness 10000) in paragraph at lines 135--135
 \OT1/ptm/m/n/9 (+20) chine Learn-ing
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 133--133
+Underfull \hbox (badness 1728) in paragraph at lines 135--135
 \OT1/ptm/m/n/9 (+20) Mod-els for Ve-hi-cle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--133
+Underfull \hbox (badness 10000) in paragraph at lines 135--135
 \OT1/ptm/m/n/9 (+20) Fuel Con-sump-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--134
+Underfull \hbox (badness 10000) in paragraph at lines 136--136
 []\OT1/ptm/m/n/9 (+20) Detecting/explaining
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
 []\OT1/ptm/m/n/9 (+20) Unsupervised
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
 \OT1/ptm/m/n/9 (+20) anomaly de-tec-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
 \OT1/ptm/m/n/9 (+20) com-bined with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--136
+Underfull \hbox (badness 10000) in paragraph at lines 138--138
 []\OT1/ptm/m/n/9 (+20) Up to 80%
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--136
+Underfull \hbox (badness 10000) in paragraph at lines 138--138
 \OT1/ptm/m/n/9 (+20) anoma-lous
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--136
+Underfull \hbox (badness 10000) in paragraph at lines 138--138
 \OT1/ptm/m/n/9 (+20) in-stances
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--136
+Underfull \hbox (badness 10000) in paragraph at lines 138--138
 \OT1/ptm/m/n/9 (+20) ex-plained;
  []
 
 
-Underfull \hbox (badness 6445) in paragraph at lines 136--136
+Underfull \hbox (badness 6445) in paragraph at lines 138--138
 \OT1/ptm/m/n/9 (+20) re-duc-tion up
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 []\OT1/ptm/m/n/9 (+20) Only an-a-lyzed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 \OT1/ptm/m/n/9 (+20) rel-e-vance; not
  []
 
-ignored error: Infinite glue shrinkage found in box being split
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 140.
+d on input line 142.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [6]
+[6]
 ignored error: Infinite glue shrinkage found in box being split
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 140.
+d on input line 142.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [7]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 153.
+d on input line 155.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [8]
 ! Undefined control sequence.
 <argument> \noindent \textbfProposal 
                                      to Address the Gaps
-l.159 ...dent \textbfProposal to Address the Gaps}
+l.161 ...dent \textbfProposal to Address the Gaps}
                                                   
 ? 
 ! Undefined control sequence.
 <argument> ...name }\fi \noindent \textbfProposal 
                                                   to Address the Gaps
-l.159 ...dent \textbfProposal to Address the Gaps}
+l.161 ...dent \textbfProposal to Address the Gaps}
                                                   
 ? 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\noindent' on input line 159.
+(hyperref)                removing `\noindent' on input line 161.
 
 ! Undefined control sequence.
 <argument> ...name }\fi \noindent \textbfProposal 
                                                   to Address the Gaps}{\thep...
-l.159 ...dent \textbfProposal to Address the Gaps}
+l.161 ...dent \textbfProposal to Address the Gaps}
                                                   
 ? 
 
@@ -2785,7 +2784,7 @@ See the datagidx package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.163 ...nt components such as \gls{float sensors}
+l.165 ...nt components such as \gls{float sensors}
                                                   , GPS modules, and cloud-b...
 
 ? 
@@ -2800,14 +2799,14 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 179.
+d on input line 181.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [10]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 191.
+d on input line 193.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [11]
 \clipboard {GO}{GO: To develop and evaluate an IoT-based system for trucks, in 
@@ -2821,7 +2820,7 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 208.
+d on input line 210.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
 [12]
 \clipboard {SO1}{SO1: To measure fuel levels using digital float sensors integr
@@ -2845,7 +2844,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.218 ...patterns within controlled environments.}
+l.220 ...patterns within controlled environments.}
                                                   
 ? 
 
@@ -2856,44 +2855,44 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.218 ...patterns within controlled environments.}
+l.220 ...patterns within controlled environments.}
                                                   
 ? 
 \clipboard {SO5}{SO5: To develop and integrate hardware-based rest and maintena
 nce alert mechanisms (e.g., Start/Stop button, buzzer indicators) tied to the w
 eb dashboard using cumulative fuel and distance data.}
 
-Underfull \hbox (badness 1648) in paragraph at lines 241--241
+Underfull \hbox (badness 1648) in paragraph at lines 243--243
 \OT1/ptm/m/n/9 (+20) in col-lab-o-ra-tion with Hino
  []
 
 
-Underfull \hbox (badness 1320) in paragraph at lines 241--241
+Underfull \hbox (badness 1320) in paragraph at lines 243--243
 \OT1/ptm/m/n/9 (+20) (SGSA) that mon-i-tors real-
  []
 
 
-Underfull \hbox (badness 1708) in paragraph at lines 241--241
+Underfull \hbox (badness 1708) in paragraph at lines 243--243
 \OT1/ptm/m/n/9 (+20) schedul-ing, and fa-cil-i-tat-ing
  []
 
 
-Underfull \hbox (badness 1997) in paragraph at lines 266--266
+Underfull \hbox (badness 1997) in paragraph at lines 268--268
 \OT1/ptm/m/n/9 (+20) els us-ing dig-i-tal float sen-
  []
 
 
-Underfull \hbox (badness 3735) in paragraph at lines 275--275
+Underfull \hbox (badness 3735) in paragraph at lines 277--277
 \OT1/ptm/m/n/9 (+20) a cloud server, ac-ces-si-ble
  []
 
 
-Underfull \hbox (badness 1205) in paragraph at lines 275--275
+Underfull \hbox (badness 1205) in paragraph at lines 277--277
 \OT1/ptm/m/n/9 (+20) through a cen-tral-ized dash-
  []
 
 
-Underfull \hbox (badness 1721) in paragraph at lines 285--285
+Underfull \hbox (badness 1721) in paragraph at lines 287--287
 []\OT1/ptm/m/n/9 (+20) SO3: To cap-ture and log
  []
 
@@ -2905,7 +2904,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.296 ...ofile or Isolation Forest), achieving ≥
+l.298 ...ofile or Isolation Forest), achieving ≥
                                                   90\% precision and ≤10\%...
 
 ? 
@@ -2917,31 +2916,31 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.296 ...est), achieving ≥90\% precision and ≤
+l.298 ...est), achieving ≥90\% precision and ≤
                                                   10\% false positives. &
 ? 
 
-Underfull \hbox (badness 1033) in paragraph at lines 296--296
+Underfull \hbox (badness 1033) in paragraph at lines 298--298
 []\OT1/ptm/m/n/9 (+20) SO4: De-sign and eval-u-ate
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 296--296
+Underfull \hbox (badness 1371) in paragraph at lines 298--298
 \OT1/ptm/m/n/9 (+20) a context-aware fuel us-age
  []
 
 
-Underfull \hbox (badness 2556) in paragraph at lines 296--296
+Underfull \hbox (badness 2556) in paragraph at lines 298--298
 \OT1/ptm/m/n/9 (+20) us-ing non-parametric un-su-
  []
 
 
-Underfull \hbox (badness 1205) in paragraph at lines 296--296
+Underfull \hbox (badness 1205) in paragraph at lines 298--298
 \OT1/ptm/m/n/9 (+20) Pro-file or Iso-la-tion For-est),
  []
 
 
-Underfull \hbox (badness 4316) in paragraph at lines 299--300
+Underfull \hbox (badness 4316) in paragraph at lines 301--302
 []\OT1/ptm/m/n/9 (+20) Implementation of Iso-la-tion For-est and/or Ma-trix Pro
 -file in
  []
@@ -2954,14 +2953,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.300 ... including precision, recall, and FPR ≤
+l.302 ... including precision, recall, and FPR ≤
                                                   10\%.
 ? 
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 317.
+d on input line 319.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
 [13]
 ignored error: Infinite glue shrinkage found in box being split
@@ -2969,21 +2968,21 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 317.
+d on input line 319.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [14]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 323.
+d on input line 325.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [15]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 334.
+d on input line 336.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
 
 [16]
@@ -2991,7 +2990,7 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 343.
+d on input line 345.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [17]
 
@@ -3002,7 +3001,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.367 ...fying anomalous fuel consumption with ≥
+l.369 ...fying anomalous fuel consumption with ≥
                                                   90\% precision and ≤10\%...
 
 ? 
@@ -3014,7 +3013,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.367 ...onsumption with ≥90\% precision and ≤
+l.369 ...onsumption with ≥90\% precision and ≤
                                                   10\% false positives in co...
 
 ? 
@@ -3022,122 +3021,123 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 369.
+d on input line 371.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
 [18]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 383.
+d on input line 385.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [19]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 404.
+d on input line 410.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [20]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 426.
+d on input line 432.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [21]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 446.
+d on input line 452.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [22]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 456.
+d on input line 460.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [23]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 462.
+d on input line 464.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [24]
-File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
-
-<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
-Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 468.
-(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [25]
 ! Undefined control sequence.
-l.482 \FloatBarrier
+l.480 \FloatBarrier
                    
 ? 
-<figure/BARJA.png, id=836, 1412.42682pt x 606.61632pt>
+<figure/BARJA.png, id=847, 1412.42682pt x 606.61632pt>
 File: figure/BARJA.png Graphic file (type png)
 <use figure/BARJA.png>
-Package pdftex.def Info: figure/BARJA.png  used on input line 486.
+Package pdftex.def Info: figure/BARJA.png  used on input line 484.
 (pdftex.def)             Requested size: 343.48299pt x 147.51617pt.
-<figure/CASTELO.png, id=837, 1412.42682pt x 643.203pt>
+<figure/CASTELO.png, id=848, 1412.42682pt x 643.203pt>
 File: figure/CASTELO.png Graphic file (type png)
 <use figure/CASTELO.png>
-Package pdftex.def Info: figure/CASTELO.png  used on input line 493.
+Package pdftex.def Info: figure/CASTELO.png  used on input line 491.
 (pdftex.def)             Requested size: 343.48299pt x 156.41328pt.
-<figure/DELAROSA.png, id=838, 1412.42682pt x 551.51044pt>
+<figure/DELAROSA.png, id=849, 1412.42682pt x 551.51044pt>
 File: figure/DELAROSA.png Graphic file (type png)
 <use figure/DELAROSA.png>
-Package pdftex.def Info: figure/DELAROSA.png  used on input line 500.
+Package pdftex.def Info: figure/DELAROSA.png  used on input line 498.
 (pdftex.def)             Requested size: 343.48299pt x 134.1156pt.
-<figure/MONTEMAYOR.png, id=839, 1412.42682pt x 624.6838pt>
+<figure/MONTEMAYOR.png, id=850, 1412.42682pt x 624.6838pt>
 File: figure/MONTEMAYOR.png Graphic file (type png)
 <use figure/MONTEMAYOR.png>
-Package pdftex.def Info: figure/MONTEMAYOR.png  used on input line 507.
+Package pdftex.def Info: figure/MONTEMAYOR.png  used on input line 505.
 (pdftex.def)             Requested size: 343.48299pt x 151.9098pt.
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 512.
+d on input line 510.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
-[26 <./figure/BARJA.png>]
+[25]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 512.
+d on input line 510.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [27 <./figure/CASTELO.png> <./figure/DELAROSA.png> <./figure/MONTEMAYOR.png>]
+ [26 <./figure/BARJA.png> <./figure/CASTELO.png> <./figure/DELAROSA.png>]
+File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
+
+<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
+Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
+d on input line 510.
+(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+
+[27 <./figure/MONTEMAYOR.png>]
 ! Undefined control sequence.
-l.516 \FloatBarrier
+l.514 \FloatBarrier
                      % Ensures the Gantt chart is placed before proceeding
 ? 
 
-Underfull \hbox (badness 6758) in paragraph at lines 524--524
+Underfull \hbox (badness 6758) in paragraph at lines 522--522
 []\OT1/ptm/b/n/9 (+20) Unit Cost
  []
 
 
-Underfull \hbox (badness 1158) in paragraph at lines 524--524
+Underfull \hbox (badness 1158) in paragraph at lines 522--522
 []\OT1/ptm/b/n/9 (+20) Total Cost
  []
 
 
-Underfull \hbox (badness 6758) in paragraph at lines 529--529
+Underfull \hbox (badness 6758) in paragraph at lines 527--527
 []\OT1/ptm/b/n/9 (+20) Unit Cost
  []
 
 
-Underfull \hbox (badness 1158) in paragraph at lines 529--529
+Underfull \hbox (badness 1158) in paragraph at lines 527--527
 []\OT1/ptm/b/n/9 (+20) Total Cost
  []
 
 
-Underfull \hbox (badness 3977) in paragraph at lines 559--559
+Underfull \hbox (badness 3977) in paragraph at lines 557--557
 []\OT1/ptm/m/n/9 (+20) Resistors (1x220 ohms,
  []
 
@@ -3145,7 +3145,7 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 584.
+d on input line 582.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
 [28
 
@@ -3176,7 +3176,7 @@ d on input line 221.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 1.
 
-<figure/prisma.png, id=865, 532.23843pt x 484.05844pt>
+<figure/prisma.png, id=880, 532.23843pt x 484.05844pt>
 File: figure/prisma.png Graphic file (type png)
 <use figure/prisma.png>
 Package pdftex.def Info: figure/prisma.png  used on input line 5.
@@ -3251,12 +3251,12 @@ Underfull \hbox (badness 1226) in paragraph at lines 89--89
 \OT1/ptm/m/n/12 (+20) closer prox-im-ity to mod-ern cell
  []
 
-<figure/GlobeCoverage.png, id=952, 337.02148pt x 485.85475pt>
+<figure/GlobeCoverage.png, id=967, 337.02148pt x 485.85475pt>
 File: figure/GlobeCoverage.png Graphic file (type png)
 <use figure/GlobeCoverage.png>
 Package pdftex.def Info: figure/GlobeCoverage.png  used on input line 94.
 (pdftex.def)             Requested size: 364.95189pt x 526.14613pt.
-<figure/SmartCoverage.png, id=953, 347.03911pt x 484.42366pt>
+<figure/SmartCoverage.png, id=968, 347.03911pt x 484.42366pt>
 File: figure/SmartCoverage.png Graphic file (type png)
 <use figure/SmartCoverage.png>
 Package pdftex.def Info: figure/SmartCoverage.png  used on input line 101.
@@ -3294,7 +3294,7 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 117.
+d on input line 118.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [42
 
@@ -3303,404 +3303,411 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 122.
+d on input line 123.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [43]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 131.
+d on input line 129.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [44]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 135.
+d on input line 136.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [45]
+File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
+
+<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
+Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
+d on input line 140.
+(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+ [46]
 ! Undefined control sequence.
-l.138 \FloatBarrier
+l.141 \FloatBarrier
                    
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--155
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
 []\OT1/ptm/m/n/9 (+20) Tatababu et al.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--155
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
 \OT1/ptm/m/n/9 (+20) (2024) [[][]Tatababu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--155
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
 []\OT1/ptm/m/n/9 (-11) Ultrasonic/Capacitive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--155
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
 \OT1/ptm/m/n/9 (+20) Smart-phone/Web
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 155--155
+Underfull \hbox (badness 5475) in paragraph at lines 158--158
 []\OT1/ptm/m/n/9 (+20) Theft de-tec-tion, fuel
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--155
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
 []\OT1/ptm/m/n/9 (+20) Accurate for re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--155
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
 \OT1/ptm/m/n/9 (+20) mote gen-er-a-tor
  []
 
 
-Underfull \hbox (badness 2521) in paragraph at lines 155--155
+Underfull \hbox (badness 2521) in paragraph at lines 158--158
 \OT1/ptm/m/n/9 (+20) mon-i-tor-ing, GPS-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--157
+Underfull \hbox (badness 10000) in paragraph at lines 160--160
 []\OT1/ptm/m/n/9 (+20) IoT, GPS, RFID,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--157
+Underfull \hbox (badness 10000) in paragraph at lines 160--160
 []\OT1/ptm/m/n/9 (+20) High track-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--157
+Underfull \hbox (badness 10000) in paragraph at lines 160--160
 \OT1/ptm/m/n/9 (+20) re-spon-sive alert
  []
 
 
-Underfull \hbox (badness 3769) in paragraph at lines 157--158
+Underfull \hbox (badness 3769) in paragraph at lines 160--161
 []\OT1/ptm/m/n/9 (+20) Limited by hard-ware
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--159
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
 []\OT1/ptm/m/n/9 (+20) Vigneshwaran et
  []
 
 
-Underfull \hbox (badness 2951) in paragraph at lines 159--159
+Underfull \hbox (badness 2951) in paragraph at lines 162--162
 \OT1/ptm/m/n/9 (+20) al. (2020) [[][]Vi-g-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--159
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
 \OT1/ptm/m/n/9 (+20) nesh-waran et al.,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--159
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
 []\OT1/ptm/m/n/9 (+20) Improves safety,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--159
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
 \OT1/ptm/m/n/9 (+20) schedul-ing, and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 []\OT1/ptm/m/n/9 (+20) Not highly scal-able;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 \OT1/ptm/m/n/9 (+20) lacks de-tailed in-te-
  []
 
 
-Underfull \hbox (badness 6741) in paragraph at lines 159--160
+Underfull \hbox (badness 6741) in paragraph at lines 162--163
 \OT1/ptm/m/n/9 (+20) gra-tion with mod-ern
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
 \OT1/ptm/m/n/9 (+20) [[][]Patil and Patil,
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 161--161
+Underfull \hbox (badness 1742) in paragraph at lines 164--164
 []\OT1/ptm/m/n/9 (+20) Tracking sys-tem with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
 []\OT1/ptm/m/n/9 (+20) Comprehensive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
 \OT1/ptm/m/n/9 (+20) ve-hi-cle se-cu-rity,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
 \OT1/ptm/m/n/9 (+20) real-time alerts,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
 \OT1/ptm/m/n/9 (+20) de-tec-tion of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--162
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 []\OT1/ptm/m/n/9 (+20) Low adapt-abil-ity to
  []
 
 
-Underfull \hbox (badness 4416) in paragraph at lines 161--162
+Underfull \hbox (badness 4416) in paragraph at lines 164--165
 \OT1/ptm/m/n/9 (+20) harsh con-di-tions like
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--163
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
 []\OT1/ptm/m/n/9 (+20) Unsupervised Ma-
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 163--163
+Underfull \hbox (badness 1337) in paragraph at lines 166--166
 []\OT1/ptm/m/n/9 (+20) Detects hid-den trends
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 163--163
+Underfull \hbox (badness 1057) in paragraph at lines 166--166
 \OT1/ptm/m/n/9 (+20) lies; an-a-lyzes cor-re-la-
  []
 
 
-Underfull \hbox (badness 2181) in paragraph at lines 163--163
+Underfull \hbox (badness 2181) in paragraph at lines 166--166
 []\OT1/ptm/m/n/9 (+20) Effectively iden-ti-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--163
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
 \OT1/ptm/m/n/9 (+20) fies non-obvious
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--163
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
 \OT1/ptm/m/n/9 (+20) pat-terns within
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--163
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
 \OT1/ptm/m/n/9 (+20) flaws in stan-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--163
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
 \OT1/ptm/m/n/9 (+20) dard-ized test-ing
  []
 
 
-Underfull \hbox (badness 3780) in paragraph at lines 163--164
+Underfull \hbox (badness 3780) in paragraph at lines 166--167
 \OT1/ptm/m/n/9 (+20) ve-hi-cle data; con-clu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--165
+Underfull \hbox (badness 10000) in paragraph at lines 168--168
 []\OT1/ptm/m/n/9 (+20) Unsupervised
  []
 
 
-Underfull \hbox (badness 2035) in paragraph at lines 165--165
+Underfull \hbox (badness 2035) in paragraph at lines 168--168
 \OT1/ptm/m/n/9 (+20) Anomaly De-tec-tion;
  []
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 165--165
+Underfull \hbox (badness 1242) in paragraph at lines 168--168
 \OT1/ptm/m/n/9 (+20) ity via XAI met-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 []\OT1/ptm/m/n/9 (+20) Performance de-pends
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 \OT1/ptm/m/n/9 (+20) heav-ily on qual-ity
  []
 
 
-Underfull \hbox (badness 2261) in paragraph at lines 165--166
+Underfull \hbox (badness 2261) in paragraph at lines 168--169
 \OT1/ptm/m/n/9 (+20) of telem-at-ics data or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--167
+Underfull \hbox (badness 10000) in paragraph at lines 170--170
 []\OT1/ptm/m/n/9 (+20) Self-Organizing
  []
 
 
-Underfull \hbox (badness 1038) in paragraph at lines 169--169
+Underfull \hbox (badness 1038) in paragraph at lines 172--172
 []\OT1/ptm/m/n/9 (+20) Ensemble of iso-la-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--169
+Underfull \hbox (badness 10000) in paragraph at lines 172--172
 \OT1/ptm/m/n/9 (+20) trees that iden-tify
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--169
+Underfull \hbox (badness 10000) in paragraph at lines 172--172
 \OT1/ptm/m/n/9 (+20) anoma-lies through
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--169
+Underfull \hbox (badness 10000) in paragraph at lines 172--172
 []\OT1/ptm/m/n/9 (+20) Non-parametric
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--169
+Underfull \hbox (badness 10000) in paragraph at lines 172--172
 \OT1/ptm/m/n/9 (+20) with linear-time
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--169
+Underfull \hbox (badness 10000) in paragraph at lines 172--172
 \OT1/ptm/m/n/9 (+20) com-plex-ity and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--169
+Underfull \hbox (badness 10000) in paragraph at lines 172--172
 \OT1/ptm/m/n/9 (+20) low mem-ory
  []
 
 
-Underfull \hbox (badness 7925) in paragraph at lines 169--170
+Underfull \hbox (badness 7925) in paragraph at lines 172--173
 []\OT1/ptm/m/n/9 (+20) No la-beled data re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--171
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
 []\OT1/ptm/m/n/9 (+20) Matrix Pro-file
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--171
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
 []\OT1/ptm/m/n/9 (+20) Z-normalized nearest-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--171
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
 \OT1/ptm/m/n/9 (+20) neighbor sim-i-lar-ity
  []
 
 
-Underfull \hbox (badness 2165) in paragraph at lines 171--171
+Underfull \hbox (badness 2165) in paragraph at lines 174--174
 \OT1/ptm/m/n/9 (+20) pro-file for mo-tif and
  []
 
 
-Underfull \hbox (badness 2027) in paragraph at lines 171--171
+Underfull \hbox (badness 2027) in paragraph at lines 174--174
 \OT1/ptm/m/n/9 (+20) with min-i-mal pa-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
 []\OT1/ptm/m/n/9 (+20) Deterministic, in-ter-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
 \OT1/ptm/m/n/9 (+20) pretable, and near
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--173
+Underfull \hbox (badness 10000) in paragraph at lines 176--176
 []\OT1/ptm/m/n/9 (+20) DAMP Stream-ing
  []
 
 
-Underfull \hbox (badness 1648) in paragraph at lines 173--173
+Underfull \hbox (badness 1648) in paragraph at lines 176--176
 \OT1/ptm/m/n/9 (+20) com-pu-ta-tion for high-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--175
+Underfull \hbox (badness 10000) in paragraph at lines 178--178
 []\OT1/ptm/m/n/9 (+20) Multidimensional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--175
+Underfull \hbox (badness 10000) in paragraph at lines 178--178
 []\OT1/ptm/m/n/9 (+20) Extension of Ma-trix
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--175
+Underfull \hbox (badness 10000) in paragraph at lines 178--178
 \OT1/ptm/m/n/9 (+20) time-series anomaly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--176
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
 []\OT1/ptm/m/n/9 (+20) Competitive per-for-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--176
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
 \OT1/ptm/m/n/9 (+20) highly in-ter-pretable
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--177
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
 []\OT1/ptm/m/n/9 (+20) Comprehensive re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--177
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
 \OT1/ptm/m/n/9 (+20) view and tax-on-omy
  []
 
 
-Underfull \hbox (badness 3058) in paragraph at lines 177--177
+Underfull \hbox (badness 3058) in paragraph at lines 180--180
 \OT1/ptm/m/n/9 (+20) of anomaly de-tec-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--177
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
 []\OT1/ptm/m/n/9 (+20) Defines anomaly
  []
 
 
-Underfull \hbox (badness 2189) in paragraph at lines 177--177
+Underfull \hbox (badness 2189) in paragraph at lines 180--180
 \OT1/ptm/m/n/9 (+20) de-tec-tion in mul-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--177
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
 \OT1/ptm/m/n/9 (+20) ti-vari-ate truck
  []
 
 
-Underfull \hbox (badness 1033) in paragraph at lines 177--178
+Underfull \hbox (badness 1033) in paragraph at lines 180--181
 \OT1/ptm/m/n/9 (+20) in-sights and iden-ti-fies
  []
 
 
-Underfull \hbox (badness 4556) in paragraph at lines 179--179
+Underfull \hbox (badness 4556) in paragraph at lines 182--182
 \OT1/ptm/m/n/9 (+20) tive CAN-bus sen-sor
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
 []\OT1/ptm/m/n/9 (+20) Effective for OBD-
  []
 
 
-Underfull \hbox (badness 3058) in paragraph at lines 179--180
+Underfull \hbox (badness 3058) in paragraph at lines 182--183
 \OT1/ptm/m/n/9 (+20) ments and em-bed-ded
  []
 
@@ -3709,250 +3716,250 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 181.
+d on input line 184.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [46]
+ [47]
 ignored error: Infinite glue shrinkage found in box being split
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 181.
+d on input line 184.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [47]
+ [48]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 185.
+d on input line 188.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [48]
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+ [49]
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/b/n/12 (+20) ML for
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/b/n/12 (+20) Fuel
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/b/n/12 (+20) Anoma-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Geotab
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) [[][]Geotab,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) OBD/telematics
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Fuel-up records
  []
 
 
-Underfull \hbox (badness 3260) in paragraph at lines 214--214
+Underfull \hbox (badness 3260) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) and en-gine data
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) No (rule
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) pur-chase greater
  []
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 214--214
+Underfull \hbox (badness 1067) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) than ca-pac-ity, and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Transaction-rule
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Samsara
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) [[][]Sam-sara,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Telematics
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) gate-way, fuel
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Real-time fuel
  []
 
 
-Underfull \hbox (badness 5077) in paragraph at lines 214--214
+Underfull \hbox (badness 5077) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) level and us-age
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Configurable
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) sudden-drop alert
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Static thresh-old;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) blind to grad-ual
  []
 
 
-Underfull \hbox (badness 5147) in paragraph at lines 214--214
+Underfull \hbox (badness 5147) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) lo-ca-tion mis-match
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Sees only fill-up
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Wialon
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) [[][]Wialon,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Sensor-based
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) fuel charts and
  []
 
 
-Underfull \hbox (badness 3029) in paragraph at lines 214--214
+Underfull \hbox (badness 3029) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) drain/refill de-tec-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Sensor-threshold
  []
 
 
-Underfull \hbox (badness 4739) in paragraph at lines 214--214
+Underfull \hbox (badness 4739) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) drain events with
  []
 
 
-Underfull \hbox (badness 6412) in paragraph at lines 214--214
+Underfull \hbox (badness 6412) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) man-u-ally re-viewed;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Fleet Com-
  []
 
 
-Underfull \hbox (badness 6510) in paragraph at lines 214--214
+Underfull \hbox (badness 6510) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) plete [[][]Fleet
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) Com-plete,
  []
 
 
-Underfull \hbox (badness 7064) in paragraph at lines 214--214
+Underfull \hbox (badness 7064) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Fuel us-age and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) No spec-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) i-fied
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) adap-tive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Reporting-based
  []
 
 
-Underfull \hbox (badness 1308) in paragraph at lines 214--214
+Underfull \hbox (badness 1308) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) tive anomaly de-tec-
  []
 
 
-Underfull \hbox (badness 1867) in paragraph at lines 214--214
+Underfull \hbox (badness 1867) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Drain/refill event
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Per-sensor rate-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) of-change drain
  []
 
 
-Underfull \hbox (badness 3375) in paragraph at lines 214--214
+Underfull \hbox (badness 3375) in paragraph at lines 217--217
 \OT1/ptm/m/n/12 (+20) thresh-olds; op-tion
  []
 
 
-Underfull \hbox (badness 2269) in paragraph at lines 214--214
+Underfull \hbox (badness 2269) in paragraph at lines 217--217
 []\OT1/ptm/m/n/12 (+20) Manual tun-ing; in-
  []
 
@@ -3960,243 +3967,243 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 217.
+d on input line 220.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
-[49
+[50
 
 ]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 217.
+d on input line 220.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [50]
+ [51]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 224.
+d on input line 227.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [51
+ [52
 
 ]
 ! Undefined control sequence.
-l.227 \FloatBarrier
+l.230 \FloatBarrier
                    
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 []\OT1/ptm/m/n/9 (+20) (SO4) To de-sign and
  []
 
 
-Underfull \hbox (badness 3009) in paragraph at lines 244--245
+Underfull \hbox (badness 3009) in paragraph at lines 247--248
 \OT1/ptm/m/n/9 (+20) eval-u-ate a context-aware
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 \OT1/ptm/m/n/9 (+20) fuel us-age de-vi-a-tion
  []
 
 
-Underfull \hbox (badness 1112) in paragraph at lines 244--245
+Underfull \hbox (badness 1112) in paragraph at lines 247--248
 \OT1/ptm/m/n/9 (+20) mod-el-ing ap-proach us-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 \OT1/ptm/m/n/9 (+20) non-parametric un-su-per-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 \OT1/ptm/m/n/9 (+20) vised ma-chine learn-ing
  []
 
 
-Underfull \hbox (badness 1253) in paragraph at lines 244--245
+Underfull \hbox (badness 1253) in paragraph at lines 247--248
 \OT1/ptm/m/n/9 (+20) mod-els, like Ma-trix Pro-
  []
 
 
-Underfull \hbox (badness 1946) in paragraph at lines 244--245
+Underfull \hbox (badness 1946) in paragraph at lines 247--248
 \OT1/ptm/m/n/9 (+20) file and Iso-la-tion For-est,
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 244--245
+Underfull \hbox (badness 1769) in paragraph at lines 247--248
 \OT1/ptm/m/n/9 (+20) in iden-ti-fy-ing anoma-lous
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 \OT1/ptm/m/n/9 (+20) fuel con-sump-tion pat-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 \OT1/ptm/m/n/9 (+20) terns within con-trolled
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--247
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
 \OT1/ptm/m/n/9 (+20) anoma-lies; com-bined box-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--247
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
 \OT1/ptm/m/n/9 (+20) plot/IQR pre-filtering with
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 247--247
+Underfull \hbox (badness 1688) in paragraph at lines 250--250
 \OT1/ptm/m/n/9 (+20) + OBD-II + multi-channel-
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 247--247
+Underfull \hbox (badness 2376) in paragraph at lines 250--250
 \OT1/ptm/m/n/9 (+20) communication + live-alert
  []
 
 
-Underfull \hbox (badness 1394) in paragraph at lines 247--248
+Underfull \hbox (badness 1394) in paragraph at lines 250--251
 \OT1/ptm/m/n/9 (+20) dash-board, mo-bile driver
  []
 
 
-Underfull \hbox (badness 6641) in paragraph at lines 247--248
+Underfull \hbox (badness 6641) in paragraph at lines 250--251
 \OT1/ptm/m/n/9 (+20) web app, and un-su-per-
  []
 
 
-Underfull \hbox (badness 8038) in paragraph at lines 250--250
+Underfull \hbox (badness 8038) in paragraph at lines 253--253
 \OT1/ptm/m/n/9 (+20) pre-hen-sive sys-tem
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 250--250
+Underfull \hbox (badness 10000) in paragraph at lines 253--253
 \OT1/ptm/m/n/9 (+20) in-te-grat-ing fuel
  []
 
 
-Underfull \hbox (badness 6641) in paragraph at lines 250--250
+Underfull \hbox (badness 6641) in paragraph at lines 253--253
 \OT1/ptm/m/n/9 (+20) anomaly de-tec-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 250--250
+Underfull \hbox (badness 10000) in paragraph at lines 253--253
 \OT1/ptm/m/n/9 (+20) with GPS-based
  []
 
 
-Underfull \hbox (badness 3118) in paragraph at lines 250--250
+Underfull \hbox (badness 3118) in paragraph at lines 253--253
 \OT1/ptm/m/n/9 (+20) track-ing, and pre-
  []
 
 
-Underfull \hbox (badness 1635) in paragraph at lines 250--251
+Underfull \hbox (badness 1635) in paragraph at lines 253--254
 \OT1/ptm/m/n/9 (+20) ule, cor-re-lat-ing route in-
  []
 
 
-Underfull \hbox (badness 2556) in paragraph at lines 250--251
+Underfull \hbox (badness 2556) in paragraph at lines 253--254
 \OT1/ptm/m/n/9 (+20) for-ma-tion with fuel and
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 250--251
+Underfull \hbox (badness 1057) in paragraph at lines 253--254
 \OT1/ptm/m/n/9 (+20) te-nance re-minders into a
  []
 
 
-Underfull \hbox (badness 1163) in paragraph at lines 253--253
+Underfull \hbox (badness 1163) in paragraph at lines 256--256
 \OT1/ptm/m/n/9 (+20) fuel fraud costs [[][]Japan In-ter-
  []
 
 
-Underfull \hbox (badness 1648) in paragraph at lines 253--253
+Underfull \hbox (badness 1648) in paragraph at lines 256--256
 \OT1/ptm/m/n/9 (+20) na-tional Co-op-er-a-tion Agency,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--253
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
 []\OT1/ptm/m/n/9 (+20) Models may mis-clas-sify
  []
 
 
-Underfull \hbox (badness 5924) in paragraph at lines 253--253
+Underfull \hbox (badness 5924) in paragraph at lines 256--256
 \OT1/ptm/m/n/9 (+20) con-sump-tion as anoma-lies
  []
 
 
-Underfull \hbox (badness 6493) in paragraph at lines 253--253
+Underfull \hbox (badness 6493) in paragraph at lines 256--256
 \OT1/ptm/m/n/9 (+20) when Philip-pine op-er-at-ing
  []
 
 
-Underfull \hbox (badness 4608) in paragraph at lines 253--254
+Underfull \hbox (badness 4608) in paragraph at lines 256--257
 []\OT1/ptm/m/n/9 (+20) (GO, SO4) Col-lect and
  []
 
 
-Underfull \hbox (badness 1248) in paragraph at lines 253--254
+Underfull \hbox (badness 1248) in paragraph at lines 256--257
 \OT1/ptm/m/n/9 (+20) train on op-er-a-tional data
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 256--256
+Underfull \hbox (badness 1596) in paragraph at lines 259--259
 []\OT1/ptm/m/n/9 (+20) Commercial sys-tems use sin-
  []
 
 
-Underfull \hbox (badness 1715) in paragraph at lines 256--256
+Underfull \hbox (badness 1715) in paragraph at lines 259--259
 []\OT1/ptm/m/n/9 (+20) Shared thresh-old-ing can-not
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 256--257
+Underfull \hbox (badness 4660) in paragraph at lines 259--260
 []\OT1/ptm/m/n/9 (+20) (SO4) Learn per-vehicle
  []
 
 
-Underfull \hbox (badness 1546) in paragraph at lines 256--257
+Underfull \hbox (badness 1546) in paragraph at lines 259--260
 \OT1/ptm/m/n/9 (+20) each truck's own op-er-at-
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 259--260
+Underfull \hbox (badness 1960) in paragraph at lines 262--263
 []\OT1/ptm/m/n/9 (+20) (SO4) Ap-ply the Ma-trix
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
 \OT1/ptm/m/n/9 (+20) Pro-file for anomalous-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
 \OT1/ptm/m/n/9 (+20) subsequence or dis-cord
  []
 
 
-Underfull \hbox (badness 6125) in paragraph at lines 262--262
+Underfull \hbox (badness 6125) in paragraph at lines 265--265
 \OT1/ptm/m/n/9 (+20) 2023[][], [][]Bar-bado and Cor-cho,
  []
 
 
-Underfull \hbox (badness 3907) in paragraph at lines 262--262
+Underfull \hbox (badness 3907) in paragraph at lines 265--265
 \OT1/ptm/m/n/9 (+20) 2022[][]]; deep mod-els bur-den
  []
 
 
-Underfull \hbox (badness 3668) in paragraph at lines 262--262
+Underfull \hbox (badness 3668) in paragraph at lines 265--265
 \OT1/ptm/m/n/9 (+20) streams [[][]Hirth et al., 2025[][],
  []
 
 
-Underfull \hbox (badness 1354) in paragraph at lines 262--262
+Underfull \hbox (badness 1354) in paragraph at lines 265--265
 \OT1/ptm/m/n/9 (+20) alert de-liv-ery across op-er-a-
  []
 
@@ -4205,32 +4212,32 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 265.
+d on input line 268.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [52]
+ [53]
 ignored error: Infinite glue shrinkage found in box being split
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 265.
-(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [53]
-File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
-
-<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
-Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 269.
+d on input line 268.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [54]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 279.
+d on input line 272.
+(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+ [55]
+File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
+
+<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
+Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
+d on input line 282.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
 
-[55
+[56
 
 ])
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
@@ -4239,7 +4246,7 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 221.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [56]
+ [57]
 Chapter 3.
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
@@ -4247,7 +4254,7 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 233.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
-[57
+[58
 
 
 
@@ -4261,37 +4268,59 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 14.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [58
+ [59
 
 ]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 39.
-(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [59]
-File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
-
-<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
-Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 69.
+d on input line 34.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [60]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
+d on input line 42.
+(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+ [61]
+File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
+
+<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
+Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
+d on input line 73.
+(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+ [62]
+File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
+
+<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
+Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 90.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [61])
+ [63]
+File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
+
+<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
+Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
+d on input line 120.
+(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+ [64]
+File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
+
+<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
+Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
+d on input line 140.
+(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+ [65])
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 233.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [62]
+
+[66]
 Chapter 4.
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
@@ -4299,7 +4328,7 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 244.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
-[63
+[67
 
 
 
@@ -4313,7 +4342,7 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 16.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [64
+ [68
 
 ]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
@@ -4322,36 +4351,285 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 30.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [65]
+ [69]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 52.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [66]
+ [70]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 82.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [67]
+ [71]
+! Undefined control sequence.
+l.83 \FloatBarrier
+                  
+? 
+
+Overfull \hbox (6.63985pt too wide) in alignment at lines 87--93
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (6.63985pt too wide) in alignment at lines 93--98
+ [] [] [] [] [] 
+ []
+
+
+Underfull \hbox (badness 2556) in paragraph at lines 102--103
+[]\OT1/ptm/m/n/9 (+20) Limited RAM for
+ []
+
+
+Underfull \hbox (badness 1082) in paragraph at lines 104--104
+[]\OT1/ptm/m/n/9 (+20) ILI9341 2.4" TFT +
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+[]\OT1/ptm/m/n/9 (+20) Touch only used
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+\OT1/ptm/m/n/9 (+20) for non-critical
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+\OT1/ptm/m/n/9 (+20) ac-tions; phys-i-cal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+\OT1/ptm/m/n/9 (+20) but-tons used for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+\OT1/ptm/m/n/9 (+20) safety-critical
+ []
+
+
+Underfull \hbox (badness 4608) in paragraph at lines 106--106
+\OT1/ptm/m/n/9 (+20) style) + mobile-app
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--106
+[]\OT1/ptm/m/n/9 (+20) Resilient to embedded-GPS
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--108
+[]\OT1/ptm/m/n/9 (+20) Wide-area
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+[]\OT1/ptm/m/n/9 (+20) HTTPACTION +
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+\OT1/ptm/m/n/9 (+20) TLS rene-go-ti-a-tion
+ []
+
+
+Underfull \hbox (badness 7468) in paragraph at lines 108--109
+\OT1/ptm/m/n/9 (+20) can push me-dian
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+[]\OT1/ptm/m/n/9 (+20) Wide-area
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+\OT1/ptm/m/n/9 (+20) comms - fall-
+ []
+
+
+Underfull \hbox (badness 3815) in paragraph at lines 110--110
+[]\OT1/ptm/m/n/9 (+20) GSM 2G via same
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+\OT1/ptm/m/n/9 (+20) A7670E (with CG-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+\OT1/ptm/m/n/9 (+20) NAPN/CFUN+CSTT
+ []
+
+
+Underfull \hbox (badness 4792) in paragraph at lines 110--111
+[]\OT1/ptm/m/n/9 (+20) Lower through-put;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
+[]\OT1/ptm/m/n/9 (+20) WiFi (driver phone
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
+[]\OT1/ptm/m/n/9 (+20) Recovers comms when
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
+\OT1/ptm/m/n/9 (+20) LTE+GSM+LoRa are all
+ []
+
+
+Underfull \hbox (badness 3449) in paragraph at lines 114--115
+\OT1/ptm/m/n/9 (+20) com-pli-ance to en-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+[]\OT1/ptm/m/n/9 (+20) SPIFFS append-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+\OT1/ptm/m/n/9 (+20) only ring buffer,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+\OT1/ptm/m/n/9 (+20) re-played with
+ []
+
+
+Overfull \hbox (50.90948pt too wide) in paragraph at lines 116--116
+\OT1/cmtt/m/n/9 channel[]used='offline[]replay'
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+[]\OT1/ptm/m/n/9 (+20) Render cold-start
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+\OT1/ptm/m/n/9 (+20) first POST af-ter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
+[]\OT1/ptm/m/n/9 (+20) Isolation For-est
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
+\OT1/ptm/m/n/9 (+20) Model C (con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
+\OT1/ptm/m/n/9 (+20) tam-i-na-tion=0.015,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
+\OT1/ptm/m/n/9 (+20) n[]estimators=300,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
+[]\OT1/ptm/m/n/9 (+20) Threshold-only /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+\OT1/ptm/m/n/9 (+20) in-jec-tion re-al-ism;
+ []
+
+
+Underfull \hbox (badness 3965) in paragraph at lines 122--122
+[]\OT1/ptm/m/n/9 (+20) Matrix Pro-file (win-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+[]\OT1/ptm/m/n/9 (+20) Less ro-bust than
+ []
+
+
+Underfull \hbox (badness 4048) in paragraph at lines 122--123
+\OT1/ptm/m/n/9 (+20) Model C at row-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+\OT1/ptm/m/n/9 (+20) level scor-ing;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+\OT1/ptm/m/n/9 (+20) re-tained as sup-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+\OT1/ptm/m/n/9 (+20) port-ing ev-i-dence
+ []
+
+
+Overfull \hbox (6.63985pt too wide) in alignment at lines 98--124
+ [] [] [] [] [] 
+ []
+
+ignored error: Infinite glue shrinkage found in box being split
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 93.
+d on input line 124.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [68]
+ [72]
+ignored error: Infinite glue shrinkage found in box being split
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 111.
+d on input line 124.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [69]
-Overfull \hbox (28.79436pt too wide) in paragraph at lines 125--126
+ [73]
+! Undefined control sequence.
+l.127 \FloatBarrier
+                   
+? 
+File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
+
+<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
+Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
+d on input line 139.
+(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+[74]
+File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
+
+<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
+Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
+d on input line 153.
+(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+ [75]
+Overfull \hbox (28.79436pt too wide) in paragraph at lines 169--170
 \OT1/ptm/m/n/12 (-20) Communication pro-to-cols and se-cu-rity mea-sures are al
 igned with ISO/IEC 27018, ISO/IEC 27001,
  []
@@ -4360,65 +4638,69 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 133.
+d on input line 173.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
-[70]
-Underfull \hbox (badness 1596) in paragraph at lines 156--156
+[76]
+File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
+
+<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
+Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
+d on input line 183.
+(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+ [77]
+Underfull \hbox (badness 1596) in paragraph at lines 201--201
 []\OT1/ptm/m/n/12 (+20) Fast, un-su-per-vised, han-
  []
 
 
-Underfull \hbox (badness 1783) in paragraph at lines 156--156
+Underfull \hbox (badness 1783) in paragraph at lines 201--201
 \OT1/ptm/m/n/12 (+20) sen-si-tiv-ity to con-tam-i-na-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--156
+Underfull \hbox (badness 10000) in paragraph at lines 201--201
 []\OT1/ptm/m/n/12 (+20) Shape-based time-series
  []
 
 
-Underfull \hbox (badness 2961) in paragraph at lines 156--156
+Underfull \hbox (badness 2961) in paragraph at lines 201--201
 \OT1/ptm/m/n/12 (+20) dis-cord de-tec-tion; ideal
  []
 
 
-Underfull \hbox (badness 2884) in paragraph at lines 156--156
+Underfull \hbox (badness 2884) in paragraph at lines 201--201
 \OT1/ptm/m/n/12 (+20) ir-reg-u-lar us-age pat-terns;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--156
+Underfull \hbox (badness 10000) in paragraph at lines 201--201
 []\OT1/ptm/m/n/12 (+20) Requires window-size
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--156
+Underfull \hbox (badness 10000) in paragraph at lines 201--201
 \OT1/ptm/m/n/12 (+20) tun-ing; pri-mar-ily one-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--156
+Underfull \hbox (badness 10000) in paragraph at lines 201--201
 \OT1/ptm/m/n/12 (+20) dimensional un-less
  []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 162.
+d on input line 205.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
-[71])
+[78])
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 244.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [72]
+ [79]
 Chapter 5.
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
@@ -4426,7 +4708,7 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 255.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
-[73
+[80
 
 
 
@@ -4628,7 +4910,7 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 57.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [74
+ [81
 
 ]
 ignored error: Infinite glue shrinkage found in box being split
@@ -4638,15 +4920,15 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 57.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [75]
+ [82]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 61.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [76]
-<figure/concep_diagram.png, id=1388, 523.9575pt x 352.31625pt>
+ [83]
+<figure/concep_diagram.png, id=1490, 523.9575pt x 352.31625pt>
 File: figure/concep_diagram.png Graphic file (type png)
 <use figure/concep_diagram.png>
 Package pdftex.def Info: figure/concep_diagram.png  used on input line 65.
@@ -4658,8 +4940,8 @@ Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 76.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
 
-[77 <./figure/concep_diagram.png>]
-<figure/concep_archi.png, id=1395, 280.04625pt x 289.08pt>
+[84 <./figure/concep_diagram.png>]
+<figure/concep_archi.png, id=1497, 280.04625pt x 289.08pt>
 File: figure/concep_archi.png Graphic file (type png)
 <use figure/concep_archi.png>
 Package pdftex.def Info: figure/concep_archi.png  used on input line 82.
@@ -4670,14 +4952,14 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 92.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [78]
+ [85]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 94.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [79 <./figure/concep_archi.png>]
+ [86 <./figure/concep_archi.png>]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
@@ -4685,50 +4967,50 @@ Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 117.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
 
-[80]
+[87]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 133.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [81]
+ [88]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 147.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [82]
+ [89]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 165.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [83]
+ [90]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 179.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [84]
+ [91]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 198.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [85]
+ [92]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 219.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [86]
-<figure/IPO.png, id=1461, 1508.63625pt x 377.61075pt>
+ [93]
+<figure/IPO.png, id=1564, 1508.63625pt x 377.61075pt>
 File: figure/IPO.png Graphic file (type png)
 <use figure/IPO.png>
 Package pdftex.def Info: figure/IPO.png  used on input line 231.
@@ -4739,28 +5021,28 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 237.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [87]
+ [94]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 241.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [88 <./figure/IPO.png>]
+ [95 <./figure/IPO.png>]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 278.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [89])
+ [96])
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 255.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [90]
+ [97]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
@@ -4768,7 +5050,7 @@ Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 255.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
 
-[91] (document.bbl
+[98] (document.bbl
 bibitemlist
 
 Underfull \hbox (badness 2318) in paragraph at lines 98--102
@@ -4782,7 +5064,7 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 115.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
-[92
+[99
 
 
 
@@ -4791,17 +5073,24 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 194.
+d on input line 197.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [93]
+ [100]
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 293.
+d on input line 290.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [94]
-Underfull \hbox (badness 2671) in paragraph at lines 370--374
+ [101]
+File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
+
+<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
+Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
+d on input line 374.
+(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+ [102]
+Underfull \hbox (badness 2671) in paragraph at lines 433--437
 []\OT1/ptm/m/n/10.95 (+20) Meitrack.  Lora-based fleet track-ing so-lu-tion.  [
 ][]$https : / / www . meitrack . com /
  []
@@ -4810,16 +5099,16 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 380.
+d on input line 461.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
-[95]
-Underfull \hbox (badness 10000) in paragraph at lines 407--412
+[103]
+Underfull \hbox (badness 10000) in paragraph at lines 470--475
 \OT1/ptm/m/n/10.95 (+20) docs / expert-[]center / vehicle-[]telematics-[]techno
 logy / fuel-[]management / fuel-[]control-[]in-[]navixy /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--426
+Underfull \hbox (badness 10000) in paragraph at lines 484--489
 []\OT1/ptm/m/n/10.95 (+20) Opensignal.  Se asia - cov-er-age.  [][]$https : / /
  www . tutela . com /
  []
@@ -4828,23 +5117,34 @@ File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 467.
+d on input line 550.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
-[96]
+[104]
+Underfull \hbox (badness 3158) in paragraph at lines 565--570
+[]\OT1/ptm/m/n/10.95 (+20) SAE In-ter-na-tional (2023).  SAE J1939: Se-rial con
+-trol and
+ []
+
+
+Underfull \hbox (badness 4779) in paragraph at lines 565--570
+\OT1/ptm/m/n/10.95 (+20) com-mu-ni-ca-tions heavy duty ve-hi-cle net-work.  [][
+]$https : / / www . sae . org / standards / j1939[]
+ []
+
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 549.
+d on input line 636.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [97])
+[105])
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 277.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
- [98]
+ [106]
 
 Package datagidx Warning: Rerun required to sort the index/glossary databases.
 
@@ -4858,14 +5158,14 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 326C95157ADD192EDD3229B9CA241DA4;14375.
+(rerunfilecheck)             Checksum: DAA030B7B4D09F0774638BD95202925C;15265.
  ) 
 Here is how much of TeX's memory you used:
- 47444 strings out of 467871
- 896683 string characters out of 5418377
- 1798883 words of memory out of 5000000
- 74502 multiletter control sequences out of 15000+600000
- 689361 words of font info for 496 fonts, out of 8000000 for 9000
+ 47545 strings out of 467871
+ 898102 string characters out of 5418377
+ 1802506 words of memory out of 5000000
+ 74536 multiletter control sequences out of 15000+600000
+ 690842 words of font info for 515 fonts, out of 8000000 for 9000
  1149 hyphenation exceptions out of 8191
  93i,14n,97p,2737b,825s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
@@ -4880,15 +5180,16 @@ ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/El
 iza/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/
 Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.
 pfb><C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmtt12.pfb><C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helv
-etic/uhvb8a.pfb><C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/type1/urw/h
-elvetic/uhvr8a.pfb><C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/type1/ur
-w/times/utmb8a.pfb><C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/type1/ur
-w/times/utmr8a.pfb><C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/type1/ur
-w/times/utmri8a.pfb>
-Output written on document.pdf (108 pages, 1627776 bytes).
+m/cmtt12.pfb><C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmtt9.pfb><C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/type1/
+urw/helvetic/uhvb8a.pfb><C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/urw/helvetic/uhvr8a.pfb><C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/
+type1/urw/times/utmb8a.pfb><C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/
+type1/urw/times/utmr8a.pfb><C:/Users/Eliza/AppData/Local/Programs/MiKTeX/fonts/
+type1/urw/times/utmri8a.pfb>
+Output written on document.pdf (116 pages, 1687867 bytes).
 PDF statistics:
- 1788 PDF objects out of 2073 (max. 8388607)
- 448 named destinations out of 1000 (max. 500000)
- 84177 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1927 PDF objects out of 2073 (max. 8388607)
+ 487 named destinations out of 1000 (max. 500000)
+ 84713 words of extra memory for PDF output out of 89155 (max. 10000000)
 

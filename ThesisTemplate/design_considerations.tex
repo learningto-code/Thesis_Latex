@@ -18,7 +18,7 @@ To ensure reliability, accuracy, and safety, the proposed fuel anomaly detection
 
     \item \textbf{Data Acquisition and Signal Processing}
 
-    Signal conditioning and acquisition follow recommended standards for reliable sensor data handling \cite{iso19510}. A Simple Moving Average (SMA) filter is applied to the fuel-level signal to reduce noise while preserving sharp variations indicative of anomalies.
+The fuel-level signal is stabilised by a multi-stage filter, a median stage for impulse rejection followed by an exponential moving average for smoothing, rather than a single moving average.
 
     Time alignment of fuel, GPS, speed, and engine readings follows ISO/IEC~19510 principles for structured time-series data \cite{iso19510}. These standard-aligned preprocessing steps feed into the anomaly detection models described in Chapter~\ref{ch:method}.
 
@@ -80,6 +80,52 @@ Consistent with IEEE~P7003 \cite{ieeep7003}, the system incorporates:
 
 This section elaborates on the engineering decisions and standards that guided the development of the proposed IoT- and AI-driven fuel monitoring and anomaly detection system. Each component, software layer, algorithm, and communication protocol is grounded in established standards to ensure reliability, safety, interoperability, and security. The references indicate where each design decision is applied in the implementation procedures described in Chapter~\ref{ch:method}.  
 
+\FloatBarrier
+{\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{longtable}{|p{0.14\textwidth}|p{0.19\textwidth}|p{0.17\textwidth}|p{0.27\textwidth}|p{0.17\textwidth}|}
+\caption{Final Hardware and Subsystem Decision Table}
+\label{tab:final_hardware_subsystem_decisions} \\
+\hline
+\textbf{Subsystem} & \textbf{Final choice} & \textbf{Alternative considered} & \textbf{Reason for final choice} & \textbf{Known limitation} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Subsystem} & \textbf{Final choice} & \textbf{Alternative considered} & \textbf{Reason for final choice} & \textbf{Known limitation} \\
+\hline
+\endhead
+
+Fuel acquisition & OBD-II Toyota Mode 22 PID 21/29 & External capacitive / float tank sensor & Non-invasive, no tank modification, ethically clearable, partner-acceptable & Manufacturer dashboard gauge used as field reference (no dipstick validation) \\
+\hline
+Controller & ESP32 (dual-core, 240 MHz, WiFi+BT) & Arduino Uno / Raspberry Pi & Adequate GPIO + WiFi + dual core for IDF VSPI separation; PlatformIO ecosystem; FreeRTOS scheduling & Limited RAM for on-device ML; ML inference moved to backend \\
+\hline
+HMI display & ILI9341 2.4" TFT + XPT2046 touch + dedicated buttons & OLED + scroll button only & Full route / fuel / alert UI in-cab; suitable readability in daylight & Touch only used for non-critical actions; physical buttons used for safety-critical confirm \\
+\hline
+GPS & Embedded GPS (Neo-style) + mobile-app GPS fallback fused at backend & Dashboard-only / external assist only & Resilient to embedded-GPS cold start or building occlusion; tagged via \texttt{gps\_source} column & Urban-canyon drift; cold start of embedded module on first power-on \\
+\hline
+Wide-area comms - primary & LTE via A7670E modem & GSM-only baseline & Higher throughput, lower per-packet latency once attached & HTTPACTION + TLS renegotiation can push median latency to approximately 23--24 s on certain Smart cells \\
+\hline
+Wide-area comms - fallback & GSM 2G via same A7670E (with CGNAPN/CFUN+CSTT fallback) & LTE-only & Retained for legacy 2G-only coverage on some Batangas / Tagaytay routes & Lower throughput; not all carriers maintain 2G \\
+\hline
+Local-area / depot comms & LoRa SX1278 @ 433 MHz, SF7, BW 125 kHz, 17 dBm & WiFi-only at depot & Long range, low power, bidirectional fleet-yard polling without LTE cost & Low duty-cycle limits payload size; 125 kHz BW shared with other depot nodes \\
+\hline
+Hotspot fallback & WiFi (driver phone tether or depot AP) & No fallback & Recovers comms when LTE+GSM+LoRa are all down but a personal hotspot is available & Depends on driver compliance to enable hotspot \\
+\hline
+Offline buffer & SPIFFS append-only ring buffer, replayed with \texttt{channel\_used='offline\_replay'} & RAM-only buffer & Survives reboot; preserves \texttt{seq} + \texttt{event\_id} for backend deduplication & Flash wear if drain is starved for very long periods \\
+\hline
+Backend & Node/Express on Render + Supabase Postgres & Self-hosted Postgres on a VPS & Managed DB, row-level security, free-tier acceptable for thesis-scale traffic & Render cold-start adds latency to the first POST after idleness \\
+\hline
+ML detector & Isolation Forest Model C (contamination=0.015, n\_estimators=300, max\_samples=256) & Threshold-only / IQR baseline; Hybrid Union; Hybrid Intersection & Only Isolation Forest variant that met $\geq$90\% precision and $\leq$10\% FPR under LOTO & Recall depends on injection realism; will be retrained as live anomaly corpus grows \\
+\hline
+Subsequence detector & Matrix Profile (window=12, z-thresh=2.0) & Drop entirely & Useful confirmatory layer for slow-leak / steady-siphon patterns that single-point IF misses & Less robust than Model C at row-level scoring; retained as supporting evidence only \\
+\hline
+\end{longtable}
+}
+\normalsize
+\FloatBarrier
+
 \subsection{Hardware Selection and Integration}  
 
 The hardware configuration is designed to support the end-to-end workflow of the system (see Chapter~\ref{sec:implement}). The following standards and implementation points apply:  
@@ -89,9 +135,7 @@ The hardware configuration is designed to support the end-to-end workflow of the
 
     \item \textbf{GPS Module:} The UART-connected GPS module provides geolocation and speed data, adhering to global navigation standards \cite{gpsstd}. Its signals are synchronized with fuel readings during preprocessing in Chapter~\ref{sec:implement}.  
 
-    \item \textbf{CAN/OBD-II Interface:} Vehicle telemetry (engine RPM, ignition status, and ECU-reported fuel consumption) is captured using the CAN/OBD-II interface, following ISO~15765 and ISO~15031 telematics standards \cite{iso15143}. Chapter~\ref{sec:implement} details how this data is collected and correlated with sensor readings.  
-
-    \item \textbf{Safety Indicators:} Buzzer output comply with IEC~61131-2 and ISO~26262 functional safety requirements \cite{iso26262}. These indicators provide immediate alerts to drivers (Chapter~\ref{sec:implement}, Subsection on Driver Alerts).  
+    \item \textbf{CAN/OBD-II Interface:} The CAN/OBD-II interface was selected as the acquisition layer because it satisfies the non-invasive constraint set by the partner operator. From this one port the prototype reads speed, RPM, engine load, throttle, MAF, coolant temperature, runtime, DTC status, and the Toyota Mode 22 PID 21/29 fuel-sender voltage encoded at 0.5 L per ADC count. Mode 22 access is manufacturer-specific and was validated on the partner Toyota vehicle.
 \end{itemize}  
 
 \subsection{Software Architecture}  
@@ -113,7 +157,7 @@ The modular software layers are designed according to ISO/IEC/IEEE~42010 softwar
 Machine learning components follow ISO/IEC~29119 software quality standards \cite{iso29119} and IEEE~P7003 AI accountability guidelines \cite{ieeep7003}:  
 
 \begin{itemize}  
-    \item \textbf{Models:} Isolation Forest and Matrix Profile detect anomalies both at edge and cloud levels. Their implementation and evaluation are detailed in Chapter~\ref{sec:implement}.  
+    \item \textbf{Models:} Isolation Forest was selected as the production detector because Model C (contamination = 0.015, \texttt{n\_estimators} = 300, \texttt{max\_samples} = 256, threshold = training-set q995 + IQR margin + 0.003) was the only configuration meeting both $\geq$90\% precision and $\leq$10\% FPR under leave-one-trip-out evaluation (precision = 0.966, recall = 0.966). Matrix Profile (window = 12, z-threshold = 2.0) was retained as a supporting subsequence detector for slow-leak and siphon patterns that single-point scoring is less sensitive to.  
 
     \item \textbf{Evaluation Metrics:} Confusion matrices, ROC curves, and precision–recall graphs are used for model validation, ensuring alignment with ISO/IEC 25010 software quality characteristics. Chapter~\ref{sec:implement}, Chapter~\ref{sec:evaluate} provides practical application in performance evaluation.  
 
@@ -134,6 +178,7 @@ Communication protocols and security measures are aligned with ISO/IEC~27018, IS
     \item \textbf{JSON Serialization:} Standardized data format for cloud compatibility, ensuring interoperability with cloud services and dashboards. Applied in Chapter~\ref{sec:implement}.  
 \end{itemize}  
 
+Wide-area connectivity uses a SIMCom A7670E LTE (Cat-1) module, chosen over a GSM-only baseline because it provides an LTE-primary, 2G-fallback hierarchy in one device. LTE is the primary path for its lowest latency and highest throughput, and because it is the network Philippine operators are expanding rather than retiring. GSM 2G on the same module is a deeper fallback for legacy-only coverage; consistent with NTC MC No. 003-09-2025 (phased 2G/3G decommissioning) it is treated as transitional, and because the A7670E is LTE-first rather than 2G/3G-only it remains compliant with that circular. LoRa provides depot, yard, and long-range telemetry; WiFi provides a depot or driver-tether path; and SPIFFS offline-buffer replay is the final fallback so no record is lost when all real-time channels are down \cite{ntc2025legacy_network_phaseout}. 
 
 \section{Alternative Software Designs and Cost Considerations}
 \label{sec:alt_software_cost}

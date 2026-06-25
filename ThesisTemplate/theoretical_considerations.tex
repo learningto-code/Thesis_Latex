@@ -26,6 +26,67 @@ x_{t}^{\text{smooth}} = \frac{1}{N} \sum_{i=0}^{N-1} x_{t-i}
 
 This reduces high-frequency noise and creates a clearer trend for anomaly detection algorithms.
 
+\subsection{OBD-II and CAN-based Vehicle Data Acquisition}
+
+Vehicle data can be acquired through a standardised diagnostic interface rather than an added in-tank sensor. The underlying transport is the Controller Area Network (CAN), a message-based broadcast bus standardised in ISO 11898 in which contention is resolved by non-destructive bitwise arbitration: priority is encoded in the message identifier, and the highest-priority frame proceeds without loss of data or time. Standard CAN uses 11-bit identifiers and extended CAN uses 29-bit identifiers.
+
+On-Board Diagnostics II (OBD-II) operates over CAN as a request--response protocol, with its application layer defined by SAE J1979 / ISO 15031-5 and multi-frame transport by ISO 15765-4. It distinguishes standardised current-data PIDs (Mode 01), which are mandated and uniform across manufacturers, from enhanced PIDs (Mode 22), which are manufacturer-specific and use proprietary scaling. Because Mode 22 scaling is not publicly standardised, any value read through it must be validated empirically, introducing measurement uncertainty.
+
+Heavy-duty commercial vehicles conventionally use SAE J1939, a higher-layer protocol over 29-bit CAN identifiers in which Parameter Group Numbers (PGNs) group signals and Suspect Parameter Numbers (SPNs) define each signal's bit position, scaling, and units. Under J1939, fuel level is a standardised SPN broadcast periodically without an explicit request. The theoretical contrast is therefore between a polled, proprietary request--response model (OBD-II Mode 22) and a push-based, standardised broadcast model (J1939): the former trades standardisation and immediacy for broad device compatibility. Analog fuel senders accessed through either path are subject to slosh-induced fluctuation and quantisation error, which motivates the filtering theory developed next \cite{iso15031_5,sae_j1939,iso15765_4,sae_j1962,sae_j1979,iso11898_1,bosch1991can}.
+
+\subsection{Signal Filtering for Fuel-Level Stabilisation}
+
+Raw signals from physical sensors carry impulse noise, low-frequency disturbance, and quantisation error; no single filter addresses all three, so a multi-stage cascade is used, each stage grounded in distinct theory.
+
+\textbf{Median filter.} A running median is a non-linear order-statistic filter that replaces each sample with the median of a sliding window of length $W$:
+\begin{equation}
+x_t^{\mathrm{med}} = \mathrm{median}(x_{t-W+1}, \ldots, x_t).
+\label{eq:median-filter-ch3}
+\end{equation}
+Its breakdown point is 50\%; up to half the window may be corrupted by impulse noise before the output is affected, whereas the arithmetic mean has a 0\% breakdown point.
+
+\textbf{Exponential moving average.} An EMA is a first-order recursive IIR low-pass filter:
+\begin{equation}
+y_t = \alpha x_t^{\mathrm{med}} + (1 - \alpha)y_{t-1}, \qquad 0 < \alpha \leq 1,
+\label{eq:ema-ch3}
+\end{equation}
+in which past samples decay geometrically and the smoothing factor $\alpha$ sets a time constant $\tau = -1/\ln(1-\alpha)$; a smaller $\alpha$ gives heavier smoothing at the cost of responsiveness. The simple moving average, by contrast, is a finite-impulse-response filter optimal for white noise but without impulse robustness and requiring the full window in memory.
+
+\textbf{Dead-band (hysteresis).} A dead-band publisher emits a new value only when the smoothed signal departs from the last published value by more than a threshold:
+\begin{equation}
+\mathrm{publish}(y_t) \Leftrightarrow |y_t - y_{\mathrm{pub}}| \geq \delta.
+\label{eq:deadband-ch3}
+\end{equation}
+
+\textbf{Direction-aware gating.} An asymmetric step rule treats increases and decreases differently according to the physical behaviour of the measured quantity, and a warm-up guard suppresses output until the window is fully populated, since earlier samples are unrepresentative.
+
+\subsection{Classification and Evaluation Metric Theory}
+
+Detectors are evaluated as binary classifiers. From the confusion matrix (TP, FP, TN, FN):
+\begin{equation}
+\mathrm{Precision} = \frac{TP}{TP + FP}
+\label{eq:precision-ch3}
+\end{equation}
+\begin{equation}
+\mathrm{FPR} = \frac{FP}{FP + TN}
+\label{eq:fpr-ch3}
+\end{equation}
+\begin{equation}
+F_1 = \frac{2 \times \mathrm{Precision} \times \mathrm{Recall}}{\mathrm{Precision} + \mathrm{Recall}}
+\label{eq:f1-ch3}
+\end{equation}
+\begin{equation}
+L_d = T_{\mathrm{detected}} - T_{\mathrm{actual}}.
+\label{eq:latency-metric-ch3}
+\end{equation}
+
+Accuracy is uninformative under class imbalance, where it is dominated by the majority class \cite{powers2020evaluation}. A Receiver Operating Characteristic (ROC) curve plots true-positive rate against false-positive rate, and its area equals the probability that a random positive outranks a random negative \cite{fawcett2006roc}. Under heavy imbalance, however, ROC-AUC is optimistic; the Precision--Recall curve is more informative, its area collapsing toward the positive prevalence so that a modest value reflects the base rate rather than poor detection \cite{davis2006prroc,saito2015prcurve}. Detection latency is $L_{\mathrm{det}} = T_{\mathrm{detected}} - T_{\mathrm{actual}}$, where $T_{\mathrm{actual}}$ is when the anomaly occurred and $T_{\mathrm{detected}}$ is when it was flagged; the Numenta Anomaly Benchmark scores latency with a time-decaying reward \cite{lavin2015nab}. For binomial proportions estimated from few positives, the Wilson score interval is preferred over the normal-approximation (Wald) interval \cite{wilson1927probable}:
+\begin{equation}
+\frac{\hat{p} + z^2/(2n) \pm z\sqrt{\frac{\hat{p}(1-\hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + z^2/n}.
+\label{eq:wilson-ch3}
+\end{equation}
+Leave-one-group-out cross-validation, here leave-one-trip-out, holds out each group entirely to prevent leakage from within-group correlation \cite{arlot2010survey}. Finally, evaluation against injected synthetic anomalies provides exact ground truth but bounds performance on the injected classes only, since these may not represent the full distribution of real events \cite{chandola2009anomaly}.
+
 \subsection{Time-Series Synchronization Theory}
 
 Sensor streams often arrive at irregular timestamps. Synchronizing them requires interpolation theory. For two samples at timestamps $T_i$ and $T_{i+1}$, the interpolated point at $t_j$ is computed as:
