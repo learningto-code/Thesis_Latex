@@ -33,7 +33,7 @@ The transportation and logistics sector has attracted significant scholarly atte
 \end{itemize}
 
 
-These gaps underline the need for a robust, scalable, and integrated IoT-enabled system capable of monitoring fuel levels in real time, tracking vehicle location, and detecting operational anomalies using machine learning algorithms. Such a system holds the potential to significantly reduce fuel fraud, enhance operational efficiency, and support more informed decision-making in \gls{fleet management}. This study focuses on designing and implementing such a system within an active fleet operation, specifically addressing the technical and logistical challenges encountered by commercial truck fleets operating across varied conditions. By leveraging IoT sensors, GPS modules, and \gls{unsupervised machine learning}-based analytics, the proposed solution aims to deliver a comprehensive, automated, and intelligent monitoring platform that advances the current landscape of smart logistics technologies.
+These gaps underline the need for a robust, scalable, and integrated IoT-enabled system capable of monitoring fuel levels in real time, tracking vehicle location, and detecting operational anomalies using machine learning algorithms. Such a system holds the potential to significantly reduce fuel fraud, enhance operational efficiency, and support more informed decision-making in \gls{fleet management}. This study focuses on designing and implementing such a system within an active fleet operation, specifically addressing the technical and logistical challenges encountered by commercial truck fleets operating across varied conditions. By leveraging IoT sensors, GPS modules, and \gls{unsupervised machine learning}-based analytics, the proposed solution aims to deliver a comprehensive, automated, and intelligent monitoring platform that advances the current landscape of smart logistics technologies. Because partner HINO in the Philippines do not permit tank-cap or sender-loom modifications on production trucks, any field-deployable monitoring approach must be non-invasive. This constraint was the dominant driver of the acquisition-layer design adopted in this study.
 
 
 \section{Prior Studies}
@@ -158,7 +158,7 @@ The core research gap, therefore, lies in the absence of a fully integrated, rea
 
 \subsection{\noindent \textbfProposal to Address the Gaps}
 
-This study proposes the development of an integrated IoT-based system that unifies fuel level monitoring, GPS-based vehicle tracking, and unsupervised machine learning for anomaly detection. Unlike previous solutions that focus on isolated functions or static datasets, this system is designed with real-time operation in mind. During initial testing, data will be simulated using a custom-built fuel tank setup to enable controlled evaluation of the system’s performance and anomaly detection capabilities.
+This study developed and evaluated an integrated IoT-based fleet monitoring system that unifies fuel level monitoring, GPS-based vehicle tracking, and unsupervised machine learning for anomaly detection. Unlike previous solutions that focus on isolated functions or static datasets, the developed system operated in real time using vehicle telemetry acquired through the OBD-II interface and GPS module. The prototype was evaluated using controlled-environment trip data and live telemetry data to assess fuel monitoring performance, anomaly detection capability, and communication latency.
 
 The system architecture will incorporate scalable and cost-efficient components such as \gls{float sensors}, GPS modules, and cloud-based transmission via mobile networks, ensuring compatibility with a variety of fleet vehicles and usage environments.
 
@@ -386,10 +386,12 @@ The system will improve operational efficiency through minimizing waste in fuel,
 \subsection{Scope}
 The scope of the study encompasses the development and implementation of a smart fleet monitoring system that utilizes IoT and machine learning technologies for enhanced fuel usage , route monitoring and vehicle maintenance reminder.
 
+The system includes three user-facing interfaces: an embedded in-truck HMI for drivers (ESP32 + ILI9341 TFT + capacitive buttons + buzzer), a mobile driver web application for companion GPS and trip-state synchronisation, and an administrative web dashboard for SGSA fleet monitoring, alert management, and trip analytics. Driver, mobile, and dashboard states are reconciled at the backend via the \texttt{trip\_sessions}, \texttt{telemetry\_logs}, and \texttt{alerts} tables to ensure a single source of truth across interfaces.
+
 \begin{enumerate}
     \item \textbf{Real-Time Fuel Monitoring}
     \begin{enumerate}
-        \item Deployment of a calibrated fuel-level acquisition module interfaced through the truck's ECU/OBD-II diagnostic connector, providing continuous fuel-level monitoring with a validated accuracy of ±5% compared to manual dipstick measurements.
+        \item Deployment of a calibrated fuel-level acquisition module interfaced through the truck's ECU/OBD-II diagnostic connector, providing continuous fuel-level monitoring with a validated accuracy of $\pm$5\% using the non-invasive validation approach defined in the delimitations.
     \end{enumerate}
 	
 	\item \textbf{Cloud Based Data Transmission}
@@ -410,12 +412,14 @@ The scope of the study encompasses the development and implementation of a smart
 
     \item \textbf{Driver Rest Alerts and Maintenance Reminders}
     \begin{enumerate}
-        \item Incorporation of a dashboard system deployed at the trucking company’s base to show cumulative fuel and distance measures.
+        \item Incorporation of embedded driver alerts, mobile trip-state synchronisation, and administrative fleet monitoring to show cumulative fuel and distance measures across the system interfaces.
         \item Production of automated rest alerts (e.g. every 300 km or after 6 hours) and maintenance reminders (e.g. after every 5,000 km for checking oil).
     \end{enumerate}
 \end{enumerate}
 
 \subsection{Delimitations}
+Direct manual dipstick fuel-volume calibration was not within the delimitations of this study because the partner fleet operator does not authorize tank-cap opening or fuel-system modifications on production trucks used in normal operations. Consequently, fuel-accuracy validation was based on (a) operational-agreement checks against the manufacturer dashboard gauge and (b) per-tank-level variance characterization of the filtered signal relative to the raw OBD-II sender measurements.
+
 \begin{enumerate}
 	\item \textbf{Focus on Fuel Monitoring and Anomaly Detection}
 		\begin{itemize}
@@ -438,8 +442,8 @@ The scope of the study encompasses the development and implementation of a smart
 
 	\item \textbf{User Features}
 		\begin{itemize}
-			\item The cloud based dashboard is designed for the fleet managers use only and does not support interaction from the drivers.
-			\item The cloud based dashboard is limited to essential features such as real time fuel level monitoring, GPS tracking, driver rest alerts, and maintenance reminders based on distance and fuel data. Advanced analytics features are not part of the current dashboard plans.
+			\item The system includes three user-facing interfaces: an embedded in-truck HMI for drivers (ESP32 + ILI9341 TFT + capacitive buttons + buzzer), a mobile driver web application for companion GPS and trip-state synchronisation, and an administrative web dashboard for SGSA fleet monitoring, alert management, and trip analytics. Driver, mobile, and dashboard states are reconciled at the backend via the \texttt{trip\_sessions}, \texttt{telemetry\_logs}, and \texttt{alerts} tables to ensure a single source of truth across interfaces.
+			\item Advanced analytics features beyond SGSA fleet monitoring, alert management, trip analytics, companion GPS, and trip-state synchronisation are not part of the current interface scope.
 		\end{itemize}
 
 

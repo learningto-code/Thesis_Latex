@@ -53,45 +53,45 @@ Warning--empty year in meitrack_lora_fleet
 Warning--empty year in opensignal_seasia_coverage
 Warning--can't use both volume and number fields in prasanna2023iot
 Warning--empty year in iec_gsm_tutorial
-You've used 90 entries,
+You've used 91 entries,
             1935 wiz_defined-function locations,
-            878 strings with 18976 characters,
-and the built_in function-call counts, 31203 in all, are:
-= -- 3204
-> -- 974
-< -- 75
-+ -- 338
-- -- 320
-* -- 2255
-:= -- 5292
-add.period$ -- 292
-call.type$ -- 90
-change.case$ -- 608
-chr.to.int$ -- 82
-cite$ -- 147
-duplicate$ -- 1390
-empty$ -- 2307
-format.name$ -- 405
-if$ -- 6294
+            884 strings with 19198 characters,
+and the built_in function-call counts, 31877 in all, are:
+= -- 3276
+> -- 1035
+< -- 76
++ -- 358
+- -- 340
+* -- 2322
+:= -- 5406
+add.period$ -- 295
+call.type$ -- 91
+change.case$ -- 615
+chr.to.int$ -- 83
+cite$ -- 148
+duplicate$ -- 1404
+empty$ -- 2335
+format.name$ -- 436
+if$ -- 6433
 int.to.chr$ -- 9
 int.to.str$ -- 0
-missing$ -- 47
-newline$ -- 475
-num.names$ -- 213
-pop$ -- 600
+missing$ -- 48
+newline$ -- 480
+num.names$ -- 216
+pop$ -- 604
 preamble$ -- 1
-purify$ -- 606
+purify$ -- 613
 quote$ -- 0
-skip$ -- 1004
+skip$ -- 1023
 stack$ -- 0
-substring$ -- 1959
-swap$ -- 221
+substring$ -- 1990
+swap$ -- 222
 text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 540
+type$ -- 546
 warning$ -- 38
-while$ -- 237
+while$ -- 241
 width$ -- 0
-write$ -- 1153
+write$ -- 1166
 (There were 38 warnings)

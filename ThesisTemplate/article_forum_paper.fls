@@ -126,9 +126,6 @@ INPUT C:\Users\Eliza\AppData\Local\Programs\MiKTeX\tex\generic\uniquecounter\uni
 INPUT C:\Users\Eliza\AppData\Local\Programs\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
 INPUT C:\Users\Eliza\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\Eliza\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\article_forum_paper.aux
-INPUT .\article_forum_paper.aux
-INPUT article_forum_paper.aux
 OUTPUT article_forum_paper.aux
 INPUT C:\Users\Eliza\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Eliza\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii

@@ -115,7 +115,7 @@ Ahmed, A. A.~I., Mohammed, S. A.~E., and Satte, M. A. M.~H. (2017).
 
 \bibitem[Alquhali et~al., 2019]{alquhali2019iot}
 Alquhali, A.~H., Roslee, M., Alias, M.~Y., and Mohamed, K.~S. (2019).
-\newblock Iot based real-time vehicle tracking system.
+\newblock {IoT} based real-time vehicle tracking system.
 \newblock In {\em 2019 IEEE Conference on Sustainable Utilization and
   Development in Engineering and Technologies (CSUDET)}, pages 265--270.
 
@@ -146,8 +146,8 @@ Barbado, A. and Corcho, {\'O}. (2022).
 \newblock {\em Engineering Applications of Artificial Intelligence},
   115:105222.
 
-\bibitem[Beteto, 2022]{beteto2022anomaly}
-Beteto, A. e.~a. (2022).
+\bibitem[Beteto et~al., 2022]{beteto2022anomaly}
+Beteto, A. et~al. (2022).
 \newblock Anomaly and cyber fraud detection in pipelines and supply chains for
   liquid fuels.
 \newblock {\em Environment Systems and Decisions}, 42(2):306--324.
@@ -165,10 +165,10 @@ Cherdo, Y., Miramond, B., Pegatoquet, A., and Vallauri, A. (2023).
   small recurrent and convolutional neural networks.
 \newblock {\em Sensors}, 23(11):5013--5013.
 
-\bibitem[Crisgar, 2021]{crisgar2021gps}
-Crisgar, P. V. e.~a. (2021).
-\newblock Gps-based vehicle tracking and theft detection systems using google
-  cloud iot core \& firebase.
+\bibitem[Crisgar et~al., 2021]{crisgar2021gps}
+Crisgar, P.~V. et~al. (2021).
+\newblock {GPS}-based vehicle tracking and theft detection systems using google
+  cloud {IoT} core \& firebase.
 \newblock In {\em 2021 International Symposium on Electronics and Smart Devices
   (ISESD)}, pages 1--6.
 
@@ -204,15 +204,15 @@ Farzana, F. e.~a. (2020).
 \newblock \url{https://www.fleetio.com/solutions/fuel-management-software}.
 \newblock Accessed: 2026-06-08.
 
-\bibitem[Fortela, 2023]{fortela2023unsupervised}
-Fortela, D. L. B. e.~a. (2023).
+\bibitem[Fortela et~al., 2023]{fortela2023unsupervised}
+Fortela, D. L.~B. et~al. (2023).
 \newblock Unsupervised machine learning to detect impending anomalies in
   testing of fuel economy and emissions of light-duty vehicles.
 \newblock {\em Clean Technologies}, 5(1):418--435.
 
-\bibitem[G, 2022]{g2022real}
-G, P. e.~a. (2022).
-\newblock Real time automatic vehicle monitoring system using iot.
+\bibitem[G et~al., 2022]{g2022real}
+G, P. et~al. (2022).
+\newblock Real time automatic vehicle monitoring system using {IoT}.
 \newblock In {\em 2022 8th International Conference on Smart Structures and
   Systems (ICSSS)}, pages 1--6.
 
@@ -240,6 +240,12 @@ Garcia~Vega, P. (2022).
 \newblock Network coverage maps.
 \newblock \url{https://www.gsma.com/coverage/#433}.
 \newblock Accessed: 2026-06-19.
+
+\bibitem[Habib and Umar, 2015]{habib2015anomalies}
+Habib, K. and Umar, A.~I. (2015).
+\newblock Anomalies calculation and detection in fuel expense through data
+  mining.
+\newblock {\em Research Journal of Information Technology}, 6(4):44--50.
 
 \bibitem[Hirth et~al., 2025]{hirth2025truck_survey}
 Hirth, M., Meier, D., Gehring, O., Jazdi, N., and Kasneci, E. (2025).
@@ -278,9 +284,9 @@ Jose, D. e.~a. (2015).
   cloud computing.
 \newblock {\em Procedia Computer Science}, 50:440--446.
 
-\bibitem[Joshi, 2024]{joshi2024intelligent}
-Joshi, P. e.~a. (2024).
-\newblock Intelligent iot-enabled real-time monitoring system for logistics
+\bibitem[Joshi et~al., 2024]{joshi2024intelligent}
+Joshi, P. et~al. (2024).
+\newblock Intelligent {IoT}-enabled real-time monitoring system for logistics
   management.
 \newblock In {\em 2024 International Conference on Computing, Sciences and
   Communications (ICCSC)}, pages 1--5.
@@ -291,8 +297,8 @@ Kanchi, S., Sandilya, S., Bhosale, D., Pitkar, A., and Gondhalekar, M. (2013).
 \newblock In {\em 2013 IEEE Global High Tech Congress on Electronics}, pages
   195--200, Shenzhen, China.
 
-\bibitem[Komal Shoukat~Ali, 2018]{komal2018automatic}
-Komal Shoukat~Ali, K. e.~a. (2018).
+\bibitem[Komal Shoukat~Ali et~al., 2018]{komal2018automatic}
+Komal Shoukat~Ali, K. et~al. (2018).
 \newblock Automatic fuel tank monitoring, tracking \& theft detection system.
 \newblock In {\em MATEC Web of Conferences}, volume 184.
 
@@ -346,11 +352,11 @@ Manalu, I.~P., Sigiro, M. M.~T., Wowiling, G.~I., and Simatupang, F. (2023).
 \newblock {\em International Journal of Engineering Research in Computer
   Science and Engineering}, 10(12):11--16.
 
-\bibitem[Mathi, 2024]{mathi2024development}
-Mathi, S. C. e.~a. (2024).
+\bibitem[Mathi et~al., 2024]{mathi2024development}
+Mathi, S.~C. et~al. (2024).
 \newblock Development of an intelligent fuel monitoring and theft detection
-  system equipped with gps \& gsm integration, state of charge monitoring and
-  realtime alarm generation.
+  system equipped with {GPS} \& {GSM} integration, state of charge monitoring
+  and realtime alarm generation.
 \newblock In {\em 2024 International Conference on Innovative Computing and
   Communication Technologies (ICICT)}, pages 2095--2102.
 
@@ -376,8 +382,8 @@ Miyim, A. and Wakili, A. (2019).
 Mukesh, P.~R. (2010).
 \newblock Real time web based vehicle tracking using gps.
 
-\bibitem[Mumcuoglu, 2023]{mumcuoglu2023fuel}
-Mumcuoglu, M. E. e.~a. (2023).
+\bibitem[Mumcuoglu et~al., 2023]{mumcuoglu2023fuel}
+Mumcuoglu, M.~E. et~al. (2023).
 \newblock Fuel consumption classification for heavy-duty vehicles: A novel
   approach to identifying driver behavior and system anomalies.
 \newblock In {\em 2023 AEIT International Conference on Electrical and
@@ -443,8 +449,8 @@ Patil, A. and Patil, S. (2024).
 
 \bibitem[Prabhu et~al., 2022]{prabhu2022iot}
 Prabhu, S.~B., Deepa, K., and Nithya, M. (2022).
-\newblock Iot enabled fuel level monitoring and automatic fuel theft detection
-  system.
+\newblock {IoT} enabled fuel level monitoring and automatic fuel theft
+  detection system.
 \newblock In {\em 2022 13th International Conference on Computing Communication
   and Networking Technologies (ICCCNT)}.
 
@@ -455,7 +461,7 @@ Prasanna, J.~L., Santhosh, C., Kumar, M.~R., and Gayathri, K. (2023).
 
 \bibitem[RS et~al., 2024]{rs2024fuel}
 RS, S., Narayanan~CS, S., G, R., S, P., Alagarsamy, M., and William, P. (2024).
-\newblock Fuel quantity and quality detection in automobiles using iot.
+\newblock Fuel quantity and quality detection in automobiles using {IoT}.
 \newblock In {\em 2024 4th International Conference on Innovative Practices in
   Technology and Management (ICIPTM)}, pages 1--6.
 
