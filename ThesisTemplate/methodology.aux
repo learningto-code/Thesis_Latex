@@ -8,41 +8,110 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5.1}System Architecture and Conceptual Design}{84}{section.5.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Proposed Conceptual Diagram}}{84}{figure.caption.29}\protected@file@percent }
 \newlabel{fig:Description and Methodology}{{5.1}{84}{Proposed Conceptual Diagram}{figure.caption.29}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Proposed System Architecture Diagram}}{86}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:system_architecture}{{5.2}{86}{Proposed System Architecture Diagram}{figure.caption.30}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Implementation}{87}{section.5.2}\protected@file@percent }
-\newlabel{sec:implement}{{5.2}{87}{Implementation}{section.5.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Data Acquisition and Preprocessing}{87}{subsection.5.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}System Methodology}{93}{subsection.5.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Anomaly Detection and ML Methodology}{93}{subsection.5.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}IPO Chart and Design Pipeline}{94}{subsection.5.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.5}IPO Chart}{94}{subsection.5.2.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces IPO Chart}}{95}{figure.caption.39}\protected@file@percent }
-\newlabel{fig:ipo_chart}{{5.3}{95}{IPO Chart}{figure.caption.39}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Evaluation}{96}{section.5.3}\protected@file@percent }
-\newlabel{sec:evaluate}{{5.3}{96}{Evaluation}{section.5.3}{}}
-\datagidx@aux@usedentry{not:TP}{[]{96}{datagidx.00010}}{[]{96}{datagidx.00010}}
-\datagidx@aux@usedentry{not:TP}{[]{96}{datagidx.00011}}{[]{96}{datagidx.00011}}
-\datagidx@aux@usedentry{not:FP}{[]{96}{datagidx.00012}}{[]{96}{datagidx.00012}}
-\newlabel{eq:precision}{{5.1}{96}{Evaluation}{equation.5.1}{}}
-\datagidx@aux@usedentry{not:FP}{[]{96}{datagidx.00013}}{[]{96}{datagidx.00013}}
-\datagidx@aux@usedentry{not:FP}{[]{96}{datagidx.00014}}{[]{96}{datagidx.00014}}
-\datagidx@aux@usedentry{not:TN}{[]{96}{datagidx.00015}}{[]{96}{datagidx.00015}}
-\newlabel{eq:fpr}{{5.2}{96}{Evaluation}{equation.5.2}{}}
-\datagidx@aux@usedentry{not:TP}{[]{96}{datagidx.00016}}{[]{96}{datagidx.00016}}
-\datagidx@aux@usedentry{not:TN}{[]{96}{datagidx.00017}}{[]{96}{datagidx.00017}}
-\datagidx@aux@usedentry{not:TP}{[]{96}{datagidx.00018}}{[]{96}{datagidx.00018}}
-\datagidx@aux@usedentry{not:TN}{[]{96}{datagidx.00019}}{[]{96}{datagidx.00019}}
-\datagidx@aux@usedentry{not:FP}{[]{96}{datagidx.00020}}{[]{96}{datagidx.00020}}
-\datagidx@aux@usedentry{not:FN}{[]{96}{datagidx.00021}}{[]{96}{datagidx.00021}}
-\newlabel{eq:accuracy}{{5.3}{96}{Evaluation}{equation.5.3}{}}
-\datagidx@aux@usedentry{not:L}{[]{97}{datagidx.00022}}{[]{97}{datagidx.00022}}
-\datagidx@aux@usedentry{not:Tdetected}{[]{97}{datagidx.00023}}{[]{97}{datagidx.00023}}
-\datagidx@aux@usedentry{not:Tactual}{[]{97}{datagidx.00024}}{[]{97}{datagidx.00024}}
-\newlabel{eq:latency-detection}{{5.4}{97}{Evaluation}{equation.5.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Summary}{97}{section.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces End-to-end system architecture: truck OBD-II -> ESP32 HMI -> LoRa / LTE / GSM / WiFi / SPIFFS -> backend (Node/Express on Render) -> Supabase Postgres -> ML service -> dashboard + mobile app + HMI poll-back}}{86}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:End-to-end_system_architecture}{{5.2}{86}{End-to-end system architecture: truck OBD-II -> ESP32 HMI -> LoRa / LTE / GSM / WiFi / SPIFFS -> backend (Node/Express on Render) -> Supabase Postgres -> ML service -> dashboard + mobile app + HMI poll-back}{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Hardware Methodology}{87}{section.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces HMI GPIO Map}}{87}{table.caption.31}\protected@file@percent }
+\newlabel{tab:hmi_gpio_map}{{5.2}{87}{HMI GPIO Map}{table.caption.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces ESP32 Hardware Block Diagram}}{87}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:esp32_hardware_block_diagram}{{5.3}{87}{ESP32 Hardware Block Diagram}{figure.caption.32}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}OBD-II / ECU Fuel and Vehicle Data Acquisition Methodology}{88}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Physical Interface}{88}{subsection.5.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Toyota Meter Mode 22 PID 21/29 Fuel Acquisition}{88}{subsection.5.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces OBD-II PID to \texttt  {telemetry\_logs} Column Mapping}}{89}{table.caption.33}\protected@file@percent }
+\newlabel{tab:obd_pid_telemetry_mapping}{{5.3}{89}{OBD-II PID to \texttt {telemetry\_logs} Column Mapping}{table.caption.33}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Co-acquired Mode 01 PIDs}{89}{subsection.5.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Validity and Confidence Fields}{89}{subsection.5.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}Timestamping}{89}{subsection.5.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.6}Field Reference Choice}{89}{subsection.5.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Fuel Preprocessing Methodology}{90}{section.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Fuel-level filter cascade. The raw OBD-II Mode 22 PID 21/29 fuel sample (every 1.5 s) is passed through a five-stage cascade: median-of-31, EMA ($\alpha = 0.04$), dead-band publisher, direction-aware step rule, and post-refuel quiescence freeze. The published percentage feeds the HMI display and the telemetry stream.}}{90}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:fuel_filter_cascade}{{5.4}{90}{Fuel-level filter cascade. The raw OBD-II Mode 22 PID 21/29 fuel sample (every 1.5 s) is passed through a five-stage cascade: median-of-31, EMA ($\alpha = 0.04$), dead-band publisher, direction-aware step rule, and post-refuel quiescence freeze. The published percentage feeds the HMI display and the telemetry stream}{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Communication and Offline Sync Methodology}{91}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Priority Chain Rationale}{91}{subsection.5.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Communication Module Comparison}}{92}{table.caption.35}\protected@file@percent }
+\newlabel{tab:communication_module_comparison}{{5.4}{92}{Communication Module Comparison}{table.caption.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Communication Method Comparison radar. Five channels (LoRa, LTE, GSM 2G, WiFi, SPIFFS) are compared on six axes: range, bandwidth, power efficiency, Philippine coverage, infrastructure independence, and data integrity, normalised to a five-point scale.}}{92}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:communication_method_radar}{{5.5}{92}{Communication Method Comparison radar. Five channels (LoRa, LTE, GSM 2G, WiFi, SPIFFS) are compared on six axes: range, bandwidth, power efficiency, Philippine coverage, infrastructure independence, and data integrity, normalised to a five-point scale}{figure.caption.36}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Telemetry JSON Schema}{93}{subsection.5.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Fall-through Policy}{94}{subsection.5.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Offline-buffer fall-through flowchart. The decision tree executed by the Core 0 worker each five-second sample cycle first routes telemetry through the highest-priority online channel. On a non-2xx response, the worker falls through to the next channel; if all channels are exhausted, the record is appended to \texttt  {/tel\_buf.log}. The buffer drains on a five-second cadence with a guaranteed-forward-progress minimum of one record per worker pass.}}{95}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:offline_buffer_fallthrough}{{5.6}{95}{Offline-buffer fall-through flowchart. The decision tree executed by the Core 0 worker each five-second sample cycle first routes telemetry through the highest-priority online channel. On a non-2xx response, the worker falls through to the next channel; if all channels are exhausted, the record is appended to \texttt {/tel\_buf.log}. The buffer drains on a five-second cadence with a guaranteed-forward-progress minimum of one record per worker pass}{figure.caption.37}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.4}LoRa Range Test Protocol}{96}{subsection.5.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.5}GSM / LTE Drive-test Protocol}{96}{subsection.5.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.6}Packet-delivery and Buffering Protocol}{97}{subsection.5.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Backend and Database Methodology}{97}{section.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Backend Stack}{97}{subsection.5.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces ERD Diagram}}{98}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:erd_diagram}{{5.7}{98}{ERD Diagram}{figure.caption.39}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Supabase Postgres Schema}}{99}{table.caption.38}\protected@file@percent }
+\newlabel{tab:supabase_postgres_schema}{{5.5}{99}{Supabase Postgres Schema}{table.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Cross-Interface State-Synchronization Sequence Diagram}}{100}{figure.caption.40}\protected@file@percent }
+\newlabel{fig:cross_interface_state_sync}{{5.8}{100}{Cross-Interface State-Synchronization Sequence Diagram}{figure.caption.40}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.2}Odometer and Trip-distance Methodology}{100}{subsection.5.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces Alert Rule Thresholds Implemented}}{101}{table.caption.41}\protected@file@percent }
+\newlabel{tab:alert_rule_thresholds}{{5.6}{101}{Alert Rule Thresholds Implemented}{table.caption.41}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces Extended Safety Implementation Status}}{101}{table.caption.42}\protected@file@percent }
+\newlabel{tab:extended_safety_status}{{5.7}{101}{Extended Safety Implementation Status}{table.caption.42}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Machine Learning Methodology}{102}{section.5.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces ML Anomaly Detection Architecture. The pipeline includes sensor sources, edge preprocessing, backend ingest, Supabase storage, 33-feature Model C vectors, dual-model inference, hybrid fusion, and downstream consumers including persisted anomaly flags, alerts, HMI buzzer and banner, and the React dashboard.}}{102}{figure.caption.43}\protected@file@percent }
+\newlabel{fig:ml_anomaly_detection_architecture}{{5.9}{102}{ML Anomaly Detection Architecture. The pipeline includes sensor sources, edge preprocessing, backend ingest, Supabase storage, 33-feature Model C vectors, dual-model inference, hybrid fusion, and downstream consumers including persisted anomaly flags, alerts, HMI buzzer and banner, and the React dashboard}{figure.caption.43}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces Dataset Composition for Evaluation Corpus}}{103}{table.caption.44}\protected@file@percent }
+\newlabel{tab:dataset_composition}{{5.8}{103}{Dataset Composition for Evaluation Corpus}{table.caption.44}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.1}Anomaly Injection Methodology}{103}{subsection.5.7.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces Anomaly Scenario Coverage}}{103}{table.caption.45}\protected@file@percent }
+\newlabel{tab:anomaly_scenario_coverage}{{5.9}{103}{Anomaly Scenario Coverage}{table.caption.45}{}}
+\gdef \LT@viii {\LT@entry 
+    {1}{18.82887pt}\LT@entry 
+    {1}{84.97794pt}\LT@entry 
+    {1}{84.97794pt}\LT@entry 
+    {1}{132.20692pt}\LT@entry 
+    {1}{18.42888pt}\LT@entry 
+    {1}{18.42888pt}\LT@entry 
+    {1}{18.42888pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.10}{\ignorespaces Feature Set Across Isolation Forest Variants (A / B / C)}}{104}{table.5.10}\protected@file@percent }
+\newlabel{tab:if_feature_set_variants}{{5.10}{104}{Feature Set Across Isolation Forest Variants (A / B / C)}{table.5.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.2}Isolation Forest Training Methodology}{106}{subsection.5.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.3}Matrix Profile Methodology}{106}{subsection.5.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.4}Hybrid Fusion Methodology}{107}{subsection.5.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.5}Contextual Gate Methodology}{107}{subsection.5.7.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.6}Live Deployment Integration}{107}{subsection.5.7.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}Evaluation Methodology}{108}{section.5.8}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.11}{\ignorespaces Objective, Protocol, and Metric}}{108}{table.caption.46}\protected@file@percent }
+\newlabel{tab:objective_protocol_metric}{{5.11}{108}{Objective, Protocol, and Metric}{table.caption.46}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.9}Implementation}{109}{section.5.9}\protected@file@percent }
+\newlabel{sec:implement}{{5.9}{109}{Implementation}{section.5.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.1}Data Acquisition and Preprocessing}{109}{subsection.5.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.2}System Methodology}{114}{subsection.5.9.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.3}Anomaly Detection and ML Methodology}{115}{subsection.5.9.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.4}IPO Chart and Design Pipeline}{115}{subsection.5.9.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.5}IPO Chart}{116}{subsection.5.9.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces IPO Chart}}{117}{figure.caption.55}\protected@file@percent }
+\newlabel{fig:ipo_chart}{{5.10}{117}{IPO Chart}{figure.caption.55}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.10}Evaluation}{118}{section.5.10}\protected@file@percent }
+\newlabel{sec:evaluate}{{5.10}{118}{Evaluation}{section.5.10}{}}
+\datagidx@aux@usedentry{not:TP}{[]{118}{datagidx.00010}}{[]{118}{datagidx.00010}}
+\datagidx@aux@usedentry{not:TP}{[]{118}{datagidx.00011}}{[]{118}{datagidx.00011}}
+\datagidx@aux@usedentry{not:FP}{[]{118}{datagidx.00012}}{[]{118}{datagidx.00012}}
+\newlabel{eq:precision}{{5.1}{118}{Evaluation}{equation.5.1}{}}
+\datagidx@aux@usedentry{not:FP}{[]{118}{datagidx.00013}}{[]{118}{datagidx.00013}}
+\datagidx@aux@usedentry{not:FP}{[]{118}{datagidx.00014}}{[]{118}{datagidx.00014}}
+\datagidx@aux@usedentry{not:TN}{[]{118}{datagidx.00015}}{[]{118}{datagidx.00015}}
+\newlabel{eq:fpr}{{5.2}{118}{Evaluation}{equation.5.2}{}}
+\datagidx@aux@usedentry{not:TP}{[]{118}{datagidx.00016}}{[]{118}{datagidx.00016}}
+\datagidx@aux@usedentry{not:TN}{[]{118}{datagidx.00017}}{[]{118}{datagidx.00017}}
+\datagidx@aux@usedentry{not:TP}{[]{118}{datagidx.00018}}{[]{118}{datagidx.00018}}
+\datagidx@aux@usedentry{not:TN}{[]{118}{datagidx.00019}}{[]{118}{datagidx.00019}}
+\datagidx@aux@usedentry{not:FP}{[]{118}{datagidx.00020}}{[]{118}{datagidx.00020}}
+\datagidx@aux@usedentry{not:FN}{[]{118}{datagidx.00021}}{[]{118}{datagidx.00021}}
+\newlabel{eq:accuracy}{{5.3}{118}{Evaluation}{equation.5.3}{}}
+\datagidx@aux@usedentry{not:L}{[]{119}{datagidx.00022}}{[]{119}{datagidx.00022}}
+\datagidx@aux@usedentry{not:Tdetected}{[]{119}{datagidx.00023}}{[]{119}{datagidx.00023}}
+\datagidx@aux@usedentry{not:Tactual}{[]{119}{datagidx.00024}}{[]{119}{datagidx.00024}}
+\newlabel{eq:latency-detection}{{5.4}{119}{Evaluation}{equation.5.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.11}Summary}{119}{section.5.11}\protected@file@percent }
 \@setckpt{methodology}{
-\setcounter{page}{99}
+\setcounter{page}{121}
 \setcounter{equation}{4}
 \setcounter{enumi}{3}
 \setcounter{enumii}{2}
@@ -55,7 +124,7 @@
 \setcounter{book}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{5}
-\setcounter{section}{4}
+\setcounter{section}{11}
 \setcounter{subsection}{0}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
@@ -90,15 +159,15 @@
 \setcounter{cmsm@mctr}{0}
 \setcounter{bsm@mctr}{0}
 \setcounter{workm@mctr}{0}
-\setcounter{sheetsequence}{109}
-\setcounter{lastsheet}{116}
-\setcounter{lastpage}{106}
-\setcounter{figure}{3}
+\setcounter{sheetsequence}{133}
+\setcounter{lastsheet}{152}
+\setcounter{lastpage}{140}
+\setcounter{figure}{10}
 \setcounter{lofdepth}{1}
-\setcounter{table}{1}
+\setcounter{table}{11}
 \setcounter{lotdepth}{1}
-\setcounter{LT@tables}{7}
-\setcounter{LT@chunks}{1}
+\setcounter{LT@tables}{8}
+\setcounter{LT@chunks}{3}
 \setcounter{caption@flags}{2}
 \setcounter{continuedfloat}{0}
 \setcounter{parentequation}{0}
@@ -117,7 +186,7 @@
 \setcounter{blind@pangrammax}{0}
 \setcounter{Item}{78}
 \setcounter{Hfootnote}{0}
-\setcounter{bookmark@seq@number}{83}
+\setcounter{bookmark@seq@number}{110}
 \setcounter{memhycontfloat}{0}
 \setcounter{mem@Hpagenote}{0}
 \setcounter{AM@survey}{0}
@@ -127,8 +196,8 @@
 \setcounter{ALC@depth}{0}
 \setcounter{lstnumber}{1}
 \setcounter{subfigure}{0}
-\setcounter{linenumber}{1587}
-\setcounter{LN@truepage}{108}
+\setcounter{linenumber}{1910}
+\setcounter{LN@truepage}{132}
 \setcounter{DTLrow}{0}
 \setcounter{DTLrowi}{0}
 \setcounter{DTLrowii}{0}

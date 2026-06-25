@@ -11,9 +11,9 @@
 
 \GroupIDtrue % comment to disable group ID
 
-%\ResultDiscusstrue % comment to disable results and discussions
+\ResultDiscusstrue % comment to disable results and discussions
 
-%\Conctrue % comment to disable conclusions
+\Conctrue % comment to disable conclusions
 
 %\Finishedtrue % comment to disable manuscript for final defense or binding/submission
 
@@ -132,8 +132,8 @@
 	theoretical_considerations,
 	design_considerations,
 	methodology,
-	%results_and_discussions,
-	%conclusions,
+	results_and_discussions,
+	conclusions,
 	%answers_to_questions,
 	%revisions_to_the_proposal,
 	%revisions_to_the_final,
@@ -255,6 +255,32 @@
 	\include{methodology}
 	%\stopcontents[chapters]
 	\cleardoublepage
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\ifResultDiscuss
+		\chapter{Results and Discussions}
+		\label{ch:result_discuss}
+		%\startcontents[chapters]
+		%\begin{SingleSpace}	
+		%	\Mprintcontents 
+		%\end{SingleSpace}
+		\include{results_and_discussions}
+		%\stopcontents[chapters]
+		\cleardoublepage
+	\fi
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\ifConc
+		\chapter{Conclusions, Recommendations, and Future Directives}
+		\label{ch:conc}
+		%\startcontents[chapters]
+		%\begin{SingleSpace}	
+		%	\Mprintcontents 
+		%\end{SingleSpace}
+		\include{conclusions}
+		%\stopcontents[chapters]
+		\cleardoublepage
+	\fi
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\renewcommand{\UrlFont}{\normalfont}
