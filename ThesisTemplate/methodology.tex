@@ -83,14 +83,14 @@ The system architecture (Figure~\ref{fig:End-to-end_system_architecture}) is an 
 \begin{figure}[!htbp]
     \centering
         \includegraphics[width=0.8\textwidth]{End-to-end_system_architecture.png}
-    \caption{End-to-end system architecture}
+    \caption{End-to-end System Architecture}
     \label{fig:End-to-end_system_architecture}
 \end{figure}
-\FloatBarrier
+\clearpage
 
 (Figure~\ref{fig:End-to-end_system_architecture}) illustrates the end-to-end communication architecture of the system, depicting how data flows from the ESP32 HMI through multiple transmission channels to the cloud backend and connected client interfaces.  The HMI, serving as edge node, is responsible for collecting fuel, location (GPS), and alert data while also providing the user interface for the driver.  From the HMI, data is transmitted through one of three active communication channels — WiFi (802.11 b/g/n), LTE/GSM 2G (LTE Cat-1 to EDGE), and LoRa (433 MHz, SF7, 17 dBm) — each routing through their respective network mediums of Internet, Cellular Network, and LoRa Gateway before converging at the Backend (Supabase + Render), which handles telemetry ingestion, alert dispatching, and ML anomaly detection. While the SPIFFS onboard flash buffer, which serves as the fourth passive channel, operates as a local fallback wherein the stored telemetry can be synced when a connection is re-established. The fallback priority order (LoRa → LTE → GSM 2G → WiFi → SPIFFS buffer → delayed sync) ensures continuous data delivery even under degraded network conditions. From the backend, processed data is simultaneously propagated to the mobile driver web application, the administrative dashboard, and the HMI poll-back, maintaining real-time synchronization across all three client surfaces.
 
-\section{End-to-End Telemetry Data Flow}
+\subsection{End-to-End Telemetry Data Flow}
 
 \begin{verbatim}
 START

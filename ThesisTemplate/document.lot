@@ -16,13 +16,13 @@
 \contentsline {table}{\numberline {5.2}{\ignorespaces HMI GPIO Map}}{89}{table.caption.31}%
 \contentsline {table}{\numberline {5.3}{\ignorespaces OBD-II PID to \texttt {telemetry\_logs} Column Mapping}}{91}{table.caption.33}%
 \contentsline {table}{\numberline {5.4}{\ignorespaces Communication Module Comparison}}{94}{table.caption.35}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces Supabase Postgres Schema}}{101}{table.caption.38}%
-\contentsline {table}{\numberline {5.6}{\ignorespaces Alert Rule Thresholds Implemented}}{103}{table.caption.41}%
-\contentsline {table}{\numberline {5.7}{\ignorespaces Extended Safety Implementation Status}}{103}{table.caption.42}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Supabase Postgres Schema}}{100}{table.caption.38}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces Alert Rule Thresholds Implemented}}{104}{table.caption.41}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces Extended Safety Implementation Status}}{104}{table.caption.42}%
 \contentsline {table}{\numberline {5.8}{\ignorespaces Dataset Composition for Evaluation Corpus}}{105}{table.caption.44}%
-\contentsline {table}{\numberline {5.9}{\ignorespaces Anomaly Scenario Coverage}}{105}{table.caption.45}%
+\contentsline {table}{\numberline {5.9}{\ignorespaces Anomaly Scenario Coverage}}{106}{table.caption.45}%
 \contentsline {table}{\numberline {5.10}{\ignorespaces Feature Set Across Isolation Forest Variants (A / B / C)}}{106}{table.5.10}%
-\contentsline {table}{\numberline {5.11}{\ignorespaces Objective, Protocol, and Metric}}{110}{table.caption.46}%
+\contentsline {table}{\numberline {5.11}{\ignorespaces Objective, Protocol, and Metric}}{111}{table.caption.46}%
 \addvspace {10pt}
 \contentsline {table}{\numberline {6.1}{\ignorespaces Summary of results for achieving the objectives}}{124}{table.6.1}%
 \addvspace {10pt}

@@ -11,14 +11,14 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Proposed Conceptual Diagram}}{84}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces End-to-end system architecture}}{86}{figure.caption.30}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces ESP32 Hardware Block Diagram}}{89}{figure.caption.32}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Fuel-level filter cascade. The raw OBD-II Mode 22 PID 21/29 fuel sample (every 1.5 s) is passed through a five-stage cascade: median-of-31, EMA ($\alpha = 0.04$), dead-band publisher, direction-aware step rule, and post-refuel quiescence freeze. The published percentage feeds the HMI display and the telemetry stream.}}{92}{figure.caption.34}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Communication Method Comparison radar. Five channels (LoRa, LTE, GSM 2G, WiFi, SPIFFS) are compared on six axes: range, bandwidth, power efficiency, Philippine coverage, infrastructure independence, and data integrity, normalised to a five-point scale.}}{94}{figure.caption.36}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Offline-buffer fall-through flowchart. The decision tree executed by the Core 0 worker each five-second sample cycle first routes telemetry through the highest-priority online channel. On a non-2xx response, the worker falls through to the next channel; if all channels are exhausted, the record is appended to \texttt {/tel\_buf.log}. The buffer drains on a five-second cadence with a guaranteed-forward-progress minimum of one record per worker pass.}}{97}{figure.caption.37}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces ERD Diagram}}{100}{figure.caption.39}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces End-to-end System Architecture}}{86}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces ESP32 Hardware Block Diagram}}{90}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Fuel-level filter cascade. The raw OBD-II Mode 22 PID 21/29 fuel sample (every 1.5 s) is passed through a five-stage cascade: median-of-31, EMA ($\alpha = 0.04$), dead-band publisher, direction-aware step rule, and post-refuel quiescence freeze. The published percentage feeds the HMI display and the telemetry stream.}}{93}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Communication Method Comparison radar. Five channels (LoRa, LTE, GSM 2G, WiFi, SPIFFS) are compared on six axes: range, bandwidth, power efficiency, Philippine coverage, infrastructure independence, and data integrity, normalised to a five-point scale.}}{95}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Offline-buffer fall-through flowchart. The decision tree executed by the Core 0 worker each five-second sample cycle first routes telemetry through the highest-priority online channel. On a non-2xx response, the worker falls through to the next channel; if all channels are exhausted, the record is appended to \texttt {/tel\_buf.log}. The buffer drains on a five-second cadence with a guaranteed-forward-progress minimum of one record per worker pass.}}{98}{figure.caption.37}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces ERD Diagram}}{101}{figure.caption.39}%
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Cross-Interface State-Synchronization Sequence Diagram}}{102}{figure.caption.40}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces ML Anomaly Detection Architecture. The pipeline includes sensor sources, edge preprocessing, backend ingest, Supabase storage, 33-feature Model C vectors, dual-model inference, hybrid fusion, and downstream consumers including persisted anomaly flags, alerts, HMI buzzer and banner, and the React dashboard.}}{104}{figure.caption.43}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces ML Anomaly Detection Architecture. The pipeline includes sensor sources, edge preprocessing, backend ingest, Supabase storage, 33-feature Model C vectors, dual-model inference, hybrid fusion, and downstream consumers including persisted anomaly flags, alerts, HMI buzzer and banner, and the React dashboard.}}{105}{figure.caption.43}%
 \contentsline {figure}{\numberline {5.10}{\ignorespaces IPO Chart}}{119}{figure.caption.55}%
 \addvspace {10pt}
 \addvspace {10pt}
