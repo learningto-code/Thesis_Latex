@@ -1,6 +1,8 @@
-This chapter presents the research methodology employed for the development of an Machine Learning-driven fuel monitoring and anomaly detection system for fleet vehicles. The methodology integrates a multi-layered approach combining sensor-level data acquisition, edge computing, IoT communication, cloud-based machine learning, and client-side visualization. The approach emphasizes real-time anomaly detection, accurate fuel monitoring, operational transparency, and actionable driver and fleet management insights.
+This chapter presents the research methodology employed for the development of a machine-learning-driven fuel monitoring and anomaly detection system for fleet vehicles. The methodology integrates a multi-layered approach combining OBD-II data acquisition, edge computing, IoT communication, cloud-based machine learning, and client-side visualization. The approach emphasizes real-time anomaly detection, accurate fuel monitoring, operational transparency, and actionable driver and fleet management insights.
 
-The research methodology is structured to address both general and specific objectives, ensuring that the system is technically feasible, scalable, and reliable. Figure~\ref{fig:system_architecture} and Table~\ref{tab:methods_per_objective} summarize the methods and approaches for each objective.
+The research methodology is structured to address both general and specific objectives, ensuring that the system is technically feasible, scalable, and reliable. Figure~\ref{fig:End-to-end_system_architecture} and Table~\ref{tab:methods_per_objective} summarize the methods and approaches for each objective.
+
+The chapter placement was reviewed to keep the paper aligned with the DLSU thesis structure. Chapter~\ref{ch:theorycon} is retained for the theoretical basis of IoT telemetry, anomaly detection, and fleet monitoring; Chapter~\ref{ch:designcon} is retained for design decisions, standards, limits, and constraints; and this chapter focuses on the actual research procedure: how the prototype was implemented, how telemetry was collected and processed, how the machine-learning variants were trained, and how each objective was evaluated.
 \begin{center}
 \scriptsize
 \begin{tabularx}{\textwidth}{p{0.2\textwidth}|X|p{0.1\textwidth}}
@@ -9,7 +11,7 @@ The research methodology is structured to address both general and specific obje
 \hline 
 \textbf{Objectives} & \textbf{Methods / Approaches} & \textbf{Locations} \\ 
 \hline 
-GO: Develop and evaluate an IoT-based system for trucks in collaboration with Hino Parañaque Subic GS Auto Inc. (SGSA) that monitors real-time fuel levels, tracks routes using GPS, and detects unusual fuel consumption using machine learning, improving driver safety, supporting rest scheduling, and facilitating proactive vehicle maintenance through automated alerts. &
+GO: Develop and evaluate an IoT-based system for fleet vehicles in collaboration with Hino Parañaque Subic GS Auto Inc. (SGSA) that monitors real-time fuel levels, tracks routes using GPS, and detects unusual fuel consumption using machine learning, improving driver safety, supporting rest scheduling, and facilitating proactive vehicle maintenance through automated alerts. &
 \begin{itemize}
     \item Embedded MCU preprocessing and aggregation
     \item LoRa/Cellular communication for low-latency and fail-safe data transfer
@@ -18,66 +20,72 @@ GO: Develop and evaluate an IoT-based system for trucks in collaboration with Hi
     \item Driver alert subsystem for operational safety
 \end{itemize} & Sec.~\ref{sec:implement} \\
 \hline 
-SO1: Measure fuel levels using digital float sensors integrated via the truck’s ECU/diagnostic connector and GPS module, ensuring non-invasive installation and real-time accuracy within ±5\%. &
+SO1: Measure fuel levels through the Toyota meter Mode 22 PID 21/29 channel of the OBD-II interface, ensuring non-invasive installation and real-time accuracy within ±5\%. &
 \begin{itemize}
-    \item Digital fuel sensors interfaced with ECU/OBD-II
-    \item Signal filtering and smoothing
-    \item Calibration against manual measurements
+    \item Toyota meter Mode 22 PID 21/29 fuel acquisition through OBD-II
+    \item Edge-side median, EMA, dead-band, and direction-aware filtering
+    \item Validation against dashboard-gauge walkaround pairs and signal variance
     \item Continuous validation for measurement reliability
-\end{itemize} & Sec.~\ref{sec:implement} \\
+\end{itemize} & Secs.~\ref{sec:fuel_acquisition}, \ref{sec:fuel_preprocessing} \\
 \hline 
-SO2: Transmit real-time fuel and GPS data through IoT-based communication to a cloud server, accessible through a centralized dashboard. &
+SO2: Transmit real-time fuel and GPS data through prioritized IoT communication to a cloud backend, accessible through the in-vehicle HMI, mobile driver application, and administrative dashboard. &
 \begin{itemize}
-    \item Real-time IoT transmission via LoRa (primary) and Cellular Connection (backup)
+    \item Real-time IoT transmission via LoRa, LTE, GSM 2G, WiFi, and SPIFFS replay
     \item Cloud ingestion APIs
+    \item Synchronized HMI, mobile driver application, and administrative dashboard
     \item Latency measurement and benchmarking to ensure timely reporting
-\end{itemize} & Sec.~\ref{sec:implement} \\
+\end{itemize} & Sec.~\ref{sec:communication} \\
 \hline 
 SO3: Capture and log GPS location data every 5 seconds via an embedded module, correlating route information with fuel and time data for behavior tracking. &
 \begin{itemize}
     \item GPS-based location logging at 5-second intervals
     \item Synchronization with fuel data
     \item Structured cloud database for multi-source data storage and route–fuel correlation
-\end{itemize} & Sec.~\ref{sec:implement} \\
+\end{itemize} & Secs.~\ref{sec:implement}, \ref{sec:backend} \\
 \hline 
-SO4: Design and evaluate a context-aware fuel usage deviation modeling approach using non-parametric unsupervised ML models (Matrix Profile or Isolation Forest), achieving ≥90\% precision and ≤10\% false positives. &
+SO4: Design and evaluate a context-aware fuel usage deviation modeling approach using non-parametric unsupervised ML models (Matrix Profile or Isolation Forest), achieving $\geq$90\% precision and $\leq$10\% false positives. &
 \begin{itemize}
     \item Offline training of anomaly detection models using Isolation Forest and Matrix Profile
     \item Evaluation using precision, FPR, and accuracy
     \item Context-aware thresholding to reduce false positives
-\end{itemize} & Sec.~\ref{sec:implement} \\
+\end{itemize} & Secs.~\ref{sec:ml}, \ref{sec:evaluation} \\
 \hline 
 SO5: Develop and integrate hardware-based rest and maintenance alert mechanisms (e.g., Start/Stop button, buzzer indicators) tied to the web dashboard using cumulative fuel and distance data. &
 \begin{itemize}
     \item Driver rest and maintenance alert system with cumulative distance/time tracking
     \item Cloud-based monitoring and logging
     \item Alert notification via dashboard and in-vehicle signals
-\end{itemize} & Sec.~\ref{sec:implement} \\
+\end{itemize} & Secs.~\ref{sec:hardware}, \ref{sec:alerts} \\
 \hline
 \end{tabularx}
 \end{center}
 
+Table~\ref{tab:methods_per_objective} is used as the methodological roadmap for the chapter. Each row connects a thesis objective to the concrete subsystem, data source, or validation activity used to satisfy it. The table also prevents the methodology from becoming only an implementation narrative: it shows that fuel acquisition, communication, GPS logging, machine learning, and alert delivery are each tied to a measurable requirement that is later evaluated in Chapter~\ref{ch:result_discuss}.
+
 
 \section{System Architecture and Conceptual Design}
+\label{sec:implement}
 
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=1\textwidth]{concep_diagram.png}
-	\caption{Proposed Conceptual Diagram}
-	\label{fig:Description and Methodology}
+	\caption{Conceptual Framework}
+	\label{fig:conceptual_framework}
 \end{figure}
 
-The system follows a layered architecture with a focus on modularity, scalability, and reliability. The conceptual framework (Figure~\ref{fig:Description and Methodology}) integrates the following:
+The system follows a layered architecture with a focus on modularity, scalability, and reliability. Figure~\ref{fig:conceptual_framework} integrates the following:
 
 \begin{itemize}
-    \item \textbf{Vehicle Sensing Subsystem:} Digitally calibrated fuel-level sensors, GPS modules, and driver rest-time monitors. Sensor signals are collected via ECU or OBD-II ports.
+    \item \textbf{Vehicle Sensing Subsystem:} OBD-II fuel and vehicle-context acquisition, embedded GPS, mobile GPS fallback, and driver rest-time monitors.
     \item \textbf{Edge Processing:} The MCU performs signal preprocessing, filtering, smoothing, synchronization, and timestamping before transmission.
-    \item \textbf{IoT Communication:} LoRa transceivers enable low-power, long-range data transmission; cellular backup, balancing cost and bandwidth considerations.
-    \item \textbf{Cloud Intelligence:} Historical data is used to train unsupervised ML models (Isolation Forest, Matrix Profile) to detect anomalies. The cloud evaluates incoming real-time data and triggers alerts.
-    \item \textbf{Client Visualization:} A web-based dashboard provides real-time visualization of fuel levels, routes, alerts, and historical playback for decision-making.
+    \item \textbf{IoT Communication:} LoRa, LTE, GSM 2G, WiFi, and SPIFFS replay provide prioritized telemetry delivery under changing network conditions.
+    \item \textbf{Cloud Intelligence:} Isolation Forest Model C and Matrix Profile evaluate incoming telemetry and trigger fuel-anomaly alerts when the contextual gate permits.
+    \item \textbf{Client Visualization:} The embedded HMI, mobile driver web application, and administrative dashboard provide synchronized fuel, route, trip-state, and alert views.
 \end{itemize}
 
-The system architecture (Figure~\ref{fig:End-to-end_system_architecture}) is an edge-to-cloud fleet-monitoring pipeline in which the embedded HMI performs data acquisition, filtering, trip-state handling, local driver display, and prioritised transmission. The backend stores telemetry, synchronises state across three concurrent client surfaces - the in-truck HMI, the mobile driver web application, and the administrative dashboard - and dispatches anomaly and safety alerts through the same database tables that the three surfaces subscribe to.
+The purpose of the conceptual framework is to show the boundary of the design solution before individual subsystems are discussed. The vehicle layer produces the measurements, the edge layer cleans and packages them, the communication layer preserves delivery under changing coverage, the cloud layer stores and interprets the data, and the interface layer returns the interpreted state to the driver and fleet manager. This layered reading is important because the prototype is evaluated as an end-to-end monitoring system rather than as a single sensor or dashboard.
+
+The system architecture in Figure~\ref{fig:End-to-end_system_architecture} is an edge-to-cloud fleet-monitoring pipeline in which the embedded HMI performs data acquisition, filtering, trip-state handling, local driver display, and prioritised transmission. The backend stores telemetry, synchronises state across three concurrent client surfaces - the in-vehicle HMI, the mobile driver web application, and the administrative dashboard - and dispatches anomaly and safety alerts through the same database tables that the three surfaces subscribe to.
 
 \FloatBarrier
 \begin{figure}[!htbp]
@@ -88,11 +96,36 @@ The system architecture (Figure~\ref{fig:End-to-end_system_architecture}) is an 
 \end{figure}
 \clearpage
 
-(Figure~\ref{fig:End-to-end_system_architecture}) illustrates the end-to-end communication architecture of the system, depicting how data flows from the ESP32 HMI through multiple transmission channels to the cloud backend and connected client interfaces.  The HMI, serving as edge node, is responsible for collecting fuel, location (GPS), and alert data while also providing the user interface for the driver.  From the HMI, data is transmitted through one of three active communication channels — WiFi (802.11 b/g/n), LTE/GSM 2G (LTE Cat-1 to EDGE), and LoRa (433 MHz, SF7, 17 dBm) — each routing through their respective network mediums of Internet, Cellular Network, and LoRa Gateway before converging at the Backend (Supabase + Render), which handles telemetry ingestion, alert dispatching, and ML anomaly detection. While the SPIFFS onboard flash buffer, which serves as the fourth passive channel, operates as a local fallback wherein the stored telemetry can be synced when a connection is re-established. The fallback priority order (LoRa → LTE → GSM 2G → WiFi → SPIFFS buffer → delayed sync) ensures continuous data delivery even under degraded network conditions. From the backend, processed data is simultaneously propagated to the mobile driver web application, the administrative dashboard, and the HMI poll-back, maintaining real-time synchronization across all three client surfaces.
+Figure~\ref{fig:End-to-end_system_architecture} illustrates the end-to-end communication architecture of the system, depicting how data flows from the ESP32 HMI through multiple transmission channels to the cloud backend and connected client interfaces.  The HMI, serving as edge node, collects fuel, location, and alert data while also providing the user interface for the driver.  From the HMI, data is transmitted through WiFi, LTE/GSM 2G, and LoRa before converging at the Supabase and Render backend, which handles telemetry ingestion, alert dispatching, and ML anomaly detection. The SPIFFS onboard flash buffer serves as a local fallback wherein stored telemetry is synced when a connection is re-established. The fallback priority order (LoRa $\rightarrow$ LTE $\rightarrow$ GSM 2G $\rightarrow$ WiFi $\rightarrow$ SPIFFS buffer $\rightarrow$ delayed sync) ensures continuous data delivery even under degraded network conditions. From the backend, processed data is propagated to the mobile driver web application, the administrative dashboard, and the HMI poll-back, maintaining real-time synchronization across all three client surfaces.
+
+The architecture also identifies where each later measurement is taken. Fuel accuracy is measured before and after the edge filter, communication latency is measured between device emission and backend receipt, GPS cadence is measured at the device timestamp, anomaly detection is measured after backend feature construction, and alert usability is measured at the HMI, mobile, and dashboard surfaces. This placement makes the Chapter~6 result chain traceable from sensor input to user-facing output.
+
+\subsection{Input-Process-Output (IPO) Overview}
+
+The data design outlines a cohesive pipeline that integrates OBD-II acquisition, GPS synchronization, cloud transmission, and model-based analysis to enable real-time anomaly detection in fleet fuel systems. Data collection begins with the embedded HMI capturing OBD-II fuel level, vehicle context, GPS coordinates, communication-channel metadata, and trip-state events. These signals are preprocessed through the fuel filter cascade and synchronized before backend ingestion.
+
+To ensure temporal alignment, telemetry records include device-side and backend-side timestamps. This synchronization step is critical for comparing trends across OBD-II, GPS, communication, and alert data. The processed signals are uploaded to the Supabase and Render backend for storage, anomaly scoring, and synchronized access across the HMI, mobile driver application, and administrative dashboard.
+
+For anomaly detection, the synchronized time-series data are used to train and evaluate Isolation Forest and Matrix Profile detectors. These models are tested on project-native trips and controlled-injection scenarios to reflect normal and anomalous behavior. Key performance metrics, including MAPE\glsadd{MAPE}, timestamp drift, detection latency, precision, recall, and false positive rate, are used to assess system effectiveness.
+
+\subsubsection{IPO Chart}
+
+\begin{figure}[!htbp]
+    \centering
+        \includegraphics[width=1\textwidth]{IPO.png}
+    \caption{IPO Chart}
+    \label{fig:ipo_chart}
+\end{figure}
+
+The IPO (Input-Process-Output) chart in Figure~\ref{fig:ipo_chart} provides a structured overview of the IoT-based fleet fuel monitoring and anomaly detection system. The input data consists of real-time readings from the fleet vehicle's CAN bus/OBD-II fuel signal, GPS module coordinates and speed at five-second telemetry intervals, ignition status, and in-cab rest alert subsystem signals. These inputs are supplemented by historical fuel anomaly datasets and controlled-injection anomalies to simulate rare or edge-case events. Moderating variables such as driving behavior, network conditions, and environmental factors also influence the data.
+
+The process begins with signal preprocessing, where the MCU filters and timestamps fuel, GPS, and ignition data to reduce noise and ensure synchronization. The preprocessed data is then transmitted through the prioritized communication stack and stored in the cloud backend. Anomaly detection is carried out in the cloud using Matrix Profile for time-series discord identification and Isolation Forest for feature-based outlier detection. Model validation and evaluation are performed using labelled and test datasets, calculating performance metrics such as precision, recall, false positive rate (FPR), detection latency, and overall accuracy.
+
+The system outputs include fuel anomaly flags, such as potential theft or leakage, and driver rest alerts based on cumulative distance or driving duration. Additionally, it provides real-time GPS tracking on a web dashboard, estimated fuel levels as a percentage of tank capacity, and quantitative performance metrics for operational evaluation. This end-to-end flow ensures accurate, real-time monitoring, proactive safety notifications, and actionable insights for fleet management.
 
 \subsection{End-to-End Telemetry Data Flow}
 
-\begin{verbatim}
+\begin{lstlisting}[caption=End-to-End Telemetry Data Flow,label=lst:telemetry_data_flow]
 START
 WHILE system is running DO
     READ ECU fuel data
@@ -135,47 +168,53 @@ WHILE system is running DO
     UPDATE dashboard, mobile app, and HMI display
 END WHILE
 END
-\end{verbatim}
+\end{lstlisting}
+
+Listing~\ref{lst:telemetry_data_flow} converts the architecture into the operating sequence followed by the prototype during a trip. It shows that telemetry collection is cyclical: the device reads fuel and GPS, filters the fuel signal, updates trip state, selects a communication channel, stores the record, runs anomaly detection, and then refreshes all user interfaces. The listing is not intended to expose source code; it is a readable process model showing how the hardware, backend, and interface layers cooperate during normal and degraded-network operation.
 
 \section{Hardware Methodology}
+\label{sec:hardware}
 
-\begin{table}[!htbp]
-\centering
-\caption{HMI GPIO Map}
-\label{tab:hmi_gpio_map}
-\begin{tabular}{|p{0.25\textwidth}|p{0.65\textwidth}|}
-\hline
-\textbf{Pin} & \textbf{Function} \\
-\hline
-GPIO 22 & \texttt{BTN\_TAKE\_REST} (active-low, debounced 50 ms) \\
-\hline
-GPIO 39 & \texttt{BTN\_SNOOZE} (active-low, debounced 50 ms) \\
-\hline
-GPIO 25 & Buzzer (PWM through the LEDC peripheral) \\
-\hline
-GPIO 5 & A7670E modem PWRKEY \\
-\hline
-\end{tabular}
-\end{table}
+The embedded hardware platform is built around an ESP32 dual-core microcontroller running at 240 MHz with separate VSPI and HSPI\glsadd{HSPI} bus assignments to prevent SPI\glsadd{SPI} arbitration conflicts between the TFT display and the LoRa transceiver. Peripheral components include the ILI9341 2.4-inch TFT display with XPT2046 capacitive touch controller, physical action buttons, and a piezo buzzer. The MCP2515 CAN controller communicates with the ESP32 through SPI and interfaces with the vehicle CAN lines through a CAN transceiver.
+The A7670E LTE/GSM modem and embedded GPS module use UART links, while the SX1278 LoRa transceiver uses VSPI.
+
+\subsection{HMI Control Pins}
+
+The main driver-facing controls use two debounced physical buttons for rest and snooze actions, one PWM\glsadd{PWM}-driven buzzer output for alerts, and one modem power-control pin. The full GPIO map is provided in Appendix~\ref{ch:appendix_technical_details} so the main methodology can focus on the hardware role rather than pin-level implementation detail.
+
+This pin assignment supports the SO5 alert workflow by giving the driver physical controls that remain usable even when the touchscreen is difficult to operate during field conditions. The rest and snooze buttons are treated as event sources, the buzzer as the immediate alert actuator, and the modem-control line as the recovery mechanism for cellular communication faults.
+
+\subsection{Hardware Block Diagram}
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{ESP32_Hardware_Block_Diagram.png}
-    \caption{ESP32 Hardware Block Diagram}
+    \includegraphics[width=0.9\textwidth]{image.png}
+    \caption{Embedded HMI Hardware Block Diagram}
     \label{fig:esp32_hardware_block_diagram}
 \end{figure}
 
+Figure~\ref{fig:esp32_hardware_block_diagram} shows the hardware block diagram of the embedded HMI node, depicting how the ESP32 microcontroller connects to the OBD-II CAN interface, the A7670E cellular modem, the SX1278 LoRa transceiver, the GPS module, the ILI9341 TFT display, and the driver alert hardware on its respective bus and UART lines.
+
+The block diagram should be read as the physical implementation counterpart of the system architecture. It explains why separate buses were used: the TFT display, CAN controller, LoRa transceiver, modem, and GPS receiver all generate time-sensitive events, so the wiring design separates high-traffic display updates from telemetry and radio activity. This separation reduces the chance that display refresh, CAN polling, and radio transmission interfere with one another during active trips.
+
 \section{OBD-II / ECU Fuel and Vehicle Data Acquisition Methodology}
+\label{sec:fuel_acquisition}
 
 Fuel level was acquired through the Toyota meter Mode 22 PID 21/29 channel of the OBD-II interface. The same telemetry cycle also captured contextual OBD-II variables such as speed, engine RPM, engine load, throttle position, mass air flow, coolant temperature, engine runtime, and diagnostic-trouble-code status. These fields were timestamped at the device and transmitted to the backend together with GPS, trip-state, and communication-channel metadata so that the anomaly detector could interpret fuel changes in relation to vehicle operation rather than fuel percentage alone.
 
 \subsection{Physical Interface}
 The acquisition layer uses the vehicle OBD-II port and ISO 15765-4 transport over CAN. This enables the prototype to read fuel and vehicle context without tank-cap modification or sender-loom alteration.
 
+The physical-interface choice is central to the study because it keeps the system non-invasive. Instead of inserting a new float sensor or cutting into the fuel sender wiring, the prototype reads the fuel-related signal already exposed by the vehicle electronics. This reduces installation risk, supports repeatability across fleet vehicles of the same model, and keeps the validation focused on whether the existing vehicle signal can be made accurate enough for monitoring.
+
 \subsection{Toyota Meter Mode 22 PID 21/29 Fuel Acquisition}
 Fuel acquisition uses Toyota meter Mode 22 PID 21/29 with a scale of 0.5 L per ADC count. The firmware polls the fuel channel on a 1.5 s cadence and applies a retry policy when the adapter returns a negative acknowledgment or missing response.
 
+The 1.5 s poll cadence was selected to capture fuel changes faster than the five-second telemetry publication interval while still leaving time for GPS parsing, display updates, and communication attempts. The retry policy prevents a single missing CAN response from becoming a false fuel event. Only values that pass validity checks are allowed to update the filtered fuel stream used by the HMI and backend.
+
 \subsection{Co-acquired Mode 01 PIDs}
+
+Table~\ref{tab:obd_pid_telemetry_mapping} lists the vehicle signals used by the prototype and shows where each signal is stored after ingestion. The column names are included only for traceability between the thesis results and the implemented database; the main purpose of the table is to show that fuel readings were interpreted together with speed, engine demand, motion context, and diagnostic status rather than as an isolated raw value.
 
 \begin{table}[!htbp]
 \centering
@@ -208,23 +247,32 @@ Mode 03 / 0x01 & Stored DTCs (count + presence) & \texttt{dtc\_present}, \texttt
 \normalsize
 \end{table}
 
+Table~\ref{tab:obd_pid_telemetry_mapping} explains how raw vehicle signals become database-ready telemetry. Fuel level is the primary measurement for SO1 and SO4, while speed, RPM, load, throttle, mass airflow, coolant temperature, runtime, and diagnostic status provide context for deciding whether a fuel change is plausible. This is why the anomaly detector is described as context-aware: it does not evaluate fuel movement without also considering motion and engine state.
+
 \subsection{Validity and Confidence Fields}
 The firmware writes \texttt{fuel\_valid}, \texttt{fuel\_source}, and \texttt{fuel\_confidence} on every telemetry cycle. These fields allow the backend and dashboard to distinguish valid Mode 22 fuel readings from missing, stale, or fallback values.
+
+These fields prevent the backend from treating all fuel values as equally reliable. For example, a current Mode~22 reading with high confidence can be used directly for alerts, while a stale or fallback value can be displayed with caution and excluded from model training or calibration windows. This protects the system from creating false anomalies during adapter timeouts or network replay.
 
 \subsection{Timestamping}
 Each telemetry record carries the original device-side timestamp as \texttt{original\_device\_\allowbreak timestamp}, while the backend records its own receipt time. Backend reconciliation uses server time to separate transmission delay from actual sampling time.
 
+Dual timestamping is necessary because the communication subsystem deliberately permits delayed delivery. A row replayed from SPIFFS may arrive minutes after it was sampled, but its device timestamp still represents the true trip timeline. Chapter~6 therefore uses device time for sampling cadence and route reconstruction, and backend receipt time for communication latency and alert-arrival analysis.
+
 \subsection{Field Reference Choice}
-The manufacturer dashboard gauge is used as the field reference for fuel-validation activity. This choice follows the delimitations in Chapter~\ref{ch:intro}, because direct manual dipstick validation and tank-cap opening were not permitted by the partner fleet operator.
+The manufacturer dashboard gauge is used as a supporting field reference for fuel-validation activity. This choice follows the delimitations in Chapter~\ref{ch:intro}, because direct dipstick validation and tank-cap opening were not permitted by the partner fleet operator.
+
+The validation reference was therefore selected to match the allowed field procedure. Known-volume pump-gas events provide the volumetric reference, while the manufacturer dashboard confirms that the prototype is reading a fuel state consistent with the vehicle's own display. This is an honest operational validation rather than a laboratory calibration claim.
 
 \section{Fuel Preprocessing Methodology}
+\label{sec:fuel_preprocessing}
 
-The raw OBD-II fuel reading was passed through a multi-stage edge filter before publication. A median window rejects single-sample spikes caused by slosh and sender chatter; an exponential moving average smooths residual noise; a dead-band publisher prevents display jitter; and a direction-aware step rule permits downward movement consistent with fuel burn while rejecting upward movement during motion unless a stationary refuel signature is observed. This filtered value is the fuel percentage displayed on the HMI and stored in \texttt{telemetry\_logs}.
+The raw OBD-II fuel reading was passed through a multi-stage edge filter before publication. A median window rejects single-sample spikes caused by slosh and sender chatter; an exponential moving average smooths residual noise; a dead-band publisher prevents display jitter; and a direction-aware step rule permits downward movement consistent with fuel burn while rejecting upward movement during motion unless a stationary refuel signature is observed. This filtered value is the fuel percentage displayed on the HMI and stored in \texttt{telemetry\_logs}. Figure~\ref{fig:fuel_filter_cascade} illustrates the five-stage cascade.
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.95\textwidth]{Fuel-level_filter_cascade.png}
-    \caption{Fuel-level filter cascade. The raw OBD-II Mode 22 PID 21/29 fuel sample (every 1.5 s) is passed through a five-stage cascade: median-of-31, EMA ($\alpha = 0.04$), dead-band publisher, direction-aware step rule, and post-refuel quiescence freeze. The published percentage feeds the HMI display and the telemetry stream.}
+    \caption{Fuel-Level Filter Cascade}
     \label{fig:fuel_filter_cascade}
 \end{figure}
 
@@ -232,10 +280,15 @@ The filter cascade begins with the raw OBD-II Toyota Mode 22 PID 21/29 fuel valu
 
 During warm-up, the first three samples per trip session are withheld from publication and the human-machine interface displays the placeholder \texttt{Loading} until the median window has been populated. This prevents a noisy first read from anchoring the displayed value at an inaccurate level.
 
+The practical effect of the cascade is that the dashboard and model receive a stable fuel signal instead of a slosh-heavy raw sender trace. This matters for both SO1 and SO4: SO1 evaluates whether the displayed level remains accurate, while SO4 depends on the filter to remove one-sample spikes before machine learning is asked to detect meaningful abnormal consumption.
+
 \section{Communication and Offline Sync Methodology}
+\label{sec:communication}
 
 \subsection{Priority Chain Rationale}
 LTE was treated as the primary wide-area data path because it offers the lowest steady-state latency and highest payload throughput among the available wide-area options. LoRa was retained as the depot/yard and long-range telemetry path because of its multi-kilometre line-of-sight reach at very low power. GSM 2G was retained as the deeper-fallback for 2G-only coverage pockets on the Batangas and Subic routes. WiFi was retained as a depot or driver-tether path. SPIFFS offline-buffer replay is the final fallback that guarantees no telemetry record is silently lost when all four real-time channels are unavailable.
+
+\subsection{Communication Module Comparison}
 
 \begin{table}[!htbp]
 \centering
@@ -254,7 +307,7 @@ LTE & LTE Cat-1 & A7670E & approx. 10 Mbps & Cell coverage & Medium & Primary ce
 \hline
 GSM 2G & EDGE & A7670E fallback & approx. 80 kbps & Wider than LTE & Medium & Cellular fallback \\
 \hline
-LoRa & SX1278, 433 MHz, SF7, BW 125 kHz & RA-02, 17 dBm TX & approx. 5.5 kbps & approx. 50 m urban NLOS at 97\% measured; approx. 1 km open LOS at 60\% measured; up to 10 km LOS per SX1278 datasheet & Very low & Primary telemetry path (intelligent traffic-steering chain) \\
+LoRa & SX1278, 433 MHz, SF\glsadd{SF}7, BW\glsadd{BW} 125 kHz & RA-02, 17 dBm TX & approx. 5.5 kbps & approx. 50 m urban NLOS\glsadd{NLOS} at 97\% measured; approx. 1 km open LOS\glsadd{LOS} at 60\% measured; up to 10 km LOS per SX1278 datasheet & Very low & Primary telemetry path (intelligent traffic-steering chain) \\
 \hline
 Offline & - & SPIFFS flash & - & - & None & Outage replay \\
 \hline
@@ -264,81 +317,63 @@ Offline & - & SPIFFS flash & - & - & None & Outage replay \\
 
 The LoRa range column is reported as two values: the operational urban NLOS reach measured in this study and the line-of-sight reach published in the SX1278 datasheet. LoRa is the highest-priority transport in the intelligent-traffic-steering chain (LoRa $\rightarrow$ LTE $\rightarrow$ GSM 2G $\rightarrow$ WiFi $\rightarrow$ SPIFFS buffer); the cellular path provides coverage of the urban-NLOS regime past approximately 50 m where LoRa delivery degrades.
 
+Table~\ref{tab:communication_module_comparison} is not a generic radio comparison; it explains why every communication option remains in the prototype. LoRa gives low-power depot and yard coverage, LTE provides the main wide-area path, GSM~2G provides a legacy fallback in fringe coverage, WiFi supports depot or driver-hotspot use, and SPIFFS protects the data when no radio path is available. The later SO2 tests measure the actual performance of this chain.
+
+\subsection{Communication Method Comparison}
+
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{Communication_Method_Comparison_radar.png}
-    \caption{Communication Method Comparison radar. Five channels (LoRa, LTE, GSM 2G, WiFi, SPIFFS) are compared on six axes: range, bandwidth, power efficiency, Philippine coverage, infrastructure independence, and data integrity, normalised to a five-point scale.}
+    \caption{Communication Method Comparison}
     \label{fig:communication_method_radar}
 \end{figure}
 
-\subsection{Telemetry JSON Schema}
-\begin{verbatim}
-{
-  "truck_id": "<uuid>",
-  "driver_id": "<uuid>",
-  "trip_id": "<uuid>",
-  "sent_at": "<iso-8601>",
-  "original_device_timestamp": "<iso-8601>",
-  "source_device": "hmi" | "mobile",
-  "fuel_level": <0..100>,
-  "fuel_valid": <bool>,
-  "fuel_source": "...",
-  "fuel_confidence": <0..1>,
-  "lat": <float>,
-  "lon": <float>,
-  "gps_source":
-    "embedded_gps" | "mobile_gps" | "fused_mobile_fallback",
-  "gps_accuracy_m": <float>,
-  "gps_heading_deg": <float>,
-  "mobile_speed_mps": <float>,
-  "speed": <km/h>,
-  "odometer_km": <float>,
-  "engine_status": "on" | "off" | "idle",
-  "seq": <bigint>,
-  "event_id": "<uuid>",
-  "channel_used":
-    "lora" | "gsm" | "offline_replay" | "mobile_app" | "simulation",
-  "comm_channel": "...",
-  "hmi_driving_sec": <int>,
-  "hmi_rest_sec": <int>,
-  "hmi_trip_status": "...",
-  "engine_rpm": <int>,
-  "engine_load_pct": <float>,
-  "throttle_pct": <float>,
-  "maf_gps": <float>,
-  "coolant_temp_c": <float>,
-  "engine_runtime_sec": <int>,
-  "dtc_present": <bool>,
-  "dtc_count": <int>,
-  "distance_gps_delta_km": <float>,
-  "distance_obd_delta_km": <float>,
-  "distance_fused_delta_km": <float>
-}
-\end{verbatim}
+Figure~\ref{fig:communication_method_radar} compares LoRa, LTE, GSM 2G, WiFi, and SPIFFS on range, bandwidth, power efficiency, Philippine coverage, infrastructure independence, and data integrity using a five-point normalized scale.
+
+The radar chart summarizes the trade-off that motivates the fallback design. No single channel dominates all criteria: LoRa is efficient and infrastructure-light but low bandwidth, LTE has broad operational usefulness but depends on carrier coverage, GSM~2G is slow but useful in legacy pockets, WiFi is fast but short-range, and SPIFFS has perfect local retention but no real-time delivery. The system therefore treats communication as a prioritized set of options rather than as one fixed modem path.
+
+\subsection{Telemetry Payload Summary}
+
+Each telemetry payload carries the identifiers needed for synchronization, the filtered fuel reading and confidence flags, GPS position and source metadata, OBD-II context variables, communication-channel tags, trip-state counters, and distance deltas. This compact payload design lets the backend deduplicate records, separate live from replayed telemetry, and run anomaly detection without requiring the dashboard to parse device-specific state. The full JSON payload schema is provided in Appendix~\ref{ch:appendix_technical_details}.
+
+\subsection{Offline-Buffer Fall-Through Flowchart}
+
+Figure~\ref{fig:offline_buffer_fallthrough} shows the decision tree executed by the Core~0 worker each telemetry cycle, tracing how a record is routed through the priority chain and appended to the SPIFFS buffer when all online channels are unavailable.
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{Offline-buffer_fall-through_flowchart.png}
-    \caption{Offline-buffer fall-through flowchart. The decision tree executed by the Core 0 worker each five-second sample cycle first routes telemetry through the highest-priority online channel. On a non-2xx response, the worker falls through to the next channel; if all channels are exhausted, the record is appended to \texttt{/tel\_buf.log}. The buffer drains on a five-second cadence with a guaranteed-forward-progress minimum of one record per worker pass.}
+    \caption{Offline-Buffer Fall-Through Flowchart}
     \label{fig:offline_buffer_fallthrough}
 \end{figure}
 
+\noindent
+The flowchart is read from top to bottom as a reliability mechanism. A telemetry row is first offered to the preferred live channel; if that channel fails, the same row is attempted on the next path without changing its sequence identifier. Only after all live attempts fail is the record stored locally. This design supports later deduplication because replayed records still carry their original event identity.
+
 \subsection{Fall-through Policy}
-Each telemetry record is attempted on the highest-priority available channel: LoRa first if a gateway uplink is in range, otherwise LTE, then GSM 2G, then WiFi. If an attempt fails because of a non-2xx response from the backend or a modem error, the firmware falls through to the next channel without duplicating the \texttt{seq} or \texttt{event\_id}. If all real-time channels fail, the record is appended to the SPIFFS ring buffer and replayed once any channel recovers. The replayed record is tagged \texttt{channel\_\allowbreak used = 'offline\_\allowbreak replay'} so the backend can distinguish live from replayed data. HMAC signing of the payload and HTTPS/TLS transport protect telemetry against tampering and eavesdropping on the cellular path.
+Each telemetry record is attempted on the highest-priority available channel: LoRa first if a gateway uplink is in range, otherwise LTE, then GSM 2G, then WiFi. If an attempt fails because of a non-2xx response from the backend or a modem error, the firmware falls through to the next channel without duplicating the \texttt{seq} or \texttt{event\_id}. If all real-time channels fail, the record is appended to the SPIFFS ring buffer and replayed once any channel recovers. The replayed record is tagged \texttt{channel\_\allowbreak used = 'offline\_\allowbreak replay'} so the backend can distinguish live from replayed data.
+
+\subsection{Security}
+Each telemetry payload is signed with an HMAC\glsadd{HMAC} digest before transmission. All cellular and WiFi data paths use HTTPS\glsadd{HTTPS} with TLS, protecting telemetry records against tampering and eavesdropping in transit. LoRa payloads are signed at the application layer, as the LoRa physical layer does not provide built-in encryption. These measures ensure that data integrity and confidentiality are maintained across all communication channels in the priority chain.
 
 \subsection{LoRa Range Test Protocol}
-The LoRa physical-layer range test was conducted with the SX1278 module configured at seventeen-dBm transmit power, four-hundred-thirty-three-megahertz centre frequency, spreading factor seven, and one-hundred-twenty-five-kilohertz bandwidth. One hundred telemetry-sized packets were transmitted from the in-truck node to a fixed gateway at each of the open line-of-sight distances of ten, fifty, one hundred, two hundred and fifty, five hundred, one thousand, two thousand, and five thousand metres, and at the urban non-line-of-sight distances of one hundred, two hundred and fifty, and five hundred metres. The received-signal-strength indicator, the signal-to-noise ratio, and the successfully-received-packet count were recorded at the gateway for each distance band.
+The LoRa physical-layer range test was conducted with the SX1278 module configured at seventeen-dBm transmit power, four-hundred-thirty-three-megahertz centre frequency, spreading factor seven, and one-hundred-twenty-five-kilohertz bandwidth. One hundred telemetry-sized packets were transmitted from the in-vehicle node to a fixed gateway at each of the open line-of-sight distances of ten, fifty, one hundred, two hundred and fifty, five hundred, one thousand, two thousand, and five thousand metres, and at the urban non-line-of-sight distances of one hundred, two hundred and fifty, and five hundred metres. The received-signal-strength indicator, the signal-to-noise ratio, and the successfully-received-packet count were recorded at the gateway for each distance band.
 
 \subsection{GSM / LTE Drive-test Protocol}
-Carrier-reported signal quality was logged via the AT+CSQ command issued to the A7670E modem at five locations of operational interest: the depot, a Metro Manila urban environment, a highway corridor, a tunnel or underpass selected to trigger the buffer-activation path, and a provincial route in Batangas exhibiting two-gigahertz-only coverage. The per-packet upload latency was computed at the backend as the difference between the device-side \texttt{sent\_at} timestamp and the backend-side receipt timestamp; the fiftieth- and ninety-fifth-percentile latencies are reported per location alongside the successful-upload fraction.
+Carrier-reported signal quality was logged via the AT+CSQ\glsadd{CSQ} command issued to the A7670E modem at five locations of operational interest: the depot, a Metro Manila urban environment, a highway corridor, a tunnel or underpass selected to trigger the buffer-activation path, and a provincial route in Batangas exhibiting two-gigahertz-only coverage. The per-packet upload latency was computed at the backend as the difference between the device-side \texttt{sent\_at} timestamp and the backend-side receipt timestamp; the fiftieth- and ninety-fifth-percentile latencies are reported per location alongside the successful-upload fraction.
 
 \subsection{Packet-delivery and Buffering Protocol}
 A drive route was executed that traversed three distinct connectivity regions: an urban region with strong LTE coverage, a highway region with marginal LTE coverage, and a confirmed no-signal dead zone. One hundred packets were generated at each stage; the per-stage outcome (sent on first attempt, sent after a retry, buffered to the on-device SPIFFS log, replayed once connectivity returned, or lost) was tabulated from the firmware serial-output log and the backend-side telemetry receipt log.
 
+Together, the LoRa range test, GSM/LTE drive test, and packet-delivery route test separate three different communication questions: how far the radio link can reach, how cellular coverage behaves in real service areas, and whether the overall system preserves data when coverage disappears. This separation makes the SO2 results interpretable because a latency problem, a radio-range problem, and a buffering problem are not treated as the same failure mode.
+
 \section{Backend and Database Methodology}
+\label{sec:backend}
 
 \subsection{Backend Stack}
 The backend stack consists of Node/Express hosted on Render and Supabase Postgres as the managed relational database. This stack receives device telemetry, manages trip state, runs alert rules, invokes the anomaly-detection service, and exposes synchronized state to the HMI, mobile driver application, and administrative dashboard.
+
+\subsection{Database Schema Summary}
 
 \begin{table}[!htbp]
 \centering
@@ -347,27 +382,31 @@ The backend stack consists of Node/Express hosted on Render and Supabase Postgre
 \scriptsize
 \begin{tabular}{|p{0.20\textwidth}|p{0.36\textwidth}|p{0.34\textwidth}|}
 \hline
-\textbf{Table} & \textbf{Purpose} & \textbf{Key columns} \\
+\textbf{Record group} & \textbf{Purpose} & \textbf{Key fields} \\
 \hline
-\texttt{users} & Accounts (head\_admin / fleet\_manager / manager / driver) & \texttt{id}, \texttt{role}, \texttt{assigned\_truck\_id} \\
+Users & Accounts for administrators, fleet managers, managers, and drivers & User identifier, role, assigned fleet-vehicle identifier \\
 \hline
-\texttt{trucks} & Vehicle profile + maintenance state & \texttt{id}, \texttt{truck\_code}, \texttt{plate\_number}, \texttt{current\_odometer\_km}, \texttt{status} \\
+Fleet vehicles & Vehicle profile and maintenance state & Vehicle identifier, fleet-vehicle code, plate number, current odometer, status \\
 \hline
-\texttt{trip\_sessions} & Active / paused / ended trips with destination, route polyline, nav state, mobile-GPS columns & \texttt{id}, \texttt{truck\_id}, \texttt{driver\_id}, \texttt{trip\_status}, \texttt{distance\_km}, \texttt{assigned\_destination}, \texttt{route\_steps}, \texttt{mobile\_lat/lon} \\
+Trip sessions & Active / paused / ended trips with destination, route polyline, navigation state, and mobile-GPS fields & Trip identifier, fleet-vehicle identifier, driver identifier, trip status, distance, assigned destination, route steps, mobile location \\
 \hline
-\texttt{telemetry\_logs} & Per-cycle fuel + GPS + OBD context + anomaly flag & \texttt{fuel\_level}, \texttt{lat/lon}, \texttt{speed}, \texttt{odometer\_km}, \texttt{channel\_used}, \texttt{anomaly\_flag}, \texttt{anomaly\_score}, \texttt{model\_source} \\
+Telemetry logs & Per-cycle fuel, GPS, OBD context, and anomaly flag & Fuel level, location, speed, odometer, communication channel, anomaly flag, anomaly score, model source \\
 \hline
-\texttt{archived\_\allowbreak telemetry\_logs} & Older trip telemetry beyond retention window & same as \texttt{telemetry\_logs} + \texttt{archived\_at} + \texttt{archive\_reason} \\
+Archived telemetry logs & Older trip telemetry beyond retention window & Telemetry fields plus archive timestamp and archive reason \\
 \hline
-\texttt{trip\_summaries} & Per-trip aggregates upserted by \texttt{refresh\_trip\_\allowbreak summary()} RPC & \texttt{total\_distance\_km}, \texttt{total\_alerts}, \texttt{total\_anomalies}, \texttt{average\_fuel\_level} \\
+Trip summaries & Per-trip aggregates refreshed by the backend & Total distance, total alerts, total anomalies, average fuel level \\
 \hline
-\texttt{alerts} & Rest / maintenance / overspeed / low\_fuel / fuel\_anomaly events & \texttt{alert\_type}, \texttt{severity}, \texttt{is\_resolved}, \texttt{trip\_id} \\
+Alerts & Rest, maintenance, overspeed, low-fuel, and fuel-anomaly events & Alert type, severity, resolution status, trip identifier \\
 \hline
-\texttt{latency\_logs} & SO2-c latency tracking (sent\_at vs received\_at) & \texttt{latency\_ms}, \texttt{channel\_used}, \texttt{retry}, \texttt{sent\_at}, \texttt{received\_at} \\
+Latency logs & SO2 latency tracking between device send time and backend receipt time & Latency, communication channel, retry state, send time, receipt time \\
 \hline
 \end{tabular}
 \normalsize
 \end{table}
+
+Table~\ref{tab:supabase_postgres_schema} summarizes the live database entities used by the system. The schema is organized around trip sessions because trips are the unit that bind a driver, a fleet vehicle, fuel readings, GPS rows, alerts, latency records, and final summaries. Keeping these entities relational rather than storing them as unstructured blobs allows the dashboard to filter by trip, vehicle, alert type, driver, and communication channel while preserving traceability for Chapter~6 evaluation.
+
+\subsection{Entity-Relationship Diagram}
 
 \begin{figure}[!htbp]
     \centering
@@ -376,21 +415,29 @@ The backend stack consists of Node/Express hosted on Render and Supabase Postgre
     \label{fig:erd_diagram}
 \end{figure}
 
-Figure~\ref{fig:erd_diagram} presents the Entity-Relationship Diagram (ERD) of the system's Supabase PostgreSQL database, containing eight interrelated tables: \texttt{trucks}, \texttt{users}, \texttt{trip\_sessions}, \texttt{telemetry\_logs}, \texttt{archived\_\allowbreak telemetry\_logs}, \texttt{trip\_summaries}, \texttt{alerts}, and \texttt{latency\_logs}. The \texttt{trip\_sessions} table serves as the main hub for the relationships among these tables, linking trucks (\texttt{truck\_id}) and drivers (\texttt{driver\_id}). Other tables such as \texttt{telemetry\_logs}, \texttt{archived\_\allowbreak telemetry\_logs}, \texttt{trip\_summaries}, \texttt{alerts}, and \texttt{latency\_logs} reference trips by \texttt{trip\_id} to relate records to a specific trip session. This data structure is designed to maintain referential integrity throughout the schema and support scalable access to the HMI dashboard, mobile app, and backend analytic pipeline.
+Figure~\ref{fig:erd_diagram} presents the Entity-Relationship Diagram (ERD\glsadd{ERD}) of the system's Supabase PostgreSQL database, containing eight interrelated record groups for fleet vehicles, users, trip sessions, telemetry logs, archived telemetry logs, trip summaries, alerts, and latency logs. The trip-session record serves as the main hub for the relationships among these groups, linking fleet vehicles and drivers. Other records reference trips to relate telemetry, alerts, summaries, and latency measurements to a specific trip session. This data structure is designed to maintain referential integrity throughout the schema and support scalable access to the HMI dashboard, mobile app, and backend analytic pipeline.
+
+\subsection{Cross-Interface State Synchronization}
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.95\textwidth]{fig_5_6b_state_sync.png}
-    \caption{Cross-Interface State-Synchronization Sequence Diagram}
+    \caption{Cross-Interface State Synchronization}
     \label{fig:cross_interface_state_sync}
 \end{figure}
 
-Figure~\ref{fig:cross_interface_state_sync} illustrates the cross-interface synchronization flow of the system, depicting how data propagates across the HMI, backend, database, and dashboard layers in response to driver actions. When the driver initiates a trip via the HMI or mobile app, the backend creates an active trip record in \texttt{trip\_sessions}, which simultaneously triggers the truck card display to activate on the dashboard. Telemetry data is transmitted every 5000 ms as a cycle during a trip. Each cycle is processed and anomaly-detected by the backend before it is recorded in \texttt{telemetry\_logs} and displayed as alerts in the dashboard. Trip status changes are also reflected throughout the system through \texttt{trip\_sessions.\allowbreak trip\_status} for Rest, Resume, or End trip states. This mechanism ensures that all interfaces, including the mobile PWA and HMI poll-back, remain synchronized with the current session state. Throughout this process, \texttt{trip\_sessions} functions as the canonical source of trip data and the authoritative state controller for the entire architecture.
+Figure~\ref{fig:cross_interface_state_sync} illustrates the cross-interface synchronization flow of the system, depicting how data propagates across the HMI, backend, database, and dashboard layers in response to driver actions. When the driver initiates a trip via the HMI or mobile app, the backend creates an active trip record in \texttt{trip\_sessions}, which simultaneously triggers the fleet-vehicle card display to activate on the dashboard. Telemetry data is transmitted every 5000 ms as a cycle during a trip. Each cycle is processed and anomaly-detected by the backend before it is recorded in \texttt{telemetry\_logs} and displayed as alerts in the dashboard. Trip status changes are also reflected throughout the system through \texttt{trip\_sessions.\allowbreak trip\_status} for Rest, Resume, or End trip states. This mechanism ensures that all interfaces, including the mobile PWA and HMI poll-back, remain synchronized with the current session state. Throughout this process, \texttt{trip\_sessions} functions as the canonical source of trip data and the authoritative state controller for the entire architecture.
+
+\subsection{Active-trip Uniqueness Enforcement}
+Duplicate active-trip sessions across the three interfaces are prevented by partial unique indexes on the \texttt{trip\_sessions} table. Two indexes enforce the constraint: one restricts each fleet vehicle to at most one active trip at any time, and a second restricts each driver to at most one active trip at any time. Both indexes are conditioned on \texttt{trip\_status = 'active'} so that historical records with ended or paused status are not affected. Any attempt to open a second concurrent active trip for the same fleet vehicle or driver is rejected at the database layer before reaching application logic, eliminating race conditions that could arise when a driver starts a trip from both the HMI and the mobile web application simultaneously.
 
 \subsection{Odometer and Trip-distance Methodology}
-The Toyota Hilux vehicles used in the prototype display lifetime mileage on the physical dashboard, but that value is not exposed through the OBD-II adapter available to the system. The firmware probes the Toyota-specific Mode 21 and Mode 22 odometer data identifiers, but the fleet does not return a usable lifetime odometer value; as a result, \texttt{telemetry\_logs.\allowbreak odometer\_km} is either null or a trip-scoped speed-integrated fallback generated by the HMI. It is not treated as an absolute lifetime odometer reading.
+The Toyota Hilux vehicles used in the prototype display lifetime mileage on the physical dashboard, but that value is not exposed through the OBD-II adapter available to the system. Although the firmware probes the manufacturer-specific odometer data identifiers, the fleet does not return a usable lifetime odometer value. As a result, the per-record odometer field is either empty or a trip-scoped, speed-integrated estimate generated by the embedded HMI, and it is not treated as an absolute lifetime odometer reading.
 
-For this reason, backend lifetime mileage is computed from completed trip distance rather than from the raw OBD odometer field. Each active trip continually updates \texttt{trip\_sessions.\allowbreak distance\_km} through \texttt{public.compute\_trip\_\allowbreak distance\_km(p\_trip\_id)}, implemented in \texttt{backend/db/migration\_\allowbreak distance\_rpc\_v3\_\allowbreak jitter.sql}. The function takes the greater of capped speed-by-time integration and filtered GPS haversine distance, rejecting stationary GPS jitter below the movement threshold. When a trip transitions to \texttt{trip\_status = 'ended'}, \texttt{backend/server.js} calls \texttt{public.accumulate\_trip\_\allowbreak distance\_odometer(p\_trip\_id)}, which adds that finalised \texttt{distance\_km} to \texttt{trucks.current\_\allowbreak odometer\_km} exactly once and records \texttt{trip\_sessions.\allowbreak odometer\_accumulated\_at}.
+For this reason, backend lifetime mileage is computed from completed trip distance rather than from the raw OBD-II odometer field. Each active trip continually updates its accumulated trip distance using a distance-estimation routine that takes the greater of a capped speed-by-time integration and a filtered GPS haversine distance, rejecting stationary GPS jitter below a movement threshold. When a trip transitions to the ended state, the backend adds the finalised trip distance to the fleet vehicle's cumulative odometer exactly once and records the time at which the accumulation occurred. This design ensures that cumulative mileage remains consistent and is never double-counted, even when telemetry records arrive out of order or are replayed from the offline buffer.
+
+\subsection{Alert Rule Implementation}
+\label{sec:alerts}
 
 \begin{table}[!htbp]
 \centering
@@ -409,11 +456,13 @@ Maintenance (oil) & trip distance $\geq$ 5,000 km & backend trip aggregation & D
 \hline
 Overspeed & speed $\geq$ 100 km/h & telemetry stream & HMI flash and log \\
 \hline
-Fuel anomaly & ML flag from Isolation Forest or Matrix Profile & \texttt{anomaly\_service.py} & Dashboard alert card \\
+Fuel anomaly & ML flag from Isolation Forest or Matrix Profile & ML anomaly service & Dashboard alert card \\
 \hline
 \end{tabular}
 \normalsize
 \end{table}
+
+Table~\ref{tab:alert_rule_thresholds} defines the operational thresholds used by the backend rule engine. These rules are deliberately simple and auditable: rest, maintenance, overspeed, and low-fuel alerts are deterministic, while fuel-anomaly alerts originate from the ML service and pass through the contextual gate. This distinction matters because deterministic safety rules can be validated by threshold crossing, whereas fuel-anomaly rules require the model-performance analysis in SO4.
 
 \begin{table}[!htbp]
 \centering
@@ -424,13 +473,13 @@ Fuel anomaly & ML flag from Isolation Forest or Matrix Profile & \texttt{anomaly
 \hline
 \textbf{Safety alert} & \textbf{Status} & \textbf{Implementation note} \\
 \hline
-Overspeed & Implemented & \texttt{backend/server.js:758-772}, threshold 100 km/h \\
+Overspeed & Implemented & Backend rule at 100 km/h threshold against field-test telemetry speed \\
 \hline
 Rest reminder & Implemented & SO5-b spec is 300 km / 6 h; implemented at 4 h per LTO driver-fatigue reading \\
 \hline
-Maintenance (5,000 km) & Implemented & \texttt{backend/server.js:879-894} \\
+Maintenance (5,000 km) & Implemented & Backend trip-aggregation rule against cumulative odometer \\
 \hline
-Harsh acceleration / braking & Partial & \texttt{acceleration\_kmph\_\allowbreak per\_sec} computed at \texttt{ml/preprocess.py:74}; no alert rule yet \\
+Harsh acceleration / braking & Partial & Acceleration rate computed during preprocessing; no alert rule yet \\
 \hline
 Lane departure & Out of scope & Requires camera and IMU - future work \\
 \hline
@@ -440,50 +489,69 @@ Fatigue / drowsiness & Out of scope & Requires camera with face detection - futu
 \normalsize
 \end{table}
 
+Table~\ref{tab:extended_safety_status} separates implemented alerts from partial or out-of-scope safety concepts. Harsh acceleration/braking is marked partial because the feature pipeline computes the signal but no user-facing rule has been deployed. Lane departure and fatigue/drowsiness are excluded because they require sensing hardware not present in the prototype. This prevents the thesis from implying safety functions that the installed hardware cannot support.
+
+\subsection{Archival Pipeline}
+Telemetry records older than the active-retention window are moved from \texttt{telemetry\_logs} to \texttt{archived\_\allowbreak telemetry\_logs} by a backend archival pipeline. The archived table retains all original columns and appends an \texttt{archived\_at} timestamp and an \texttt{archive\_reason} code. Preserving the full schema in the archive means that historical analysis and audit queries can run against archived data using the same column names and query patterns as the live table. Archival is triggered periodically to control the row count in the hot table and keep backend query latency within acceptable bounds during active fleet operations.
+
 \section{Machine Learning Methodology}
+\label{sec:ml}
 
 The anomaly-detection pipeline uses Isolation Forest Model C as the primary production detector and Matrix Profile as a supporting subsequence detector. Model C receives context-aware features derived from fuel level, speed, distance, engine operation, driver behavior, route context, and fuel-economy baseline deviation. Matrix Profile is retained to support detection of gradual subsequence-level fuel-loss patterns. Model performance is evaluated using leave-one-trip-out validation so each held-out trip is scored by models trained and calibrated on separate trips.
+
+\subsection{Machine Learning Architecture}
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.95\textwidth]{ML_Anomaly_Detection_Architecture.png}
-    \caption{ML Anomaly Detection Architecture. The pipeline includes sensor sources, edge preprocessing, backend ingest, Supabase storage, 33-feature Model C vectors, dual-model inference, hybrid fusion, and downstream consumers including persisted anomaly flags, alerts, HMI buzzer and banner, and the React dashboard.}
+    \caption{ML Anomaly Detection Architecture}
     \label{fig:ml_anomaly_detection_architecture}
 \end{figure}
+
+Figure~\ref{fig:ml_anomaly_detection_architecture} summarizes the pipeline from sensor sources and edge preprocessing to backend ingest, Supabase storage, 33-feature Model C vectors, dual-model inference, hybrid fusion, persisted anomaly flags, alert insertion, HMI feedback, and dashboard display.
+
+The diagram should be read as the bridge between methodology and evaluation. The left side shows where the raw evidence originates, the middle shows how it becomes model features, and the right side shows how a model decision becomes a user-facing alert. This is why Chapter~6 reports both model metrics and alert-system behaviour: a high anomaly score is useful only if it is persisted, gated, and surfaced to the operator.
+
+\subsection{Dataset Composition}
+The evaluation corpus merges 20{,}412 telemetry rows across 79 trips from two sources. The project-native partition contains the 634 rows captured by the prototype, on which the injected anomalies (six anomalous trips, 85 anomalous samples) were applied. The public partition is the 19{,}778-row publicly-derived corpus, retained without anomaly labels as the out-of-distribution clean-route domain.
 
 \begin{table}[!htbp]
 \centering
 \caption{Dataset Composition for Evaluation Corpus}
 \label{tab:dataset_composition}
 \scriptsize
-\begin{tabular}{|p{0.35\textwidth}|p{0.45\textwidth}|}
+\begin{tabular}{|p{0.55\textwidth}|p{0.22\textwidth}|}
 \hline
 \textbf{Dimension} & \textbf{Value} \\
 \hline
-Total telemetry rows & 20,412 \\
+Total telemetry rows & 20{,}412 \\
 \hline
 Total trips & 79 \\
 \hline
 Anomalous trips & 6 \\
 \hline
-Normal samples (clean) & 20,327 \\
+Normal samples (clean) & 20{,}327 \\
 \hline
 Anomalous samples (labelled) & 85 \\
 \hline
-Source partition & \texttt{public\_geolife\_\allowbreak route\_derived\_fuel}: 19,778 rows; \texttt{project\_native}: 634 rows \\
+Project-native partition (prototype-captured) & 634 rows \\
 \hline
-Label class & \texttt{clean\_public\_\allowbreak route}: 19,778 rows; clean (project-native): 465 rows; \texttt{controlled\_\allowbreak injection}: 169 rows \\
+Public partition (publicly-derived clean routes) & 19{,}778 rows \\
 \hline
-Evaluation subset & \texttt{public\_clean} (out-of-distribution): 19,778 rows; \texttt{project\_native\_\allowbreak clean} (in-distribution baseline): 465 rows; \texttt{project\_native\_\allowbreak injected} (headline target): 169 rows \\
+Injected labelled rows & 169 rows \\
 \hline
-Trip length distribution & Short trips ($<$12 min): 30; medium trips (12--30 min): 31; long trips ($>$30 min): 18 \\
+Headline evaluation subset & 169 rows \\
 \hline
 \end{tabular}
 \normalsize
 \end{table}
 
+The headline performance is computed against the project-native partition, which isolates the injected anomalies on telemetry produced by the prototype sensor stack. The public partition is reported separately as a stress test, since pooling it would dilute the precision--recall denominators with negatives from a different driving domain.
+
+Table~\ref{tab:dataset_composition} therefore defines the denominator for every SO4 claim. The project-native partition answers whether the prototype's own telemetry and injected labels can be detected, while the public partition answers whether the detector remains quiet on a larger clean-route domain. Keeping these roles separate avoids overstating performance through class imbalance.
+
 \subsection{Anomaly Injection Methodology}
-Controlled-injection anomalies were applied to the project-native partition by \texttt{ml/inject\_\allowbreak anomalies.py} across three industry-documented patterns: \texttt{sudden\_fuel\_\allowbreak drop} (single-step drop of at least 10\%), \texttt{abnormal\_rapid\_\allowbreak decrease} (4-sample drop window), and \texttt{gradual\_leak} (slow steady decrease at less than 1\% per step). Of the 85 labelled rows, 76 are \texttt{gradual\_leak} by design, because gradual leaks are the hardest detection regime: each row sits inside the sensor-noise envelope, and the injection budget deliberately weights toward that class.
+Controlled-injection anomalies were applied to the project-native partition across three industry-documented patterns: a sudden fuel drop (single-step drop of at least 10\%), an abnormal rapid decrease (a four-sample drop window), and a gradual leak (slow steady decrease at less than 1\% per step). Of the 85 labelled rows, 76 are gradual leaks by design, because gradual leaks are the hardest detection regime: each row sits inside the sensor-noise envelope, and the injection budget deliberately weights toward that class.
 
 \begin{table}[!htbp]
 \centering
@@ -507,6 +575,15 @@ Heavy legitimate consumption & Loaded uphill drive & Both models correctly class
 \end{tabular}
 \normalsize
 \end{table}
+
+\noindent
+Table~\ref{tab:anomaly_scenario_coverage} documents why the evaluation is not limited to one obvious theft pattern. Sudden fuel theft, gradual siphoning, continuous leakage, sensor spikes, and heavy legitimate consumption stress different parts of the system: the filter should reject sensor spikes, the ML model should detect abnormal fuel loss, and the contextual features should avoid flagging legitimate heavy consumption as theft. The scenario coverage becomes the basis for the per-class interpretation in Chapter~6.
+
+\subsection{Feature Engineering}
+
+The machine-learning methodology used three Isolation Forest variants so the effect of additional context could be tested step by step.\glsadd{not:fi}\glsadd{not:deltafi}\glsadd{not:di}\glsadd{not:vi}\glsadd{not:kmpli} Model A is the baseline context-aware model and uses fuel behavior, motion state, engine operation, and refuel-window indicators. Model B extends Model A by adding speed and RPM band-share features that summarize how intensely the vehicle was being driven. Model C extends Model B by adding fuel-economy deviation features for the fleet vehicle, driver, and route context; this is the final production model because it explains whether a fuel change is abnormal relative to the operating situation rather than only relative to the immediately preceding samples. Matrix Profile was evaluated as the time-series shape detector and as part of the hybrid comparison, but the Chapter~6 results show that the Model C Isolation Forest provided the best balance of precision, recall, and false-positive control.
+
+The feature names in Table~\ref{tab:if_feature_set_variants} are kept in their backend form for reproducibility, while the ``What it captures'' column gives the plain-language role of each feature. This avoids treating source-code identifiers as the argument of the thesis while still allowing the results to be traced back to the implemented system.
 
 \begingroup
 \begin{center}
@@ -532,7 +609,7 @@ Heavy legitimate consumption & Loaded uphill drive & Both models correctly class
 \hline
 4 & \texttt{odometer\_delta} & OBD-II odometer / integrated speed & Distance moved per sample & Y & Y & Y \\
 \hline
-5 & \texttt{fuel\_per\_km} & \texttt{fuel\_delta} / \texttt{odometer\_delta} & Efficiency rate - siphoning under load & Y & Y & Y \\
+5 & \texttt{fuel\_per\_km} & \texttt{fuel\_delta} / \texttt{odometer\_delta} & Efficiency rate and siphoning-under-load signal & Y & Y & Y \\
 \hline
 6 & \texttt{fuel\_rate\_per\_hour} & \texttt{fuel\_delta} / dt & Continuous-leak signature & Y & Y & Y \\
 \hline
@@ -540,7 +617,7 @@ Heavy legitimate consumption & Loaded uphill drive & Both models correctly class
 \hline
 8 & \texttt{route\_segment\_performance} & Per-segment mean vs trip mean & Route-specific consumption shift & Y & Y & Y \\
 \hline
-9 & \texttt{driver\_behavior\_score} & Aggregate of accel + variability + idle & Long-tail driving-style signal & Y & Y & Y \\
+9 & \texttt{driver\_behavior\_score} & Acceleration, variability, and idle aggregate & Long-tail driving-style signal & Y & Y & Y \\
 \hline
 10 & \texttt{engine\_rpm\_normalized} & OBD-II PID 0x0C & Engine work intensity & Y & Y & Y \\
 \hline
@@ -548,73 +625,82 @@ Heavy legitimate consumption & Loaded uphill drive & Both models correctly class
 \hline
 12 & \texttt{throttle\_pct\_norm} & OBD-II PID 0x11 & Driver demand & Y & Y & Y \\
 \hline
-13 & \texttt{fuel\_drop\_while\_stationary} & \texttt{fuel\_delta} + speed & Siphoning signature - drop while parked & Y & Y & Y \\
+13 & \texttt{fuel\_drop\_while\_stationary} & \texttt{fuel\_delta} + speed & Siphoning signature while parked & Y & Y & Y \\
 \hline
-14 & \texttt{fuel\_drop\_with\_engine\_off} & \texttt{fuel\_delta} + \texttt{engine\_status} & Theft-at-rest signature & Y & Y & Y \\
+14 & \texttt{fuel\_drop\_with\_engine\_off} & \texttt{fuel\_delta} + engine status & Theft-at-rest signature & Y & Y & Y \\
 \hline
-15 & \texttt{idle\_duration\_score} & Rolling 5-row idle flag sum & Sustained-idle context for parked-refuel logic & Y & Y & Y \\
+15 & \texttt{idle\_duration\_score} & Rolling idle flag sum & Sustained-idle context & Y & Y & Y \\
 \hline
-16 & \texttt{fuel\_drop\_per\_rpm} & \texttt{fuel\_per\_km} / \texttt{rpm\_norm} & Disagreement: fuel use vs engine work & Y & Y & Y \\
+16 & \texttt{fuel\_drop\_per\_rpm} & Fuel use / RPM & Disagreement between fuel use and engine work & Y & Y & Y \\
 \hline
-17 & \texttt{fuel\_drop\_per\_load} & \texttt{fuel\_per\_km} / \texttt{engine\_load\_norm} & Disagreement: fuel use vs reported load & Y & Y & Y \\
+17 & \texttt{fuel\_drop\_per\_load} & Fuel use / engine load & Disagreement between fuel use and reported load & Y & Y & Y \\
 \hline
-18 & \texttt{motion\_state\_code} & speed + \texttt{engine\_status} & Motion-regime category for slosh suppression & Y & Y & Y \\
+18 & \texttt{motion\_state\_code} & Speed + engine status & Motion-regime category & Y & Y & Y \\
 \hline
 19 & \texttt{time\_since\_refuel\_norm} & Refuel-event detector & Refuel-window exemption signal & Y & Y & Y \\
 \hline
-20 & \texttt{post\_refuel\_flag} & Refuel-event detector & Hard-coded 60-sample refuel exemption & Y & Y & Y \\
+20 & \texttt{post\_refuel\_flag} & Refuel-event detector & Post-refuel exemption flag & Y & Y & Y \\
 \hline
-21 & \texttt{delta\_engine\_load\_norm} & \texttt{engine\_load\_pct\_norm} delta & Rate of change of load & Y & Y & Y \\
+21 & \texttt{delta\_engine\_load\_norm} & Engine-load delta & Rate of change of load & Y & Y & Y \\
 \hline
-22 & \texttt{delta\_throttle\_norm} & \texttt{throttle\_pct\_norm} delta & Rate of change of driver input & Y & Y & Y \\
+22 & \texttt{delta\_throttle\_norm} & Throttle delta & Rate of change of driver input & Y & Y & Y \\
 \hline
-23 & \texttt{load\_per\_speed\_norm} & load / speed & Load relative to motion - high load while parked & Y & Y & Y \\
+23 & \texttt{load\_per\_speed\_norm} & Load / speed & High load while parked or slow & Y & Y & Y \\
 \hline
-24 & \texttt{expected\_consumption\_residual} & Physics-model vs observed & Slosh-suppression baseline & Y & Y & Y \\
+24 & \texttt{expected\_consumption\_residual} & Expected vs observed fuel use & Consumption residual against baseline & Y & Y & Y \\
 \hline
-25 & \texttt{rpm\_high\_share} & \texttt{engine\_rpm\_normalized} & Rolling fraction with RPM $>$ 2000 (Barbado high band) & - & Y & Y \\
+25 & \texttt{rpm\_high\_share} & Engine RPM & Rolling fraction with RPM $>$ 2000 & - & Y & Y \\
 \hline
-26 & \texttt{rpm\_red\_share} & \texttt{engine\_rpm\_normalized} & Rolling fraction with RPM $>$ 3500 (red band) & - & Y & Y \\
+26 & \texttt{rpm\_red\_share} & Engine RPM & Rolling fraction with RPM $>$ 3500 & - & Y & Y \\
 \hline
-27 & \texttt{rpm\_orange\_share} & \texttt{engine\_rpm\_normalized} & Rolling fraction 2500--3500 (orange band) & - & Y & Y \\
+27 & \texttt{rpm\_orange\_share} & Engine RPM & Rolling fraction with RPM 2500--3500 & - & Y & Y \\
 \hline
-28 & \texttt{rpm\_yellow\_share} & \texttt{engine\_rpm\_normalized} & Rolling fraction 1500--2500 (yellow band) & - & Y & Y \\
+28 & \texttt{rpm\_yellow\_share} & Engine RPM & Rolling fraction with RPM 1500--2500 & - & Y & Y \\
 \hline
-29 & \texttt{speed\_over\_90\_share} & \texttt{speed\_filtered} & Rolling fraction with speed $>$ 90 km/h & - & Y & Y \\
+29 & \texttt{speed\_over\_90\_share} & Vehicle speed & Rolling fraction with speed $>$ 90 km/h & - & Y & Y \\
 \hline
-30 & \texttt{speed\_over\_120\_share} & \texttt{speed\_filtered} & Rolling fraction with speed $>$ 120 km/h & - & Y & Y \\
+30 & \texttt{speed\_over\_120\_share} & Vehicle speed & Rolling fraction with speed $>$ 120 km/h & - & Y & Y \\
 \hline
-31 & \texttt{kmpl\_deviation\_pct} & Per-asset fuel-economy baseline & Per-asset fuel-economy deviation & - & - & Y \\
+31 & \texttt{kmpl\_deviation\_pct} & Per-asset fuel-economy baseline & Vehicle-specific fuel-economy deviation & - & - & Y \\
 \hline
-32 & \texttt{driver\_kmpl\_deviation\_pct} & Per-driver fuel-economy baseline & Per-driver fuel-economy deviation & - & - & Y \\
+32 & \texttt{driver\_kmpl\_deviation\_pct} & Per-driver fuel-economy baseline & Driver-specific fuel-economy deviation & - & - & Y \\
 \hline
-33 & \texttt{route\_type\_code} & Trip metadata + GPS context & Route-context disambiguator for KMPL features & - & - & Y \\
+33 & \texttt{route\_type\_code} & Trip metadata + GPS context & Route-context disambiguator for KMPL\glsadd{KMPL} features & - & - & Y \\
 \hline
 \end{longtable}
 \normalsize
 \end{center}
 \endgroup
 
-The feature set is based on \texttt{ml/preprocess.py} (\texttt{CONTEXT\_FEATURE\_\allowbreak COLUMNS\_V2}, \texttt{DRIVING\_ZONE\_\allowbreak FEATURE\_COLUMNS}, and \texttt{KMPL\_DEVIATION\_\allowbreak FEATURE\_COLUMNS}), \texttt{embedded/hmi\_phase1/\allowbreak src/main.cpp:4286-4445} for the telemetry schema, and \texttt{ml/anomaly\_\allowbreak service.py:128} for the inference endpoint. Model A contains 24 context-aware baseline features. Model B contains 30 features by adding Barbado driving-zone features for ablation only. Model C contains 33 features by adding Habib KMPL baseline-deviation features and is the production configuration.
+The 33 features span three progressively extended groups. Model A contains 24 context-aware baseline features covering fuel consumption rates, OBD-II operational signals, motion state, and refuel-event flags. Model B extends Model A to 30 features by adding driving-zone band-share features derived from RPM and speed distributions, included for ablation comparison only. Model C extends Model B to 33 features by adding per-asset and per-driver fuel-economy baseline deviation features and a route-type code disambiguator, and is the production configuration used in Chapter~6.
 
 \subsection{Isolation Forest Training Methodology}
-The Isolation Forest is trained with contamination = 0.015, because theft is genuinely rare in fleet operation, with an expected prior around 1--2\%; \texttt{n\_estimators} = 300; and \texttt{max\_samples} = 256. The score threshold for each leave-one-trip-out fold is the 0.985 quantile of the fold's clean training scores. The choice is internally consistent with the contamination = 0.015 hyperparameter, because both expect the same 1.5\% nominal anomaly fraction at the boundary, and avoids any hand-tuned magic number. No precision margin and no per-context shimming are applied.
+The Isolation Forest is trained as an unsupervised outlier detector because the normal operating data are more abundant than confirmed abnormal fuel-loss events. The contamination setting is fixed at 0.015, representing the expectation that true fuel anomalies are rare in ordinary fleet operation. Each model uses 300 trees and samples up to 256 records per tree, giving the detector enough random partitions to separate unusual fuel-context combinations without requiring labelled theft examples during training. For every leave-one-trip-out fold, the anomaly threshold is recalibrated from the clean training trips by using the 0.985 quantile of the training scores. This keeps the threshold consistent across the evaluation and avoids manually tuning it to a particular held-out trip.
 
 \subsection{Matrix Profile Methodology}
-Matrix Profile v2 is implemented in \texttt{ml/matrix\_profile.py} with the post-discord magnitude gate ($\geq$1\% absolute fuel change), direction gate (downward-only), and refuel-exemption gate calibrated against the held-out clean project-native trips at each LOTO fold. The narrow discord window ($m = 4$ samples) is intentional: it preserves subsequence sensitivity for slow-leak signatures and explains why the strict row-level IF AND MP intersection collapses to roughly 5\% recall and is rejected as a deployment definition.
+The Matrix Profile detector applies a post-discord magnitude gate ($\geq$1\% absolute fuel change), a direction gate (downward-only), and a refuel-exemption gate, each calibrated against the held-out clean project-native trips at each LOTO fold. The narrow discord window ($m = 4$ samples) is intentional: it preserves subsequence sensitivity for slow-leak signatures and explains why the strict row-level intersection of Isolation Forest and Matrix Profile collapses to roughly 5\% recall and is therefore rejected as a deployment definition.
 
 \subsection{Hybrid Fusion Methodology}
-Two fusion strategies are characterised in \texttt{ml/infer.py::run\_\allowbreak combined\_inference()}. The Hybrid Union (IF OR MP) maximises recall. The Hybrid Intersection used for production alerting is a trip-level MP gate over row-level IF predictions: a row is flagged if and only if (a) the Isolation Forest flagged that row and (b) the trip's overall Matrix Profile decision was ``anomalous shape detected''. The trip-gated definition preserves the precision intent of the intersection while avoiding the granularity-mismatch penalty of strict row-level AND.
+Two fusion strategies are characterised in the inference pipeline. The Hybrid Union (Isolation Forest OR Matrix Profile) maximises recall. The Hybrid Intersection used for production alerting is a trip-level Matrix Profile gate over row-level Isolation Forest predictions: a row is flagged if and only if (a) the Isolation Forest flagged that row and (b) the trip's overall Matrix Profile decision was ``anomalous shape detected''. The trip-gated definition preserves the precision intent of the intersection while avoiding the granularity-mismatch penalty of a strict row-level logical AND.
 
 \subsection{Contextual Gate Methodology}
-The contextual gate at \texttt{backend/server.js:3048-3063} receives every row flagged by the ML layer and applies three deterministic rules: drop (suppress repeated flags inside the same window), drive-rise (suppress flags during legitimate post-acceleration recovery), and parked-refuel (suppress flags during the 5-minute post-refuel quiescence window). Across the 37.7-day live deployment, the gate rejected 75.1\% of model flags, reducing the user-facing alert rate from 2.90\% to 0.72\%.
+The contextual gate in the backend receives every row flagged by the ML layer and applies three deterministic rules: drop (suppress repeated flags inside the same window), drive-rise (suppress flags during legitimate post-acceleration recovery), and parked-refuel (suppress flags during the 5-minute post-refuel quiescence window). Rows that pass the gate are promoted into user-facing fuel-anomaly alerts, while suppressed rows remain available as model-layer flags for audit and debugging.
 
-\subsection{Live Deployment Integration}
-The ML service is a Flask microservice at \texttt{ml/anomaly\_\allowbreak service.py} exposing \texttt{POST /detect}. After each \texttt{/telemetry} insert, the backend invokes \texttt{/detect} via \texttt{setImmediate}; the result is written back to \texttt{telemetry\_logs.\allowbreak anomaly\_flag}, \texttt{anomaly\_score}, and \texttt{model\_\allowbreak source}, and a row is appended to the \texttt{alerts} table with \texttt{alert\_type = 'fuel\_\allowbreak anomaly'} when the contextual gate permits.
+\subsection{Backend Inference Integration}
+The ML service is a Flask microservice exposing a detection endpoint. After each telemetry insert, the backend asynchronously invokes anomaly detection; the result is written back to \texttt{telemetry\_logs} as \texttt{anomaly\_flag}, \texttt{anomaly\_score}, and \texttt{model\_\allowbreak source}, and a row is appended to the \texttt{alerts} table with \texttt{alert\_type = 'fuel\_\allowbreak anomaly'} when the contextual gate permits.
 
 \section{Evaluation Methodology}
+\label{sec:evaluation}
 
-All Chapter 6 SO4 numbers are produced by a leave-one-trip-out (LOTO) evaluation that holds the calibration set strictly disjoint from the test set. For each of the twelve project-native trips, the three Isolation Forest variants and the Matrix Profile detector are refit and recalibrated on the clean rows of the remaining eleven project-native trips only; the held-out trip is then scored with that fold's models. Each prediction is therefore strictly out-of-sample with respect to both model fitting and threshold calibration. The Isolation Forest threshold for every variant is the 0.985 quantile of the fold's clean training scores, internally consistent with the contamination = 0.015 hyperparameter; no precision margin and no per-context shimming are applied.
+This section defines the evaluation design used to validate the system against its specific objectives. It describes the cross-validation protocol applied to the anomaly-detection models, the mapping between each objective and its evaluation protocol and metric, and the formal definitions of the performance metrics reported in Chapter~6.
+
+\subsection{Cross-Validation Design}
+
+All Chapter 6 SO4 numbers are produced by a leave-one-trip-out (LOTO) evaluation that holds the calibration set strictly disjoint from the test set.\glsadd{not:Dtrain}\glsadd{not:Dtest} For each of the twelve project-native trips, the three Isolation Forest variants and the Matrix Profile detector are refit and recalibrated on the clean rows of the remaining eleven project-native trips only; the held-out trip is then scored with that fold's models. Each prediction is therefore strictly out-of-sample with respect to both model fitting and threshold calibration. The Isolation Forest threshold for every variant is the 0.985 quantile\glsadd{not:q0985} of the fold's clean training scores, internally consistent with the contamination = 0.015 hyperparameter; no precision margin and no per-context shimming are applied.
+
+\subsection{Objective-Based Evaluation Protocol}
+
+Table~\ref{tab:objective_protocol_metric} maps each specific objective to the evaluation protocol used to test it and the metrics reported for it.
 
 \begin{table}[!htbp]
 \centering
@@ -625,169 +711,28 @@ All Chapter 6 SO4 numbers are produced by a leave-one-trip-out (LOTO) evaluation
 \hline
 \textbf{Objective} & \textbf{Evaluation protocol} & \textbf{Metric} \\
 \hline
-SO1 - Fuel accuracy & Dashboard-gauge walkaround pairs + per-tank-band drift/noise/jitter on $n=20,363$ valid samples & MAPE, max error, mean absolute noise (\%), drift at speed = 0 \\
+SO1 - Fuel accuracy\glsadd{not:Vsensori}\glsadd{not:Vmanuali}\glsadd{not:Ctank}\glsadd{not:Vpumpi}\glsadd{not:VHMIi}\glsadd{not:ei} & Known-volume pump-gas events + manufacturer dashboard supporting readings + per-tank-band drift/noise/jitter on $n=20,363$ valid samples & MAPE, max error, mean absolute noise (\%), drift at speed = 0 \\
 \hline
 SO2 - Communication & LoRa distance test (10 m to 5 km), GSM/LTE drive test at five locations, three-region packet-delivery drive (urban/highway/dead-zone) & Median + p95 latency, packet-success fraction, SPIFFS-replay share, RSSI/SNR per band \\
 \hline
-SO3 - GPS & \texttt{sent\_at} interval analysis on live telemetry; GPS fix availability; route vs OSRM polyline comparison & Median + p95 inter-sample dt, fix availability (\%), per-segment fuel (\% per km) \\
+SO3 - GPS & \texttt{sent\_at} interval analysis on field-test telemetry; GPS fix availability; route vs OSRM\glsadd{OSRM} polyline comparison & Median + p95 inter-sample dt, fix availability (\%), per-segment fuel (\% per km) \\
 \hline
-SO4 - ML & LOTO cross-validation on \texttt{project\_native\_\allowbreak injected} + threshold/IQR baseline + Hybrid Union/Intersection ablation + OOD stress test on \texttt{public\_clean} + 37.7-day live deployment audit & Precision, recall, FPR, F1, Wilson 95\% CI, per-model confusion matrices, live alert-resolution rate \\
+SO4 - ML & LOTO cross-validation on \texttt{project\_native\_\allowbreak injected} + threshold/IQR baseline + Hybrid Union/Intersection ablation + OOD stress test on \texttt{public\_clean} + extended on-road validation & Precision, recall, FPR, F1, Wilson 95\% CI, per-model confusion matrices, per-class recall \\
 \hline
-SO5 - Alerts & Alert-trigger verification across controlled-environment trip set & Trigger correctness (TP rate), driver-response capture, HMI/dashboard/mobile sync correctness \\
+SO5 - Alerts & Alert-trigger verification across controlled-injection and field-test trip sets & Trigger correctness (TP rate), driver-response capture, HMI/dashboard/mobile sync correctness \\
 \hline
 \end{tabular}
 \normalsize
 \end{table}
 
-\section{Implementation}
+Table~\ref{tab:objective_protocol_metric} is the evaluation contract for the thesis. It states what evidence is accepted for each objective before the results are presented, which prevents the results chapter from choosing metrics after the fact. The same mapping is used in Chapter~6: SO1 is judged by fuel error and noise, SO2 by latency and packet delivery, SO3 by GPS cadence and fix availability, SO4 by classifier metrics, and SO5 by alert correctness and interface synchronization.
 
-\label{sec:implement}
-
-\subsection{Data Acquisition and Preprocessing}
-
-Data acquisition and preprocessing are crucial for reliable anomaly detection. The methodology includes:
-
-\begin{enumerate}
-    \item \textbf{Sensor Calibration:} Fuel-level sensors are calibrated using known volumes, verified with manual measurements, and cross-checked with historical data trends.
-    \item \textbf{Signal Filtering:} Raw sensor signals are filtered using moving-average and median filters to reduce noise caused by vehicle motion or fuel sloshing.
-    \item \textbf{Synchronization:} Fuel, GPS, and operating-hour data are timestamped and synchronized to ensure consistent data alignment for model evaluation.
-    \item \textbf{Feature Engineering:} Derived features include fuel consumption rate, distance-to-fuel ratio, route segment performance, and driver behavior metrics, which feed into anomaly detection models.
-\end{enumerate}
-
-\subsubsection*{Study Procedures}
-
-Upon voluntary agreement to participate, the study procedures will be conducted as follows:
-
-\begin{enumerate}
-    \item Before the trip begins, a member of the research team will install a monitoring device or IoT module unit in the truck assigned to the participant.
-    \item Once installed, the device will automatically record fuel-level readings at regular intervals, distance and travel time, and GPS location data during normal vehicle operations.
-    \item For randomly selected trips, participants may be asked to perform a supervised task simulating fuel draining from the tank. This procedure will be conducted to test the accuracy of the prototype's anomaly detection function.
-    \item Participants will not be required to change their normal driving behavior during the data collection period.
-    \item After the data collection period is completed, a member of the research team will remove the monitoring device from the vehicle.
-    \item The study will also conduct a survey with the fleet administrator to gather feedback on the device's functionality and any problems encountered during its use. The survey will not be administered to the drivers and will not include personal questions directed at them.
-\end{enumerate}
-
-\subsubsection*{Risks and Discomforts}
-
-This study involves minimal risk. The following potential risks and discomforts have been identified:
-
-\begin{itemize}
-    \item The monitoring device will not control, modify, or interfere with the vehicle's systems and will not affect driving performance or safety. It will passively record only fuel-level data, GPS data, and travel information.
-    \item Participants may experience minor inconvenience or brief disruption during the installation and removal of the monitoring device before and after the trip.
-    \item GPS location data will be collected during normal operations, which may raise privacy concerns. However, the data will be anonymized through a unique code number assigned to each dataset and will be shared only with authorized members of the research team and Hino Paranaque's fleet administrator for academic research purposes.
-    \item No foreseeable psychological, physical, or occupational risks are expected to result from participation in this study.
-\end{itemize}
-
-\subsubsection*{Steps to Minimize Risks}
-
-The research team will undertake the following measures to minimize and mitigate potential risks:
-
-\begin{itemize}
-    \item The monitoring device will be installed and removed only by a member of the research team to ensure that the vehicle's systems are not disrupted.
-    \item All collected data will be anonymized by replacing participant names with unique code numbers before analysis.
-    \item Access to raw data will be restricted to authorized members of the research team and Hino Paranaque's fleet administrator only.
-    \item All digital data will be stored in a secure, password-protected system to prevent unauthorized access.
-    \item Physical documents, such as signed consent forms, will be kept in a locked cabinet accessible only to the principal investigator and faculty adviser.
-    \item Data will be used only for academic purposes, and only summarized and anonymized results will be included in reports or publications.
-\end{itemize}
-
-\subsubsection*{Benefits}
-
-Participants will not receive direct financial benefits from participation. However, the results of this study may contribute to the following non-monetary benefits:
-
-\begin{itemize}
-    \item \textbf{For the partner company and fleet managers:} The system may improve fuel efficiency monitoring and support the detection and prevention of fuel misuse, leakage, or theft.
-    \item \textbf{For the transportation and logistics industry:} The study contributes to research on non-parametric machine learning approaches for fleet management, which may inform future industry practices.
-    \item \textbf{For the public and the environment:} Improved fuel monitoring systems may help reduce fuel waste and contribute to lower carbon emissions.
-    \item \textbf{For the research community:} The findings may add to academic knowledge on IoT-based monitoring systems and anomaly detection methods in real-world applications.
-\end{itemize}
-
-\subsubsection*{Compensation}
-
-Participants will not receive any compensation, tokens, or gifts for their participation in this study.
-
-\subsubsection*{Data Storage, Duration, and Disposal}
-
-\textbf{Storage of Digital Data:} All digital data collected by the monitoring device will be stored in a Supabase cloud database, a secure and password-protected platform accessible only to authorized members of the research team. Files and database entries will be protected by unique credentials known only to the principal investigator and faculty adviser.
-
-\textbf{Storage of Physical Data:} Signed consent forms and any printed documents will be stored in a locked filing cabinet located at the research team's office. Only the principal investigator and faculty adviser will have access to these physical documents.
-
-\textbf{Duration of Storage:} All digital and physical data will be retained for five (5) years from the date of completion of the study, in accordance with De La Salle University's data retention policy.
-
-\textbf{Disposal:} After the retention period, all digital data will be permanently deleted from the Supabase database and any local copies using secure deletion procedures. All physical documents will be cross-shredded and disposed of in a secure manner.
-
-\subsubsection*{Confidentiality}
-
-\textbf{For Digital Data:} Participant names will not appear in any reports, datasets, publications, or presentations. A unique code number will be assigned to each participant's data in place of the participant's name. All digital files will be stored in a password-protected Supabase cloud database accessible only to the research team. Data will be used strictly for academic research purposes, and only summarized and anonymized results will be presented in the final thesis or any related publications.
-
-\textbf{For Physical Data:} Signed consent forms and any printed documents will be stored in a locked cabinet. Only the principal investigator and faculty adviser will have access to these hard copy documents.
-
-\subsubsection*{Withdrawal Procedure}
-
-Participation in this study is entirely voluntary, and participants may withdraw at any time without penalty. To withdraw, participants may follow these steps:
-
-\begin{enumerate}
-    \item Inform the principal investigator, Samuelle P. Barja, of the decision to withdraw, either verbally or in writing.
-    \item Contact the principal investigator through the following:
-    \begin{itemize}
-        \item samuelle\_barja@dlsu.edu.ph
-        \item 09564054471
-    \end{itemize}
-    \item Upon notification of withdrawal, the research team will immediately stop collecting data from the participant's assigned vehicle.
-    \item Any data already collected that is identifiable to the participant will be permanently deleted from all storage systems within a reasonable timeframe.
-    \item Participants will not be required to provide any reason for withdrawal, and the decision to withdraw will not result in any consequence to their employment or relationship with their employer.
-\end{enumerate}
-
-\subsection{System Methodology}
-The system was implemented as follows:
-
-\begin{itemize}
-    \item \textbf{MCU and Edge Layer:} ESP32/NodeMCU microcontrollers for filtering, timestamping, and initial anomaly scoring.
-    \item \textbf{Vehicle Interfaces:} CAN bus or OBD-II for fuel-level readings; GPS module for location and speed tracking.
-    \item \textbf{Communication Layer:} LoRa transceivers for real-time cloud updates; cellular backup for critical alerts.
-    \item \textbf{Cloud Layer:} Python-based ML models for anomaly detection deployed on cloud servers; REST APIs for data ingestion; PostgreSQL database for structured storage.
-    \item \textbf{Visualization Layer:} Web dashboard for real-time monitoring, historical trend analysis, and alert management.
-\end{itemize}
-
-\subsection{Anomaly Detection and ML Methodology}
-
-The anomaly detection workflow is as follows:
-
-\begin{enumerate}
-    \item \textbf{Offline Model Training:} Historical datasets are used to train Isolation Forest and Matrix Profile models to detect abnormal fuel usage patterns.
-    \item \textbf{Context-Aware Thresholding:} Thresholds are dynamically adjusted based on vehicle type, route segment, and driver behavior to reduce false positives.
-    \item \textbf{Evaluation Metrics:} Precision, FPR, accuracy, and detection latency are calculated; confusion matrices, ROC, and PR curves visualize performance.
-\end{enumerate}
-
-\subsection{IPO Chart and Design Pipeline}
-
-The data design  outlines a cohesive pipeline which integrates sensor acquisition, synchronization, cloud transmission, and model-based analysis to enable real-time anomaly detection in fleet fuel systems. Data collection begins with embedded sensors capturing raw signals such as fuel level, fuel flow, GPS coordinates, and ignition events. These signals are preprocessed using filters and signal conditioning circuits to reduce noise and ensure clean input for analysis.
-
-To ensure temporal alignment, all sensor outputs are timestamped and resampled onto a uniform time grid using linear interpolation. This synchronization step is critical for comparing trends across sensor modalities and detecting correlated anomalies. The processed signals are then uploaded to a cloud-based platform for storage and remote access.
-
-For anomaly detection, the synchronized time-series data are used to train and evaluate unsupervised models such as Isolation Forest and Matrix Profile. These models are tested on a dataset composed of real-world and simulated scenarios to reflect both normal and anomalous behavior. Key performance metrics (including MAPE, timestamp drift, detection latency, precision, and false positive rate) are used to assess system effectiveness. This pipeline supports scalable, automated monitoring while laying the groundwork for further model refinement in future stages.
-
-\subsection{IPO Chart}
-
-\begin{figure}[!htbp]
-    \centering
-        \includegraphics[width=1\textwidth]{IPO.png}
-    \caption{IPO Chart}
-    \label{fig:ipo_chart}
-\end{figure}
-
-The IPO (Input-Process-Output) chart provides a structured overview of the IoT-based fleet fuel monitoring and anomaly detection system (Figure~\ref{fig:ipo_chart}). The input data consists of real-time readings from the truck’s CAN bus/OBD-II fuel signal, GPS module capturing coordinates and speed at 5-second intervals, ignition status, and in-cab rest alert subsystem signals. These inputs are supplemented by historical fuel anomaly datasets and synthetic anomalies to simulate rare or edge-case events. Moderating variables such as driving behavior (idle times, acceleration patterns, terrain), network conditions (signal strength, transmission delays), and environmental factors (temperature, vibration) also influence the data.
-
-The process begins with signal preprocessing, where the MCU filters, calibrates, and timestamps fuel, GPS, and ignition data to reduce noise and ensure synchronization. The preprocessed data is then transmitted through LoRa as the primary communication channel, with GSM acting as a backup for essential alerts, and stored in a cloud-based backend. Anomaly detection is carried out in the cloud using machine learning models, including Matrix Profile (STUMPY) for time-series discord identification and Isolation Forest for feature-based outlier detection. Model validation and evaluation are performed using labeled and test datasets, calculating performance metrics such as precision, false positive rate (FPR), detection latency, and overall accuracy.
-
-The system outputs include fuel anomaly flags, such as potential theft or leakage, and driver rest alerts based on cumulative distance or driving duration. Additionally, it provides real-time GPS tracking on a web dashboard, estimated fuel levels as a percentage of tank capacity, and quantitative performance metrics for operational evaluation. This end-to-end flow ensures accurate, real-time monitoring, proactive safety notifications, and actionable insights for fleet management.
-
-\section{Evaluation}
+\subsection{Evaluation Metrics}
 \label{sec:evaluate}
 
-To evaluate these models, the outputs are validated against manually labeled ground truth data. From this, the number of true positives (TP), false positives (FP), true negatives (TN), and false negatives (FN) are counted. Key metrics are computed as follows:
+To evaluate the anomaly-detection models, predicted labels were compared with the evaluation-corpus labels to count true positives (TP), false positives (FP), true negatives (TN), and false negatives (FN). The key metrics were computed as follows:
 
-\textbf{Precision}  
+\textbf{Precision}
 \begin{equation}
 \mathrm{Precision} = \frac{\gls{not:TP}}{\gls{not:TP} + \gls{not:FP}}
 \label{eq:precision}
@@ -803,8 +748,23 @@ Precision reflects how many detected anomalies are truly anomalous. A high preci
 
 FPR quantifies the likelihood of incorrectly classifying normal behavior as anomalous. Lower FPR values are desired to reduce noise in the system's alerts.
 
+\textbf{Recall}
+\begin{equation}
+\mathrm{Recall} = \frac{\gls{not:TP}}{\gls{not:TP} + \gls{not:FN}}
+\label{eq:recall}
+\end{equation}
+
+Recall reflects how many true anomalies were detected by the model.
+
+\textbf{F1 Score}
+\begin{equation}
+\mathrm{F1} = \frac{2 \cdot \mathrm{Precision} \cdot \mathrm{Recall}}{\mathrm{Precision} + \mathrm{Recall}}
+\label{eq:f1}
+\end{equation}
+
+F1 score provides a single balance between precision and recall, which is useful when anomalous rows are rare.
+
 \textbf{Accuracy}
-\textbf{Accuracy}  
 \begin{equation}
 \mathrm{Accuracy} = \frac{\gls{not:TP} + \gls{not:TN}}{\gls{not:TP} + \gls{not:TN} + \gls{not:FP} + \gls{not:FN}}
 \label{eq:accuracy}
@@ -829,12 +789,99 @@ All these metrics use the following classification outcomes:
 
 where:
 \begin{align*}
-T_{\text{detected}} &= \text{the time the anomaly truly occurred}, \\
-T_{\text{actual}} &= \text{the time it was identified by the system}.
+T_{\text{detected}} &= \text{the time the anomaly was identified by the system}, \\
+T_{\text{actual}} &= \text{the time the anomaly truly occurred}.
 \end{align*}
 
-The objective is achieved if the unsupervised system attains at least 90\% precision (indicating that the majority of flagged events are correct), a false positive rate not exceeding 10\%, and average detection latency under 10 seconds. For interpretability, confusion matrices and performance plots such as ROC and PR curves will be used. Detection events will also be overlaid on synchronized GPS location maps and fuel-level graphs for context-aware validation.
+The SO4 objective is achieved if the unsupervised system attains at least 90\% precision, at least 85\% recall, and a false positive rate not exceeding 10\%. Detection latency is evaluated separately to characterize how quickly the backend and alerting surfaces respond after an anomalous event occurs.
+
+\section{Data Collection and Research-Ethics Procedure}
+
+The data-collection procedure followed a non-invasive deployment model. The prototype was attached through the vehicle OBD-II port and external HMI wiring, and it did not require fuel-tank opening, sender-loom modification, or direct control of vehicle operation. Controlled fuel-anomaly labels used for model evaluation were produced through the methodology described in the machine-learning section rather than by asking drivers to drain fuel from operational fleet vehicles.
+
+\subsection{Study Procedures}
+
+Upon voluntary agreement to participate, the study procedures were structured as follows:
+
+\begin{enumerate}
+    \item Before a monitored trip, a member of the research team installed the monitoring device or IoT module in the fleet vehicle assigned to the participant.
+    \item Once installed, the device automatically recorded OBD-II fuel readings, distance, travel time, GPS location, communication channel, and alert status during normal vehicle operation.
+    \item Participants were not required to change their normal driving behavior during the data-collection period.
+    \item After the data-collection period, a member of the research team removed the monitoring device from the vehicle.
+    \item The study collected fleet-administrator feedback on device functionality and operational issues. The survey was not administered to drivers and did not ask personal questions directed at them.
+\end{enumerate}
+
+\subsection{Risks and Discomforts}
+
+This study involves minimal risk. The following potential risks and discomforts have been identified:
+
+\begin{itemize}
+    \item The monitoring device will not control, modify, or interfere with the vehicle's systems and will not affect driving performance or safety. It will passively record only fuel-level data, GPS data, and travel information.
+    \item Participants may experience minor inconvenience or brief disruption during the installation and removal of the monitoring device before and after the trip.
+    \item GPS location data will be collected during normal operations, which may raise privacy concerns. However, the data will be anonymized through a unique code number assigned to each dataset and will be shared only with authorized members of the research team and Hino Paranaque's fleet administrator for academic research purposes.
+    \item No foreseeable psychological, physical, or occupational risks are expected to result from participation in this study.
+\end{itemize}
+
+\subsection{Steps to Minimize Risks}
+
+The research team undertook the following measures to minimize and mitigate potential risks:
+
+\begin{itemize}
+    \item The monitoring device will be installed and removed only by a member of the research team to ensure that the vehicle's systems are not disrupted.
+    \item All collected data will be anonymized by replacing participant names with unique code numbers before analysis.
+    \item Access to raw data will be restricted to authorized members of the research team and Hino Paranaque's fleet administrator only.
+    \item All digital data will be stored in a secure, password-protected system to prevent unauthorized access.
+    \item Physical documents, such as signed consent forms, will be kept in a locked cabinet accessible only to the principal investigator and faculty adviser.
+    \item Data will be used only for academic purposes, and only summarized and anonymized results will be included in reports or publications.
+\end{itemize}
+
+\subsection{Benefits}
+
+Participants will not receive direct financial benefits from participation. However, the results of this study may contribute to the following non-monetary benefits:
+
+\begin{itemize}
+    \item \textbf{For the partner company and fleet managers:} The system may improve fuel efficiency monitoring and support the detection and prevention of fuel misuse, leakage, or theft.
+    \item \textbf{For the transportation and logistics industry:} The study contributes to research on non-parametric machine learning approaches for fleet management, which may inform future industry practices.
+    \item \textbf{For the public and the environment:} Improved fuel monitoring systems may help reduce fuel waste and contribute to lower carbon emissions.
+    \item \textbf{For the research community:} The findings may add to academic knowledge on IoT-based monitoring systems and anomaly detection methods in real-world applications.
+\end{itemize}
+
+\subsection{Compensation}
+
+Participants will not receive any compensation, tokens, or gifts for their participation in this study.
+
+\subsection{Data Storage, Duration, and Disposal}
+
+\textbf{Storage of Digital Data:} All digital data collected by the monitoring device will be stored in a Supabase cloud database, a secure and password-protected platform accessible only to authorized members of the research team. Files and database entries will be protected by unique credentials known only to the principal investigator and faculty adviser.
+
+\textbf{Storage of Physical Data:} Signed consent forms and any printed documents will be stored in a locked filing cabinet located at the research team's office. Only the principal investigator and faculty adviser will have access to these physical documents.
+
+\textbf{Duration of Storage:} All digital and physical data will be retained for five (5) years from the date of completion of the study, in accordance with De La Salle University's data retention policy.
+
+\textbf{Disposal:} After the retention period, all digital data will be permanently deleted from the Supabase database and any local copies using secure deletion procedures. All physical documents will be cross-shredded and disposed of in a secure manner.
+
+\subsection{Confidentiality}
+
+\textbf{For Digital Data:} Participant names will not appear in any reports, datasets, publications, or presentations. A unique code number will be assigned to each participant's data in place of the participant's name. All digital files will be stored in a password-protected Supabase cloud database accessible only to the research team. Data will be used strictly for academic research purposes, and only summarized and anonymized results will be presented in the final thesis or any related publications.
+
+\textbf{For Physical Data:} Signed consent forms and any printed documents will be stored in a locked cabinet. Only the principal investigator and faculty adviser will have access to these hard copy documents.
+
+\subsection{Withdrawal Procedure}
+
+Participation in this study is entirely voluntary, and participants may withdraw at any time without penalty. To withdraw, participants may follow these steps:
+
+\begin{enumerate}
+    \item Inform the principal investigator, Samuelle P. Barja, of the decision to withdraw, either verbally or in writing.
+    \item Contact the principal investigator through the following:
+    \begin{itemize}
+        \item samuelle\_barja@dlsu.edu.ph
+        \item 09564054471
+    \end{itemize}
+    \item Upon notification of withdrawal, the research team will immediately stop collecting data from the participant's assigned vehicle.
+    \item Any data already collected that is identifiable to the participant will be permanently deleted from all storage systems within a reasonable timeframe.
+    \item Participants will not be required to provide any reason for withdrawal, and the decision to withdraw will not result in any consequence to their employment or relationship with their employer.
+\end{enumerate}
 
 \section{Summary}
 
-This chapter presented a comprehensive methodology for an AI-driven fuel monitoring and anomaly detection system. The approach integrates sensor-level calibration, edge preprocessing, IoT-based communication, cloud ML evaluation, and client-side visualization to achieve accurate, real-time, and actionable insights.  
+This chapter presented the implementation and evaluation methodology for the IoT-enabled fuel monitoring, GPS tracking, and anomaly detection prototype. The approach integrates OBD-II fuel acquisition, edge filtering, prioritized communication with offline replay, Supabase-backed state synchronization, Isolation Forest and Matrix Profile anomaly detection, objective-based evaluation metrics, and research-ethics controls for field data collection.

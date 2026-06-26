@@ -1,0 +1,66 @@
+\section{HMI GPIO Map}
+
+\begin{table}[!htbp]
+\centering
+\caption{Full HMI GPIO Map}
+\label{tab:appendix_hmi_gpio_map}
+\begin{tabular}{|p{0.25\textwidth}|p{0.65\textwidth}|}
+\hline
+\textbf{Pin} & \textbf{Function} \\
+\hline
+GPIO 22 & \texttt{BTN\_TAKE\_REST} (active-low, debounced 50 ms) \\
+\hline
+GPIO 39 & \texttt{BTN\_SNOOZE} (active-low, debounced 50 ms) \\
+\hline
+GPIO 25 & Buzzer (PWM\glsadd{PWM} through the LEDC peripheral) \\
+\hline
+GPIO 5 & A7670E modem PWRKEY \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Telemetry JSON Payload Schema}
+
+\begin{lstlisting}[caption=Telemetry JSON Payload Schema,label=lst:appendix_telemetry_json_schema]
+{
+  "truck_id": "<uuid>",
+  "driver_id": "<uuid>",
+  "trip_id": "<uuid>",
+  "sent_at": "<iso-8601>",
+  "original_device_timestamp": "<iso-8601>",
+  "source_device": "hmi" | "mobile",
+  "fuel_level": <0..100>,
+  "fuel_valid": <bool>,
+  "fuel_source": "...",
+  "fuel_confidence": <0..1>,
+  "lat": <float>,
+  "lon": <float>,
+  "gps_source":
+    "embedded_gps" | "mobile_gps" | "fused_mobile_fallback",
+  "gps_accuracy_m": <float>,
+  "gps_heading_deg": <float>,
+  "mobile_speed_mps": <float>,
+  "speed": <km/h>,
+  "odometer_km": <float>,
+  "engine_status": "on" | "off" | "idle",
+  "seq": <bigint>,
+  "event_id": "<uuid>",
+  "channel_used":
+    "lora" | "lte" | "gsm" | "wifi" | "offline_replay" | "mobile_app" | "test_injection",
+  "comm_channel": "...",
+  "hmi_driving_sec": <int>,
+  "hmi_rest_sec": <int>,
+  "hmi_trip_status": "...",
+  "engine_rpm": <int>,
+  "engine_load_pct": <float>,
+  "throttle_pct": <float>,
+  "maf_gps": <float>,
+  "coolant_temp_c": <float>,
+  "engine_runtime_sec": <int>,
+  "dtc_present": <bool>,
+  "dtc_count": <int>,
+  "distance_gps_delta_km": <float>,
+  "distance_obd_delta_km": <float>,
+  "distance_fused_delta_km": <float>
+}
+\end{lstlisting}

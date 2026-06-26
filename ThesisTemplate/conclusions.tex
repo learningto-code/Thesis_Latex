@@ -1,38 +1,86 @@
 \section{Concluding Remarks}
 
-In this \documentType, \ldots
+In this \documentType, a telemetry-based fleet monitoring and fuel anomaly detection system was designed, developed, and evaluated for delivery-vehicle operations. The system integrated vehicle sensor acquisition, GPS tracking, wireless data transmission, cloud-based storage, dashboard visualization, anomaly detection, and alert delivery into one operational prototype.
 
-Put here the main points that should be known and learned about the  work topic. Summarize or give the gist of the essential principles and inferences drawn from your results.
+The results showed that the system was able to collect and transmit fuel, speed, location, trip, and alert data at regular intervals and present these records through a web dashboard and HMI interface. Fuel measurement validation showed acceptable agreement against pump-gas reference readings, while communication tests demonstrated that the system could maintain telemetry flow through LoRa, WiFi, and GSM paths depending on network availability. The dashboard also supported trip monitoring, route visualization, fleet-vehicle status review, and alert inspection.
+
+For anomaly detection, the best-performing production model was the context-aware Isolation Forest with per-asset fuel-economy deviation features. It achieved 92.9\% precision and a 1.09\% false-positive rate under leave-one-trip-out evaluation, satisfying the study targets and outperforming simpler static-threshold and baseline statistical approaches. The controlled-injection and field-validation results further showed that the system could detect different fuel-loss behaviors, although performance varied by anomaly type. Sudden and short fuel changes were more difficult to detect consistently than broader abnormal fuel-consumption patterns, showing that anomaly duration, trip context, and vehicle movement affect detection reliability.
+
+Overall, the study demonstrated that combining embedded telemetry, contextual feature engineering, cloud processing, and dashboard-based visualization can support practical fuel monitoring and fleet supervision. The work also showed that fuel anomaly detection should not rely only on raw fuel-level changes, since normal driving conditions, idling, traffic, refueling, and sensor noise can resemble abnormal behavior. A more reliable system requires trip context, per-vehicle baselines, communication resilience, and human-readable alerts for operators.
+
+\section{Technical Limitations}
+
+The prototype met the numerical targets of the study, but several implementation limits remain important for interpreting the results and planning deployment beyond thesis scale. Table~\ref{tab:technical_limitations} summarizes the main technical limitations, their causes, and the corresponding future-work direction.
+
+\begin{table}[!htbp]
+\centering
+\caption{Technical Limitations and Future Work}
+\label{tab:technical_limitations}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{|p{0.25\textwidth}|X|X|}
+\hline
+\textbf{Limitation} & \textbf{Why it happened} & \textbf{How future work fixes it} \\
+\hline
+No dipstick calibration & The partner fleet operator did not permit tank opening or invasive tank-volume measurement during field testing. & Conduct controlled laboratory tank calibration or partner-approved calibration using a supervised tank-opening procedure. \\
+\hline
+Small real anomaly count & Actual theft, leak, and siphoning events were unavailable during the thesis field window, so labels were primarily controlled injections. & Extend SGSA fleet deployment over a longer period and collect confirmed operational anomaly cases for retraining and validation. \\
+\hline
+LTE latency & Cellular modem attachment, HTTP actions, TLS negotiation, and network conditions can delay some telemetry uploads. & Use persistent bearer sessions, optimized modem power design, and a stronger LTE Cat-1 or equivalent modem configuration. \\
+\hline
+GSM 2G degradation & Carrier availability and legacy-network phaseout reduce the reliability of GSM-only fallback in some areas. & Expand LTE Cat-1, NB-IoT, LoRaWAN, or other modern fallback channels and treat 2G only as transitional support. \\
+\hline
+\end{tabularx}
+\normalsize
+\end{table}
 
 \section{Contributions}
 
-The interrelated \index{contributions} contributions and supplements that have been developed by the author(s) in this \documentType \ are listed as follows.  Only those that are unique to the authors' work are included.
+The interrelated \index{contributions} contributions and supplements that have been developed by the author(s) in this \documentType \ are listed as follows. Only those that are unique to the authors' work are included.
 
 \begin{itemize}
-  \item the ; 
-	
-	\item the ; 
-  
-  \item the ; 
-	
-\end{itemize}
+  \item the development of an integrated fleet-vehicle telemetry monitoring prototype that combines fuel-level sensing, GPS tracking, speed monitoring, trip logging, HMI alerts, and cloud dashboard visualization;
 
+  \item the implementation of a multi-path communication approach using LoRa, LTE, GSM 2G, WiFi, and SPIFFS offline replay to support telemetry transmission under different operating and network conditions;
+
+  \item the creation of a context-aware fuel anomaly detection pipeline using Isolation Forest, route and driving-context features, per-asset fuel-economy deviation, and comparison against baseline detectors such as static thresholding, IQR-based methods, Local Outlier Factor, Matrix Profile gating, and hybrid detection;
+
+  \item the construction of controlled-injection validation trips and field-test telemetry records for evaluating fuel anomaly detection, trip monitoring, dashboard behavior, alert generation, and system reliability;
+
+  \item the implementation of backend alert logic and HMI-side immediate warnings for operational events such as overspeeding and low fuel, improving response visibility for both the driver and fleet administrator;
+
+  \item the development of dashboard analytics for fleet-level monitoring, including trip summaries, anomaly heatmaps, alert trends, fuel behavior, and overspeeding events by fleet vehicle.
+\end{itemize}
 
 \section{Recommendations}
 
-\graytx{\Blindtext}
+Based on the results of the study, the researchers recommend further improvement of the system before wider field deployment. First, the fuel anomaly detection model should be evaluated using more real-world trips from different fleet vehicles, routes, load conditions, traffic levels, and driving behaviors. Although the controlled-injection and field-validation results showed promising results, additional field data would make the model more robust and reduce dependence on predefined trip patterns.
+
+Second, the fuel detection logic should continue to distinguish between true abnormal fuel loss and normal operational events such as idling, slopes, refueling, sensor fluctuation, and traffic congestion. The results showed that some anomaly types are easier to detect than others, so future versions should improve sensitivity to short-duration events without increasing false alarms.
+
+Third, the system should improve trip-distance and odometer handling by maintaining reliable server-side trip accumulation and reducing dependence on unavailable vehicle odometer readings. Since some vehicle OBD-II odometer data may be inaccessible, trip distance should be computed using a defensible combination of GPS, speed, and onboard integrated distance, with safeguards against corrupted or non-monotonic readings.
+
+Fourth, the dashboard and alert system should be tested with more administrators and drivers in real fleet operations. The acceptance survey showed positive usability, but a larger group of users would provide better feedback on alert clarity, dashboard navigation, and operational usefulness.
+
+Lastly, the researchers recommend improving deployment reliability by adding stronger logging, automated data-quality checks, and clearer handling of offline telemetry. These additions would help ensure that delayed, buffered, or partially missing data does not distort trip summaries, anomaly counts, or dashboard analytics.
 
 \section{Future Prospects}
 
-There are several prospects that may be extended for further studies. \ldots So the suggested topics are listed in the following.
+There are several prospects that may be extended for further studies. The suggested topics are listed as follows:
 
 \begin{enumerate}
-	\item  the \ldots.
-	
-	\item  the \ldots.
-		
-	\item  the \ldots.
+  \item Integration of additional vehicle parameters not yet covered by the prototype, such as battery voltage, diagnostic trouble codes, tire-pressure data, and brake-system indicators, to improve anomaly detection and vehicle-health monitoring.
+
+  \item Expansion of the anomaly detection model using a larger real-world fleet dataset across more routes, vehicles, fuel behaviors, and operating conditions.
+
+  \item Development of a mobile driver application with live trip status, route guidance, alert acknowledgement, and driver-side incident reporting.
+
+  \item Development of route-deviation and geofence-based supervision features to notify administrators when a fleet vehicle leaves an assigned corridor, enters a restricted service area, or remains stopped outside an expected location.
+
+  \item Improvement of anomaly explainability, where each fuel anomaly alert includes the likely reason for the flag, such as sudden fuel drop, abnormal fuel-per-kilometer behavior, prolonged idling loss, or route-context mismatch.
+
+  \item Deployment of a stronger real-time notification system using SMS, push notifications, or messaging integrations for urgent events such as fuel theft, low fuel, overspeeding, or route deviation.
+
+  \item Evaluation of the system in long-term fleet operation to measure its effect on fuel accountability, response time, operational visibility, and maintenance planning.
 \end{enumerate}
-
-Note that for ECE undergraduate theses, as per the directions of the thesis adviser, Recommendations and Future Directives will be removed for the hardbound copy but will be retained for database storage.
-

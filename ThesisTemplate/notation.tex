@@ -17,12 +17,68 @@ sort={xtsmooth}
 {\ensuremath{x^{\text{smooth}}_t}}
 
 \newterm
-[% 
-label={not:N}, 
-description={window size for the moving average filter}, 
-sort={N} 
+[%
+label={not:N},
+description={window size for the moving average filter},
+sort={N}
 ]%
 {\ensuremath{N}}
+
+\newterm
+[%
+label={not:xtmed},
+description={median-filtered sensor value at time \ensuremath{t}},
+sort={xtmed}
+]%
+{\ensuremath{x^{\text{med}}_t}}
+
+\newterm
+[%
+label={not:W},
+description={sliding window length of the median filter},
+sort={W}
+]%
+{\ensuremath{W}}
+
+\newterm
+[%
+label={not:yt},
+description={exponential moving average output at time \ensuremath{t}},
+sort={yt}
+]%
+{\ensuremath{y_t}}
+
+\newterm
+[%
+label={not:alpha},
+description={smoothing factor of the exponential moving average},
+sort={alpha}
+]%
+{\ensuremath{\alpha}}
+
+\newterm
+[%
+label={not:tau},
+description={time constant of the exponential moving average},
+sort={tau}
+]%
+{\ensuremath{\tau}}
+
+\newterm
+[%
+label={not:delta},
+description={dead-band publishing threshold},
+sort={delta}
+]%
+{\ensuremath{\delta}}
+
+\newterm
+[%
+label={not:ypub},
+description={last published dead-band fuel value},
+sort={ypub}
+]%
+{\ensuremath{y_{\text{pub}}}}
 
 \newterm
 [% 
@@ -183,3 +239,139 @@ sort={FN}
  sort={Tactual}
 ]%
 {\ensuremath{T_{\text{actual}}}}
+
+\newterm
+[%
+label={not:phat},
+description={estimated binomial proportion (sample success rate)},
+sort={phat}
+]%
+{\ensuremath{\hat{p}}}
+
+\newterm
+[%
+label={not:z},
+description={standard normal quantile used in the Wilson score interval},
+sort={z}
+]%
+{\ensuremath{z}}
+
+\newterm
+[%
+label={not:n},
+description={number of samples or validation events},
+sort={n}
+]%
+{\ensuremath{n}}
+
+\newterm
+[%
+label={not:Ctank},
+description={nominal tank capacity used to convert fuel volume to percentage},
+sort={Ctank}
+]%
+{\ensuremath{C_{\text{tank}}}}
+
+\newterm
+[%
+label={not:Vpumpi},
+description={fuel volume dispensed by the pump during validation event \ensuremath{i}},
+sort={Vpumpi}
+]%
+{\ensuremath{V_{\text{pump},i}}}
+
+\newterm
+[%
+label={not:VHMIi},
+description={fuel volume displayed on the HMI during validation event \ensuremath{i}},
+sort={VHMIi}
+]%
+{\ensuremath{V_{\text{HMI},i}}}
+
+\newterm
+[%
+label={not:ei},
+description={fuel-volume error for validation event \ensuremath{i}},
+sort={ei}
+]%
+{\ensuremath{e_i}}
+
+\newterm
+[%
+label={not:fi},
+description={filtered fuel-level percentage at telemetry row \ensuremath{i}},
+sort={fi}
+]%
+{\ensuremath{f_i}}
+
+\newterm
+[%
+label={not:deltafi},
+description={change in filtered fuel level between successive telemetry rows},
+sort={deltafi}
+]%
+{\ensuremath{\Delta f_i}}
+
+\newterm
+[%
+label={not:di},
+description={distance travelled between telemetry rows \ensuremath{i-1} and \ensuremath{i}},
+sort={di}
+]%
+{\ensuremath{d_i}}
+
+\newterm
+[%
+label={not:vi},
+description={vehicle speed at telemetry row \ensuremath{i}},
+sort={vi}
+]%
+{\ensuremath{v_i}}
+
+\newterm
+[%
+label={not:kmpli},
+description={fuel-economy estimate for telemetry row \ensuremath{i}},
+sort={kmpli}
+]%
+{\ensuremath{\mathrm{kmpl}_i}}
+
+\newterm
+[%
+label={not:precision},
+description={precision of the anomaly detector, computed as \ensuremath{TP/(TP+FP)}},
+sort={precision}
+]%
+{\ensuremath{\mathrm{Precision}}}
+
+\newterm
+[%
+label={not:fpr},
+description={false-positive rate of the anomaly detector, computed as \ensuremath{FP/(FP+TN)}},
+sort={FPR}
+]%
+{\ensuremath{\mathrm{FPR}}}
+
+\newterm
+[%
+label={not:q0985},
+description={0.985 quantile of clean training anomaly scores used as the decision threshold},
+sort={q0985}
+]%
+{\ensuremath{q_{0.985}}}
+
+\newterm
+[%
+label={not:Dtrain},
+description={training partition used within a leave-one-trip-out fold},
+sort={Dtrain}
+]%
+{\ensuremath{\mathcal{D}_{\text{train}}}}
+
+\newterm
+[%
+label={not:Dtest},
+description={held-out trip partition used for evaluation within a leave-one-trip-out fold},
+sort={Dtest}
+]%
+{\ensuremath{\mathcal{D}_{\text{test}}}}

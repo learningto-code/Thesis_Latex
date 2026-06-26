@@ -25,9 +25,19 @@
 \input{abbreviation.tex}
 \input{notation.tex}
 \input{glossary.tex}
+% Workaround for datagidx regression: \@glsadd checks \datagidx@label before
+% parsing it from its argument; pre-parsing here fixes the ordering.
+\makeatletter
+\renewcommand*{\glsadd}[1]{%
+  \datagidx@parse@formatlabel{#1}%
+  \NoCaseChange{\@glsadd{#1}}%
+}
+\makeatother
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % the following are for setting the PDF info/properties
+
+\usepackage[numbered,open]{bookmark} % strengthens clickable PDF outline and TOC targets
 
 %\newcommand{\Concatenate}%
 %{%
@@ -48,8 +58,17 @@ pdfauthor = {\textcopyright
 	\ \documentAuthor{surname1} (et al.);  
 	Adviser:\ \documentAdviserTitle\ \documentAdviser},
 pdfkeywords = \keywords,
-breaklinks = true, 
-colorlinks = true, 
+pdfencoding = auto,
+psdextra = true,
+breaklinks = true,
+bookmarks = true,
+bookmarksnumbered = true,
+bookmarksdepth = 3,
+pdfpagelabels = true,
+plainpages = false,
+hypertexnames = true,
+linktoc = all,
+colorlinks = true,
 linkcolor = black, 
 urlcolor = black, 
 citecolor = black, 

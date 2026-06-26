@@ -12,9 +12,9 @@ To ensure reliability, accuracy, and safety, the proposed fuel anomaly detection
 \begin{enumerate}
     \item \textbf{Standards for Sensors and Hardware}
 
-    The system integrates sensors and modules that employ standard communication protocols—\textbf{CAN bus/OBD-II, UART, I2C, and GPIO}—consistent with IEEE~1451 smart transducer guidelines \cite{ieee1451}. The CAN bus/OBD-II fuel data acquisition aligns with industry telematics conventions \cite{iso15143}, while the GPS module adheres to global navigation and timing standards \cite{gpsstd}.
+    The system integrates sensors and modules that employ standard communication protocols—\textbf{CAN bus/OBD-II, UART\glsadd{UART}, I2C\glsadd{I2C}, and GPIO\glsadd{GPIO}}—consistent with IEEE~1451 smart transducer guidelines \cite{ieee1451}. The CAN bus/OBD-II fuel data acquisition aligns with industry telematics conventions \cite{iso15143}, while the GPS module adheres to global navigation and timing standards \cite{gpsstd}.
 
-    Safety-related components (buzzer, indicators, MCU GPIO outputs) comply with IEC~61131-2 and ISO~7637 automotive power and electromagnetic compatibility guidelines \cite{iec61131, iso7637}. All embedded electronics meet CE and FCC certifications \cite{cecert,fcc} to ensure environmental and electrical safety.
+    IEC\glsadd{IEC}~61131-2 and ISO~7637-2 were used as references for embedded-control and automotive transient considerations \cite{iec61131, iso7637}. Commercial off-the-shelf modules with available CE\glsadd{CE}/FCC\glsadd{FCC}-marked variants were selected where possible; however, full product-level certification was outside the scope of this prototype study \cite{cecert,fcc}.
 
     \item \textbf{Data Acquisition and Signal Processing}
 
@@ -24,7 +24,7 @@ The fuel-level signal is stabilised by a multi-stage filter, a median stage for 
 
     \item \textbf{Communication and Data Transmission}
 
-    Communication follows TCP/IP standards under IETF and IEEE~802.11 \cite{rfc791, ieee80211}, while MQTT serves as the primary IoT protocol following OASIS specifications. End-to-end encryption via TLS/SSL aligns with ISO/IEC~27001 cybersecurity requirements \cite{iso27001}.
+    Communication follows TCP/IP\glsadd{TCP/IP} standards under IETF\glsadd{IETF} and IEEE~802.11 \cite{rfc791, ieee80211}. Telemetry transmission is implemented through HTTPS REST endpoints, while MQTT remains a compatible future alternative for broker-based deployment. End-to-end encryption via TLS\glsadd{TLS}/SSL\glsadd{SSL} aligns with ISO/IEC~27001 cybersecurity requirements \cite{iso27001}.
 
     These communication strategies form the basis for the system’s message-handling and cloud-upload mechanisms in Chapter~\ref{ch:method}.
 
@@ -34,7 +34,7 @@ The fuel-level signal is stabilised by a multi-stage filter, a median stage for 
 
     \item \textbf{Software Architecture and Data Management}
 
-    The modular software design complies with ISO/IEC/IEEE~42010 architectural principles \cite{iso42010}. ACID-compliant storage and GDPR-/ISO~27018-aligned data protection protocols \cite{iso27018} ensure data integrity and privacy. All processed datasets follow FAIR principles.
+    The modular software design complies with ISO/IEC/IEEE~42010 architectural principles \cite{iso42010}. ACID\glsadd{ACID}-compliant storage and GDPR\glsadd{GDPR}-/ISO~27018-aligned data protection protocols \cite{iso27018} ensure data integrity and privacy. All processed datasets follow FAIR\glsadd{FAIR} principles.
 \end{enumerate}
 
 \subsection{Observance of Research Ethics}
@@ -99,9 +99,9 @@ This section elaborates on the engineering decisions and standards that guided t
 
 Fuel acquisition & OBD-II Toyota Mode 22 PID 21/29 & External capacitive / float tank sensor & Non-invasive, no tank modification, ethically clearable, partner-acceptable & Manufacturer dashboard gauge used as field reference (no dipstick validation) \\
 \hline
-Controller & ESP32 (dual-core, 240 MHz, WiFi+BT) & Arduino Uno / Raspberry Pi & Adequate GPIO + WiFi + dual core for IDF VSPI separation; PlatformIO ecosystem; FreeRTOS scheduling & Limited RAM for on-device ML; ML inference moved to backend \\
+Controller & ESP32 (dual-core, 240 MHz, WiFi+BT\glsadd{BT}) & Arduino Uno / Raspberry Pi & Adequate GPIO + WiFi + dual core for IDF VSPI\glsadd{VSPI} separation; PlatformIO ecosystem; FreeRTOS scheduling & Limited RAM\glsadd{RAM} for on-device ML; ML inference moved to backend \\
 \hline
-HMI display & ILI9341 2.4" TFT + XPT2046 touch + dedicated buttons & OLED + scroll button only & Full route / fuel / alert UI in-cab; suitable readability in daylight & Touch only used for non-critical actions; physical buttons used for safety-critical confirm \\
+HMI display & ILI9341 2.4" TFT + XPT2046 touch + dedicated buttons & OLED + scroll button only & Full route / fuel / alert UI\glsadd{UI} in-cab; suitable readability in daylight & Touch only used for non-critical actions; physical buttons used for safety-critical confirm \\
 \hline
 GPS & Embedded GPS (Neo-style) + mobile-app GPS fallback fused at backend & Dashboard-only / external assist only & Resilient to embedded-GPS cold start or building occlusion; tagged via \texttt{gps\_source} column & Urban-canyon drift; cold start of embedded module on first power-on \\
 \hline
@@ -115,7 +115,7 @@ Hotspot fallback & WiFi (driver phone tether or depot AP) & No fallback & Recove
 \hline
 Offline buffer & SPIFFS append-only ring buffer, replayed with \texttt{channel\_used='offline\_replay'} & RAM-only buffer & Survives reboot; preserves \texttt{seq} + \texttt{event\_id} for backend deduplication & Flash wear if drain is starved for very long periods \\
 \hline
-Backend & Node/Express on Render + Supabase Postgres & Self-hosted Postgres on a VPS & Managed DB, row-level security, free-tier acceptable for thesis-scale traffic & Render cold-start adds latency to the first POST after idleness \\
+Backend & Node/Express on Render + Supabase Postgres & Self-hosted Postgres on a VPS & Managed DB\glsadd{DB}, row-level security, free-tier acceptable for thesis-scale traffic & Render cold-start adds latency to the first POST after idleness \\
 \hline
 ML detector & Isolation Forest Model C (contamination=0.015, n\_estimators=300, max\_samples=256) & Threshold-only / IQR baseline; Hybrid Union; Hybrid Intersection & Only Isolation Forest variant that met $\geq$90\% precision and $\leq$10\% FPR under LOTO & Recall depends on injection realism; will be retrained as live anomaly corpus grows \\
 \hline
@@ -128,40 +128,42 @@ Subsequence detector & Matrix Profile (window=12, z-thresh=2.0) & Drop entirely 
 
 \subsection{Hardware Selection and Integration}  
 
-The hardware configuration is designed to support the end-to-end workflow of the system (see Chapter~\ref{sec:implement}). The following standards and implementation points apply:  
+The hardware configuration is designed to support the end-to-end workflow of the system (see Sec.~\ref{sec:implement}). The following standards and implementation points apply:
 
 \begin{itemize}  
-    \item \textbf{MCU:} ESP32/NodeMCU serves as the edge processing device for real-time acquisition and preprocessing of fuel, GPS, and vehicle telemetry data. It complies with IEC~61131-2 for embedded controllers \cite{iec61131} and ISO~7637 for automotive electrical transients \cite{iso7637}. In Chapter~\ref{sec:implement}, the MCU handles sensor filtering, timestamping, and local anomaly scoring.  
+    \item \textbf{MCU:} ESP32/NodeMCU serves as the edge processing device for real-time acquisition and preprocessing of fuel, GPS, and vehicle telemetry data. It complies with IEC~61131-2 for embedded controllers \cite{iec61131} and ISO~7637 for automotive electrical transients \cite{iso7637}. In Sec.~\ref{sec:implement}, the MCU handles sensor filtering, timestamping, and local anomaly scoring.
 
-    \item \textbf{GPS Module:} The UART-connected GPS module provides geolocation and speed data, adhering to global navigation standards \cite{gpsstd}. Its signals are synchronized with fuel readings during preprocessing in Chapter~\ref{sec:implement}.  
+    \item \textbf{GPS Module:} The UART-connected GPS module provides geolocation and speed data, adhering to global navigation standards \cite{gpsstd}. Its signals are synchronized with fuel readings during preprocessing in Sec.~\ref{sec:fuel_preprocessing}.
 
-    \item \textbf{CAN/OBD-II Interface:} The CAN/OBD-II interface was selected as the acquisition layer because it satisfies the non-invasive constraint set by the partner operator. From this one port the prototype reads speed, RPM, engine load, throttle, MAF, coolant temperature, runtime, DTC status, and the Toyota Mode 22 PID 21/29 fuel-sender voltage encoded at 0.5 L per ADC count. Mode 22 access is manufacturer-specific and was validated on the partner Toyota vehicle.
+    \item \textbf{CAN/OBD-II Interface:} The CAN/OBD-II interface was selected as the acquisition layer because it satisfies the non-invasive constraint set by the partner operator. From this one port the prototype reads speed, RPM\glsadd{RPM}, engine load, throttle, MAF\glsadd{MAF}, coolant temperature, runtime, DTC\glsadd{DTC} status, and the Toyota Mode 22 PID 21/29 fuel-sender voltage encoded at 0.5 L per ADC\glsadd{ADC} count. Mode 22 access is manufacturer-specific and was validated on the partner Toyota vehicle.
 \end{itemize}  
 
 \subsection{Software Architecture}  
 
-The modular software layers are designed according to ISO/IEC/IEEE~42010 software architecture standards \cite{iso42010}, supporting scalability, maintainability, and interoperability. Each layer’s function is mapped to its implementation in Chapter~\ref{sec:implement}:  
+The modular software layers are designed according to ISO/IEC/IEEE~42010 software architecture standards \cite{iso42010}, supporting scalability, maintainability, and interoperability. Each layer’s function is mapped to its implementation in Sec.~\ref{sec:implement}:
 
 \begin{itemize}  
-    \item \textbf{Data Acquisition Layer:} Captures sensor and telemetry data, applies SMA and median filters, and performs anomaly threshold checks. Implementation details are in Chapter~\ref{sec:implement}.  
+    \item \textbf{Data Acquisition Layer:} Captures sensor and telemetry data, applies SMA and median filters, and performs anomaly threshold checks. Implementation details are in Sec.~\ref{sec:fuel_acquisition}.  
 
-    \item \textbf{Processing Layer:} Performs edge anomaly detection, timestamping, and data aggregation. Standards for real-time processing and task scheduling ensure predictable latency. Implementation is in Chapter~\ref{sec:implement}.  
+    \item \textbf{Processing Layer:} Performs edge anomaly detection, timestamping, and data aggregation. Standards for real-time processing and task scheduling ensure predictable latency. Implementation is in Sec.~\ref{sec:fuel_preprocessing}.  
 
-    \item \textbf{Cloud Integration Layer:} MQTT-based JSON payloads are used for cloud ingestion, following OASIS MQTT v5 and ISO/IEC~27001 security standards \cite{iso27001}. TLS/SSL ensures encrypted transmission (Chapter~\ref{sec:implement}.  
+    \item \textbf{Cloud Integration Layer:} HTTPS REST endpoints receive JSON\glsadd{JSON} telemetry payloads from the prioritized communication stack. MQTT remains compatible as a future broker-based deployment option, while TLS/SSL ensures encrypted transmission (Sec.~\ref{sec:communication}).  
 
-    \item \textbf{User Interface Layer:} Dashboards display real-time fuel levels, GPS locations, anomaly alerts, and historical trends. Web standards (HTML5, CSS3, JavaScript) and secure REST APIs are employed, as described in Chapter~\ref{sec:implement}.  
+    \item \textbf{User Interface Layer:} Dashboards display real-time fuel levels, GPS locations, anomaly alerts, and historical trends. Web standards (HTML\glsadd{HTML}5, CSS3, JavaScript) and secure REST\glsadd{REST} APIs are employed, as described in Sec.~\ref{sec:backend}.  
 \end{itemize}  
 
 \subsection{Machine Learning and Algorithms}  
 
 Machine learning components follow ISO/IEC~29119 software quality standards \cite{iso29119} and IEEE~P7003 AI accountability guidelines \cite{ieeep7003}:  
 
+Static threshold fuel anomaly systems are insufficient in Philippine logistics because traffic congestion, idling, route delays, load variation, and stop-and-go driving can produce fuel-consumption changes that look abnormal under fixed rules. The proposed model uses contextual variables such as fuel rate, speed, RPM, engine load, throttle, idling, distance, and route behavior to distinguish suspicious fuel drops from normal but inefficient fuel use. This makes the system more adaptive than fixed threshold detection.
+
 \begin{itemize}  
-    \item \textbf{Models:} Isolation Forest was selected as the production detector because Model C (contamination = 0.015, \texttt{n\_estimators} = 300, \texttt{max\_samples} = 256, threshold = training-set q995 + IQR margin + 0.003) was the only configuration meeting both $\geq$90\% precision and $\leq$10\% FPR under leave-one-trip-out evaluation (precision = 0.966, recall = 0.966). Matrix Profile (window = 12, z-threshold = 2.0) was retained as a supporting subsequence detector for slow-leak and siphon patterns that single-point scoring is less sensitive to.  
+    \item \textbf{Models:} Isolation Forest was selected as the production detector because Model C (contamination = 0.015, \texttt{n\_estimators} = 300, \texttt{max\_samples} = 256, score threshold = the 0.985 quantile of the clean training scores) was the only configuration meeting both $\geq$90\% precision and $\leq$10\% FPR under leave-one-trip-out evaluation (precision = 92.9\%, recall = 92.9\%, FPR = 1.09\%; see Chapter~\ref{ch:result_discuss}). Matrix Profile (window = 12, z-threshold = 2.0) was retained as a supporting subsequence detector for slow-leak and siphon patterns that single-point scoring is less sensitive to.
 
-    \item \textbf{Evaluation Metrics:} Confusion matrices, ROC curves, and precision–recall graphs are used for model validation, ensuring alignment with ISO/IEC 25010 software quality characteristics. Chapter~\ref{sec:implement}, Chapter~\ref{sec:evaluate} provides practical application in performance evaluation.  
+    \item \textbf{Evaluation Metrics:} Confusion matrices, ROC curves, and precision–recall graphs are used for model validation, ensuring alignment with ISO/IEC 25010 software quality characteristics. Secs.~\ref{sec:evaluation} and~\ref{sec:evaluate} provide practical application in performance evaluation.
 
-    \item \textbf{Alternative Models:} Autoencoders and LSTM networks were considered but excluded due to edge processing constraints, as justified in Chapter~\ref{sec:alt_software_cost}.  
+    \item \textbf{Alternative Models:} Autoencoders and LSTM\glsadd{LSTM} networks were considered but excluded due to edge processing constraints, as justified in Sec.~\ref{sec:alt_software_cost}.  
 \end{itemize}  
 
 \subsection{Communication and Security}  
@@ -169,13 +171,13 @@ Machine learning components follow ISO/IEC~29119 software quality standards \cit
 Communication protocols and security measures are aligned with ISO/IEC~27018, ISO/IEC~27001, and GDPR standards to ensure data privacy, encryption, and secure access control:  
 
 \begin{itemize}  
-    \item \textbf{MQTT Protocol:} Supports lightweight, reliable IoT messaging, implemented with QoS 1 to guarantee delivery. Applied in Chapter~\ref{sec:implement}.  
+    \item \textbf{REST Telemetry:} HTTPS REST endpoints support direct cloud ingestion from LoRa gateway, LTE/GSM, WiFi, and offline-replay channels. MQTT with QoS\glsadd{QoS} 1 remains a future-compatible alternative if a broker-based deployment is adopted.
 
-    \item \textbf{TLS/SSL Encryption:} Provides end-to-end encryption for transmitted data. Compliance with ISO/IEC~27001 ensures data integrity and confidentiality. Applied in Chapter~\ref{sec:implement}.  
+    \item \textbf{TLS/SSL Encryption:} Provides end-to-end encryption for transmitted data. Compliance with ISO/IEC~27001 ensures data integrity and confidentiality. Applied in Sec.~\ref{sec:communication}.  
 
-    \item \textbf{Role-Based Access and Anonymization:} Enforces secure data access policies and anonymizes sensitive driver information, complying with ISO/IEC~27018 and GDPR principles. Applied in Chapter~\ref{sec:implement}.  
+    \item \textbf{Role-Based Access and Anonymization:} Enforces secure data access policies and anonymizes sensitive driver information, complying with ISO/IEC~27018 and GDPR principles. Applied in Sec.~\ref{sec:backend}.  
 
-    \item \textbf{JSON Serialization:} Standardized data format for cloud compatibility, ensuring interoperability with cloud services and dashboards. Applied in Chapter~\ref{sec:implement}.  
+    \item \textbf{JSON Serialization:} Standardized data format for cloud compatibility, ensuring interoperability with cloud services and dashboards. Applied in Sec.~\ref{sec:communication}.  
 \end{itemize}  
 
 Wide-area connectivity uses a SIMCom A7670E LTE (Cat-1) module, chosen over a GSM-only baseline because it provides an LTE-primary, 2G-fallback hierarchy in one device. LTE is the primary path for its lowest latency and highest throughput, and because it is the network Philippine operators are expanding rather than retiring. GSM 2G on the same module is a deeper fallback for legacy-only coverage; consistent with NTC MC No. 003-09-2025 (phased 2G/3G decommissioning) it is treated as transitional, and because the A7670E is LTE-first rather than 2G/3G-only it remains compliant with that circular. LoRa provides depot, yard, and long-range telemetry; WiFi provides a depot or driver-tether path; and SPIFFS offline-buffer replay is the final fallback so no record is lost when all real-time channels are down \cite{ntc2025legacy_network_phaseout}. 
@@ -183,7 +185,7 @@ Wide-area connectivity uses a SIMCom A7670E LTE (Cat-1) module, chosen over a GS
 \section{Alternative Software Designs and Cost Considerations}
 \label{sec:alt_software_cost}
 
-During the planning and prototype development phase, several candidate software designs were evaluated for their suitability to the system’s requirements. Table~\ref{tab:alt_software} summarizes the strengths, potential risks, and fit relative to the system specifications. Matrix Profile (MP), Isolation Forest (IF), and a combined Matrix Profile + Isolation Forest (MP + IF) configuration were implemented and tested to compare their effectiveness in detecting fuel-related anomalies. The comparison considered detection accuracy, computational efficiency, and deployment feasibility on the target hardware platform. The findings from these tests were used to determine the most appropriate approach for the final system implementation.
+During the planning and prototype development phase, several candidate software designs were evaluated for their suitability to the system’s requirements. Table~\ref{tab:alt_software} summarizes the strengths, potential risks, and fit relative to the system specifications. Matrix Profile (MP\glsadd{MP}), Isolation Forest (IF), and a combined Matrix Profile + Isolation Forest (MP + IF) configuration were implemented and tested to compare their effectiveness in detecting fuel-related anomalies. The comparison considered detection accuracy, computational efficiency, and deployment feasibility on the target hardware platform. The findings from these tests were used to determine the most appropriate approach for the final system implementation.
 
 \begin{table}[h!]
 \centering

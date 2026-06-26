@@ -90,3 +90,353 @@ description={A type of machine learning where the model learns patterns from unl
 plural={Unsupervised Machine Learning Methods}%
 ]%
 {unsupervised machine learning}
+
+\newterm
+[%
+description={A standardized vehicle diagnostic interface that exposes engine and sensor data, such as fuel level, speed, and engine parameters, through the on-board diagnostic port without requiring physical modification of the vehicle.},%
+plural={On-Board Diagnostics Interfaces}%
+]%
+{On-Board Diagnostics}
+
+\newterm
+[%
+description={A robust serial communication bus used within vehicles to allow electronic control units to exchange data without a host computer.},%
+plural={Controller Area Network Buses}%
+]%
+{Controller Area Network}
+
+\newterm
+[%
+description={A computing approach in which data is processed locally on the device that generates it, such as the embedded microcontroller in the fleet vehicle, reducing latency and bandwidth use before transmission to the cloud.},%
+plural={Edge Computing Methods}%
+]%
+{edge computing}
+
+\newterm
+[%
+description={The in-vehicle interface that displays fuel, route, and alert information to the driver and captures driver acknowledgments such as rest and snooze actions.},%
+plural={Human-Machine Interfaces}%
+]%
+{Human-Machine Interface}
+
+\newterm
+[%
+description={The automated measurement and wireless transmission of data, such as fuel level, location, and vehicle status, from the fleet vehicle to a remote backend for monitoring and analysis.},%
+plural={Telemetry Streams}%
+]%
+{telemetry}
+
+\newterm
+[%
+description={A cross-validation protocol in which each trip is held out once as the test set while the model is trained and calibrated on the remaining trips, preventing information leakage from within-trip temporal correlation.},%
+plural={Leave-One-Trip-Out Evaluations}%
+]%
+{Leave-One-Trip-Out}
+
+\newterm
+[%
+description={A system that tightly integrates physical processes with embedded computation and networked communication, where sensing, processing, and actuation operate together in real time.},%
+plural={Cyber-Physical Systems}%
+]%
+{Cyber-Physical System}
+
+\newterm
+[%
+description={A table that summarizes the performance of a classifier by tabulating true positives, false positives, true negatives, and false negatives.},%
+plural={Confusion Matrices}%
+]%
+{confusion matrix}
+
+\newterm
+[%
+description={A single observation that deviates significantly from the rest of the data, such as a sudden fuel drop while the vehicle is stationary.},%
+plural={Point Anomalies}%
+]%
+{point anomaly}
+
+\newterm
+[%
+description={An observation that is anomalous only with respect to its surrounding context, such as high fuel consumption recorded at zero speed.},%
+plural={Contextual Anomalies}%
+]%
+{contextual anomaly}
+
+\newterm
+[%
+description={A sequence of individually unremarkable observations that together form an anomalous pattern, such as gradual fuel siphoning over time.},%
+plural={Collective Anomalies}%
+]%
+{collective anomaly}
+
+\newterm
+[%
+description={The subsequence of a time series that is least similar to all other subsequences, identified by the Matrix Profile as the most likely anomalous segment.},%
+plural={Discords}%
+]%
+{discord}
+
+\newterm
+[%
+description={A non-linear order-statistic filter that replaces each sample with the median of a sliding window, robust to impulse noise and sensor spikes.},%
+plural={Median Filters}%
+]%
+{median filter}
+
+\newterm
+[%
+description={A first-order recursive low-pass filter that smooths a signal by weighting recent samples more heavily than older ones according to a smoothing factor.},%
+plural={Exponential Moving Averages}%
+]%
+{exponential moving average}
+
+\newterm
+[%
+description={A hysteresis mechanism that publishes a new value only when the smoothed signal departs from the last published value by more than a set threshold, preventing display jitter.},%
+plural={Dead-band Filters}%
+]%
+{dead-band}
+
+\newterm
+[%
+description={The apparent fluctuation in a fuel-tank reading caused by liquid movement inside the tank during acceleration, braking, and turning.},%
+plural={Fuel Slosh Effects}%
+]%
+{fuel slosh}
+
+\newterm
+[%
+description={A curve that plots the true-positive rate against the false-positive rate of a classifier across thresholds; its area summarizes ranking performance.},%
+plural={Receiver Operating Characteristic Curves}%
+]%
+{Receiver Operating Characteristic}
+
+\newterm
+[%
+description={A confidence interval for a binomial proportion that remains accurate for small samples and few positive cases, preferred over the normal-approximation interval.},%
+plural={Wilson Score Intervals}%
+]%
+{Wilson score interval}
+
+\newterm
+[%
+description={Machine learning techniques that make a model's predictions interpretable, providing human-understandable reasons for why an input was flagged as anomalous.},%
+plural={Explainable AI Methods}%
+]%
+{Explainable Artificial Intelligence}
+
+\newterm
+[%
+description={An unsupervised neural network that maps high-dimensional data onto a low-dimensional grid, used to cluster and detect abnormal fuel-consumption patterns.},%
+plural={Self-Organizing Maps}%
+]%
+{Self-Organizing Map}
+
+\newterm
+[%
+description={A modulation technique used by LoRa in which data is encoded onto frequency sweeps (chirps), providing long range, low power use, and resistance to interference.},%
+plural={Chirp Spread Spectrum Schemes}%
+]%
+{Chirp Spread Spectrum}
+
+\newterm
+[%
+description={The fleet-manager interface that presents fleet-vehicle status, trips, maps, telemetry logs, analytics, alerts, and configuration controls for operational supervision.},%
+plural={Administrator Dashboards}%
+]%
+{administrator dashboard}
+
+\newterm
+[%
+description={The user action or system record showing that an alert has been reviewed, acted upon, snoozed, or resolved by the driver or administrator.},%
+plural={Alert Acknowledgements}%
+]%
+{alert acknowledgement}
+
+\newterm
+[%
+description={The cloud-side service layer that receives telemetry, stores records, synchronizes client interfaces, runs alert rules, and coordinates anomaly-detection results.},%
+plural={Backends}%
+]%
+{backend}
+
+\newterm
+[%
+description={A single database record produced by the prototype telemetry pipeline, containing synchronized fuel, speed, location, trip-state, and communication fields for one sampling instant.},%
+plural={Telemetry Rows}%
+]%
+{telemetry row}
+
+\newterm
+[%
+description={A completed operating interval of a fleet vehicle, bounded by start and end events, used as the unit for route review, fuel analysis, and leave-one-trip-out evaluation.},%
+plural={Trips}%
+]%
+{trip}
+
+\newterm
+[%
+description={The vehicle's built-in fuel-level sensing mechanism whose reported value is read through the diagnostic interface and filtered before being displayed or transmitted.},%
+plural={Fuel Senders}%
+]%
+{fuel sender}
+
+\newterm
+[%
+description={A measured fuel-volume or fuel-percentage reading taken from the vehicle's dashboard or embedded interface and compared with pump and receipt evidence during validation.},%
+plural={HMI Readings}%
+]%
+{HMI reading}
+
+\newterm
+[%
+description={The receipt generated by the fuel pump during refuelling, used as supporting ground-truth evidence for dispensed fuel volume during validation.},%
+plural={Pump Receipts}%
+]%
+{pump receipt}
+
+\newterm
+[%
+description={A vehicle distance reading used to verify trip progress, fuel economy, and consistency between field observations and recorded telemetry.},%
+plural={Odometer Readings}%
+]%
+{odometer reading}
+
+\newterm
+[%
+description={The collection of telemetry records captured by the implemented prototype and used as the primary labelled evaluation partition for the thesis results.},%
+plural={Project-Native Partitions}%
+]%
+{project-native partition}
+
+\newterm
+[%
+description={A publicly derived clean-route telemetry corpus used as an out-of-distribution stress test rather than being pooled with the labelled project-native evaluation data.},%
+plural={Public Partitions}%
+]%
+{public partition}
+
+\newterm
+[%
+description={A validation condition in which clean data come from a different route, vehicle, or operating domain from the project-native data, used to test whether the detector creates unnecessary false alarms.},%
+plural={Out-of-Distribution Tests}%
+]%
+{out-of-distribution test}
+
+\newterm
+[%
+description={A derived feature that compares observed fuel use with the expected fuel economy for the fleet vehicle, driver, route, or operating state.},%
+plural={Fuel-Economy Deviation Features}%
+]%
+{fuel-economy deviation feature}
+
+\newterm
+[%
+description={A deterministic rule layer that checks model flags against operational context, such as refuelling, vehicle motion, and fuel-change direction, before an alert is surfaced.},%
+plural={Contextual Gates}%
+]%
+{contextual gate}
+
+\newterm
+[%
+description={The proportion of flagged anomaly rows that are truly anomalous, used in this study as the primary quality measure for avoiding misleading fuel alerts.},%
+plural={Precision Values}%
+]%
+{precision}
+
+\newterm
+[%
+description={The proportion of normal rows incorrectly flagged by the detector, used in this study to measure false-alarm behavior against the SO4 ceiling.},%
+plural={False-Positive Rates}%
+]%
+{false-positive rate}
+
+\newterm
+[%
+description={The prioritized combination of LoRa, cellular, WiFi, and offline buffering used by the prototype to preserve telemetry delivery across changing network conditions.},%
+plural={Communication Stacks}%
+]%
+{communication stack}
+
+\newterm
+[%
+description={A local storage mechanism on the embedded device that temporarily preserves unsent telemetry rows when no communication channel is available.},%
+plural={Offline Buffers}%
+]%
+{offline buffer}
+
+\newterm
+[%
+description={Telemetry collected during operational trials of the prototype, including fuel, speed, location, trip-state, and alert records used to evaluate real-world system behavior.},%
+plural={Field-Test Telemetry Records}%
+]%
+{field-test telemetry}
+
+\newterm
+[%
+description={An event in which fuel behavior differs from the expected pattern for the vehicle context, such as a drop while stationary, unusually high fuel use, or a leak-like downward trend.},%
+plural={Fuel Anomalies}%
+]%
+{fuel anomaly}
+
+\newterm
+[%
+description={A reference profile of expected fuel economy for a fleet vehicle, driver, or route, used to judge whether current consumption is unusually high for that context.},%
+plural={Fuel-Economy Baselines}%
+]%
+{fuel-economy baseline}
+
+\newterm
+[%
+description={The embedded logic that controls the driver's display states, button actions, buzzer behavior, fleet-vehicle selection, trip status, rest status, and alert visibility.},%
+plural={HMI State Machines}%
+]%
+{HMI state machine}
+
+\newterm
+[%
+description={A recovery procedure in which locally buffered telemetry is uploaded after connectivity returns, allowing delayed records to be preserved instead of discarded.},%
+plural={Offline Replays}%
+]%
+{offline replay}
+
+\newterm
+[%
+description={The stored sequence of GPS positions and trip metadata used to review where a fleet vehicle travelled and how fuel behavior changed along the route.},%
+plural={Route Histories}%
+]%
+{route history}
+
+\newterm
+[%
+description={A bounded period of vehicle operation recorded by the system from trip start to trip end, including fuel, route, distance, driver, fleet vehicle, and alert data.},%
+plural={Trip Sessions}%
+]%
+{trip session}
+
+\newterm
+[%
+description={Derived model inputs that describe the operating situation of the vehicle, such as motion state, speed, engine load, RPM, distance, route type, and refuel state.},%
+plural={Vehicle-Context Features}%
+]%
+{vehicle-context feature}
+
+\newterm
+[%
+description={The structured questionnaire used to evaluate whether administrators found the dashboard understandable, usable, and useful for monitoring and resolving fleet events.},%
+plural={Dashboard Usability Surveys}%
+]%
+{dashboard usability survey}
+
+\newterm
+[%
+description={The participating fleet environment used for prototype consultation, vehicle inspection, demonstration, and controlled operational feedback.},%
+plural={Partner Fleets}%
+]%
+{partner fleet}
+
+\newterm
+[%
+description={A supervised presentation and hands-on review of the working prototype, including the embedded HMI, dashboard, telemetry flow, and alert behavior.},%
+plural={Prototype Demonstrations}%
+]%
+{prototype demonstration}

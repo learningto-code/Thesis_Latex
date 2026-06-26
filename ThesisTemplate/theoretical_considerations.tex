@@ -6,7 +6,7 @@ The methodologies used in the system are grounded in established theories in emb
 
 \section{Theoretical Foundations}
 
-\subsection{Cyber-Physical Systems (CPS)}
+\subsection{Cyber-Physical Systems (CPS)}\glsadd{CPS}
 
 The proposed solution functions as a Cyber-Physical System, integrating embedded sensors, microcontroller-based processing, cloud computation, and real-time communication. CPS theory emphasizes:
 \begin{itemize}
@@ -18,7 +18,8 @@ These principles justify the system’s architecture, where fuel-level signals, 
 
 \subsection{Sensor Theory and Signal Measurement}
 
-Fuel-level readings extracted through the CAN bus/OBD-II interface follow digital measurement theory. Sensor signals can exhibit noise, quantization error, and environmental fluctuation. To improve stability, the system uses a Simple Moving Average (SMA) filter, a standard smoothing method defined as:
+Fuel-level readings extracted through the CAN bus/OBD-II interface follow digital measurement theory. Sensor signals can exhibit noise, quantization error, and environmental fluctuation. To improve stability, the system uses a Simple Moving Average (SMA\glsadd{SMA}) filter, a standard smoothing method defined as:
+\glsadd{not:xt}\glsadd{not:xtsmooth}\glsadd{not:N}%
 \begin{equation}
 x_{t}^{\text{smooth}} = \frac{1}{N} \sum_{i=0}^{N-1} x_{t-i}
 \label{eq:sma-ch3}
@@ -28,24 +29,26 @@ This reduces high-frequency noise and creates a clearer trend for anomaly detect
 
 \subsection{OBD-II and CAN-based Vehicle Data Acquisition}
 
-Vehicle data can be acquired through a standardised diagnostic interface rather than an added in-tank sensor. The underlying transport is the Controller Area Network (CAN), a message-based broadcast bus standardised in ISO 11898 in which contention is resolved by non-destructive bitwise arbitration: priority is encoded in the message identifier, and the highest-priority frame proceeds without loss of data or time. Standard CAN uses 11-bit identifiers and extended CAN uses 29-bit identifiers.
+Vehicle data can be acquired through a standardised diagnostic interface rather than an added in-tank sensor. The underlying transport is the Controller Area Network (CAN),\glsadd{ISO} a message-based broadcast bus standardised in ISO 11898 in which contention is resolved by non-destructive bitwise arbitration: priority is encoded in the message identifier, and the highest-priority frame proceeds without loss of data or time. Standard CAN uses 11-bit identifiers and extended CAN uses 29-bit identifiers.
 
-On-Board Diagnostics II (OBD-II) operates over CAN as a request--response protocol, with its application layer defined by SAE J1979 / ISO 15031-5 and multi-frame transport by ISO 15765-4. It distinguishes standardised current-data PIDs (Mode 01), which are mandated and uniform across manufacturers, from enhanced PIDs (Mode 22), which are manufacturer-specific and use proprietary scaling. Because Mode 22 scaling is not publicly standardised, any value read through it must be validated empirically, introducing measurement uncertainty.
+On-Board Diagnostics II (OBD-II) operates over CAN as a request--response protocol, with its application layer defined by SAE\glsadd{SAE} J1979 / ISO 15031-5 and multi-frame transport by ISO 15765-4. It distinguishes standardised current-data PIDs (Mode 01), which are mandated and uniform across manufacturers, from enhanced PIDs (Mode 22), which are manufacturer-specific and use proprietary scaling. Because Mode 22 scaling is not publicly standardised, any value read through it must be validated empirically, introducing measurement uncertainty.
 
-Heavy-duty commercial vehicles conventionally use SAE J1939, a higher-layer protocol over 29-bit CAN identifiers in which Parameter Group Numbers (PGNs) group signals and Suspect Parameter Numbers (SPNs) define each signal's bit position, scaling, and units. Under J1939, fuel level is a standardised SPN broadcast periodically without an explicit request. The theoretical contrast is therefore between a polled, proprietary request--response model (OBD-II Mode 22) and a push-based, standardised broadcast model (J1939): the former trades standardisation and immediacy for broad device compatibility. Analog fuel senders accessed through either path are subject to slosh-induced fluctuation and quantisation error, which motivates the filtering theory developed next \cite{iso15031_5,sae_j1939,iso15765_4,sae_j1962,sae_j1979,iso11898_1,bosch1991can}.
+Heavy-duty commercial vehicles conventionally use SAE J1939\glsadd{J1939}, a higher-layer protocol over 29-bit CAN identifiers in which Parameter Group Numbers (PGNs\glsadd{PGN}) group signals and Suspect Parameter Numbers (SPNs\glsadd{SPN}) define each signal's bit position, scaling, and units. Under J1939, fuel level is a standardised SPN broadcast periodically without an explicit request. The theoretical contrast is therefore between a polled, proprietary request--response model (OBD-II Mode 22) and a push-based, standardised broadcast model (J1939): the former trades standardisation and immediacy for broad device compatibility. Analog fuel senders accessed through either path are subject to slosh-induced fluctuation and quantisation error, which motivates the filtering theory developed next \cite{iso15031_5,sae_j1939,iso15765_4,sae_j1962,sae_j1979,iso11898_1,bosch1991can}.
 
 \subsection{Signal Filtering for Fuel-Level Stabilisation}
 
 Raw signals from physical sensors carry impulse noise, low-frequency disturbance, and quantisation error; no single filter addresses all three, so a multi-stage cascade is used, each stage grounded in distinct theory.
 
 \textbf{Median filter.} A running median is a non-linear order-statistic filter that replaces each sample with the median of a sliding window of length $W$:
+\glsadd{not:xtmed}\glsadd{not:W}%
 \begin{equation}
 x_t^{\mathrm{med}} = \mathrm{median}(x_{t-W+1}, \ldots, x_t).
 \label{eq:median-filter-ch3}
 \end{equation}
 Its breakdown point is 50\%; up to half the window may be corrupted by impulse noise before the output is affected, whereas the arithmetic mean has a 0\% breakdown point.
 
-\textbf{Exponential moving average.} An EMA is a first-order recursive IIR low-pass filter:
+\textbf{Exponential moving average.} An EMA is a first-order recursive IIR\glsadd{IIR} low-pass filter:
+\glsadd{not:yt}\glsadd{not:alpha}\glsadd{not:tau}%
 \begin{equation}
 y_t = \alpha x_t^{\mathrm{med}} + (1 - \alpha)y_{t-1}, \qquad 0 < \alpha \leq 1,
 \label{eq:ema-ch3}
@@ -53,6 +56,7 @@ y_t = \alpha x_t^{\mathrm{med}} + (1 - \alpha)y_{t-1}, \qquad 0 < \alpha \leq 1,
 in which past samples decay geometrically and the smoothing factor $\alpha$ sets a time constant $\tau = -1/\ln(1-\alpha)$; a smaller $\alpha$ gives heavier smoothing at the cost of responsiveness. The simple moving average, by contrast, is a finite-impulse-response filter optimal for white noise but without impulse robustness and requiring the full window in memory.
 
 \textbf{Dead-band (hysteresis).} A dead-band publisher emits a new value only when the smoothed signal departs from the last published value by more than a threshold:
+\glsadd{not:ypub}\glsadd{not:delta}%
 \begin{equation}
 \mathrm{publish}(y_t) \Leftrightarrow |y_t - y_{\mathrm{pub}}| \geq \delta.
 \label{eq:deadband-ch3}
@@ -63,6 +67,7 @@ in which past samples decay geometrically and the smoothing factor $\alpha$ sets
 \subsection{Classification and Evaluation Metric Theory}
 
 Detectors are evaluated as binary classifiers. From the confusion matrix (TP, FP, TN, FN):
+\glsadd{not:TP}\glsadd{not:FP}\glsadd{not:TN}\glsadd{not:FN}\glsadd{not:precision}%
 \begin{equation}
 \mathrm{Precision} = \frac{TP}{TP + FP}
 \label{eq:precision-ch3}
@@ -75,12 +80,14 @@ Detectors are evaluated as binary classifiers. From the confusion matrix (TP, FP
 F_1 = \frac{2 \times \mathrm{Precision} \times \mathrm{Recall}}{\mathrm{Precision} + \mathrm{Recall}}
 \label{eq:f1-ch3}
 \end{equation}
+\glsadd{not:Tdetected}\glsadd{not:Tactual}\glsadd{not:fpr}%
 \begin{equation}
 L_d = T_{\mathrm{detected}} - T_{\mathrm{actual}}.
 \label{eq:latency-metric-ch3}
 \end{equation}
 
-Accuracy is uninformative under class imbalance, where it is dominated by the majority class \cite{powers2020evaluation}. A Receiver Operating Characteristic (ROC) curve plots true-positive rate against false-positive rate, and its area equals the probability that a random positive outranks a random negative \cite{fawcett2006roc}. Under heavy imbalance, however, ROC-AUC is optimistic; the Precision--Recall curve is more informative, its area collapsing toward the positive prevalence so that a modest value reflects the base rate rather than poor detection \cite{davis2006prroc,saito2015prcurve}. Detection latency is $L_{\mathrm{det}} = T_{\mathrm{detected}} - T_{\mathrm{actual}}$, where $T_{\mathrm{actual}}$ is when the anomaly occurred and $T_{\mathrm{detected}}$ is when it was flagged; the Numenta Anomaly Benchmark scores latency with a time-decaying reward \cite{lavin2015nab}. For binomial proportions estimated from few positives, the Wilson score interval is preferred over the normal-approximation (Wald) interval \cite{wilson1927probable}:
+Accuracy is uninformative under class imbalance, where it is dominated by the majority class \cite{powers2020evaluation}. A Receiver Operating Characteristic (ROC\glsadd{ROC}) curve plots true-positive rate against false-positive rate, and its area equals the probability that a random positive outranks a random negative \cite{fawcett2006roc}. Under heavy imbalance, however, ROC-AUC is optimistic; the Precision--Recall curve is more informative, its area collapsing toward the positive prevalence so that a modest value reflects the base rate rather than poor detection \cite{davis2006prroc,saito2015prcurve}. Detection latency is $L_{\mathrm{det}} = T_{\mathrm{detected}} - T_{\mathrm{actual}}$, where $T_{\mathrm{actual}}$ is when the anomaly occurred and $T_{\mathrm{detected}}$ is when it was flagged; the Numenta Anomaly Benchmark scores latency with a time-decaying reward \cite{lavin2015nab}. For binomial proportions estimated from few positives, the Wilson score interval is preferred over the normal-approximation (Wald) interval \cite{wilson1927probable}:
+\glsadd{not:phat}\glsadd{not:z}\glsadd{not:n}%
 \begin{equation}
 \frac{\hat{p} + z^2/(2n) \pm z\sqrt{\frac{\hat{p}(1-\hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + z^2/n}.
 \label{eq:wilson-ch3}
@@ -99,7 +106,7 @@ This ensures aligned and consistent time-series data across fuel level, GPS spee
 
 \subsection{IoT Communication Theory}
 
-The communication subsystem relies on Internet of Things (IoT) principles and long-range wireless communication theory. LoRa operates using Chirp Spread Spectrum (CSS) modulation, characterized by:
+The communication subsystem relies on Internet of Things (IoT) principles and long-range wireless communication theory. LoRa operates using Chirp Spread Spectrum (CSS\glsadd{CSS}) modulation, characterized by:
 \begin{itemize}
     \item long-range transmission,
     \item low power consumption,
@@ -107,6 +114,7 @@ The communication subsystem relies on Internet of Things (IoT) principles and lo
 \end{itemize}
 
 Theoretical latency between sender and cloud receiver is expressed as:
+\glsadd{not:L}\glsadd{not:Treceived}\glsadd{not:Tsent}%
 \begin{equation}
 L = T_{\text{received}} - T_{\text{sent}}
 \label{eq:latency-ch3}
@@ -116,7 +124,8 @@ Understanding latency is essential for analyzing responsiveness and real-time pe
 
 \subsection{GPS Temporal and Spatial Theory}
 
-GPS logging follows Global Navigation Satellite System (GNSS) principles. To evaluate consistency of GPS sampling, the inter-arrival interval is computed as:
+GPS logging follows Global Navigation Satellite System (GNSS\glsadd{GNSS}) principles. To evaluate consistency of GPS sampling, the inter-arrival interval is computed as:
+\glsadd{not:ti}\glsadd{not:Ti}%
 \begin{equation}
 t_i = T_i - T_{i-1}
 \label{eq:gps-ch3}
@@ -131,6 +140,7 @@ The anomaly detection component relies on non-parametric, unsupervised machine l
 \subsubsection{Matrix Profile Theory}
 
 Matrix Profile computes similarity between subsequences within a time series. For a time series $T$ of length $n$ and window size $m$, the profile value is:
+\glsadd{not:Tseries}\glsadd{not:m}\glsadd{not:Pi}%
 \begin{equation}
 P[i] = \min_{j \neq i} \left\| T_{i:i+m-1} - T_{j:j+m-1} \right\|
 \label{eq:mp-ch3}
@@ -141,6 +151,7 @@ The subsequences with the highest $P[i]$ values, known as discords, are likely a
 \subsubsection{Isolation Forest Theory}
 
 Isolation Forest isolates anomalies through random partitioning. An anomaly score is expressed as:
+\glsadd{not:xvec}\glsadd{not:sx}\glsadd{not:Ehx}\glsadd{not:cn}%
 \begin{equation}
 s(x) = 2^{-\frac{E(h(x))}{c(n)}}
 \label{eq:iforest-ch3}

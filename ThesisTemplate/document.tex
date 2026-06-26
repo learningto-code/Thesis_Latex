@@ -33,8 +33,8 @@
 % document IDs
 
 % specify if dissertation, thesis, project, dissertation proposal, thesis proposal, project proposal 
-%\newcommand{\documentType}{Thesis} 
-\newcommand{\documentType}{Thesis Proposal}
+\newcommand{\documentType}{Thesis Paper}
+%\newcommand{\documentType}{Thesis Proposal}
 %\newcommand{\documentType}{Dissertation Proposal}
 %\newcommand{\documentType}{Dissertation}
 \newcommand{\college}{Gokongwei College of Engineering}
@@ -111,6 +111,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./format/postamble.ltx} 
+\input{index_citations.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % for placing user-defined-ambles
@@ -134,6 +135,9 @@
 	methodology,
 	results_and_discussions,
 	conclusions,
+	appendix_partner_evidence,
+	appendix_survey_instrument,
+	appendix_technical_details,
 	%answers_to_questions,
 	%revisions_to_the_proposal,
 	%revisions_to_the_final,
@@ -164,6 +168,10 @@
 		\cleardoublepage
 		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\lstlistoflistings
+		\cleardoublepage
+
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\phantomsection
 		\addcontentsline{toc}{chapter}{Abbreviations and Acronyms}
 		{
@@ -176,7 +184,7 @@
 		\phantomsection
 		\addcontentsline{toc}{chapter}{Notations}
 		{
-			\printterms[database=notation, style=indexalign, used=false, prelocation=dotfill, location=first, columns=1, postname=\hspace{3em}]
+			\printterms[database=notation, style=indexalign, prelocation=dotfill, location=first, columns=1, postname=\hspace{3em}]
 			{
 				\vspace{3ex}
 				
@@ -189,6 +197,7 @@
 		\phantomsection
 		\addcontentsline{toc}{chapter}{Glossary}
 		{	
+			\glsaddall{glossary}
 			\printterms[database=glossary, style=indexalign, prelocation=none, location=hide, columns=1, postname=\hspace{3em}]
 			\thispagestyle{plain}
 		}
@@ -212,8 +221,8 @@
 	\cleardoublepage
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\chapter{Literature Review} 
-	\label{ch:litrev} 
+	\chapter{Literature Review}
+	\label{ch:litrev}
 	%\startcontents[chapters]
 	%\begin{SingleSpace}	
 	%	\Mprintcontents 
@@ -236,7 +245,7 @@
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\chapter{Design Considerations} 
-	\label{ch:designcon} 
+	\label{ch:designcon}
 	%\startcontents[chapters]
 	%\begin{SingleSpace}	
 	%	\Mprintcontents 
@@ -247,7 +256,7 @@
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\chapter{Methodology} 
-	\label{ch:method} 
+	\label{ch:method}
 	%\startcontents[chapters]
 	%\begin{SingleSpace}	
 	%	\Mprintcontents 
@@ -301,6 +310,41 @@
 		Produced: \usdate\today, \currenttime \\
 	\end{flushright}
 	\cleardoublepage 
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\SingleSpacing
+	\appendix
+	\renewcommand{\thechapter}{\Alph{chapter}}
+	\renewcommand{\thesection}{\thechapter\arabic{section}}
+	\appto\appendix{\renewcommand\thechapter{\AlphAlph{\value{chapter}}}}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\chapter{Ethical Clearance}
+	\label{ch:appendix_urerb_decision_letter}
+	\includepdf[pages=-,%
+		offset=3.5mm -7mm,%
+		scale=0.70,%
+		pagecommand={},]
+	{appendix_urerb_decision_letter.pdf}
+	\cleardoublepage
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\chapter{Partner Coordination and Prototype Demonstration}
+	\label{ch:appendix_partner_evidence}
+	\include{appendix_partner_evidence}
+	\cleardoublepage
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\chapter{Administrator Acceptance Survey Instrument}
+	\label{ch:appendix_survey_instrument}
+	\include{appendix_survey_instrument}
+	\cleardoublepage
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\chapter{Technical Implementation Details}
+	\label{ch:appendix_technical_details}
+	\include{appendix_technical_details}
+	\cleardoublepage
 	
 
 

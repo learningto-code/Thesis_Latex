@@ -18,21 +18,6 @@
 \usepackage{longtable}     % For tables spanning multiple pages
 \usepackage{array}         % For better column formatting
 \usepackage{caption}
-\usepackage{longtable}  % Allows tables to span multiple pages
-\usepackage{tabularx}   % Provides auto-adjusting columns
-\usepackage{caption}    % Improves table captions
-\renewcommand{\arraystretch}{1.3} % Increase row height
-\documentclass[a4paper,12pt]{article} 
-\usepackage{longtable} 
-\usepackage{tabularx} 
-\usepackage{geometry} 
-\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm} 
-\usepackage{array} 
-
-\documentclass[12pt]{book}
-\usepackage[margin=2cm]{geometry}
-\usepackage{longtable, array}
-\renewcommand{\arraystretch}{1.2}
 
 \usepackage[cmex10]{amsmath} % for providing many useful and powerful commands for dealing with math typesetting using AMS facilities; the cmex10 option ensures that only type 1 fonts will utilized at all point sizes. Without this option, it is possible that some math symbols, particularly those within footnotes, will be rendered in bitmap form.
 
@@ -64,6 +49,10 @@
 \usepackage{multirow} % for multirows in tabular environment
 
 \usepackage{rotating} % for rotating figures and tables
+
+\usepackage{placeins} % for \FloatBarrier to keep floats within their section
+
+\usepackage{enumitem} % for compact list options in results tables
 
 \usepackage{pdflscape} % for landscape tables with their left side on top of the screen
 
@@ -212,6 +201,8 @@
 \usepackage{alphalph} % for convert numbers to letters
 
 \usepackage{listings} % for quoting source codes
+\renewcommand{\lstlistlistingname}{List of Listings} % for naming the list of listings
+\renewcommand{\lstlistingname}{Listing} % for naming each listing caption
 \lstset{breaklines=true}
 \lstset{numbers=left,%
         numberstyle=\tiny\sffamily, numbersep=10pt, captionpos=t} 

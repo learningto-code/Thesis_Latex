@@ -3,27 +3,50 @@
 \contentsline {table}{\numberline {1.2}{\ignorespaces Expected Deliverables per Objective}}{14}{table.1.2}%
 \contentsline {table}{\numberline {1.3}{\ignorespaces Detailed Budget Breakdown for the Project}}{28}{table.1.3}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {2.1}{\ignorespaces Comparison between GSM and LTE}}{41}{table.caption.21}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Comparison between GSM and LTE}}{41}{table.caption.18}%
 \contentsline {table}{\numberline {2.2}{\ignorespaces Summary of Existing Works}}{47}{table.2.2}%
-\contentsline {table}{\numberline {2.3}{\ignorespaces Comparison of Commercial Fleet Management Systems}}{51}{table.caption.24}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Comparison of Commercial Fleet Management Systems}}{51}{table.caption.21}%
 \contentsline {table}{\numberline {2.4}{\ignorespaces Identified Gaps, Limitations, and Proposed Solutions}}{53}{table.2.4}%
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {4.1}{\ignorespaces Final Hardware and Subsystem Decision Table}}{72}{table.4.1}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Alternative Software Designs Evaluated for the Prototype}}{78}{table.caption.28}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Final Hardware and Subsystem Decision Table}}{73}{table.4.1}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Alternative Software Designs Evaluated for the Prototype}}{80}{table.caption.25}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Summary of methods for reaching the objectives}}{81}{table.5.1}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces HMI GPIO Map}}{89}{table.caption.31}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces OBD-II PID to \texttt {telemetry\_logs} Column Mapping}}{91}{table.caption.33}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces Communication Module Comparison}}{94}{table.caption.35}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces Supabase Postgres Schema}}{100}{table.caption.38}%
-\contentsline {table}{\numberline {5.6}{\ignorespaces Alert Rule Thresholds Implemented}}{104}{table.caption.41}%
-\contentsline {table}{\numberline {5.7}{\ignorespaces Extended Safety Implementation Status}}{104}{table.caption.42}%
-\contentsline {table}{\numberline {5.8}{\ignorespaces Dataset Composition for Evaluation Corpus}}{105}{table.caption.44}%
-\contentsline {table}{\numberline {5.9}{\ignorespaces Anomaly Scenario Coverage}}{106}{table.caption.45}%
-\contentsline {table}{\numberline {5.10}{\ignorespaces Feature Set Across Isolation Forest Variants (A / B / C)}}{106}{table.5.10}%
-\contentsline {table}{\numberline {5.11}{\ignorespaces Objective, Protocol, and Metric}}{111}{table.caption.46}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Summary of methods for reaching the objectives}}{82}{table.5.1}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces OBD-II PID to \texttt {telemetry\_logs} Column Mapping}}{96}{table.caption.30}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Communication Module Comparison}}{100}{table.caption.32}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Supabase Postgres Schema}}{106}{table.caption.35}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Alert Rule Thresholds Implemented}}{110}{table.caption.38}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces Extended Safety Implementation Status}}{111}{table.caption.39}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces Dataset Composition for Evaluation Corpus}}{113}{table.caption.41}%
+\contentsline {table}{\numberline {5.8}{\ignorespaces Anomaly Scenario Coverage}}{114}{table.caption.42}%
+\contentsline {table}{\numberline {5.9}{\ignorespaces Feature Set Across Isolation Forest Variants (A / B / C)}}{115}{table.5.9}%
+\contentsline {table}{\numberline {5.10}{\ignorespaces Objective, Protocol, and Metric}}{121}{table.caption.43}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {6.1}{\ignorespaces Summary of results for achieving the objectives}}{124}{table.6.1}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Summary of results for achieving the objectives}}{131}{table.6.1}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Objective Compliance Matrix}}{135}{table.caption.44}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Pump-Gas Validation Dataset}}{136}{table.caption.45}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces Accuracy Validation Summary}}{140}{table.caption.51}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces Drift, Noise, and Variance per Tank Level}}{141}{table.caption.52}%
+\contentsline {table}{\numberline {6.7}{\ignorespaces LoRa Distance Test (Eight Bands)}}{145}{table.caption.57}%
+\contentsline {table}{\numberline {6.8}{\ignorespaces GSM/LTE Signal and Latency by Location}}{147}{table.caption.59}%
+\contentsline {table}{\numberline {6.9}{\ignorespaces Per-Transport End-to-End Latency (Field-Test Telemetry)}}{148}{table.caption.60}%
+\contentsline {table}{\numberline {6.10}{\ignorespaces Packet Delivery Distribution (Field-Test Telemetry)}}{149}{table.caption.61}%
+\contentsline {table}{\numberline {6.11}{\ignorespaces GPS Acquisition Verification (Field-Test Telemetry)}}{152}{table.caption.63}%
+\contentsline {table}{\numberline {6.12}{\ignorespaces Model Performance on the Project-Native Partition (634 rows, leave-one-trip-out)}}{161}{table.caption.71}%
+\contentsline {table}{\numberline {6.13}{\ignorespaces Detector versus Baseline Comparison (project-native, leave-one-trip-out)}}{163}{table.caption.72}%
+\contentsline {table}{\numberline {6.14}{\ignorespaces Out-of-Distribution Stress Test (public partition, 67 trips, 0 positives)}}{164}{table.caption.73}%
+\contentsline {table}{\numberline {6.15}{\ignorespaces Per-Class Detection Results on the Extended On-Road Validation Suite}}{165}{table.caption.74}%
+\contentsline {table}{\numberline {6.16}{\ignorespaces Alert-Rule Thresholds (Implemented)}}{170}{table.caption.78}%
+\contentsline {table}{\numberline {6.17}{\ignorespaces Extended Safety Implementation Status}}{170}{table.caption.79}%
+\contentsline {table}{\numberline {6.18}{\ignorespaces Alert-Engine Performance During Field Testing}}{171}{table.caption.80}%
+\contentsline {table}{\numberline {6.19}{\ignorespaces System Usability Scale Per-Item Mean ($n = 4$ administrators)}}{182}{table.caption.98}%
+\contentsline {table}{\numberline {6.20}{\ignorespaces Custom Acceptance Questions on Fuel-Anomaly and Alert Utility ($n = 4$)}}{182}{table.caption.99}%
 \addvspace {10pt}
+\contentsline {table}{\numberline {7.1}{\ignorespaces Technical Limitations and Future Work}}{188}{table.caption.100}%
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {table}{\numberline {D.1}{\ignorespaces Full HMI GPIO Map}}{218}{table.caption.111}%
 \contentsfinish 

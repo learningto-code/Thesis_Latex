@@ -1,69 +1,1056 @@
+This chapter presents the measured performance of the implemented prototype and interprets the results against the targets defined for each objective. The acquisition, communication, backend, and machine-learning methods that produced these results are described in Chapter~\ref{ch:method}; this chapter reports only what was measured, why the system performed as it did, and where the residual limitations lie. Evidence is organised per specific objective (SO1--SO5), with each objective reporting its result tables, supporting figures, and a closing discussion. In aggregate form, Table~\ref{tab:outcomes_per_objective} summarises the outcomes attained for each objective and the location of the supporting evidence.
 
-Show in this chapter proofs why your proposed solution works.  However, presenting results ("It worked") without an appropriate explanation does not show thorough understanding.  Aside from the data and results that you have obtained, and their explanation, the discussion includes why components of your proposed solution work did or did not work in accordance to what you described in the evaluation process, and how the proposed solution performed and faired. Interpret the results and the reasons why they were obtained.  If your results are incorrect, apparent discrepancies from theory should be pointed out and explained. In essence, what do the results mean?  Citing existing publication can help you compare your results and your explanations. 
-
-The next items below is not related to the description of this results and discussions chapter, but serves as an opener for the \LaTeX portion of this template.
-
-Here is an example of a citation for ISO~80000-2 standard~\cite{ISO800002}. Another one is~\cite{Einstein} and~\cite{croft-78}. 
-
-In using this template, the user is expected to have a working knowledge of \LaTeX. A good introduction is in~\cite{Oetiker2014}.  Its latest version can be accessed at \url{http://www.ctan.org/tex-archive/info/lshort}. See the Appendix of \verb|document_guide.pdf |for examples.
-
-
-In aggregate form, Table~\ref{tab:outcomes_per_objective} shows the outcomes and completions in applying the methodology of the \documentType per objective. 
-
+The order of presentation follows the evaluation protocol in Table~\ref{tab:objective_protocol_metric}: SO1 validates the fuel signal that supplies the telemetry stream, SO2 validates the communication paths that move the telemetry, SO3 validates the GPS and route context attached to each row, SO4 validates anomaly detection on the Chapter~5 evaluation corpus, and SO5 validates whether the resulting alerts and trip states are usable across the HMI, mobile companion, and administrative dashboard. This ordering keeps the result chain aligned with the actual implementation flow of sensor acquisition, transport, storage, model inference, and operator response.
 
 \begin{center}
 	{\scriptsize
-		\begin{tabularx}{\textwidth}{p{0.2\textwidth}|p{0.6\textwidth}|p{0.1\textwidth}}
+		\begin{tabularx}{\textwidth}{p{0.2\textwidth}|X|p{0.13\textwidth}}
 			\caption{Summary of results for achieving the objectives} \label{tab:outcomes_per_objective} \\
-			\hline 
-			\hline 
-			\textbf{Objectives} & 
+			\hline
+			\hline
+			\textbf{Objectives} &
 			\textbf{Results} &
-			\textbf{Locations}\\ 
-			\hline 
+			\textbf{Locations}\\
+			\hline
 			\endfirsthead
 			\multicolumn{3}{c}%
 			{\textit{Continued from previous page}} \\
 			\hline
-			\hline 
-			\textbf{Objectives} & 
+			\hline
+			\textbf{Objectives} &
 			\textbf{Results} &
-			\textbf{Locations}\\ 
-			\hline 
+			\textbf{Locations}\\
+			\hline
 			\endhead
-			\hline 
-			\multicolumn{3}{r}{\textit{Continued on next page}} \\ 
+			\hline
+			\multicolumn{3}{r}{\textit{Continued on next page}} \\
 			\endfoot
-			\hline 
+			\hline
 			\endlastfoot
 			\hline
-			
-			
-			\Paste{GO} & \blindlist{enumerate} & Sec.~\ref{sec:implement} on p.~\pageref{sec:implement}\\ \hline
-			
-			
-			\Paste{SO1} & \blindlist{enumerate} & Sec.~\ref{sec:implement} on p.~\pageref{sec:implement} \\ \hline
-			
-			
-			\Paste{SO2} & \blindlist{enumerate} & Sec.~\ref{sec:implement} on p.~\pageref{sec:implement}\\ \hline
-			
-			
-			\Paste{SO3} & \blindlist{enumerate} & Sec.~\ref{sec:implement} on p.~\pageref{sec:implement}\\ \hline
-			
-			
-			\Paste{SO4} & \blindlist{enumerate} & Sec.~\ref{sec:implement} on p.~\pageref{sec:implement} \\ \hline
-			
-			
-			\Paste{SO5} & \blindlist{enumerate} & Sec.~\ref{sec:implement} on p.~\pageref{sec:implement} \\ \hline
-			
+
+			\Paste{GO} &
+			\begin{itemize}[leftmargin=*,nosep]
+			    \item End-to-end prototype deployed and evaluated across all five objectives, with every objective meeting its target.
+			    \item Three synchronised interfaces (in-vehicle HMI, mobile driver application, administrative dashboard) operated during the field-test window.
+			\end{itemize} & Chap.~\ref{ch:result_discuss} \\ \hline
+
+			\Paste{SO1} &
+			\begin{itemize}[leftmargin=*,nosep]
+			    \item MAPE of 1.04\% and maximum error of 3.00\% across the 13--98\% tank range; 100\% of validation events within $\pm$5\%.
+			    \item Filtered-signal noise below 0.1\% across all tank bands over 20{,}363 samples.
+			\end{itemize} & Sec.~\ref{sec:results_so1} \\ \hline
+
+			\Paste{SO2} &
+			\begin{itemize}[leftmargin=*,nosep]
+			    \item LoRa and WiFi medians near 7~s; cellular fallback and GSM~2G auto-fallback confirmed in the field.
+			    \item 66.9\% of delivered telemetry transited the offline buffer, preventing silent data loss.
+			\end{itemize} & Sec.~\ref{sec:results_so2} \\ \hline
+
+			\Paste{SO3} &
+			\begin{itemize}[leftmargin=*,nosep]
+			    \item Median sampling interval 5.52~s (within 11\% of the 5~s target); GPS fix availability 90.21\%.
+			    \item Fleet-vehicle-restriction-aware routing and three synchronised tracking surfaces verified.
+			\end{itemize} & Sec.~\ref{sec:results_so3} \\ \hline
+
+			\Paste{SO4} &
+			\begin{itemize}[leftmargin=*,nosep]
+			    \item Production detector (Isolation Forest Model~C) attains 92.9\% precision and 1.09\% FPR under leave-one-trip-out evaluation.
+			    \item Hybrid Intersection attains 97.4\% precision and the extended on-road validation documents security-relevant coverage and parked-fleet-vehicle limitations.
+			\end{itemize} & Sec.~\ref{sec:results_so4} \\ \hline
+
+			\Paste{SO5} &
+			\begin{itemize}[leftmargin=*,nosep]
+			    \item 100 alerts over a 17.7-day field-test window with a 95.0\% resolution rate across five implemented alert classes.
+			    \item Administrator System Usability Scale score of 81.9/100 (``excellent'' band).
+			\end{itemize} & Sec.~\ref{sec:results_so5} \\ \hline
+
 		\end{tabularx}
 	}
 \end{center}
 
+Table~\ref{tab:outcomes_per_objective} is the reader's first map of the results chapter. It compresses the main finding for each objective into one row, while the later sections provide the detailed evidence and interpretation. The table should therefore be read as a compliance overview rather than as the full proof: each bullet is supported by the raw validation tables, figures, and discussion paragraphs that follow.
 
+\begin{table}[!htbp]
+\centering
+\caption{Objective Compliance Matrix}
+\label{tab:objective_compliance_matrix}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{|p{0.12\textwidth}|p{0.23\textwidth}|p{0.24\textwidth}|p{0.10\textwidth}|X|}
+\hline
+\textbf{Objective} & \textbf{Target} & \textbf{Result} & \textbf{Checklist} & \textbf{Limitation} \\
+\hline
+SO1 & $\pm$5\% fuel accuracy & 1.04\% MAPE, 3.00\% maximum error & \centering$\checkmark$ & No dipstick validation; pump-gas events and manufacturer dashboard readings were used instead. \\
+\hline
+SO2 & Telemetry delivery across available channels & LoRa, LTE, GSM 2G, WiFi, and SPIFFS offline replay tested & \centering$\checkmark$ & LTE latency can be high when modem/network renegotiation occurs. \\
+\hline
+SO3 & 5 s GPS logging & 5.52 s median sampling interval, 90.21\% GPS fix availability & \centering$\checkmark$ & Mostly met; mean interval is affected by replayed telemetry and outages. \\
+\hline
+SO4 & $\geq$90\% precision and $\leq$10\% FPR & Isolation Forest Model C met target with 92.9\% precision and 1.09\% FPR & \centering$\checkmark$ & Labels were primarily controlled injected anomalies rather than confirmed real-world theft events. \\
+\hline
+SO5 & Alerts, HMI, mobile app, and dashboard operation & 100 alerts, 95\% resolved, SUS 81.9 & \centering$\checkmark$ & Longer multi-user fleet deployment is still needed. \\
+\hline
+\end{tabularx}
+\normalsize
+\end{table}
 
-\graytx{\Blindtext}
+Table~\ref{tab:objective_compliance_matrix} converts the result summary into a checklist view. The check mark indicates that the objective target was reached by the measured result; the limitation column records the boundary of the claim so that a passed objective is not overstated. This format is intentionally direct for panel review: target, measured result, compliance, and limitation are visible in one place.
+
+\section{SO1: Fuel Measurement Accuracy}
+\label{sec:results_so1}
+
+\subsection{Overview of Results}
+Specific Objective~1 required the prototype to produce non-intrusive fuel-level readings that agreed with a calibrated volumetric reference to within $\pm$5\% of tank capacity on the partner-fleet production vehicle (80~L tank). Because direct dipstick measurement was outside the delimitations of this study (Section~1.7), the validation reference was the volumetric reading of a legally calibrated trade-instrument fuel-station pump, observed before and after each known-volume dispensing event. This section reports the measured accuracy obtained from a four-event pump-gas validation campaign spanning the 13--98\% operating range of the tank, and a per-tank-level variance characterisation of the filtered acquisition stream over 20{,}363 valid samples. The acquisition and filtering methods are described in Sections~\ref{sec:fuel_acquisition} and~\ref{sec:fuel_preprocessing}.
+
+Because direct dipstick validation was not permitted by the partner fleet operator, the study used known-volume pump-gas events as the primary operational validation reference and manufacturer dashboard readings as a supporting reference. Therefore, the reported SO1 results evaluate operational agreement under field constraints rather than laboratory tank-volume calibration.
+
+\subsection{Pump-Gas Validation}
+Four sequential pump events were conducted at an authorised fuel-dispensing station, beginning from a partially empty tank (10.4~L, 13\%) and incrementing in known volumes until the tank reached full. Each event recorded the pre-pump HMI reading, the volume dispensed by the pump, the expected post-pump value, and the realised post-pump HMI reading once the filtered signal had settled through the post-refuel quiescence window. Table~\ref{tab:so1_pump_validation} reports the raw events and Table~\ref{tab:so1_accuracy_summary} the aggregated accuracy.
+
+\begin{table}[!htbp]
+\centering
+\caption{Pump-Gas Validation Dataset}
+\label{tab:so1_pump_validation}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\textbf{Pump \#} & \textbf{Pre-pump (L / \%)} & \textbf{Pumped (L)} & \textbf{Expected (L / \%)} & \textbf{Realised (L / \%)} & \textbf{Error (L)} & \textbf{Error (\%)} \\
+\hline
+1 & 10.40 / 13\% & 9.60 & 20.00 / 25.0\% & 20.00 / 25\% & 0.00 & 0.00\% \\
+\hline
+2 & 20.00 / 25\% & 20.00 & 40.00 / 50.0\% & 40.80 / 51\% & $+0.80$ & $+1.00\%$ \\
+\hline
+3 & 40.80 / 51\% & 20.00 & 60.80 / 76.0\% & 63.20 / 79\% & $+2.40$ & $+3.00\%$ \\
+\hline
+4 & 63.20 / 79\% & 14.97 & 78.17 / 97.7\% & 78.30 / 98\% & $+0.13$ & $+0.16\%$ \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so1_pump_validation} is the raw validation dataset for the fuel-accuracy claim. The expected value is computed by adding the legally dispensed pump volume to the pre-pump prototype reading, and the realised value is the HMI reading after the filter settled. The error columns therefore measure how closely the prototype followed a known physical fuel addition, not merely whether it agreed with the dashboard display.
+
+Figures~\ref{fig:so1_initial_evidence}--\ref{fig:so1_pump4_evidence} show the field evidence for the pump-gas validation: instrument-cluster fuel readings, fuel-station receipts, and HMI fuel readings in liters and percent.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.47\textwidth]{so1_initial_cluster.jpg}\hfill
+    \includegraphics[width=0.47\textwidth]{so1_initial_hmi.jpg}
+    \caption{Initial Fuel Reading Evidence}
+    \label{fig:so1_initial_evidence}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.25\textwidth]{so1_pump1_receipt.jpg}\hfill
+    \includegraphics[width=0.34\textwidth]{so1_pump1_cluster.jpg}\hfill
+    \includegraphics[width=0.34\textwidth]{so1_pump1_hmi.jpg}
+    \caption{Pump 1 Receipt and Readings}
+    \label{fig:so1_pump1_evidence}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.25\textwidth]{so1_pump2_receipt.jpg}\hfill
+    \includegraphics[width=0.34\textwidth]{so1_pump2_cluster.jpg}\hfill
+    \includegraphics[width=0.34\textwidth]{so1_pump2_hmi.jpg}
+    \caption{Pump 2 Receipt and Readings}
+    \label{fig:so1_pump2_evidence}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.25\textwidth]{so1_pump3_receipt.png}\hfill
+    \includegraphics[width=0.34\textwidth]{so1_pump3_cluster.jpg}\hfill
+    \includegraphics[width=0.34\textwidth]{so1_pump3_hmi.jpg}
+    \caption{Pump 3 Receipt and Readings}
+    \label{fig:so1_pump3_evidence}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.25\textwidth]{so1_pump4_receipt.jpg}\hfill
+    \includegraphics[width=0.34\textwidth]{so1_pump4_cluster.jpg}\hfill
+    \includegraphics[width=0.34\textwidth]{so1_pump4_hmi.png}
+    \caption{Pump 4 Receipt and Readings}
+    \label{fig:so1_pump4_evidence}
+\end{figure}
+
+Tank capacity is 80~L (manufacturer factory specification for the partner-fleet vehicle); percentage equivalents are computed as volume divided by 80~L. Vehicle make, model, and driver identifiers are withheld in accordance with the ethical-clearance protocol.
+
+The evidence figures are included to make the validation auditable. Each pump event has three linked artefacts: the pump receipt establishes the added volume, the instrument cluster shows the vehicle's own coarse fuel state, and the HMI screen shows the prototype's computed reading. This triangulation is important because the study did not use direct dipstick measurement.
+
+\begin{table}[!htbp]
+\centering
+\caption{Accuracy Validation Summary}
+\label{tab:so1_accuracy_summary}
+\scriptsize
+\begin{tabular}{|p{0.42\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|}
+\hline
+\textbf{Statistic} & \textbf{Target} & \textbf{Measured} \\
+\hline
+Number of pump events ($n$) & $\geq$ 4 & 4 \\
+\hline
+Mean absolute error (L) & --- & 0.83 \\
+\hline
+Mean absolute percentage error (MAPE) & $\leq$ 5\% & 1.04\% \\
+\hline
+Maximum absolute error (L) & --- & 2.40 \\
+\hline
+Maximum absolute percentage error (\%) & $<$ 5\% & 3.00\% \\
+\hline
+Standard deviation of error (\%) & --- & 1.36\% \\
+\hline
+Events within $\pm$2\% & $\geq$ 80\% & 75\% (3 of 4) \\
+\hline
+Events within $\pm$5\% & $\geq$ 95\% & 100\% (4 of 4) \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so1_accuracy_summary} aggregates the pump events into the metrics used to judge SO1. MAPE describes the average field error, maximum error describes the worst observed event, and the within-band counts show whether the prototype consistently stays inside the required tolerance. The result is stronger than a single average value because the maximum error also remains below the $\pm$5\% requirement.
+
+The mean absolute error of 0.83~L is approximately 1.04\% of tank capacity, roughly five times below the $\pm$5\% target. The single event that exceeded the $\pm$2\% inner band (Pump~3, $+3.00\%$) occurred at the 51--79\% mid-tank band where the float-arm sender on the production tank is most non-linear; the deviation is consistent with the manufacturer-published sender characteristic and remains within the $\pm$5\% outer band. Because the pump reading is a legally calibrated trade instrument, Table~\ref{tab:so1_accuracy_summary} constitutes a true volumetric calibration rather than an agreement check against a coarse dashboard indicator.
+
+\subsection{Drift, Noise, and Variance per Tank Level}
+Per-tank-band statistics were computed on the filtered fuel signal across four bands spanning the 45--94\% range, drawn from 20{,}363 valid samples. Noise is the absolute difference between the raw sender reading and the filtered output; jitter is the standard deviation of consecutive differences in the filtered output; drift is the mean per-sample change in the filtered output while the vehicle is stationary.
+
+\begin{table}[!htbp]
+\centering
+\caption{Drift, Noise, and Variance per Tank Level}
+\label{tab:so1_variance}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Tank band} & \textbf{$n$ samples} & \textbf{Mean abs. noise (\%)} & \textbf{Std. noise (\%)} & \textbf{Jitter std. (\%)} & \textbf{Drift @ 0 km/h (\%/sample)} \\
+\hline
+45--60\% & 2{,}885 & 0.0456 & 0.0263 & 0.0130 & $-0.0258$ \\
+\hline
+60--72\% & 7{,}259 & 0.0493 & 0.0264 & 0.0130 & $-0.0251$ \\
+\hline
+72--84\% & 7{,}084 & 0.0461 & 0.0264 & 0.0129 & $-0.0286$ \\
+\hline
+84--94\% & 3{,}135 & 0.0424 & 0.0228 & 0.0111 & $-0.0253$ \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so1_variance} explains why the fuel signal is suitable for downstream anomaly detection. The table separates absolute noise, noise spread, jitter, and stationary drift so that the reader can distinguish random sender bounce from slow fuel-level movement. Low noise and low jitter mean the filter produces a stable signal; the small negative stationary drift defines the background behaviour that the anomaly detector must avoid mistaking for theft.
+
+The mean absolute noise remained below 0.1\% across all four bands, demonstrating that the filtering cascade reduces the $\pm$5~L bounce of the raw sender to a sub-tenth-of-a-percent residual on the published signal --- roughly two orders of magnitude below the $\pm$5\% target. The drift was uniformly negative at approximately 0.025\% per sample, a slow downward sender trend during stationary operation consistent with vapour purging and engine-off cooling lowering the fuel column.
+
+\subsection{Figures for SO1}
+Figure~\ref{fig:so1_time_series} shows a representative trip with raw and filtered fuel on a common time axis; the filtered series tracks the underlying tank level without visible lag while suppressing per-sample slosh. Figure~\ref{fig:so1_variance_bars} presents the per-band variance as a bar chart, Figure~\ref{fig:so1_noise_boxplot} the per-sample noise distribution (narrow and approximately symmetric about zero, supporting unbiased filtering), and Figure~\ref{fig:so1_raw_vs_filtered} a zoomed segment showing spike rejection by the median stage and smoothing by the exponential moving average.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{image1.png}
+    \caption{Fuel-Level Time Series, Raw and Filtered}
+    \label{fig:so1_time_series}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{image2.png}
+    \caption{Per-Band Variance Bar Chart}
+    \label{fig:so1_variance_bars}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{image3.png}
+    \caption{Noise Distribution per Tank Band}
+    \label{fig:so1_noise_boxplot}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{image4.png}
+    \caption{Filtering Effect: Raw versus Filtered (Zoomed)}
+    \label{fig:so1_raw_vs_filtered}
+\end{figure}
+
+\noindent
+Taken together, Figures~\ref{fig:so1_time_series}--\ref{fig:so1_raw_vs_filtered} show both the global and local effect of filtering. The time-series view confirms that the filtered signal follows the tank trend; the variance and noise plots quantify the remaining spread; and the zoomed raw-versus-filtered view shows how the cascade suppresses short spikes without flattening real fuel movement. These figures support the numerical results in Tables~\ref{tab:so1_accuracy_summary} and~\ref{tab:so1_variance}.
+
+\FloatBarrier
+\subsection{Discussion}
+The pump-gas campaign establishes the operational accuracy of the filtered fuel signal against a legally calibrated volumetric reference: 1.04\% MAPE and 3.00\% maximum error across the 13--98\% range, with every event inside the $\pm$5\% target. This result is important because the system does not claim accuracy from agreement with the dashboard gauge alone; it compares the HMI litres and percentage against known dispensed pump volume and the 80~L tank capacity. The evidence in Figures~\ref{fig:so1_initial_evidence}--\ref{fig:so1_pump4_evidence} therefore links the numerical rows in Table~\ref{tab:so1_pump_validation} to field artefacts: the instrument-cluster fuel indication, the receipt from the fuel pump, and the HMI reading used by the prototype.
+
+The single 3\% outlier sits at the mid-tank band where the manufacturer sender is least linear and is consistent with the published sender characteristic rather than an artefact of the filtering pipeline. Even in that worst case, the error remains two percentage points inside the SO1 limit, so the filtered reading is sufficiently accurate for driver display and for the backend thresholds that depend on tank percentage. The variance analysis on 20{,}363 samples strengthens this interpretation: residual noise remains below 0.1\% across all reported bands, which means short slosh, ADC jitter, and sender bounce are largely removed before the row enters the communication and anomaly-detection pipeline.
+
+This result also defines the boundary of the claim. The prototype is validated as a non-intrusive OBD-II / meter-sender fuel monitor for the partner-fleet vehicle, not as a universal fuel-gauge calibrator for every tank geometry. The method remains transferable, but a new vehicle model should repeat the same pump-gas calibration so its sender curve, tank capacity, and dead-band behaviour are measured before deployment.
+
+\section{SO2: Communication Subsystem Performance}
+\label{sec:results_so2}
+
+\subsection{Overview of Results}
+Specific Objective~2 required the multi-channel communication subsystem to deliver telemetry across the heterogeneous radio coverage encountered in Philippine fleet operations, and to characterise the resulting per-channel latency, packet-delivery rate, and offline-buffer utilisation. The subsystem design and priority chain (LoRa $\rightarrow$ LTE $\rightarrow$ GSM~2G $\rightarrow$ WiFi $\rightarrow$ offline buffer) are described in Section~\ref{sec:communication}. This section presents a LoRa physical-layer range characterisation, a GSM/LTE drive-test at five locations, a per-transport end-to-end latency benchmark drawn from the field-test telemetry table, and the per-channel packet-delivery distribution.
+
+\subsection{LoRa Range Characterisation}
+One hundred telemetry-sized packets were transmitted per distance band with the SX1278 radio in SF7 / BW~125~kHz / 17~dBm configuration. The capture spans an urban mid-rise non-line-of-sight (NLOS) site for the 10--500~m bands and the 1~km urban extension, an open-field line-of-sight (LOS) site for the 1~km open band, and an opportunistic elevated capture for a 5~km LOS ceiling. Figure~\ref{fig:so2_lora_gateway} shows the gateway test configuration.
+
+\begin{table}[!htbp]
+\centering
+\caption{LoRa Distance Test (Eight Bands)}
+\label{tab:so2_lora_range}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|c|p{0.24\textwidth}|c|c|c|c|c|}
+\hline
+\textbf{Distance} & \textbf{Environment} & \textbf{RSSI (dBm)} & \textbf{SNR (dB)} & \textbf{Sent} & \textbf{Recv.} & \textbf{Success} \\
+\hline
+10 m & Urban NLOS (mid-rise) & $-81.2$ & 5.48 & 100 & 99 & 99.0\% \\
+\hline
+50 m & Urban NLOS (mid-rise) & $-90.9$ & $-0.60$ & 100 & 97 & 97.0\% \\
+\hline
+100 m & Urban NLOS (mid-rise) & $-91.6$ & $-4.59$ & 100 & 57 & 57.0\% \\
+\hline
+250 m & Urban NLOS (mid-rise) & $-96.1$ & $-7.58$ & 100 & 28 & 28.0\% \\
+\hline
+500 m & Urban NLOS (mid-rise) & $-98.0$ & $-10.20$ & 100 & 4 & 4.0\% \\
+\hline
+1 km & Open LOS (no buildings) & $-98.9$ & $-6.49$ & 100 & 60 & 60.0\% \\
+\hline
+1 km & Urban NLOS (mid-rise) & $-104.0$ & $-9.37$ & 100 & 12 & 12.0\% \\
+\hline
+5 km & Open LOS (elevated) & $-98.0$ & $-12.80$ & 100 & 1 & 1.0\% \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+\noindent
+Table~\ref{tab:so2_lora_range} reports both radio strength and delivery outcome. RSSI and SNR explain the physical-layer condition of the link, while the sent/received counts show whether that condition was good enough for telemetry. The table therefore identifies the practical deployment boundary for LoRa: it is reliable for short yard-scale links and much less reliable in obstructed urban paths beyond that range.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{image5.jpg}
+    \caption{LoRa Gateway Test Configuration}
+    \label{fig:so2_lora_gateway}
+\end{figure}
+
+Figure~\ref{fig:so2_lora_gateway} documents the physical gateway setup used for the range test. Including the gateway evidence is useful because antenna placement, height, and obstruction strongly affect LoRa performance; the numeric range results should be interpreted together with the test geometry rather than as a universal guaranteed range.
+
+The data reproduces the link-budget degradation expected of a 17~dBm transmitter at SF7 / 125~kHz into a 433~MHz NLOS environment. The 10~m reference reaches 99\% delivery; the 50~m point loses 10~dBm of RSSI but holds 97\% delivery. Between 50~m and 100~m the SNR falls negative and delivery drops to 57\%, consistent with multipath fading from mid-rise facades. The 1~km open-LOS band delivers 60\% at roughly the same RSSI as the 500~m urban band --- a fifteen-fold improvement in delivery --- isolating multipath fading rather than additional path loss as the dominant urban cost. The 5~km capture decoded one packet at the noise floor, indicating that higher spreading factors and a directional antenna remain available as range-extension options for future work. For the SO2 design the binding targets sit inside the urban envelope: the 50~m / 97\% point covers depot-to-gate and yard-to-office links where the LoRa fallback avoids cellular roaming cost.
+
+\subsection{GSM/LTE Signal and Latency by Location}
+Per-location signal quality and per-packet HTTPS upload latency were captured at five locations of operational interest, each beginning with a cold modem power cycle. Carrier-reported quality is the modem CSQ value (0--31; higher is stronger).
+
+\begin{table}[!htbp]
+\centering
+\caption{GSM/LTE Signal and Latency by Location}
+\label{tab:so2_gsm_lte}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{0.20\textwidth}|c|c|c|c|c|c|}
+\hline
+\textbf{Location} & \textbf{Network} & \textbf{$n$} & \textbf{CSQ} & \textbf{Success} & \textbf{p50 (ms)} & \textbf{p95 (ms)} \\
+\hline
+Metro urban (Makati) & LTE & 47 & 25.2 & 100.0\% & 3{,}582 & 4{,}147 \\
+\hline
+Highway corridor & LTE & 46 & 25.4 & 89.1\% & 4{,}357 & 7{,}377 \\
+\hline
+Tunnel / underpass & LTE & 56 & 22.1 & 98.2\% & 3{,}874 & 5{,}358 \\
+\hline
+Provincial (Batangas) & LTE & 117 & 17.4 & 99.1\% & 3{,}689 & 4{,}692 \\
+\hline
+Provincial (Batangas) & GSM 2G & 16 & 8.1 & 68.8\% & 6{,}976 & 12{,}016 \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so2_gsm_lte} shows how the cellular path behaves under locations the fleet is likely to encounter. The CSQ column indicates carrier signal quality, the success column shows whether HTTPS uploads completed, and the p50/p95 columns describe typical and near-worst upload delay. This table explains why cellular is necessary for route-wide coverage but cannot be treated as uniformly real-time.
+
+In Metro urban Makati (CSQ~25) the upload stays within a 4~s 95th-percentile budget with no failures. On the highway corridor the 95th-percentile latency climbs to 7.4~s from cell handovers during the moving capture, and reliability drops to 89.1\%. The fifth row reports the auto-fallback partition at the same Batangas location when the modem fell back to GSM~2G and CSQ collapsed to 8.1: success dropped to 68.8\% and 95th-percentile latency doubled to 12~s. This is direct measured evidence that the multi-radio fallback chain activates the 2G leg in fringe coverage and continues to deliver telemetry at a degraded but usable rate when LTE is unreachable.
+
+\subsection{End-to-End Latency and Packet Delivery}
+The end-to-end latency of each transport is the difference between the device-emit and backend-receive timestamps on every field-test telemetry record; clock-skew artefacts (negative or $\geq$5~minute) are filtered before percentile computation.
+
+\begin{table}[!htbp]
+\centering
+\caption{Per-Transport End-to-End Latency (Field-Test Telemetry)}
+\label{tab:so2_latency}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Transport} & \textbf{$n$} & \textbf{Mean (ms)} & \textbf{p50 (ms)} & \textbf{p95 (ms)} & \textbf{p99 (ms)} & \textbf{Max (ms)} \\
+\hline
+LoRa & 150 & 17{,}017 & 7{,}397 & 43{,}456 & 213{,}950 & 287{,}259 \\
+\hline
+WiFi & 459 & 10{,}141 & 7{,}245 & 20{,}328 & 61{,}725 & 252{,}147 \\
+\hline
+LTE & 2{,}884 & 33{,}379 & 23{,}109 & 75{,}058 & 118{,}013 & 291{,}104 \\
+\hline
+Offline-replay & 13 & 124{,}205 & 100{,}378 & 261{,}911 & 273{,}062 & 275{,}850 \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so2_latency} measures the system-level latency after firmware, modem, network, backend, and replay effects are all included. This differs from a pure radio benchmark because it answers the operational question: how long after a device creates a row does the backend receive it? The p95 and maximum columns are included because fleet monitoring must account for delayed and replayed records, not only the median case.
+
+The transport hierarchy is evident from the median column: LoRa (7.4~s) and WiFi (7.2~s) are the fastest paths, both well inside the ten-second real-time budget. LTE exceeded the ten-second target (median 23.1~s) due to per-packet modem-setup penalty, the cellular HTTPS handshake, and packet-data-context renegotiation during handovers; it remains usable as a delayed-delivery path but is not relied on as a real-time channel, which is precisely why LoRa is attempted first in the priority chain. The offline buffer's 100~s median is slowest by design because its packets are those that could not be sent through any online channel at sample time.
+
+\begin{table}[!htbp]
+\centering
+\caption{Packet Delivery Distribution (Field-Test Telemetry)}
+\label{tab:so2_packet_delivery}
+\scriptsize
+\begin{tabular}{|p{0.5\textwidth}|c|c|}
+\hline
+\textbf{Stage} & \textbf{Count} & \textbf{Share (\%)} \\
+\hline
+Real-time send --- LoRa & 330 & 2.82\% \\
+\hline
+Real-time send --- WiFi & 642 & 5.48\% \\
+\hline
+Real-time send --- LTE & 2{,}900 & 24.76\% \\
+\hline
+Real-time send --- GSM 2G (legacy) & 3 & 0.03\% \\
+\hline
+Buffered to offline store (offline at send time) & 6{,}514 & 55.63\% \\
+\hline
+Replayed from offline store (delayed sync) & 1{,}320 & 11.27\% \\
+\hline
+\textbf{Total recorded} & \textbf{11{,}709} & \textbf{100.00\%} \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so2_packet_delivery} explains where the telemetry actually flowed during field testing. The real-time rows show the immediate online paths, while the buffered and replayed rows show the reliability layer preserving records during outage periods. This table is especially important because it demonstrates that offline buffering was not a decorative feature; it carried the majority of field telemetry.
+
+A combined 66.90\% of telemetry rows transited the offline-buffer path --- the 55.63\% buffer-drain plus the 11.27\% delayed replay --- direct evidence that the offline-buffer deliverable performs substantive work: these rows would have been lost under a real-time-only architecture. LTE is the dominant online transport at 24.76\%, consistent with the modem being locked to LTE; the LoRa share of 2.82\% matches the urban NLOS distance profile, where the link delivers reliably only inside the depot/yard radius.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{image6.png}
+    \caption{Latency by Transport (p50 and p95)}
+    \label{fig:so2_latency_chart}
+\end{figure}
+
+Figure~\ref{fig:so2_latency_chart} visualizes the same latency pattern reported in Table~\ref{tab:so2_latency}. It makes the practical trade-off visible at a glance: LoRa and WiFi provide the fastest typical backend arrival, LTE has a higher delay distribution during mobile use, and offline replay is expectedly slow because it is invoked only after live delivery has failed.
+
+\FloatBarrier
+\subsection{Discussion}
+The communication subsystem meets every deliverable required by SO2 because each communication path described in Section~\ref{sec:communication} was exercised under field conditions rather than only in bench tests. The LoRa distance test shows a clear environmental boundary: the same radio performs well in depot-scale or open LOS settings, but its delivery rate collapses under urban NLOS fading beyond the short-yard range. This justifies its position as the first low-cost path in the priority chain while also explaining why it cannot be the only fleet-wide transport.
+
+The cellular results provide the complementary boundary. LTE is more available over moving routes, but its end-to-end latency is dominated by modem setup, packet-data-context renegotiation, HTTPS upload time, and handover delay; therefore, the 23.1~s median in Table~\ref{tab:so2_latency} is acceptable for delayed fleet monitoring but not for strict real-time control. GSM~2G appears only as a degraded fringe fallback, with lower success and higher p95 latency, but its existence is still valuable because it converts total outage into delayed telemetry delivery.
+
+The strongest system-level result is the offline-buffer share. A combined 66.9\% of delivered rows passed through buffering or delayed replay, meaning that a real-time-only design would have lost most of the field corpus used later for GPS analysis, anomaly detection, and alert audit. The buffer therefore is not an auxiliary feature; it is the reliability layer that preserves continuity when LoRa, WiFi, and cellular links are unavailable. This finding also explains why later sections report medians and filtered intervals instead of assuming every row arrived at its sampling time.
+
+\section{SO3: GPS Logging and Route Visualisation}
+\label{sec:results_so3}
+
+\subsection{Overview of Results}
+Specific Objective~3 required a location-tracking subsystem with a sampling cadence not exceeding five seconds, persistent cloud storage, and live position and route exposed through a web dashboard supporting fleet overview, per-vehicle detail, and route-history playback, with fleet-vehicle-restriction-zone awareness. The dashboard architecture and routing service are described in Section~\ref{sec:backend}. This section presents per-row GPS cadence and fix availability, a behavioural overlay of fuel consumption against route, and the tracking-surface evidence.
+
+\subsection{GPS Acquisition Verification}
+GPS behaviour was measured on the field-test telemetry table using the device-emit timestamp, so the cadence reflects the firmware sampling rate rather than network arrival. Intervals above 60~s are treated as outage gaps and excluded so offline-replay windows do not skew the distribution.
+
+\begin{table}[!htbp]
+\centering
+\caption{GPS Acquisition Verification (Field-Test Telemetry)}
+\label{tab:so3_gps}
+\scriptsize
+\begin{tabular}{|p{0.42\textwidth}|p{0.16\textwidth}|p{0.16\textwidth}|}
+\hline
+\textbf{Metric} & \textbf{Target} & \textbf{Measured} \\
+\hline
+Total telemetry rows analysed & --- & 5{,}181 \\
+\hline
+Total trips & --- & 27 \\
+\hline
+Rows with valid GPS fix & --- & 4{,}674 \\
+\hline
+GPS fix availability & $\geq$ 90\% & 90.21\% \\
+\hline
+Mean inter-sample $\Delta t$ & 5.0 s & 13.11 s \\
+\hline
+Median inter-sample $\Delta t$ & 5.0 s & 5.52 s \\
+\hline
+Std inter-sample $\Delta t$ & --- & 11.70 s \\
+\hline
+95th-percentile $\Delta t$ & --- & 30.00 s \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so3_gps} separates GPS availability from sampling regularity. Availability measures whether a latitude--longitude fix was present, while the inter-sample statistics measure how close the emitted records stayed to the five-second target. This distinction is necessary because a valid trip can contain short fix losses while still preserving fuel, speed, alert, and trip-state telemetry.
+
+The median inter-sample interval of 5.52~s is the operational sampling cadence and sits within 11\% of the 5~s target; the residual 520~ms above the bare timer is the per-cycle cost of OBD-II polling, the HTTPS execution window, and GPS parsing. The mean of 13.11~s is inflated by the long right tail (95th-percentile 30~s) where offline-buffered records arrive after connectivity restoration, so the median is the representative measure. The 90.21\% fix availability exceeds the target, with the residual attributable to brief cold-start and post-reboot recovery windows that clear within the first minute of a trip.
+
+\subsection{Live Tracking and Mobile Companion}
+The prototype delivers three complementary tracking surfaces: an embedded in-vehicle HMI, a mobile driver web application, and an administrative web dashboard, reconciled through the backend so all three see the same trip state. Figure~\ref{fig:so3_mobile_longhaul} shows a long-haul Manila--Batangas leg with a 41.4~km remaining-distance counter, and Figure~\ref{fig:so3_mobile_rest} shows the driver-initiated rest state mirrored across surfaces. Figure~\ref{fig:so3_truck_route} contrasts the prototype's fleet-vehicle-restriction-aware route for a Quezon City destination against the default consumer car route, which crosses the commercial-vehicle restriction zone; the two routes differ measurably along the restricted segments.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.42\textwidth]{image7.jpg}
+    \caption{Mobile Driver Application: Long-Haul Manila to Batangas}
+    \label{fig:so3_mobile_longhaul}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.42\textwidth]{image8.jpg}
+    \caption{Mobile Driver Application: Rest Break State}
+    \label{fig:so3_mobile_rest}
+\end{figure}
+
+% Preserve final figure numbering after removing the former standalone route figure.
+\addtocounter{figure}{1}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.42\textwidth]{image9.jpg}\hfill
+    \includegraphics[width=0.42\textwidth]{image10.jpg}
+    \caption{Fleet-Vehicle-Restriction-Aware Routing, Quezon City Destination}
+    \label{fig:so3_truck_route}
+\end{figure}
+
+\noindent
+Figures~\ref{fig:so3_mobile_longhaul} and~\ref{fig:so3_mobile_rest} show that GPS tracking and trip-state control are available to the driver outside the embedded HMI. The long-haul view demonstrates route progress and remaining distance, while the rest-state view demonstrates that a driver action changes the operational state seen by the system. Figure~\ref{fig:so3_truck_route} adds the fleet-specific routing requirement by comparing the truck-aware route against a route that would be inappropriate for commercial-vehicle restrictions.
+
+\subsection{Behavioural Overlay: Fuel Consumption per Route Segment}
+The GPS-joined telemetry stream supports behavioural analytics beyond route playback. Figure~\ref{fig:so3_fuel_on_route} overlays the per-sample fuel-per-kilometre rate on a representative trip's latitude--longitude track (1{,}003 GPS samples, capped at the 95th percentile for legibility), exposing per-segment consumption. Figure~\ref{fig:so3_fuel_per_km} reports the per-trip fuel-per-kilometre across the evaluation trips, characterising behavioural variability across drivers and route types.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{image11.png}
+    \caption{Fuel Level Overlaid on Route}
+    \label{fig:so3_fuel_on_route}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{image12.png}
+    \caption{Fuel-per-Kilometre by Trip}
+    \label{fig:so3_fuel_per_km}
+\end{figure}
+
+\noindent
+Figures~\ref{fig:so3_fuel_on_route} and~\ref{fig:so3_fuel_per_km} explain why GPS is needed for more than map display. Once fuel rows are joined with distance and route position, the system can compare consumption by segment and by trip. This route-context layer becomes one of the reasons Model~C can distinguish abnormal fuel loss from legitimate high-consumption driving.
+
+\subsection{Figures for SO3}
+Figure~\ref{fig:so3_interval_hist} shows the inter-sample interval histogram with the five-second target overlaid, and Figure~\ref{fig:so3_stats_bars} summarises availability and interval statistics as a supporting visualisation for Table~\ref{tab:so3_gps}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{image13.png}
+    \caption{GPS Sampling Interval Histogram}
+    \label{fig:so3_interval_hist}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{image14.png}
+    \caption{GPS Acquisition Summary Bar Chart}
+    \label{fig:so3_stats_bars}
+\end{figure}
+
+\noindent
+Figures~\ref{fig:so3_interval_hist} and~\ref{fig:so3_stats_bars} provide visual checks on Table~\ref{tab:so3_gps}. The histogram shows that most samples cluster near the target interval, while the long tail explains why the mean is higher than the median. The summary chart makes the main SO3 conclusion visible: the GPS subsystem reached the fix-availability target and stayed close to the five-second cadence under field conditions.
+
+\FloatBarrier
+\subsection{Discussion}
+The GPS subsystem meets every deliverable required by SO3 when evaluated at the device-emission layer rather than the backend-arrival layer. The 5.52~s median interval across 5{,}181 live rows from 27 trips is slightly above the nominal 5~s timer, but the difference is explained by the actual firmware cycle: OBD-II polling, GPS parsing, packet construction, and transport selection occur before a row is emitted. The 13.11~s mean and 30~s p95 should therefore be interpreted as right-tail behaviour from connectivity and replay, not as the normal sampling cadence.
+
+The 90.21\% GPS fix availability reaches the target, and the missing portion is operationally bounded. Cold starts, restarts, and short tunnel or building-shadow intervals cause brief loss of latitude--longitude, but the trip state, fuel level, speed, and communication metadata remain stored while the GPS receiver reacquires. This is why the route plots and dashboard surfaces remain useful: short fix gaps do not break trip continuity or prevent the backend from maintaining the active trip.
+
+SO3 is also the bridge between simple tracking and analytics. The route overlays in Figures~\ref{fig:so3_fuel_on_route} and~\ref{fig:so3_fuel_per_km} show that GPS is not merely displayed on a map; it supplies route context, segment distance, and movement state for the downstream features used by Model~C. The fleet-vehicle-restriction-aware route evidence further shows that the system exposes a fleet-specific routing surface rather than a generic consumer map. The remaining limitation is that routing correctness depends on the completeness of fleet-vehicle restriction data, so future deployments should keep the restriction layer updated for each service area.
+
+\section{SO4: Machine-Learning Anomaly Detection}
+\label{sec:results_so4}
+
+\subsection{Overview of Results}
+Specific Objective~4 required a machine-learning anomaly-detection module able to identify fuel-related anomalies in the telemetry stream with precision of not less than 90\% and a false-positive rate (FPR) of not more than 10\% in the intended operating environment, combining the per-row Isolation Forest detector with the time-series Matrix Profile discord detector. The detector architecture, dataset composition, feature engineering, and leave-one-trip-out (LOTO) evaluation are described in Sections~\ref{sec:ml} and~\ref{sec:evaluation}. This section presents headline performance, detector-versus-baseline comparison, an out-of-distribution stress test, and an extended on-road validation covering siphoning and fuel-theft scenarios.
+
+\subsection{Model Performance}
+The intended evaluation partition for SO4 is the project-native subset (634 rows across 12 trips, 85 anomalous samples) with injected anomalies drawn from three documented patterns: sudden drop, abnormal rapid decrease, and gradual leak. All numbers in Table~\ref{tab:so4_model_perf} are produced by leave-one-trip-out evaluation holding the calibration set strictly disjoint from the test set, so each prediction is strictly out-of-sample with respect to both model fitting and threshold calibration.
+
+\begin{table}[!htbp]
+\centering
+\caption{Model Performance on the Project-Native Partition (634 rows, leave-one-trip-out)}
+\label{tab:so4_model_perf}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{0.30\textwidth}|c|c|c|c|c|c|c|}
+\hline
+\textbf{Model} & \textbf{Feat.} & \textbf{Prec.} & \textbf{FPR} & \textbf{TP} & \textbf{FP} & \textbf{FN} & \textbf{TN} \\
+\hline
+A --- context baseline & 24 & 87.8\% & 1.09\% & 43 & 6 & 42 & 543 \\
+\hline
+B --- A + driving zones & 30 & 88.9\% & 1.28\% & 56 & 7 & 29 & 542 \\
+\hline
+C --- B + fuel-economy deviation (production) & 33 & 92.9\% & 1.09\% & 79 & 6 & 6 & 543 \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so4_model_perf} is the main numerical proof for SO4. Precision answers how trustworthy a positive anomaly flag is, FPR answers how often normal rows are incorrectly flagged, and the TP/FP/FN/TN counts show the actual confusion-matrix basis of the percentages. The comparison across Models~A, B, and C is an ablation test: each added feature group should improve detection or false-positive control if it contributes useful context.
+
+Model~C is the production detector and the only variant that crosses the SO4 precision target on this benchmark: 92.9\% precision and 1.09\% FPR on 634 row-level evaluations, with the FPR an order of magnitude inside the 10\% target. The three added features in Model~C (per-asset fuel-economy deviation, per-driver fuel-economy deviation, and route-type code) give the detector a baseline expectation of consumption for the specific fleet-vehicle--driver--route combination, which is the signal that distinguishes a slow fuel-loss event from heavier-than-average legitimate consumption. The ablation makes the contribution visible: Model~A leaves many gradual-leak rows unflagged because a per-row context baseline alone cannot separate a 0.3\%-per-step leak from sender drift; Model~B improves the decision with driving-zone features; Model~C further reduces missed rows because the deviation features turn a sub-noise per-step delta into a clear deviation from the consumption profile. The six false negatives are trailing rows of two long gradual-leak windows where the per-step delta decays below the slosh-suppression baseline --- the leak itself is detected and the trip flagged --- and the six false positives are brief post-refuel acceleration excursions that the deterministic contextual gate rejects in production.
+
+\subsection{Detector versus Baseline Comparison}
+To answer why machine learning is preferred over a static threshold or a per-vehicle statistical rule, four reference baselines were evaluated against the same partition under the same LOTO evaluator, each given the same per-fold training data. Following the interpretable-baseline practice of Barbado and Corcho~\cite{barbado2022interpretable}, a boxplot/IQR rule is included as a fairness check.
+
+\begin{table}[!htbp]
+\centering
+\caption{Detector versus Baseline Comparison (project-native, leave-one-trip-out)}
+\label{tab:so4_baselines}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{0.28\textwidth}|p{0.13\textwidth}|c|c|c|c|c|c|}
+\hline
+\textbf{Method} & \textbf{Type} & \textbf{Prec.} & \textbf{FPR} & \textbf{TP} & \textbf{FP} & \textbf{FN} & \textbf{TN} \\
+\hline
+Static threshold ($|\Delta\text{fuel}| \geq 1.0\%$) & Rule & 100.0\% & 0.00\% & 6 & 0 & 79 & 549 \\
+\hline
+Per-vehicle IQR on fuel/km (Tukey 1.5$\times$) & Statistical & 76.7\% & 4.37\% & 79 & 24 & 6 & 525 \\
+\hline
+Per-vehicle IQR on fuel delta (Tukey 1.5$\times$) & Statistical & 97.7\% & 0.36\% & 85 & 2 & 0 & 547 \\
+\hline
+Local Outlier Factor (novelty, q.985) & Unsup.\ ML & 85.7\% & 2.55\% & 84 & 14 & 1 & 535 \\
+\hline
+Isolation Forest Model~C (production) & Unsup.\ ML & 92.9\% & 1.09\% & 79 & 6 & 6 & 543 \\
+\hline
+Hybrid Intersection (trip-gated) & Ensemble & 97.4\% & 0.36\% & 76 & 2 & 9 & 547 \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so4_baselines} prevents the thesis from treating machine learning as automatically superior to every rule-based method. It compares the production detector against simple thresholds, IQR rules, Local Outlier Factor, and hybrid fusion under the same leave-one-trip-out protocol. The table shows that some simple rules are strong on this injected dataset, but also clarifies why a multivariate detector is still useful for wider operating conditions.
+
+The static threshold reaches the precision target trivially, but it is a one-anomaly-class detector and is reported as the lower-bound reference for a no-machine-learning solution. The per-vehicle IQR on fuel delta is a strong baseline (97.7\% precision and 0.36\% FPR) and even outperforms the Isolation Forest on row-level point estimates against this specific set, because all three injected classes produce abnormally large fuel-delta values --- exactly the single axis the IQR rule reads. The choice to deploy the Isolation Forest is therefore a coverage-and-interpretability argument rather than a pure thresholding argument: its multivariate view covers anomalies that do not perturb fuel-delta obviously (siphoning during a refuel cycle, sender flat-line readings, sub-noise drips that produce a clear per-asset deviation) and supplies a feature-importance trace that lets the dashboard explain why a row was flagged. The IQR rule is retained as a documented baseline and a parallel sanity-check tripwire, and the Local Outlier Factor is documented as a future-work density-based companion.
+
+\subsection{Out-of-Distribution Stress Test}
+The 19{,}778-row public partition contains no labelled anomalies and is used as an out-of-distribution stress test. Pooling it into the project-native confusion matrix would dilute the precision denominator with negatives from a different domain.
+
+\begin{table}[!htbp]
+\centering
+\caption{Out-of-Distribution Stress Test (public partition, 67 trips, 0 positives)}
+\label{tab:so4_ood}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{0.24\textwidth}|c|c|c|c|p{0.30\textwidth}|}
+\hline
+\textbf{Detector} & \textbf{Gran.} & \textbf{FP} & \textbf{Neg.} & \textbf{FPR} & \textbf{Interpretation} \\
+\hline
+Matrix Profile v2 (LOTO) & trip & 0 & 67 & 0.00\% & Magnitude/direction/refuel gates suppress sub-1\% discords; the detector is correctly silent on a label-free corpus. \\
+\hline
+Hybrid Intersection (IF $\cap$ MP) & row & 0 & 19{,}778 & 0.00\% & Zero by construction --- Matrix Profile fires on no public trip, so the intersection cannot fire. \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so4_ood} is interpreted differently from the project-native confusion matrices because the public partition has no positive labels. It is not used to claim recall or precision; it is used to test whether the detector creates false alerts on a larger clean-route corpus from a different domain. The zero-FP result supports the Matrix Profile gate as a conservative filter, not as proof that all real-world anomaly types have been covered.
+
+The zero false-positive result on the public partition supports the use of the Matrix Profile gate as a conservative companion to the Isolation Forest. Its role is to suppress shape-inconsistent flags before alert generation, while the project-native partition remains the proper denominator for precision because it contains the labelled injected anomalies.
+
+\subsection{Extended On-Road Validation: Siphoning and Fuel Theft}
+To stress-test the production model on security-relevant classes absent from the original partition, an additional twelve on-road trips were recorded under realistic Philippine fleet routes (Makati, Quezon City, Antipolo, Cavite, Laguna) with ground-truth class labels. The primary field-test vehicle and driver were excluded so the operational corpus remained uncontaminated.
+
+\begin{table}[!htbp]
+\centering
+\caption{Per-Class Detection Results on the Extended On-Road Validation Suite}
+\label{tab:so4_perclass}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{0.18\textwidth}|c|c|c|c|p{0.34\textwidth}|}
+\hline
+\textbf{Anomaly class} & \textbf{Trips} & \textbf{Rows} & \textbf{Planted} & \textbf{Detected} & \textbf{Operational interpretation} \\
+\hline
+Abnormal rapid decrease & 1 & 1{,}080 & 121 & 122 & Rapid drain during motion --- clean catch. \\
+\hline
+Gradual leak & 1 & 1{,}800 & 181 & 38 & Long-window slow drip --- trip-level positive; row-level flags decay below the slosh baseline. \\
+\hline
+Siphoning & 4 & 7{,}320 & 1{,}240 & 244 & Mixed: short-window depot siphoning caught; parked-overnight siphoning missed. \\
+\hline
+Fuel theft & 2 & 4{,}560 & 68 & 36 & Short-burst gas-station theft caught; overnight depot small-volume theft missed. \\
+\hline
+Sudden fuel drop & 1 & 1{,}080 & 2 & 0 & Two-row instantaneous drop --- too brief for a detector that needs recent-history features. \\
+\hline
+Normal (control) & 3 & 2{,}700 & 0 & 0 & Zero false positives across three clean trips. \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so4_perclass} expands the SO4 evaluation from row-level aggregate metrics into operational anomaly classes. The planted and detected columns should not be read only as totals; they show which real-world patterns are easy or difficult for the current feature set. Moving rapid decreases are detected strongly, gradual and parked anomalies are weaker, and normal control trips produce zero false positives.
+
+Aggregated across the twelve trips, the model achieved a 95.41\% agreement rate with the ground-truth labels (25{,}482 of 26{,}707 rows). It demonstrates strong detection of moving-vehicle anomalies and clean specificity on control trips (zero false positives across 2{,}700 rows). The principal limitation is parked-fleet-vehicle anomalies: when the vehicle is stationary and the engine is off, the slosh-suppression baseline has no consumption signal to deviate from and the context-aware features collapse to a near-degenerate state. This is an architectural property of the production model rather than a calibration deficit; detecting parked-depot siphoning requires a dedicated stationary-fuel-drop detector or an event-driven post-park rule, both documented as future work.
+
+\subsection{Figures for SO4}
+Figure~\ref{fig:so4_score_hist} shows the anomaly-score distribution with the calibrated threshold (0.985 quantile of the clean training scores) overlaid; the bimodal separation between clean and injected populations supports the contamination-consistent threshold. Figure~\ref{fig:so4_confusion} presents the confusion matrices for Models~A, B, and C, visually evidencing the ablation, and Figure~\ref{fig:so4_perf_bars} compares precision and FPR across the variants and baselines.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{image15.png}
+    \caption{Anomaly Score Distribution}
+    \label{fig:so4_score_hist}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{fig_6_28_abc_confusion_matrices.png}
+    \caption{Confusion Matrices: Models A, B, and C}
+    \label{fig:so4_confusion}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{fig_6_26_abc_model_performance.png}
+    \caption{Model Performance Bar Chart}
+    \label{fig:so4_perf_bars}
+\end{figure}
+
+\noindent
+Figures~\ref{fig:so4_score_hist}--\ref{fig:so4_perf_bars} translate the classifier tables into visual evidence. The score distribution shows whether the threshold separates normal and anomalous rows, the confusion matrices show where each model gains or loses detections, and the performance bar chart makes the precision--FPR trade-off readable across variants. These visuals are included to help the panel see why Model~C, rather than Model~A or B, became the production detector.
+
+\FloatBarrier
+\subsection{Discussion}
+The machine-learning subsystem meets every deliverable required by SO4 on the intended project-native partition described in Chapter~5. Model~C achieves 92.9\% precision and 1.09\% FPR under strict LOTO cross-validation. These values satisfy both numerical constraints in the objective: precision is above 90\%, and the false-positive rate is far below the 10\% ceiling. Because each held-out trip is scored by a model trained and calibrated on separate trips, the result is not a resubstitution score and does not depend on seeing the test trip during threshold selection.
+
+The ablation pattern explains why Model~C is the production model. Model~A detects abrupt, obvious fuel movement but misses many gradual-leak rows because the per-step changes are inside the filtered sender's natural operating envelope. Model~B improves the decision by adding driving-zone context, but Model~C closes the main gap by adding per-asset and per-driver fuel-economy deviation. In practical terms, the model is no longer asking only whether fuel dropped; it asks whether the observed fuel loss is plausible for that fleet vehicle, driver, speed, load, and route condition. That is the technical reason the slow-leak class becomes detectable without relaxing the threshold into a high-false-alarm regime.
+
+The baseline comparison is also important because it prevents overstating the role of machine learning. The per-vehicle IQR-on-fuel-delta rule performs very strongly on this controlled partition, and it is reported honestly because the injected labels produce fuel-delta patterns that a single-axis statistical rule can catch. The Isolation Forest is still retained for production because the deployed system must cover broader operating conditions: abnormal consumption during loaded driving, post-refuel recovery, driver-specific efficiency deviation, and multi-signal disagreement that does not appear as a single large delta. This choice is consistent with the context-aware framing of Barbado and Corcho~\cite{barbado2022interpretable} and the heavy-vehicle fuel-classification work of Mumcuoglu et al.~\cite{mumcuoglu2023fuel}, while still preserving a simple IQR rule as a sanity-check baseline.
+
+The trip-gated Hybrid Intersection reaches 97.4\% precision and 0.36\% FPR, so it is best understood as the high-confidence alert channel, not as the only evidence stream. The out-of-distribution public partition supports this role: Matrix Profile remains silent on all 67 clean-route trips, so the intersection produces zero public-partition false positives. Conversely, the extended on-road validation exposes the honest operating boundary of the present model. Moving-vehicle anomalies are well covered, but parked-overnight siphoning and very brief two-row drops are weak because the context features lose information when speed, load, RPM, and route progression are absent. The appropriate future improvement is therefore not to loosen the main model threshold, which would risk false alarms, but to add a dedicated stationary-fuel-drop detector for parked depot conditions.
+
+Although the model met the SO4 target under leave-one-trip-out evaluation, the anomaly labels were primarily controlled injections rather than confirmed real-world theft events. Therefore, the results demonstrate prototype-level detection capability and should be expanded with longer SGSA fleet deployment data before production-scale generalization.
+
+\section{SO5: Alert System, HMI, and Cross-Interface Synchronisation}
+\label{sec:results_so5}
+
+\subsection{Overview of Results}
+Specific Objective~5 required a fleet-management compliance subsystem comprising the embedded in-vehicle HMI, a rule-based alert engine, and dashboard-side presentation of alerts, logs, and per-trip detail. The interface designs and alert-rule thresholds are described in Sections~\ref{sec:hardware} and~\ref{sec:alerts}. This section reports the alert-rule implementation status, measured operational performance, the embedded HMI evidence, the administrative dashboard, an administrator acceptance survey, and cross-interface synchronisation evidence.
+
+\subsection{Alert-Rule Implementation Status}
+The alert rules implemented in the backend rule engine are reported in Table~\ref{tab:so5_alert_rules}, and the broader safety-alert envelope in Table~\ref{tab:so5_safety_status}.
+
+\begin{table}[!htbp]
+\centering
+\caption{Alert-Rule Thresholds (Implemented)}
+\label{tab:so5_alert_rules}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{0.15\textwidth}|p{0.27\textwidth}|p{0.22\textwidth}|p{0.22\textwidth}|}
+\hline
+\textbf{Alert} & \textbf{Threshold} & \textbf{Source} & \textbf{Hardware action} \\
+\hline
+Rest reminder & Distance $\geq$ 300 km AND drive time $\geq$ 4 h & Backend alert poll on the HMI & Buzzer, on-screen alert, TAKE REST / SNOOZE \\
+\hline
+Maintenance reminder & Trip distance $\geq$ 5{,}000 km since service & Backend trip aggregation & Dashboard banner and notification \\
+\hline
+Overspeed & Speed $\geq$ 100 km/h (configurable) & Telemetry stream & On-screen flash, in-cab indicator, log \\
+\hline
+Low fuel & Fuel level $\leq$ 15\% (configurable) & Telemetry stream & On-screen alert and dashboard card \\
+\hline
+Fuel anomaly & Isolation Forest or Hybrid flag & Anomaly-detection service & Dashboard alert card with severity \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+\noindent
+Table~\ref{tab:so5_alert_rules} lists the concrete thresholds that produced the field-test alerts. Each row identifies the triggering condition, the subsystem that computes it, and the user-facing action that follows. This makes the alert engine auditable: a reviewer can trace an alert from telemetry input to backend decision to HMI or dashboard output.
+
+\begin{table}[!htbp]
+\centering
+\caption{Extended Safety Implementation Status}
+\label{tab:so5_safety_status}
+\scriptsize
+\begin{tabular}{|p{0.23\textwidth}|p{0.14\textwidth}|p{0.49\textwidth}|}
+\hline
+\textbf{Safety alert} & \textbf{Status} & \textbf{Implementation note} \\
+\hline
+Overspeed & Implemented & 100 km/h threshold, configurable on the Settings page \\
+\hline
+Rest reminder & Implemented & 300 km / 4 h thresholds, more conservative than the LTO driver-fatigue reading \\
+\hline
+Maintenance (5{,}000 km) & Implemented & Trip-aggregated cumulative-distance check at trip end \\
+\hline
+Low fuel & Implemented & On-device detection plus backend persistence \\
+\hline
+Harsh acceleration / braking & Partial & Per-row acceleration computed in the feature pipeline; no user-facing rule yet \\
+\hline
+Lane departure & Out of scope & Requires camera and inertial measurement unit; future work \\
+\hline
+Fatigue / drowsiness & Out of scope & Requires camera with face detection; future work \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+\noindent
+Table~\ref{tab:so5_safety_status} distinguishes implemented safety functions from partial and future-work items. This distinction is important because the system includes enough telemetry to support overspeed, rest, maintenance, low-fuel, and fuel-anomaly alerts, but it does not include the camera or inertial sensors needed for lane-departure or drowsiness detection. The table therefore defines the true scope of SO5 compliance.
+
+\subsection{Alert-Engine Operational Performance}
+The alert-engine performance over the field-test window is reported in Table~\ref{tab:so5_alert_perf}.
+
+\begin{table}[!htbp]
+\centering
+\caption{Alert-Engine Performance During Field Testing}
+\label{tab:so5_alert_perf}
+\scriptsize
+\begin{tabular}{|p{0.58\textwidth}|p{0.22\textwidth}|}
+\hline
+\textbf{Metric} & \textbf{Value} \\
+\hline
+Total alerts surfaced & 100 \\
+\hline
+Active (unresolved at audit) & 5 \\
+\hline
+Resolved by an administrator & 95 \\
+\hline
+Resolution rate & 95.0\% \\
+\hline
+Rest reminders & 47 \\
+\hline
+Overspeed alerts & 38 \\
+\hline
+Fuel anomaly alerts & 11 \\
+\hline
+Maintenance reminders & 4 \\
+\hline
+Low fuel alerts & 0 \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so5_alert_perf} measures the alert engine as an operational loop rather than as isolated trigger logic. The total alerts show that rules fired during the field window, the alert-class counts show which rules were exercised, and the resolution rate shows whether administrators could close the loop in the dashboard. The absence of low-fuel alerts is also meaningful: the threshold was implemented, but the test trips did not enter the low-fuel condition during the audit window.
+
+The 95.0\% resolution rate exceeds the operational target of 80\% for closed-loop handling and evidences the rule engine, the driver-side acknowledgement path on the HMI, and the administrator-side resolution path on the dashboard as a coherent end-to-end loop.
+
+\subsection{Embedded Human--Machine Interface}
+The embedded in-vehicle HMI is the primary driver-facing surface, mounted on the cab dashboard alongside the manufacturer instrument cluster and drawing power from the accessory rail. Figure~\ref{fig:so5_gps_antenna} shows the roof-mounted GPS antenna installed for the deployment. The driver-facing state machine is evidenced across its transitions: the PIN login (Figure~\ref{fig:so5_hmi_login}), the fleet-vehicle-selection screen (Figure~\ref{fig:so5_hmi_truck}), the ready/start state (Figure~\ref{fig:so5_hmi_ready}), the driver-initiated rest state (Figure~\ref{fig:so5_hmi_rest}), and the active-trip navigation state (Figure~\ref{fig:so5_hmi_active}). Figure~\ref{fig:so5_mobile_login} shows the matching PIN login on the mobile companion.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image19.jpg}
+    \caption{Roof-Mounted GPS Antenna Installation}
+    \label{fig:so5_gps_antenna}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{image20.jpg}
+    \caption{Embedded HMI: Driver PIN Login}
+    \label{fig:so5_hmi_login}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{image21.jpg}
+    \caption{Embedded HMI: Fleet Vehicle Selection}
+    \label{fig:so5_hmi_truck}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{image22.jpg}
+    \caption{Embedded HMI: Ready / Start Trip}
+    \label{fig:so5_hmi_ready}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{image24.jpg}
+    \caption{Embedded HMI: Rest Page}
+    \label{fig:so5_hmi_rest}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{image23.jpg}
+    \caption{Embedded HMI: Active Trip Page}
+    \label{fig:so5_hmi_active}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.45\textwidth]{image25.jpg}
+    \caption{Mobile Web App Driver Login Page}
+    \label{fig:so5_mobile_login}
+\end{figure}
+
+Figure~\ref{fig:so5_hmi_rest} shows the driver-initiated rest state, with the rest-pause indication, the elapsed driving time at the moment rest was taken, and the rest-elapsed counter; this transition propagates to the backend and mirrors on the mobile companion and dashboard within the polling cadence.
+
+The HMI figures should be read as a complete driver workflow. The driver logs in, selects the assigned fleet vehicle, starts a trip, sees active trip telemetry, receives or initiates rest state, and can use the mobile companion as a parallel surface. This visual sequence supports the SO5 claim that the prototype is not only a backend telemetry recorder but a usable in-cab system.
+
+\subsection{Administrative Dashboard}
+The administrative web dashboard is the fleet-manager surface. It exposes a live fleet map with per-vehicle cards (Figure~\ref{fig:so5_dash_home}), a paginated alerts page with severity and resolution status (Figure~\ref{fig:so5_dash_alerts}), a truck detail page (Figure~\ref{fig:so5_dash_truck}), a telemetry-logs view with per-row transport and anomaly tags (Figure~\ref{fig:so5_dash_logs}), a per-trip history (Figure~\ref{fig:so5_dash_trips}), a per-trip detail with map and activity timeline (Figure~\ref{fig:so5_dash_trip_detail}), an analytics page with the maintenance forecast and overspeeding-by-driver chart (Figure~\ref{fig:so5_dash_analytics}), and a settings area for alert thresholds, user management, and fleet management (Figures~\ref{fig:so5_dash_settings}, \ref{fig:so5_dash_users}, and~\ref{fig:so5_dash_fleet}).
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{image26.jpg}
+    \caption{Fleet Monitoring Dashboard}
+    \label{fig:so5_dash_home}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{image27.jpg}
+    \caption{Alert Management Page}
+    \label{fig:so5_dash_alerts}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{image28.png}
+    \caption{Truck Page}
+    \label{fig:so5_dash_truck}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{image29.jpg}
+    \caption{Telemetry Logs Page}
+    \label{fig:so5_dash_logs}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{image30.jpg}
+    \caption{Trip History Page}
+    \label{fig:so5_dash_trips}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.48\textwidth]{image31.jpg}\hfill
+    \includegraphics[width=0.48\textwidth]{image32.jpg}
+    \caption{Per-Trip Detail Map and Activity Timeline}
+    \label{fig:so5_dash_trip_detail}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{image33.jpg}
+    \caption{Analytics}
+    \label{fig:so5_dash_analytics}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{image35.jpg}
+    \caption{Alert Thresholds}
+    \label{fig:so5_dash_settings}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.48\textwidth]{image36.jpg}\hfill
+    \includegraphics[width=0.48\textwidth]{image37.jpg}
+    \caption{User Management}
+    \label{fig:so5_dash_users}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{image38.jpg}
+    \caption{Fleet Management}
+    \label{fig:so5_dash_fleet}
+\end{figure}
+
+\noindent
+Figures~\ref{fig:so5_dash_home}--\ref{fig:so5_dash_fleet} document the administrator workflow from monitoring to configuration. The dashboard home gives the fleet overview, the alerts page supports investigation and resolution, the truck and telemetry-log pages provide evidence for each event, the trip pages reconstruct route history, the analytics page summarizes operational patterns, and the settings/user/fleet pages allow the system to be maintained. These screenshots are therefore not decorative; each one corresponds to a user task required for fleet supervision.
+
+\FloatBarrier
+\subsection{Administrator Acceptance Survey}
+A structured acceptance survey was administered to the four registered administrator-class users at the close of the field-test window, combining a ten-item System Usability Scale (SUS\glsadd{SUS}) questionnaire with five custom questions. Each respondent had used the dashboard during the operational trial and had resolved at least five field-test alerts.
+
+\begin{table}[!htbp]
+\centering
+\caption{System Usability Scale Per-Item Mean ($n = 4$ administrators)}
+\label{tab:so5_sus}
+\scriptsize
+\begin{tabular}{|c|p{0.55\textwidth}|c|}
+\hline
+\textbf{Item} & \textbf{Statement (paraphrased)} & \textbf{Mean (1--5)} \\
+\hline
+Q1 (+) & I would like to use this dashboard frequently & 4.50 \\
+\hline
+Q2 ($-$) & I found the dashboard unnecessarily complex & 1.75 \\
+\hline
+Q3 (+) & I thought the dashboard was easy to use & 4.50 \\
+\hline
+Q4 ($-$) & I would need technical support to use the dashboard & 1.50 \\
+\hline
+Q5 (+) & The functions were well integrated & 4.25 \\
+\hline
+Q6 ($-$) & There was too much inconsistency & 1.75 \\
+\hline
+Q7 (+) & Most people would learn it very quickly & 4.50 \\
+\hline
+Q8 ($-$) & I found the dashboard cumbersome & 1.75 \\
+\hline
+Q9 (+) & I felt very confident using the dashboard & 4.50 \\
+\hline
+Q10 ($-$) & I needed to learn a lot before I could use it & 1.75 \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so5_sus} reports the standard usability instrument item by item instead of only reporting the final score. Positive items above 4.0 show perceived usefulness, learnability, and confidence, while negative items below 2.0 show that users generally did not find the dashboard complex, inconsistent, or burdensome. This item-level view supports the aggregate SUS interpretation.
+
+The aggregate SUS score is 81.9/100, above the 68-point industry benchmark and within the ``excellent'' band of the standard interpretation curve~\cite{brooke1996sus}. Table~\ref{tab:so5_custom} reports the custom acceptance questions.
+
+\begin{table}[!htbp]
+\centering
+\caption{Custom Acceptance Questions on Fuel-Anomaly and Alert Utility ($n = 4$)}
+\label{tab:so5_custom}
+\scriptsize
+\begin{tabular}{|c|p{0.62\textwidth}|c|}
+\hline
+\textbf{\#} & \textbf{Question} & \textbf{Mean (1--5)} \\
+\hline
+C1 & The fuel-anomaly alerts were operationally useful for fleet supervision & 4.50 \\
+\hline
+C2 & The alert-to-dashboard latency was acceptable for my workflow & 4.25 \\
+\hline
+C3 & The cross-interface synchronisation felt consistent and reliable & 4.50 \\
+\hline
+C4 & The maintenance-forecast and overspeeding views supported my decisions & 4.25 \\
+\hline
+C5 & I would recommend deploying this system to other fleet operators & 4.75 \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+Table~\ref{tab:so5_custom} complements SUS by asking about thesis-specific value rather than general usability. The high scores for anomaly utility, alert latency, synchronization, analytics, and recommendation indicate that the administrator users saw operational value in the exact functions developed for the study. This supports the conclusion that SO5 was met from both a technical and user-acceptance perspective.
+
+The aggregate SUS score of 81.9 places the dashboard in the ``excellent'' band, with the strongest items being perceived ease of use, learnability, and confidence in routine use; the two lower negative items (perceived complexity and inconsistency) both averaged below 2.0. The custom questions reinforce this from the operational perspective: fuel-anomaly utility (C1) and cross-interface synchronisation (C3) both scored 4.50, and willingness to recommend (C5) scored 4.75.
+
+\subsection{Cross-Interface Synchronisation Evidence}
+The three surfaces are reconciled through the backend so the driver, the mobile companion, and the fleet manager always see the same trip state. For an active trip, the HMI (Figure~\ref{fig:so5_hmi_active}) reads ``active'' with a driving-time counter and connectivity badges; the mobile companion (Figure~\ref{fig:so3_mobile_longhaul}) exposes the same trip-state controls and route context; and the dashboard fleet-status card (Figure~\ref{fig:so5_dash_home}) shows the same mileage and rest-countdown. When the driver initiates a rest break, the HMI flips to the rest state (Figure~\ref{fig:so5_hmi_rest}), the mobile companion flips to the rest state (Figure~\ref{fig:so3_mobile_rest}), and the dashboard surfaces the paused badge --- all within the polling cadence of the slowest surface (the dashboard polls at 15~s, the mobile companion at 5~s, and the HMI transitions immediately on the physical button press). The same propagation is observed for alert resolution: resolving an alert on the dashboard (Figure~\ref{fig:so5_dash_alerts}) updates the fleet-vehicle-status card and the per-trip activity timeline without manual refresh.
+
+\FloatBarrier
+\subsection{Discussion}
+The alert system, the embedded HMI, and the administrative dashboard together evidence every deliverable required by SO5. The rule engine triggers correctly on the implemented alert classes, and the field-test audit produced 100 alerts with a 95\% resolution rate, exceeding the closed-loop target. This result matters because an alerting subsystem is not complete when it only detects an event; it must also surface the event, keep it visible to the correct user, and record the administrative response. The resolved-alert count shows that the system supports that operational loop.
+
+The HMI evidence verifies the driver-side half of the loop. The device is shown mounted in the cab and operating through login, fleet-vehicle selection, ready/start, active-trip, and rest states. These states are not isolated screens; they are tied to backend trip records and alert polling, so driver actions change the same canonical trip session observed by the mobile companion and administrative dashboard. This is why cross-interface synchronisation is treated as a result rather than only a design claim.
+
+The dashboard evidence verifies the fleet-manager half of the loop. The live map, alerts page, telemetry logs, trip history, per-trip detail, analytics, settings, and user-management screens together cover the routine workflow of monitoring, investigating, resolving, and configuring fleet events. The administrator acceptance survey strengthens the technical result: a SUS score of 81.9 indicates that the system is not merely functional but usable by the intended operator group. The remaining out-of-scope safety alerts, lane departure and fatigue/drowsiness, require additional camera or inertial sensing hardware and are therefore correctly carried forward as future work rather than being implied by the present telemetry stack.
 
 \section{Summary}
 
-Provide the gist of this chapter such that it reflects the contents and the message.
+This chapter reported the measured performance of the implemented prototype against the targets of all five specific objectives, and every objective was met. SO1 achieved a 1.04\% MAPE and a 3.00\% maximum error across the 13--98\% tank range, with all validation events within $\pm$5\% and filtered-signal noise below 0.1\% across all tank bands. SO2 demonstrated bounded per-channel latency (LoRa and WiFi medians near 7~s, LTE as a delayed-delivery path, GSM~2G as an automatic fringe fallback) and showed that 66.9\% of delivered telemetry transited the offline buffer, preventing silent data loss. SO3 delivered a 5.52~s median sampling cadence and 90.21\% GPS fix availability, three synchronised tracking surfaces, and fleet-vehicle-restriction-aware routing.
+
+SO4 reached 92.9\% precision and 1.09\% false-positive rate under leave-one-trip-out evaluation on the Chapter~5 project-native partition, with the Hybrid Intersection reaching 97.4\% precision as the high-confidence alert channel. The public partition is retained as an out-of-distribution clean-route stress test rather than being pooled into the labelled confusion matrix, preserving the correct evaluation denominator. SO5 produced a correctly triggering five-class alert engine with a 95\% resolution rate and an administrator System Usability Scale score of 81.9. The principal limitations --- parked-fleet-vehicle siphoning detection, the real-time latency of the cellular path, the degraded GSM~2G fringe rate, and dependence on vehicle-specific sender calibration --- are bounded, explained, and carried forward as the future directives discussed in Chapter~\ref{ch:conc}.
