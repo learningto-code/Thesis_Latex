@@ -11,40 +11,11 @@ A level-1 auxiliary file: conclusions.aux
 The style file: apalike.bst
 A level-1 auxiliary file: appendix_partner_evidence.aux
 A level-1 auxiliary file: appendix_survey_instrument.aux
+A level-1 auxiliary file: appendix_technical_details.aux
 Database file #1: references.bib
 Warning--to sort, need author or key in automatic2019fuel
-Warning--to sort, need author or key in iso15143
-Warning--to sort, need author or key in iec61131
-Warning--to sort, need author or key in iso7637
-Warning--to sort, need author or key in cecert
-Warning--to sort, need author or key in fcc
-Warning--to sort, need author or key in iso19510
-Warning--to sort, need author or key in rfc791
-Warning--to sort, need author or key in iso27001
-Warning--to sort, need author or key in iso29119
-Warning--to sort, need author or key in iso42010
-Warning--to sort, need author or key in iso27018
-Warning--to sort, need author or key in iso45001
-Warning--to sort, need author or key in iso26262
-Warning--to sort, need author or key in iso39001
-Warning--to sort, need author or key in ieeep7003
-Warning--to sort, need author or key in iso14001
-Warning--to sort, need author or key in iso50001
-Warning--to sort, need author or key in iso8800
-Warning--empty year in iec61131
-Warning--empty year in ieeep7003
-Warning--empty year in fcc
-Warning--empty year in iso26262
-Warning--empty year in iso39001
-Warning--empty year in iso45001
-Warning--empty year in iso7637
-Warning--empty year in iso19510
-Warning--empty year in iso27018
-Warning--empty year in iso42010
-Warning--empty year in rfc791
 Warning--empty author in automatic2019fuel
 Warning--empty year in husak_nodate_intelligent
-Warning--empty year in ieee1451
 Warning--empty year in maurya_nodate_real
 Warning--empty year in meitrack_lora_fleet
 Warning--empty year in opensignal_seasia_coverage
@@ -53,43 +24,43 @@ Warning--empty year in scikit_learn_logo
 Warning--empty year in iec_gsm_tutorial
 You've used 111 entries,
             1935 wiz_defined-function locations,
-            989 strings with 22878 characters,
-and the built_in function-call counts, 38743 in all, are:
-= -- 3989
-> -- 1245
-< -- 98
-+ -- 432
-- -- 404
-* -- 2812
-:= -- 6615
-add.period$ -- 362
+            996 strings with 23056 characters,
+and the built_in function-call counts, 39588 in all, are:
+= -- 4068
+> -- 1371
+< -- 116
++ -- 467
+- -- 440
+* -- 2836
+:= -- 6948
+add.period$ -- 373
 call.type$ -- 111
-change.case$ -- 744
-chr.to.int$ -- 103
-cite$ -- 169
+change.case$ -- 762
+chr.to.int$ -- 104
+cite$ -- 121
 duplicate$ -- 1694
-empty$ -- 2820
-format.name$ -- 528
-if$ -- 7792
-int.to.chr$ -- 9
+empty$ -- 2766
+format.name$ -- 582
+if$ -- 7889
+int.to.chr$ -- 8
 int.to.str$ -- 0
 missing$ -- 58
-newline$ -- 586
-num.names$ -- 278
-pop$ -- 699
+newline$ -- 597
+num.names$ -- 332
+pop$ -- 657
 preamble$ -- 1
-purify$ -- 743
+purify$ -- 761
 quote$ -- 0
-skip$ -- 1257
+skip$ -- 1303
 stack$ -- 0
-substring$ -- 2461
+substring$ -- 2443
 swap$ -- 266
 text.length$ -- 31
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 666
-warning$ -- 39
-while$ -- 303
+warning$ -- 9
+while$ -- 339
 width$ -- 0
-write$ -- 1428
-(There were 39 warnings)
+write$ -- 1469
+(There were 9 warnings)

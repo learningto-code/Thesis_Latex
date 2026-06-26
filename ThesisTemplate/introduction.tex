@@ -158,7 +158,7 @@ Additionally, studies such as those by \cite{joshi2024intelligent} and \cite{nad
 The core research gap, therefore, lies in the absence of a fully integrated, real-time, IoT-based system that combines fuel monitoring, GPS tracking, and anomaly detection powered by unsupervised machine learning. Addressing this gap is vital to improving operational efficiency, fuel security, and predictive maintenance in modern fleet management.
 
 
-\subsection{Proposal to Address the Gaps}
+\subsection{Implemented Response to the Identified Gaps}
 
 This study developed and evaluated an integrated IoT-based fleet monitoring system that unifies fuel level monitoring, GPS-based vehicle tracking, and unsupervised machine learning for anomaly detection. Unlike previous solutions that focus on isolated functions or static datasets, the developed system operated in real time using vehicle telemetry acquired through the OBD-II\glsadd{OBD-II} interface and GPS module. The prototype was evaluated using controlled-injection trip data and field-test telemetry data to assess fuel monitoring performance, anomaly detection capability, and communication latency.
 
@@ -222,21 +222,21 @@ Efficient fuel monitoring and route tracking are essential components of sustain
     \item \Copy{SO5}{SO5: To develop and integrate hardware-based rest and maintenance alert mechanisms (e.g., Start/Stop button, buzzer indicators) tied to the web dashboard using cumulative fuel and distance data.}
 \end{itemize}
 
-\subsection{Expected Deliverables}
-\section{Expected Deliverables per Objective}
+\subsection{Final Deliverables}
+\section{Implemented Deliverables per Objective}
 
 \begin{SingleSpace} % single spacing
 \renewcommand{\arraystretch}{1} % single row spacing
 \scriptsize % smaller font to fit content
 \begin{longtable}{|p{0.25\textwidth}|p{0.65\textwidth}|}
-\caption{Expected Deliverables per Objective} \label{tab:expected_deliverables} \\
+\caption{Implemented Deliverables per Objective} \label{tab:expected_deliverables} \\
 \hline
-\textbf{Objectives} & \textbf{Expected Deliverables} \\
+\textbf{Objectives} & \textbf{Implemented Deliverables} \\
 \hline
 \endfirsthead
 
 \hline
-\textbf{Objectives} & \textbf{Expected Deliverables} \\
+\textbf{Objectives} & \textbf{Implemented Deliverables} \\
 \hline
 \endhead
 
@@ -578,7 +578,7 @@ SIM card (TNT) & - & 1 & 100 & 100 & Cellular network access \\
 
 \section{Overview of the \documentType}
 
-This chapter provides an overview of the study, which addresses inefficiencies in logistics and trucking operations while tackling safety concerns related to fuel monitoring, vehicle tracking, and anomaly detection. Modern trucking operations involve complex coordination, and current approaches—manual fuel measurements, fragmented GPS tracking, and delayed anomaly detection—are insufficient for ensuring operational efficiency and driver safety. This work proposes an integrated, IoT-based intelligent monitoring platform that acquires fuel level through the Toyota meter Mode 22 PID 21/29 channel of the OBD-II interface, with a four-stage filter cascade (median-of-31, EMA\glsadd{EMA}, dead-band, direction-aware step rule) implemented on an ESP32-based in-truck HMI, GPS, and cloud-deployed machine learning models to provide real-time insights and actionable alerts.
+This chapter provides an overview of the study, which addresses inefficiencies in logistics and trucking operations while tackling safety concerns related to fuel monitoring, vehicle tracking, and anomaly detection. Modern trucking operations involve complex coordination, and current approaches—manual fuel measurements, fragmented GPS tracking, and delayed anomaly detection—are insufficient for ensuring operational efficiency and driver safety. This work developed and evaluated an integrated, IoT-based intelligent monitoring platform that acquires fuel level through the Toyota meter Mode 22 PID 21/29 channel of the OBD-II interface, with a four-stage filter cascade (median-of-31, EMA\glsadd{EMA}, dead-band, direction-aware step rule) implemented on an ESP32-based in-truck HMI, GPS, and cloud-deployed machine learning models to provide real-time insights and actionable alerts.
 
 The problem statement highlights a fragmented monitoring environment with limited automation, reactive maintenance scheduling, and the inability to detect unusual fuel consumption proactively. The objectives of the research focus on developing a real-time system that reads fuel levels from the truck’s ECU via CAN bus, tracks location and speed using GPS, and identifies anomalies in consumption patterns using unsupervised machine learning models (Matrix Profile and Isolation Forest). The system is supported by a cloud-based dashboard, which provides fleet managers with fuel usage insights, rest alerts, route tracking, and preventive maintenance notifications. This approach promotes operational efficiency, enhances driver safety, and reduces fuel wastage, making it a technically and environmentally relevant solution.
 

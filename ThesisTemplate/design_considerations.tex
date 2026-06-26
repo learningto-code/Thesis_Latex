@@ -1,4 +1,4 @@
-This chapter presents the design considerations that guided the development of the proposed IoT- and AI-driven fuel monitoring and anomaly detection system. Whereas Chapter~\ref{ch:theorycon} established the theoretical foundations of IoT architectures, cyber-physical systems, signal processing, and unsupervised anomaly detection, the present chapter translates those theories into practical engineering decisions that were directly implemented in Chapter~\ref{ch:method}. 
+This chapter presents the design considerations that guided the development of the implemented IoT- and AI-driven fuel monitoring and anomaly detection system. Whereas Chapter~\ref{ch:theorycon} established the theoretical foundations of IoT architectures, cyber-physical systems, signal processing, and unsupervised anomaly detection, the present chapter translates those theories into practical engineering decisions that were directly implemented in Chapter~\ref{ch:method}. 
 
 These design considerations serve as the structural “columns’’ of the system: grounded in accepted standards, ethical guidelines, and engineering best practices, but tailored to support the procedural steps carried out in Chapter~\ref{ch:method}. The discussion begins with a comprehensive account of the technical standards that ensure reliability, safety, interoperability, and data security, followed by software and hardware design decisions. Ethical considerations—including privacy, responsible AI, and driver safety—are also presented.
 
@@ -7,14 +7,14 @@ These design considerations serve as the structural “columns’’ of the syst
 
 \subsection{Adherence to Technical Standards}
 
-To ensure reliability, accuracy, and safety, the proposed fuel anomaly detection system is developed in accordance with established engineering and IT standards. These standards ensure interoperability, scalability, and long-term viability. They directly influence the system architecture, data handling, and model implementation workflows outlined in Chapter~\ref{ch:method}.
+To ensure reliability, accuracy, and safety, the prototype used commercially available modules and followed relevant design guidance for automotive electrical transients, embedded control, secure transmission, software architecture, and data protection. Full product-level certification was outside the scope of the undergraduate prototype. These standards and guidance documents directly influence the system architecture, data handling, and model implementation workflows outlined in Chapter~\ref{ch:method}.
 
 \begin{enumerate}
     \item \textbf{Standards for Sensors and Hardware}
 
     The system integrates sensors and modules that employ standard communication protocols—\textbf{CAN bus/OBD-II, UART\glsadd{UART}, I2C\glsadd{I2C}, and GPIO\glsadd{GPIO}}—consistent with IEEE~1451 smart transducer guidelines \cite{ieee1451}. The CAN bus/OBD-II fuel data acquisition aligns with industry telematics conventions \cite{iso15143}, while the GPS module adheres to global navigation and timing standards \cite{gpsstd}.
 
-    IEC\glsadd{IEC}~61131-2 and ISO~7637-2 were used as references for embedded-control and automotive transient considerations \cite{iec61131, iso7637}. Commercial off-the-shelf modules with available CE\glsadd{CE}/FCC\glsadd{FCC}-marked variants were selected where possible; however, full product-level certification was outside the scope of this prototype study \cite{cecert,fcc}.
+    IEC\glsadd{IEC}~61131-2 and ISO~7637-2 were used as references for embedded-control and automotive transient considerations \cite{iec61131, iso7637}. Commercial off-the-shelf modules with available CE\glsadd{CE}/FCC\glsadd{FCC}-marked variants were selected where possible; however, full product-level certification was outside the scope of this undergraduate prototype \cite{cecert,fcc}.
 
     \item \textbf{Data Acquisition and Signal Processing}
 
@@ -78,7 +78,7 @@ Consistent with IEEE~P7003 \cite{ieeep7003}, the system incorporates:
 \section{Technical Design Considerations}  
 \label{sec:techdesign}  
 
-This section elaborates on the engineering decisions and standards that guided the development of the proposed IoT- and AI-driven fuel monitoring and anomaly detection system. Each component, software layer, algorithm, and communication protocol is grounded in established standards to ensure reliability, safety, interoperability, and security. The references indicate where each design decision is applied in the implementation procedures described in Chapter~\ref{ch:method}.  
+This section elaborates on the engineering decisions and standards that guided the development of the implemented IoT- and AI-driven fuel monitoring and anomaly detection system. Each component, software layer, algorithm, and communication protocol is grounded in established standards to ensure reliability, safety, interoperability, and security. The references indicate where each design decision is applied in the implementation procedures described in Chapter~\ref{ch:method}.  
 
 \FloatBarrier
 {\scriptsize
@@ -131,7 +131,7 @@ Subsequence detector & Matrix Profile (window=12, z-thresh=2.0) & Drop entirely 
 The hardware configuration is designed to support the end-to-end workflow of the system (see Sec.~\ref{sec:implement}). The following standards and implementation points apply:
 
 \begin{itemize}  
-    \item \textbf{MCU:} ESP32/NodeMCU serves as the edge processing device for real-time acquisition and preprocessing of fuel, GPS, and vehicle telemetry data. It complies with IEC~61131-2 for embedded controllers \cite{iec61131} and ISO~7637 for automotive electrical transients \cite{iso7637}. In Sec.~\ref{sec:implement}, the MCU handles sensor filtering, timestamping, and local anomaly scoring.
+    \item \textbf{MCU:} ESP32/NodeMCU serves as the edge processing device for real-time acquisition and preprocessing of fuel, GPS, and vehicle telemetry data. It complies with IEC~61131-2 for embedded controllers \cite{iec61131} and ISO~7637 for automotive electrical transients \cite{iso7637}. In Sec.~\ref{sec:implement}, the MCU handles sensor filtering, timestamping, and local preprocessing and rule-state handling before backend anomaly scoring.
 
     \item \textbf{GPS Module:} The UART-connected GPS module provides geolocation and speed data, adhering to global navigation standards \cite{gpsstd}. Its signals are synchronized with fuel readings during preprocessing in Sec.~\ref{sec:fuel_preprocessing}.
 
@@ -143,9 +143,9 @@ The hardware configuration is designed to support the end-to-end workflow of the
 The modular software layers are designed according to ISO/IEC/IEEE~42010 software architecture standards \cite{iso42010}, supporting scalability, maintainability, and interoperability. Each layer’s function is mapped to its implementation in Sec.~\ref{sec:implement}:
 
 \begin{itemize}  
-    \item \textbf{Data Acquisition Layer:} Captures sensor and telemetry data, applies SMA and median filters, and performs anomaly threshold checks. Implementation details are in Sec.~\ref{sec:fuel_acquisition}.  
+    \item \textbf{Data Acquisition Layer:} Captures sensor and telemetry data, applies the implemented median + EMA + dead-band + direction-aware filter cascade, and prepares telemetry for backend anomaly scoring. Implementation details are in Secs.~\ref{sec:fuel_acquisition} and~\ref{sec:fuel_preprocessing}.  
 
-    \item \textbf{Processing Layer:} Performs edge anomaly detection, timestamping, and data aggregation. Standards for real-time processing and task scheduling ensure predictable latency. Implementation is in Sec.~\ref{sec:fuel_preprocessing}.  
+    \item \textbf{Processing Layer:} Performs edge timestamping, trip-state handling, distance aggregation, and local alert-rule state preparation before cloud-side anomaly inference. Standards for real-time processing and task scheduling ensure predictable latency. Implementation is in Sec.~\ref{sec:fuel_preprocessing}.  
 
     \item \textbf{Cloud Integration Layer:} HTTPS REST endpoints receive JSON\glsadd{JSON} telemetry payloads from the prioritized communication stack. MQTT remains compatible as a future broker-based deployment option, while TLS/SSL ensures encrypted transmission (Sec.~\ref{sec:communication}).  
 
@@ -196,8 +196,8 @@ During the planning and prototype development phase, several candidate software 
 \hline
 \textbf{Candidate} & \textbf{Strengths} & \textbf{Risks / Trade-offs} & \textbf{Fit vs. Spec} \\
 \hline
-Isolation Forest (IF) & Fast, unsupervised, handles multivariate data; simple to deploy using scikit-learn & Limited temporal context; sensitivity to contamination parameter may affect false alarms & High \\
-Matrix Profile (MP) & Shape-based time-series discord detection; ideal for sudden fuel drops or irregular usage patterns; efficient in local runtime & Requires window-size tuning; primarily one-dimensional unless extended for multivariate data & Very High \\
+Isolation Forest (IF) & Fast, unsupervised, handles multivariate data; Model C supports contextual fuel, speed, route, driver, and fuel-economy deviation features & Limited temporal context; sensitivity to contamination parameter may affect false alarms & Very High --- selected production detector \\
+Matrix Profile (MP) & Shape-based time-series discord detection; useful for slow-leak and steady-siphon subsequence patterns as a confirmatory layer & Requires window-size tuning; primarily one-dimensional unless extended for multivariate data; less robust than Model C at row-level scoring & Moderate to High --- supporting subsequence detector \\
 \hline
 \end{tabular}%
 }

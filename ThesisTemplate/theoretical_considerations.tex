@@ -18,14 +18,14 @@ These principles justify the system’s architecture, where fuel-level signals, 
 
 \subsection{Sensor Theory and Signal Measurement}
 
-Fuel-level readings extracted through the CAN bus/OBD-II interface follow digital measurement theory. Sensor signals can exhibit noise, quantization error, and environmental fluctuation. To improve stability, the system uses a Simple Moving Average (SMA\glsadd{SMA}) filter, a standard smoothing method defined as:
+Fuel-level readings extracted through the CAN bus/OBD-II interface follow digital measurement theory. Sensor signals can exhibit noise, quantization error, and environmental fluctuation. Fuel-level readings may be stabilized using smoothing methods such as moving-average, median, and exponential moving-average filters. A Simple Moving Average (SMA\glsadd{SMA}) is a standard reference smoothing method defined as:
 \glsadd{not:xt}\glsadd{not:xtsmooth}\glsadd{not:N}%
 \begin{equation}
 x_{t}^{\text{smooth}} = \frac{1}{N} \sum_{i=0}^{N-1} x_{t-i}
 \label{eq:sma-ch3}
 \end{equation}
 
-This reduces high-frequency noise and creates a clearer trend for anomaly detection algorithms.
+This equation is included as the theoretical baseline for smoothing; however, the final implementation used a median + EMA + dead-band + direction-aware filter cascade because fuel-tank slosh and sender chatter include both impulse noise and slow drift. The implemented cascade is described mathematically in the following signal-filtering section and operationally in Chapter~\ref{ch:method}.
 
 \subsection{OBD-II and CAN-based Vehicle Data Acquisition}
 
@@ -62,7 +62,17 @@ in which past samples decay geometrically and the smoothing factor $\alpha$ sets
 \label{eq:deadband-ch3}
 \end{equation}
 
-\textbf{Direction-aware gating.} An asymmetric step rule treats increases and decreases differently according to the physical behaviour of the measured quantity, and a warm-up guard suppresses output until the window is fully populated, since earlier samples are unrepresentative.
+\textbf{Direction-aware gating.} An asymmetric step rule treats increases and decreases differently according to the physical behaviour of the measured quantity. In the implemented fuel cascade, a downward update is accepted at a smaller threshold than an upward update, while upward movement during motion is suppressed unless a stationary refuel signature is present:
+\begin{equation}
+y_{\mathrm{pub},t} =
+\begin{cases}
+y_t, & y_t \leq y_{\mathrm{pub},t-1} - \delta_{\downarrow}, \\
+y_t, & y_t \geq y_{\mathrm{pub},t-1} + \delta_{\uparrow}\ \land\ v_t = 0\ \land\ T_{\mathrm{stop}} \geq 60~\mathrm{s}, \\
+y_{\mathrm{pub},t-1}, & \text{otherwise}.
+\end{cases}
+\label{eq:direction-aware-ch3}
+\end{equation}
+Here, $\delta_{\downarrow}$ represents the downward fuel-change threshold and $\delta_{\uparrow}$ represents the larger upward refuel threshold. A warm-up guard suppresses output until the median window is populated, since earlier samples are unrepresentative.
 
 \subsection{Classification and Evaluation Metric Theory}
 
@@ -168,4 +178,3 @@ Higher scores indicate higher likelihood of anomalous fuel behavior.
 \section{Summary}
 
 This chapter presented the theoretical foundation for the system’s methodology. It discussed the key concepts supporting real-time sensing, signal preprocessing, GPS logging, IoT communication, and unsupervised anomaly detection. By establishing these theoretical pillars, this chapter clarifies the scientific basis that makes the system’s design viable, accurate, and aligned with established models in engineering and data science.
-
