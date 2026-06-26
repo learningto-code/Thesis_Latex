@@ -194,14 +194,26 @@ L_{\mathrm{det}} = T_{\mathrm{detected}} - T_{\mathrm{actual}}.
 Detection latency measures the difference between the time an anomaly is detected and the time it actually occurred. The objective is achieved if the unsupervised system attains at least 90\% precision (indicating that the majority of flagged events are correct), a false positive rate not exceeding 10\%, and average detection latency under 10 seconds. For interpretability, confusion matrices and performance plots such as ROC and PR curves will be used. Detection events will also be overlaid on synchronized GPS location maps and fuel-level graphs for context-aware validation.
 
 \section{Conclusion}
-TO FILL IN PA WITH RESULTS AND CONCLUSION
+This study developed and evaluated an integrated IoT-enabled fleet monitoring system for real-time fuel measurement, GPS tracking, cloud-based telemetry, anomaly detection, and driver/fleet-manager alerting. The implemented prototype met all five specific objectives reported in the full thesis evaluation. Fuel measurement achieved a 1.04\% MAPE and a 3.00\% maximum error across the 13--98\% tank range, with all validation events remaining within the required $\pm$5\% tolerance. The communication subsystem maintained telemetry delivery across LoRa, WiFi, LTE, GSM 2G fallback, and offline buffering, while GPS logging produced a 5.52~s median sampling interval and 90.21\% GPS fix availability.
+
+For fuel-anomaly detection, the context-aware Isolation Forest model with per-asset fuel-economy deviation features achieved 92.9\% precision and a 1.09\% false-positive rate under leave-one-trip-out evaluation, satisfying the target of at least 90\% precision and at most 10\% false positives. A Hybrid Intersection detector further reached 97.4\% precision as a high-confidence alert channel. These results show that fuel anomaly detection is more reliable when raw fuel-level changes are interpreted together with trip, distance, speed, route, and vehicle-specific context rather than through static thresholds alone.
+
+The alerting and visualization components also demonstrated operational usability. During the field-test window, the system surfaced 100 alerts across rest, overspeed, fuel-anomaly, and maintenance classes, with a 95.0\% administrator resolution rate. The embedded HMI, mobile companion, and administrative dashboard provided synchronized trip state, alert review, route visualization, telemetry logs, and fleet-management functions, with the administrator dashboard obtaining an SUS score of 81.9/100. Remaining limitations include the need for longer fleet deployment with confirmed real-world anomaly cases, a dedicated parked-vehicle siphoning detector, stronger modern cellular fallback, and broader validation across additional vehicles and tank geometries. Overall, the results demonstrate that combining embedded telemetry, resilient communication, contextual unsupervised learning, and human-readable alerts can provide a practical foundation for fuel accountability and proactive fleet supervision.
 
 \section*{Acknowledgment}
-The authors gratefully acknowledge the Department of Electronics and Computer Engineering, De La Salle University, and the partner fleet operator Hino Para\~naque Subic GS Auto Inc. (SGSA) for their support of this research.
+The authors would like to express their sincere gratitude to their thesis adviser, Dr. John Anthony Jose, for his invaluable guidance, continuous support, constructive feedback, and encouragement throughout the conduct of this research.
 
-Perci
+The authors also extend their deepest appreciation to the members of the thesis panel, Dr. Lawrence Materum (Chair), Dr. Gerald Arada, and Dr. Gerino Mappatao, for their insightful comments, valuable recommendations, and expertise, which greatly contributed to the improvement of this study.
 
-Sam G
+The authors likewise acknowledge the support of the thesis coordinators, Dr. Alexander Co Abad and Dr. Ronnel Agulto, for their assistance and coordination throughout the thesis process.
+
+Special thanks are extended to Jayne Lois Go San Juan, whose expertise as a consultant from another field provided valuable insights that enriched the interdisciplinary aspects of this research.
+
+The authors gratefully acknowledge the Department of Electronics and Computer Engineering, De La Salle University, for providing the academic environment and resources necessary for the completion of this study. The authors also express their sincere appreciation to the partner fleet operator, Hino Para\~naque Subic GS Auto Inc. (SGSA), for its cooperation and support during the conduct of the research.
+
+The authors further wish to thank Macaranas Percival III Quinto for his assistance and for providing the resources and materials that made this research possible. They also express their gratitude to Guillarte Samuel John Deauna for providing materials that were utilized in the implementation of the study.
+
+Finally, the authors extend their heartfelt gratitude to their families who offered their unwavering encouragement, understanding, and support throughout the completion of this research.
 
 \ifCLASSOPTIONcaptionsoff
   \newpage
