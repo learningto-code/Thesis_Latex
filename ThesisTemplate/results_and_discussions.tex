@@ -96,7 +96,7 @@ SO5 & Alerts, HMI, mobile app, and dashboard operation & 100 alerts, 95\% resolv
 \normalsize
 \end{table}
 
-Table~\ref{tab:objective_compliance_matrix} converts the result summary into a checklist view. The check mark indicates that the objective target was reached by the measured result; the limitation column records the boundary of the claim so that a passed objective is not overstated. This format is intentionally direct for panel review: target, measured result, compliance, and limitation are visible in one place.
+Table~\ref{tab:objective_compliance_matrix} provides a compact view of how the prototype performed against the study objectives. The checklist column gives a quick indication of whether each target was satisfied, while the limitation column adds the context needed to interpret each result fairly. This keeps the summary concise while still acknowledging the conditions under which the results were obtained.
 
 \section{SO1: Fuel Measurement Accuracy}
 \label{sec:results_so1}
@@ -571,7 +571,7 @@ SO3 is also the bridge between simple tracking and analytics. The route overlays
 \label{sec:results_so4}
 
 \subsection{Overview of Results}
-Specific Objective~4 required a machine-learning anomaly-detection module able to identify fuel-related anomalies in the telemetry stream with precision of not less than 90\% and a false-positive rate (FPR) of not more than 10\% in the intended operating environment, combining the per-row Isolation Forest detector with the time-series Matrix Profile discord detector. The detector architecture, dataset composition, feature engineering, and leave-one-trip-out (LOTO) evaluation are described in Sections~\ref{sec:ml} and~\ref{sec:evaluation}. This section presents headline performance, detector-versus-baseline comparison, an out-of-distribution stress test, and an extended on-road validation covering siphoning and fuel-theft scenarios.
+Specific Objective~4 required a machine-learning anomaly-detection module able to identify fuel-related anomalies in the telemetry stream with precision of not less than 90\% and a false-positive rate (FPR) of not more than 10\% in the intended operating environment, combining the per-row Isolation Forest detector with the time-series Matrix Profile discord detector. The detector architecture, dataset composition, feature engineering, and leave-one-trip-out (LOTO) evaluation are described in Sections~\ref{sec:ml} and~\ref{sec:evaluation}. This section presents headline performance, detector-versus-baseline comparison, and an extended on-road validation covering siphoning and fuel-theft scenarios.
 
 \subsection{Model Performance}
 The intended evaluation partition for SO4 is the project-native subset (634 rows across 12 trips, 85 anomalous samples) with injected anomalies drawn from three documented patterns: sudden drop, abnormal rapid decrease, and gradual leak. All numbers in Table~\ref{tab:so4_model_perf} are produced by leave-one-trip-out evaluation holding the calibration set strictly disjoint from the test set, so each prediction is strictly out-of-sample with respect to both model fitting and threshold calibration.
@@ -632,31 +632,6 @@ Hybrid Intersection (trip-gated) & Ensemble & 97.4\% & 0.36\% & 76 & 2 & 9 & 547
 Table~\ref{tab:so4_baselines} prevents the thesis from treating machine learning as automatically superior to every rule-based method. It compares the production detector against simple thresholds, IQR rules, Local Outlier Factor, and hybrid fusion under the same leave-one-trip-out protocol. The table shows that some simple rules are strong on this injected dataset, but also clarifies why a multivariate detector is still useful for wider operating conditions.
 
 The static threshold reaches the precision target trivially, but it is a one-anomaly-class detector and is reported as the lower-bound reference for a no-machine-learning solution. The per-vehicle IQR on fuel delta is a strong baseline (97.7\% precision and 0.36\% FPR) and even outperforms the Isolation Forest on row-level point estimates against this specific set, because all three injected classes produce abnormally large fuel-delta values --- exactly the single axis the IQR rule reads. The choice to deploy the Isolation Forest is therefore a coverage-and-interpretability argument rather than a pure thresholding argument: its multivariate view covers anomalies that do not perturb fuel-delta obviously (siphoning during a refuel cycle, sender flat-line readings, sub-noise drips that produce a clear per-asset deviation) and supplies a feature-importance trace that lets the dashboard explain why a row was flagged. The IQR rule is retained as a documented baseline and a parallel sanity-check tripwire, and the Local Outlier Factor is documented as a future-work density-based companion.
-
-\subsection{Out-of-Distribution Stress Test}
-The 19{,}778-row public partition contains no labelled anomalies and is used as an out-of-distribution stress test. Pooling it into the project-native confusion matrix would dilute the precision denominator with negatives from a different domain.
-
-\begin{table}[!htbp]
-\centering
-\caption{Out-of-Distribution Stress Test (public partition, 67 trips, 0 positives)}
-\label{tab:so4_ood}
-\scriptsize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{|p{0.24\textwidth}|c|c|c|c|p{0.30\textwidth}|}
-\hline
-\textbf{Detector} & \textbf{Gran.} & \textbf{FP} & \textbf{Neg.} & \textbf{FPR} & \textbf{Interpretation} \\
-\hline
-Matrix Profile v2 (LOTO) & trip & 0 & 67 & 0.00\% & Magnitude/direction/refuel gates suppress sub-1\% discords; the detector is correctly silent on a label-free corpus. \\
-\hline
-Hybrid Intersection (IF $\cap$ MP) & row & 0 & 19{,}778 & 0.00\% & Zero by construction --- Matrix Profile fires on no public trip, so the intersection cannot fire. \\
-\hline
-\end{tabular}
-\normalsize
-\end{table}
-
-Table~\ref{tab:so4_ood} is interpreted differently from the project-native confusion matrices because the public partition has no positive labels. It is not used to claim recall or precision; it is used to test whether the detector creates false alerts on a larger clean-route corpus from a different domain. The zero-FP result supports the Matrix Profile gate as a conservative filter, not as proof that all real-world anomaly types have been covered.
-
-The zero false-positive result on the public partition supports the use of the Matrix Profile gate as a conservative companion to the Isolation Forest. Its role is to suppress shape-inconsistent flags before alert generation, while the project-native partition remains the proper denominator for precision because it contains the labelled injected anomalies.
 
 \subsection{Extended On-Road Validation: Siphoning and Fuel Theft}
 To stress-test the production model on security-relevant classes absent from the original partition, an additional twelve on-road trips were recorded under realistic Philippine fleet routes (Makati, Quezon City, Antipolo, Cavite, Laguna) with ground-truth class labels. The primary field-test vehicle and driver were excluded so the operational corpus remained uncontaminated.
@@ -726,7 +701,7 @@ The ablation pattern explains why Model~C is the production model. Model~A detec
 
 The baseline comparison is also important because it prevents overstating the role of machine learning. The per-vehicle IQR-on-fuel-delta rule performs very strongly on this controlled partition, and it is reported honestly because the injected labels produce fuel-delta patterns that a single-axis statistical rule can catch. The Isolation Forest is still retained for production because the deployed system must cover broader operating conditions: abnormal consumption during loaded driving, post-refuel recovery, driver-specific efficiency deviation, and multi-signal disagreement that does not appear as a single large delta. This choice is consistent with the context-aware framing of Barbado and Corcho~\cite{barbado2022interpretable} and the heavy-vehicle fuel-classification work of Mumcuoglu et al.~\cite{mumcuoglu2023fuel}, while still preserving a simple IQR rule as a sanity-check baseline.
 
-The trip-gated Hybrid Intersection reaches 97.4\% precision and 0.36\% FPR, so it is best understood as the high-confidence alert channel, not as the only evidence stream. The out-of-distribution public partition supports this role: Matrix Profile remains silent on all 67 clean-route trips, so the intersection produces zero public-partition false positives. Conversely, the extended on-road validation exposes the honest operating boundary of the present model. Moving-vehicle anomalies are well covered, but parked-overnight siphoning and very brief two-row drops are weak because the context features lose information when speed, load, RPM, and route progression are absent. The appropriate future improvement is therefore not to loosen the main model threshold, which would risk false alarms, but to add a dedicated stationary-fuel-drop detector for parked depot conditions.
+The trip-gated Hybrid Intersection reaches 97.4\% precision and 0.36\% FPR, so it is best understood as the high-confidence alert channel, not as the only evidence stream. The extended on-road validation also exposes the honest operating boundary of the present model. Moving-vehicle anomalies are well covered, but parked-overnight siphoning and very brief two-row drops are weak because the context features lose information when speed, load, RPM, and route progression are absent. The appropriate future improvement is therefore not to loosen the main model threshold, which would risk false alarms, but to add a dedicated stationary-fuel-drop detector for parked depot conditions.
 
 Although the model met the SO4 target under leave-one-trip-out evaluation, the anomaly labels were primarily controlled injections rather than confirmed real-world theft events. Therefore, the results demonstrate prototype-level detection capability and should be expanded with longer SGSA fleet deployment data before production-scale generalization.
 
@@ -1051,4 +1026,4 @@ The dashboard evidence verifies the fleet-manager half of the loop. The live map
 
 This chapter reported the measured performance of the implemented prototype against the targets of all five specific objectives, and every objective was met. SO1 achieved a 1.04\% MAPE and a 3.00\% maximum error across the 13--98\% tank range, with all validation events within $\pm$5\% and filtered-signal noise below 0.1\% across all tank bands. SO2 demonstrated bounded per-channel latency (LoRa and WiFi medians near 7~s, LTE as a delayed-delivery path, GSM~2G as an automatic fringe fallback) and showed that 66.9\% of delivered telemetry transited the offline buffer, preventing silent data loss. SO3 delivered a 5.52~s median sampling cadence and 90.21\% GPS fix availability, three synchronised tracking surfaces, and fleet-vehicle-restriction-aware routing.
 
-SO4 reached 92.9\% precision and 1.09\% false-positive rate under leave-one-trip-out evaluation on the Chapter~5 project-native partition, with the Hybrid Intersection reaching 97.4\% precision as the high-confidence alert channel. The public partition is retained as an out-of-distribution clean-route stress test rather than being pooled into the labelled confusion matrix, preserving the correct evaluation denominator. SO5 produced a correctly triggering five-class alert engine with a 95\% resolution rate and an administrator System Usability Scale score of 81.9. The principal limitations --- parked-fleet-vehicle siphoning detection, the real-time latency of the cellular path, the degraded GSM~2G fringe rate, and dependence on vehicle-specific sender calibration --- are bounded, explained, and carried forward as the future directives discussed in Chapter~\ref{ch:conc}.
+SO4 reached 92.9\% precision and 1.09\% false-positive rate under leave-one-trip-out evaluation on the Chapter~5 project-native partition, with the Hybrid Intersection reaching 97.4\% precision as the high-confidence alert channel. SO5 produced a correctly triggering five-class alert engine with a 95\% resolution rate and an administrator System Usability Scale score of 81.9. The principal limitations --- parked-fleet-vehicle siphoning detection, the real-time latency of the cellular path, the degraded GSM~2G fringe rate, and dependence on vehicle-specific sender calibration --- are bounded, explained, and carried forward as the future directives discussed in Chapter~\ref{ch:conc}.

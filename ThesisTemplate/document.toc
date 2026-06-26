@@ -156,38 +156,37 @@
 \contentsline {subsection}{\numberline {6.4.1}Overview of Results}{161}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}Model Performance}{162}{subsection.6.4.2}%
 \contentsline {subsection}{\numberline {6.4.3}Detector versus Baseline Comparison}{163}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}Out-of-Distribution Stress Test}{164}{subsection.6.4.4}%
-\contentsline {subsection}{\numberline {6.4.5}Extended On-Road Validation: Siphoning and Fuel Theft}{165}{subsection.6.4.5}%
-\contentsline {subsection}{\numberline {6.4.6}Figures for SO4}{167}{subsection.6.4.6}%
-\contentsline {subsection}{\numberline {6.4.7}Discussion}{168}{subsection.6.4.7}%
-\contentsline {section}{\numberline {6.5}SO5: Alert System, HMI, and Cross-Interface Synchronisation}{170}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Overview of Results}{170}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Alert-Rule Implementation Status}{171}{subsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.5.3}Alert-Engine Operational Performance}{172}{subsection.6.5.3}%
-\contentsline {subsection}{\numberline {6.5.4}Embedded Human--Machine Interface}{173}{subsection.6.5.4}%
-\contentsline {subsection}{\numberline {6.5.5}Administrative Dashboard}{176}{subsection.6.5.5}%
-\contentsline {subsection}{\numberline {6.5.6}Administrator Acceptance Survey}{182}{subsection.6.5.6}%
-\contentsline {subsection}{\numberline {6.5.7}Cross-Interface Synchronisation Evidence}{184}{subsection.6.5.7}%
-\contentsline {subsection}{\numberline {6.5.8}Discussion}{185}{subsection.6.5.8}%
-\contentsline {section}{\numberline {6.6}Summary}{186}{section.6.6}%
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusions, Recommendations, and Future Directives}}{187}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Concluding Remarks}{188}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Technical Limitations}{189}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Contributions}{190}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Recommendations}{191}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Future Prospects}{192}{section.7.5}%
-\contentsline {chapter}{References}{194}{chapter*.101}%
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Ethical Clearance}}{203}{appendix.A}%
-\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Partner Coordination and Prototype Demonstration}}{206}{appendix.B}%
-\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Administrator Acceptance Survey Instrument}}{215}{appendix.C}%
-\contentsline {section}{\numberline {C1}Dashboard and Real-Time Monitoring}{216}{section.C.1}%
-\contentsline {section}{\numberline {C2}Fuel Monitoring Accuracy}{216}{section.C.2}%
-\contentsline {section}{\numberline {C3}Anomaly Detection and Alerts}{216}{section.C.3}%
-\contentsline {section}{\numberline {C4}Driver Safety and Rest Alerts}{217}{section.C.4}%
-\contentsline {section}{\numberline {C5}Maintenance Monitoring}{217}{section.C.5}%
-\contentsline {section}{\numberline {C6}Overall System Usability and Satisfaction}{217}{section.C.6}%
-\contentsline {section}{\numberline {C7}Open-Ended Feedback Questions}{218}{section.C.7}%
-\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Technical Implementation Details}}{219}{appendix.D}%
-\contentsline {section}{\numberline {D1}HMI GPIO Map}{220}{section.D.1}%
-\contentsline {section}{\numberline {D2}Telemetry JSON Payload Schema}{220}{section.D.2}%
+\contentsline {subsection}{\numberline {6.4.4}Extended On-Road Validation: Siphoning and Fuel Theft}{164}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}Figures for SO4}{166}{subsection.6.4.5}%
+\contentsline {subsection}{\numberline {6.4.6}Discussion}{167}{subsection.6.4.6}%
+\contentsline {section}{\numberline {6.5}SO5: Alert System, HMI, and Cross-Interface Synchronisation}{169}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Overview of Results}{169}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Alert-Rule Implementation Status}{170}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Alert-Engine Operational Performance}{171}{subsection.6.5.3}%
+\contentsline {subsection}{\numberline {6.5.4}Embedded Human--Machine Interface}{172}{subsection.6.5.4}%
+\contentsline {subsection}{\numberline {6.5.5}Administrative Dashboard}{175}{subsection.6.5.5}%
+\contentsline {subsection}{\numberline {6.5.6}Administrator Acceptance Survey}{181}{subsection.6.5.6}%
+\contentsline {subsection}{\numberline {6.5.7}Cross-Interface Synchronisation Evidence}{183}{subsection.6.5.7}%
+\contentsline {subsection}{\numberline {6.5.8}Discussion}{184}{subsection.6.5.8}%
+\contentsline {section}{\numberline {6.6}Summary}{185}{section.6.6}%
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusions, Recommendations, and Future Directives}}{186}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Concluding Remarks}{187}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Technical Limitations}{188}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Contributions}{189}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Recommendations}{190}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Future Prospects}{191}{section.7.5}%
+\contentsline {chapter}{References}{193}{chapter*.100}%
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Ethical Clearance}}{202}{appendix.A}%
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Partner Coordination and Prototype Demonstration}}{205}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Administrator Acceptance Survey Instrument}}{214}{appendix.C}%
+\contentsline {section}{\numberline {C1}Dashboard and Real-Time Monitoring}{215}{section.C.1}%
+\contentsline {section}{\numberline {C2}Fuel Monitoring Accuracy}{215}{section.C.2}%
+\contentsline {section}{\numberline {C3}Anomaly Detection and Alerts}{215}{section.C.3}%
+\contentsline {section}{\numberline {C4}Driver Safety and Rest Alerts}{216}{section.C.4}%
+\contentsline {section}{\numberline {C5}Maintenance Monitoring}{216}{section.C.5}%
+\contentsline {section}{\numberline {C6}Overall System Usability and Satisfaction}{216}{section.C.6}%
+\contentsline {section}{\numberline {C7}Open-Ended Feedback Questions}{217}{section.C.7}%
+\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Technical Implementation Details}}{218}{appendix.D}%
+\contentsline {section}{\numberline {D1}HMI GPIO Map}{219}{section.D.1}%
+\contentsline {section}{\numberline {D2}Telemetry JSON Payload Schema}{219}{section.D.2}%
 \contentsfinish 

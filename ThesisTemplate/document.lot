@@ -35,18 +35,17 @@
 \contentsline {table}{\numberline {6.10}{\ignorespaces GPS Acquisition Verification (Field-Test Telemetry)}}{153}{table.caption.63}%
 \contentsline {table}{\numberline {6.11}{\ignorespaces Model Performance on the Project-Native Partition (634 rows, leave-one-trip-out)}}{162}{table.caption.71}%
 \contentsline {table}{\numberline {6.12}{\ignorespaces Detector versus Baseline Comparison (project-native, leave-one-trip-out)}}{164}{table.caption.72}%
-\contentsline {table}{\numberline {6.13}{\ignorespaces Out-of-Distribution Stress Test (public partition, 67 trips, 0 positives)}}{165}{table.caption.73}%
-\contentsline {table}{\numberline {6.14}{\ignorespaces Per-Class Detection Results on the Extended On-Road Validation Suite}}{166}{table.caption.74}%
-\contentsline {table}{\numberline {6.15}{\ignorespaces Alert-Rule Thresholds (Implemented)}}{171}{table.caption.78}%
-\contentsline {table}{\numberline {6.16}{\ignorespaces Extended Safety Implementation Status}}{171}{table.caption.79}%
-\contentsline {table}{\numberline {6.17}{\ignorespaces Alert-Engine Performance During Field Testing}}{172}{table.caption.80}%
-\contentsline {table}{\numberline {6.18}{\ignorespaces System Usability Scale Per-Item Mean ($n = 4$ administrators)}}{183}{table.caption.98}%
-\contentsline {table}{\numberline {6.19}{\ignorespaces Custom Acceptance Questions on Fuel-Anomaly and Alert Utility ($n = 4$)}}{183}{table.caption.99}%
+\contentsline {table}{\numberline {6.13}{\ignorespaces Per-Class Detection Results on the Extended On-Road Validation Suite}}{165}{table.caption.73}%
+\contentsline {table}{\numberline {6.14}{\ignorespaces Alert-Rule Thresholds (Implemented)}}{170}{table.caption.77}%
+\contentsline {table}{\numberline {6.15}{\ignorespaces Extended Safety Implementation Status}}{170}{table.caption.78}%
+\contentsline {table}{\numberline {6.16}{\ignorespaces Alert-Engine Performance During Field Testing}}{171}{table.caption.79}%
+\contentsline {table}{\numberline {6.17}{\ignorespaces System Usability Scale Per-Item Mean ($n = 4$ administrators)}}{182}{table.caption.97}%
+\contentsline {table}{\numberline {6.18}{\ignorespaces Custom Acceptance Questions on Fuel-Anomaly and Alert Utility ($n = 4$)}}{182}{table.caption.98}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {7.1}{\ignorespaces Technical Limitations and Future Work}}{189}{table.caption.100}%
-\addvspace {10pt}
+\contentsline {table}{\numberline {7.1}{\ignorespaces Technical Limitations and Future Work}}{188}{table.caption.99}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {D.1}{\ignorespaces Full HMI GPIO Map}}{220}{table.caption.111}%
+\addvspace {10pt}
+\contentsline {table}{\numberline {D.1}{\ignorespaces Full HMI GPIO Map}}{219}{table.caption.110}%
 \contentsfinish 

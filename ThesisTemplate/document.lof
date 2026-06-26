@@ -39,38 +39,38 @@
 \contentsline {figure}{\numberline {6.16}{\ignorespaces Fuel-per-Kilometre by Trip}}{159}{figure.caption.68}%
 \contentsline {figure}{\numberline {6.17}{\ignorespaces GPS Sampling Interval Histogram}}{160}{figure.caption.69}%
 \contentsline {figure}{\numberline {6.18}{\ignorespaces GPS Acquisition Summary Bar Chart}}{160}{figure.caption.70}%
-\contentsline {figure}{\numberline {6.19}{\ignorespaces Anomaly Score Distribution}}{167}{figure.caption.75}%
-\contentsline {figure}{\numberline {6.20}{\ignorespaces Confusion Matrices: Models A, B, and C}}{167}{figure.caption.76}%
-\contentsline {figure}{\numberline {6.21}{\ignorespaces Model Performance Bar Chart}}{168}{figure.caption.77}%
-\contentsline {figure}{\numberline {6.22}{\ignorespaces Roof-Mounted GPS Antenna Installation}}{173}{figure.caption.81}%
-\contentsline {figure}{\numberline {6.23}{\ignorespaces Embedded HMI: Driver PIN Login}}{174}{figure.caption.82}%
-\contentsline {figure}{\numberline {6.24}{\ignorespaces Embedded HMI: Fleet Vehicle Selection}}{174}{figure.caption.83}%
-\contentsline {figure}{\numberline {6.25}{\ignorespaces Embedded HMI: Ready / Start Trip}}{175}{figure.caption.84}%
-\contentsline {figure}{\numberline {6.26}{\ignorespaces Embedded HMI: Rest Page}}{175}{figure.caption.85}%
-\contentsline {figure}{\numberline {6.27}{\ignorespaces Embedded HMI: Active Trip Page}}{176}{figure.caption.86}%
-\contentsline {figure}{\numberline {6.28}{\ignorespaces Mobile Web App Driver Login Page}}{177}{figure.caption.87}%
-\contentsline {figure}{\numberline {6.29}{\ignorespaces Fleet Monitoring Dashboard}}{178}{figure.caption.88}%
-\contentsline {figure}{\numberline {6.30}{\ignorespaces Alert Management Page}}{178}{figure.caption.89}%
-\contentsline {figure}{\numberline {6.31}{\ignorespaces Truck Page}}{179}{figure.caption.90}%
-\contentsline {figure}{\numberline {6.32}{\ignorespaces Telemetry Logs Page}}{179}{figure.caption.91}%
-\contentsline {figure}{\numberline {6.33}{\ignorespaces Trip History Page}}{180}{figure.caption.92}%
-\contentsline {figure}{\numberline {6.34}{\ignorespaces Per-Trip Detail Map and Activity Timeline}}{180}{figure.caption.93}%
-\contentsline {figure}{\numberline {6.35}{\ignorespaces Analytics}}{181}{figure.caption.94}%
-\contentsline {figure}{\numberline {6.36}{\ignorespaces Alert Thresholds}}{181}{figure.caption.95}%
-\contentsline {figure}{\numberline {6.37}{\ignorespaces User Management}}{182}{figure.caption.96}%
-\contentsline {figure}{\numberline {6.38}{\ignorespaces Fleet Management}}{182}{figure.caption.97}%
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Anomaly Score Distribution}}{166}{figure.caption.74}%
+\contentsline {figure}{\numberline {6.20}{\ignorespaces Confusion Matrices: Models A, B, and C}}{167}{figure.caption.75}%
+\contentsline {figure}{\numberline {6.21}{\ignorespaces Model Performance Bar Chart}}{167}{figure.caption.76}%
+\contentsline {figure}{\numberline {6.22}{\ignorespaces Roof-Mounted GPS Antenna Installation}}{172}{figure.caption.80}%
+\contentsline {figure}{\numberline {6.23}{\ignorespaces Embedded HMI: Driver PIN Login}}{173}{figure.caption.81}%
+\contentsline {figure}{\numberline {6.24}{\ignorespaces Embedded HMI: Fleet Vehicle Selection}}{173}{figure.caption.82}%
+\contentsline {figure}{\numberline {6.25}{\ignorespaces Embedded HMI: Ready / Start Trip}}{174}{figure.caption.83}%
+\contentsline {figure}{\numberline {6.26}{\ignorespaces Embedded HMI: Rest Page}}{174}{figure.caption.84}%
+\contentsline {figure}{\numberline {6.27}{\ignorespaces Embedded HMI: Active Trip Page}}{175}{figure.caption.85}%
+\contentsline {figure}{\numberline {6.28}{\ignorespaces Mobile Web App Driver Login Page}}{176}{figure.caption.86}%
+\contentsline {figure}{\numberline {6.29}{\ignorespaces Fleet Monitoring Dashboard}}{177}{figure.caption.87}%
+\contentsline {figure}{\numberline {6.30}{\ignorespaces Alert Management Page}}{177}{figure.caption.88}%
+\contentsline {figure}{\numberline {6.31}{\ignorespaces Truck Page}}{178}{figure.caption.89}%
+\contentsline {figure}{\numberline {6.32}{\ignorespaces Telemetry Logs Page}}{178}{figure.caption.90}%
+\contentsline {figure}{\numberline {6.33}{\ignorespaces Trip History Page}}{179}{figure.caption.91}%
+\contentsline {figure}{\numberline {6.34}{\ignorespaces Per-Trip Detail Map and Activity Timeline}}{179}{figure.caption.92}%
+\contentsline {figure}{\numberline {6.35}{\ignorespaces Analytics}}{180}{figure.caption.93}%
+\contentsline {figure}{\numberline {6.36}{\ignorespaces Alert Thresholds}}{180}{figure.caption.94}%
+\contentsline {figure}{\numberline {6.37}{\ignorespaces User Management}}{181}{figure.caption.95}%
+\contentsline {figure}{\numberline {6.38}{\ignorespaces Fleet Management}}{181}{figure.caption.96}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Initial Consultation Meeting with SGSA Representative}}{207}{figure.caption.102}%
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Cabin Inspection of the Sample Fleet Vehicle}}{208}{figure.caption.103}%
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Further Fleet-Vehicle Inspection at the Partner Facility}}{209}{figure.caption.104}%
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Dashboard Evaluation During Prototype Demonstration}}{210}{figure.caption.105}%
-\contentsline {figure}{\numberline {B.5}{\ignorespaces Web-Based Monitoring Interface Demonstration}}{211}{figure.caption.106}%
-\contentsline {figure}{\numberline {B.6}{\ignorespaces Research Team After Prototype Meeting and Demonstration}}{211}{figure.caption.107}%
-\contentsline {figure}{\numberline {B.7}{\ignorespaces Research Team and Partner Representative Group Photograph}}{212}{figure.caption.108}%
-\contentsline {figure}{\numberline {B.8}{\ignorespaces Additional Prototype Demonstration Evidence}}{213}{figure.caption.109}%
-\contentsline {figure}{\numberline {B.9}{\ignorespaces Additional Partner Demonstration and Review Evidence}}{214}{figure.caption.110}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Initial Consultation Meeting with SGSA Representative}}{206}{figure.caption.101}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Cabin Inspection of the Sample Fleet Vehicle}}{207}{figure.caption.102}%
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Further Fleet-Vehicle Inspection at the Partner Facility}}{208}{figure.caption.103}%
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Dashboard Evaluation During Prototype Demonstration}}{209}{figure.caption.104}%
+\contentsline {figure}{\numberline {B.5}{\ignorespaces Web-Based Monitoring Interface Demonstration}}{210}{figure.caption.105}%
+\contentsline {figure}{\numberline {B.6}{\ignorespaces Research Team After Prototype Meeting and Demonstration}}{210}{figure.caption.106}%
+\contentsline {figure}{\numberline {B.7}{\ignorespaces Research Team and Partner Representative Group Photograph}}{211}{figure.caption.107}%
+\contentsline {figure}{\numberline {B.8}{\ignorespaces Additional Prototype Demonstration Evidence}}{212}{figure.caption.108}%
+\contentsline {figure}{\numberline {B.9}{\ignorespaces Additional Partner Demonstration and Review Evidence}}{213}{figure.caption.109}%
 \addvspace {10pt}
 \addvspace {10pt}
 \contentsfinish 
