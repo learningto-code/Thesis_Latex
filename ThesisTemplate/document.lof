@@ -14,63 +14,63 @@
 \contentsline {figure}{\numberline {5.2}{\ignorespaces End-to-end System Architecture}}{88}{figure.caption.27}%
 \contentsline {figure}{\numberline {5.3}{\ignorespaces IPO Chart}}{90}{figure.caption.28}%
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Embedded HMI Hardware Block Diagram}}{95}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Fuel-Level Filter Cascade}}{99}{figure.caption.31}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Communication Method Comparison}}{102}{figure.caption.33}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Offline-Buffer Fall-Through Flowchart}}{104}{figure.caption.34}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces ERD Diagram}}{108}{figure.caption.36}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Cross-Interface State Synchronization}}{109}{figure.caption.37}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces ML Anomaly Detection Architecture}}{113}{figure.caption.40}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Fuel-Level Filter Cascade}}{100}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Communication Method Comparison}}{103}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Offline-Buffer Fall-Through Flowchart}}{105}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces ERD Diagram}}{109}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Cross-Interface State Synchronization}}{110}{figure.caption.37}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces ML Anomaly Detection Architecture}}{114}{figure.caption.40}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Initial Fuel Reading Evidence}}{138}{figure.caption.46}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Pump 1 Receipt and Readings}}{139}{figure.caption.47}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Pump 2 Receipt and Readings}}{139}{figure.caption.48}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Pump 3 Receipt and Readings}}{140}{figure.caption.49}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Pump 4 Receipt and Readings}}{140}{figure.caption.50}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Fuel-Level Time Series, Raw and Filtered}}{143}{figure.caption.53}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Per-Band Variance Bar Chart}}{143}{figure.caption.54}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Noise Distribution per Tank Band}}{144}{figure.caption.55}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Filtering Effect: Raw versus Filtered (Zoomed)}}{144}{figure.caption.56}%
-\contentsline {figure}{\numberline {6.10}{\ignorespaces LoRa Gateway Test Configuration}}{147}{figure.caption.58}%
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Latency by Transport (p50 and p95)}}{151}{figure.caption.62}%
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Mobile Driver Application: Long-Haul Manila to Batangas}}{155}{figure.caption.64}%
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Mobile Driver Application: Rest Break State}}{156}{figure.caption.65}%
-\contentsline {figure}{\numberline {6.14}{\ignorespaces Fleet-Vehicle-Restriction-Aware Routing, Quezon City Destination}}{157}{figure.caption.66}%
-\contentsline {figure}{\numberline {6.15}{\ignorespaces Fuel Level Overlaid on Route}}{158}{figure.caption.67}%
-\contentsline {figure}{\numberline {6.16}{\ignorespaces Fuel-per-Kilometre by Trip}}{159}{figure.caption.68}%
-\contentsline {figure}{\numberline {6.17}{\ignorespaces GPS Sampling Interval Histogram}}{160}{figure.caption.69}%
-\contentsline {figure}{\numberline {6.18}{\ignorespaces GPS Acquisition Summary Bar Chart}}{160}{figure.caption.70}%
-\contentsline {figure}{\numberline {6.19}{\ignorespaces Anomaly Score Distribution}}{166}{figure.caption.74}%
-\contentsline {figure}{\numberline {6.20}{\ignorespaces Confusion Matrices: Models A, B, and C}}{167}{figure.caption.75}%
-\contentsline {figure}{\numberline {6.21}{\ignorespaces Model Performance Bar Chart}}{167}{figure.caption.76}%
-\contentsline {figure}{\numberline {6.22}{\ignorespaces Roof-Mounted GPS Antenna Installation}}{172}{figure.caption.80}%
-\contentsline {figure}{\numberline {6.23}{\ignorespaces Embedded HMI: Driver PIN Login}}{173}{figure.caption.81}%
-\contentsline {figure}{\numberline {6.24}{\ignorespaces Embedded HMI: Fleet Vehicle Selection}}{173}{figure.caption.82}%
-\contentsline {figure}{\numberline {6.25}{\ignorespaces Embedded HMI: Ready / Start Trip}}{174}{figure.caption.83}%
-\contentsline {figure}{\numberline {6.26}{\ignorespaces Embedded HMI: Rest Page}}{174}{figure.caption.84}%
-\contentsline {figure}{\numberline {6.27}{\ignorespaces Embedded HMI: Active Trip Page}}{175}{figure.caption.85}%
-\contentsline {figure}{\numberline {6.28}{\ignorespaces Mobile Web App Driver Login Page}}{176}{figure.caption.86}%
-\contentsline {figure}{\numberline {6.29}{\ignorespaces Fleet Monitoring Dashboard}}{177}{figure.caption.87}%
-\contentsline {figure}{\numberline {6.30}{\ignorespaces Alert Management Page}}{177}{figure.caption.88}%
-\contentsline {figure}{\numberline {6.31}{\ignorespaces Truck Page}}{178}{figure.caption.89}%
-\contentsline {figure}{\numberline {6.32}{\ignorespaces Telemetry Logs Page}}{178}{figure.caption.90}%
-\contentsline {figure}{\numberline {6.33}{\ignorespaces Trip History Page}}{179}{figure.caption.91}%
-\contentsline {figure}{\numberline {6.34}{\ignorespaces Per-Trip Detail Map and Activity Timeline}}{179}{figure.caption.92}%
-\contentsline {figure}{\numberline {6.35}{\ignorespaces Analytics}}{180}{figure.caption.93}%
-\contentsline {figure}{\numberline {6.36}{\ignorespaces Alert Thresholds}}{180}{figure.caption.94}%
-\contentsline {figure}{\numberline {6.37}{\ignorespaces User Management}}{181}{figure.caption.95}%
-\contentsline {figure}{\numberline {6.38}{\ignorespaces Fleet Management}}{181}{figure.caption.96}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Initial Fuel Reading Evidence}}{139}{figure.caption.46}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Pump 1 Receipt and Readings}}{140}{figure.caption.47}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Pump 2 Receipt and Readings}}{140}{figure.caption.48}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Pump 3 Receipt and Readings}}{141}{figure.caption.49}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Pump 4 Receipt and Readings}}{141}{figure.caption.50}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Fuel-Level Time Series, Raw and Filtered}}{144}{figure.caption.53}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Per-Band Variance Bar Chart}}{144}{figure.caption.54}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Noise Distribution per Tank Band}}{145}{figure.caption.55}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Filtering Effect: Raw versus Filtered (Zoomed)}}{145}{figure.caption.56}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces LoRa Gateway Test Configuration}}{148}{figure.caption.58}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Latency by Transport (p50 and p95)}}{152}{figure.caption.62}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Mobile Driver Application: Long-Haul Manila to Batangas}}{156}{figure.caption.64}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Mobile Driver Application: Rest Break State}}{157}{figure.caption.65}%
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Fleet-Vehicle-Restriction-Aware Routing, Quezon City Destination}}{158}{figure.caption.66}%
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Fuel Level Overlaid on Route}}{159}{figure.caption.67}%
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Fuel-per-Kilometre by Trip}}{160}{figure.caption.68}%
+\contentsline {figure}{\numberline {6.17}{\ignorespaces GPS Sampling Interval Histogram}}{161}{figure.caption.69}%
+\contentsline {figure}{\numberline {6.18}{\ignorespaces GPS Acquisition Summary Bar Chart}}{161}{figure.caption.70}%
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Anomaly Score Distribution}}{167}{figure.caption.74}%
+\contentsline {figure}{\numberline {6.20}{\ignorespaces Confusion Matrices: Models A, B, and C}}{168}{figure.caption.75}%
+\contentsline {figure}{\numberline {6.21}{\ignorespaces Model Performance Bar Chart}}{168}{figure.caption.76}%
+\contentsline {figure}{\numberline {6.22}{\ignorespaces Roof-Mounted GPS Antenna Installation}}{173}{figure.caption.80}%
+\contentsline {figure}{\numberline {6.23}{\ignorespaces Embedded HMI: Driver PIN Login}}{174}{figure.caption.81}%
+\contentsline {figure}{\numberline {6.24}{\ignorespaces Embedded HMI: Fleet Vehicle Selection}}{174}{figure.caption.82}%
+\contentsline {figure}{\numberline {6.25}{\ignorespaces Embedded HMI: Ready / Start Trip}}{175}{figure.caption.83}%
+\contentsline {figure}{\numberline {6.26}{\ignorespaces Embedded HMI: Rest Page}}{175}{figure.caption.84}%
+\contentsline {figure}{\numberline {6.27}{\ignorespaces Embedded HMI: Active Trip Page}}{176}{figure.caption.85}%
+\contentsline {figure}{\numberline {6.28}{\ignorespaces Mobile Web App Driver Login Page}}{177}{figure.caption.86}%
+\contentsline {figure}{\numberline {6.29}{\ignorespaces Fleet Monitoring Dashboard}}{178}{figure.caption.87}%
+\contentsline {figure}{\numberline {6.30}{\ignorespaces Alert Management Page}}{178}{figure.caption.88}%
+\contentsline {figure}{\numberline {6.31}{\ignorespaces Truck Page}}{179}{figure.caption.89}%
+\contentsline {figure}{\numberline {6.32}{\ignorespaces Telemetry Logs Page}}{179}{figure.caption.90}%
+\contentsline {figure}{\numberline {6.33}{\ignorespaces Trip History Page}}{180}{figure.caption.91}%
+\contentsline {figure}{\numberline {6.34}{\ignorespaces Per-Trip Detail Map and Activity Timeline}}{180}{figure.caption.92}%
+\contentsline {figure}{\numberline {6.35}{\ignorespaces Analytics}}{181}{figure.caption.93}%
+\contentsline {figure}{\numberline {6.36}{\ignorespaces Alert Thresholds}}{181}{figure.caption.94}%
+\contentsline {figure}{\numberline {6.37}{\ignorespaces User Management}}{182}{figure.caption.95}%
+\contentsline {figure}{\numberline {6.38}{\ignorespaces Fleet Management}}{182}{figure.caption.96}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Initial Consultation Meeting with SGSA Representative}}{206}{figure.caption.101}%
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Cabin Inspection of the Sample Fleet Vehicle}}{207}{figure.caption.102}%
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Further Fleet-Vehicle Inspection at the Partner Facility}}{208}{figure.caption.103}%
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Dashboard Evaluation During Prototype Demonstration}}{209}{figure.caption.104}%
-\contentsline {figure}{\numberline {B.5}{\ignorespaces Web-Based Monitoring Interface Demonstration}}{210}{figure.caption.105}%
-\contentsline {figure}{\numberline {B.6}{\ignorespaces Research Team After Prototype Meeting and Demonstration}}{210}{figure.caption.106}%
-\contentsline {figure}{\numberline {B.7}{\ignorespaces Research Team and Partner Representative Group Photograph}}{211}{figure.caption.107}%
-\contentsline {figure}{\numberline {B.8}{\ignorespaces Additional Prototype Demonstration Evidence}}{212}{figure.caption.108}%
-\contentsline {figure}{\numberline {B.9}{\ignorespaces Additional Partner Demonstration and Review Evidence}}{213}{figure.caption.109}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Initial Consultation Meeting with SGSA Representative}}{207}{figure.caption.101}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Cabin Inspection of the Sample Fleet Vehicle}}{208}{figure.caption.102}%
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Further Fleet-Vehicle Inspection at the Partner Facility}}{209}{figure.caption.103}%
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Dashboard Evaluation During Prototype Demonstration}}{210}{figure.caption.104}%
+\contentsline {figure}{\numberline {B.5}{\ignorespaces Web-Based Monitoring Interface Demonstration}}{211}{figure.caption.105}%
+\contentsline {figure}{\numberline {B.6}{\ignorespaces Research Team After Prototype Meeting and Demonstration}}{211}{figure.caption.106}%
+\contentsline {figure}{\numberline {B.7}{\ignorespaces Research Team and Partner Representative Group Photograph}}{212}{figure.caption.107}%
+\contentsline {figure}{\numberline {B.8}{\ignorespaces Additional Prototype Demonstration Evidence}}{213}{figure.caption.108}%
+\contentsline {figure}{\numberline {B.9}{\ignorespaces Additional Partner Demonstration and Review Evidence}}{214}{figure.caption.109}%
 \addvspace {10pt}
 \addvspace {10pt}
 \contentsfinish 

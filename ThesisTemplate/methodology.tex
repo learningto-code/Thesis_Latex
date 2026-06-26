@@ -200,15 +200,16 @@ The block diagram should be read as the physical implementation counterpart of t
 \section{OBD-II / ECU Fuel and Vehicle Data Acquisition Methodology}
 \label{sec:fuel_acquisition}
 
-Fuel level was acquired through the Toyota meter Mode 22 PID 21/29 channel of the OBD-II interface. The same telemetry cycle also captured contextual OBD-II variables such as speed, engine RPM, engine load, throttle position, mass air flow, coolant temperature, engine runtime, and diagnostic-trouble-code status. These fields were timestamped at the device and transmitted to the backend together with GPS, trip-state, and communication-channel metadata so that the anomaly detector could interpret fuel changes in relation to vehicle operation rather than fuel percentage alone.
+The HMI acquired vehicle telemetry through the standard OBD-II interface, which provides universal Mode 01 access to contextual variables --- vehicle speed, engine RPM, engine load, throttle position, mass air flow, coolant temperature, engine runtime, and diagnostic-trouble-code status --- on every OBD-II-compliant vehicle regardless of manufacturer. Fuel level is treated separately because the universal Mode 01 fuel-level PID (0x2F) is not consistently exposed or accurately scaled across manufacturers; the prototype therefore reads fuel level through a vehicle-specific adapter selected at install time, with the Toyota meter Mode 22 PID 21/29 channel used for the partner-fleet Toyota Hilux. The same telemetry cycle timestamps all acquired fields at the device and transmits them to the backend together with GPS, trip-state, and communication-channel metadata, so the anomaly detector interprets fuel changes in relation to vehicle operation rather than fuel percentage alone.
 
 \subsection{Physical Interface}
-The acquisition layer uses the vehicle OBD-II port and ISO 15765-4 transport over CAN. This enables the prototype to read fuel and vehicle context without tank-cap modification or sender-loom alteration.
+The acquisition layer uses the vehicle OBD-II port and ISO 15765-4 transport over CAN. This enables the prototype to read fuel and vehicle context without tank-cap modification or sender-loom alteration. All OBD-II-compliant vehicles expose a standard set of Mode 01 PIDs over this transport, which the prototype uses for the universal contextual variables; manufacturer-specific PIDs (Toyota Mode 22, Hino J1939, Isuzu Mode 22) are layered on top of the same transport only for fuel-level acquisition.
 
 The physical-interface choice is central to the study because it keeps the system non-invasive. Instead of inserting a new float sensor or cutting into the fuel sender wiring, the prototype reads the fuel-related signal already exposed by the vehicle electronics. This reduces installation risk, supports repeatability across fleet vehicles of the same model, and keeps the validation focused on whether the existing vehicle signal can be made accurate enough for monitoring.
 
-\subsection{Toyota Meter Mode 22 PID 21/29 Fuel Acquisition}
-Fuel acquisition uses Toyota meter Mode 22 PID 21/29 with a scale of 0.5 L per ADC count. The firmware polls the fuel channel on a 1.5 s cadence and applies a retry policy when the adapter returns a negative acknowledgment or missing response.
+\subsection{Vehicle-Specific Fuel-Level Adapter (Toyota Mode 22 PID 21/29)}
+\label{sec:fuel_level_adapter}
+Because the universal Mode 01 fuel-level PID (0x2F) was not reliably exposed by the partner-fleet ECU, the firmware falls back to a vehicle-specific fuel-level adapter selected at install time. For the Toyota Hilux deployed in this study the adapter is the Toyota meter Mode 22 command 0x21 0x29, which returns the raw fuel-sender voltage encoded at 0.5 L per ADC count without internal damping. The firmware polls this channel on a 1.5 s cadence and applies a retry policy when the adapter returns a negative acknowledgment or missing response. The adapter is implemented as a thin, replaceable layer over the universal OBD-II acquisition pipeline, so future deployments on other manufacturer ECUs (Hino J1939 SPN 96 for diesel heavy-duty units, Isuzu Mode 22, or any vehicle that fully implements Mode 01 PID 0x2F) require no changes to the filter cascade, telemetry schema, or anomaly-detection model.
 
 The 1.5 s poll cadence was selected to capture fuel changes faster than the five-second telemetry publication interval while still leaving time for GPS parsing, display updates, and communication attempts. The retry policy prevents a single missing CAN response from becoming a false fuel event. Only values that pass validity checks are allowed to update the filtered fuel stream used by the HMI and backend.
 
@@ -263,6 +264,8 @@ Dual timestamping is necessary because the communication subsystem deliberately 
 The manufacturer dashboard gauge is used as a supporting field reference for fuel-validation activity. This choice follows the delimitations in Chapter~\ref{ch:intro}, because direct dipstick validation and tank-cap opening were not permitted by the partner fleet operator.
 
 The validation reference was therefore selected to match the allowed field procedure. Known-volume pump-gas events provide the volumetric reference, while the manufacturer dashboard confirms that the prototype is reading a fuel state consistent with the vehicle's own display. This is an honest operational validation rather than a laboratory calibration claim.
+
+Because the validation reference is the legally calibrated trade-instrument fuel pump (Tables~\ref{tab:so1_pump_validation}--\ref{tab:so1_accuracy_summary}) rather than a Toyota-specific signal, the SO1 accuracy claim is portable to any future vehicle-specific adapter that produces a stable filtered fuel percentage; only the adapter in Section~\ref{sec:fuel_level_adapter} needs to be re-validated per ECU.
 
 \section{Fuel Preprocessing Methodology}
 \label{sec:fuel_preprocessing}
