@@ -27,7 +27,7 @@
 \contentsline {subsection}{\numberline {1.7.3}Delimitations}{21}{subsection.1.7.3}%
 \contentsline {section}{\numberline {1.8}Description and Methodology}{23}{section.1.8}%
 \contentsline {section}{\numberline {1.9}Research Dissemination Plan}{24}{section.1.9}%
-\contentsline {section}{\numberline {1.10}Conflict of Interest}{25}{section.1.10}%
+\contentsline {section}{\numberline {1.10}Conflict of Interest}{26}{section.1.10}%
 \contentsline {section}{\numberline {1.11}Estimated Work Schedule and Budget}{26}{section.1.11}%
 \contentsline {subsection}{\numberline {1.11.1}Gantt Chart}{26}{subsection.1.11.1}%
 \contentsline {subsection}{\numberline {1.11.2}Estimated Budget}{28}{subsection.1.11.2}%
@@ -67,9 +67,9 @@
 \contentsline {subsection}{\numberline {4.1.2}Observance of Research Ethics}{72}{subsection.4.1.2}%
 \contentsline {section}{\numberline {4.2}Technical Design Considerations}{73}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Hardware Selection and Integration}{76}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Software Architecture}{77}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Machine Learning and Algorithms}{78}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Communication and Security}{79}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.2}Software Architecture}{76}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Machine Learning and Algorithms}{77}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Communication and Security}{78}{subsection.4.2.4}%
 \contentsline {section}{\numberline {4.3}Alternative Software Designs and Cost Considerations}{80}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Summary}{81}{section.4.4}%
 \contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Methodology}}{82}{chapter.5}%

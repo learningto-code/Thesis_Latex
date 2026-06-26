@@ -131,7 +131,7 @@ Subsequence detector & Matrix Profile (window=12, z-thresh=2.0) & Drop entirely 
 The hardware configuration is designed to support the end-to-end workflow of the system (see Sec.~\ref{sec:implement}). The following standards and implementation points apply:
 
 \begin{itemize}  
-    \item \textbf{MCU:} ESP32/NodeMCU serves as the edge processing device for real-time acquisition and preprocessing of fuel, GPS, and vehicle telemetry data. It complies with IEC~61131-2 for embedded controllers \cite{iec61131} and ISO~7637 for automotive electrical transients \cite{iso7637}. In Sec.~\ref{sec:implement}, the MCU handles sensor filtering, timestamping, and local preprocessing and rule-state handling before backend anomaly scoring.
+    \item \textbf{MCU:} ESP32/NodeMCU serves as the edge processing device for real-time acquisition and preprocessing of fuel, GPS, and vehicle telemetry data. It complies with IEC~61131-2 for embedded controllers \cite{iec61131} and ISO~7637 for automotive electrical transients \cite{iso7637}. In Sec.~\ref{sec:implement}, the MCU handles local preprocessing, timestamping, and alert-state handling before backend anomaly scoring.
 
     \item \textbf{GPS Module:} The UART-connected GPS module provides geolocation and speed data, adhering to global navigation standards \cite{gpsstd}. Its signals are synchronized with fuel readings during preprocessing in Sec.~\ref{sec:fuel_preprocessing}.
 

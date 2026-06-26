@@ -25,23 +25,23 @@
 \addvspace {10pt}
 \contentsline {table}{\numberline {6.1}{\ignorespaces Summary of results for achieving the objectives}}{132}{table.6.1}%
 \contentsline {table}{\numberline {6.2}{\ignorespaces Objective Compliance Matrix}}{136}{table.caption.44}%
-\contentsline {table}{\numberline {6.4}{\ignorespaces Pump-Gas Validation Dataset}}{137}{table.caption.45}%
-\contentsline {table}{\numberline {6.5}{\ignorespaces Accuracy Validation Summary}}{141}{table.caption.51}%
-\contentsline {table}{\numberline {6.6}{\ignorespaces Drift, Noise, and Variance per Tank Level}}{142}{table.caption.52}%
-\contentsline {table}{\numberline {6.7}{\ignorespaces LoRa Distance Test (Eight Bands)}}{146}{table.caption.57}%
-\contentsline {table}{\numberline {6.8}{\ignorespaces GSM/LTE Signal and Latency by Location}}{148}{table.caption.59}%
-\contentsline {table}{\numberline {6.9}{\ignorespaces Per-Transport End-to-End Latency (Field-Test Telemetry)}}{149}{table.caption.60}%
-\contentsline {table}{\numberline {6.10}{\ignorespaces Packet Delivery Distribution (Field-Test Telemetry)}}{150}{table.caption.61}%
-\contentsline {table}{\numberline {6.11}{\ignorespaces GPS Acquisition Verification (Field-Test Telemetry)}}{153}{table.caption.63}%
-\contentsline {table}{\numberline {6.12}{\ignorespaces Model Performance on the Project-Native Partition (634 rows, leave-one-trip-out)}}{162}{table.caption.71}%
-\contentsline {table}{\numberline {6.13}{\ignorespaces Detector versus Baseline Comparison (project-native, leave-one-trip-out)}}{164}{table.caption.72}%
-\contentsline {table}{\numberline {6.14}{\ignorespaces Out-of-Distribution Stress Test (public partition, 67 trips, 0 positives)}}{165}{table.caption.73}%
-\contentsline {table}{\numberline {6.15}{\ignorespaces Per-Class Detection Results on the Extended On-Road Validation Suite}}{166}{table.caption.74}%
-\contentsline {table}{\numberline {6.16}{\ignorespaces Alert-Rule Thresholds (Implemented)}}{171}{table.caption.78}%
-\contentsline {table}{\numberline {6.17}{\ignorespaces Extended Safety Implementation Status}}{171}{table.caption.79}%
-\contentsline {table}{\numberline {6.18}{\ignorespaces Alert-Engine Performance During Field Testing}}{172}{table.caption.80}%
-\contentsline {table}{\numberline {6.19}{\ignorespaces System Usability Scale Per-Item Mean ($n = 4$ administrators)}}{183}{table.caption.98}%
-\contentsline {table}{\numberline {6.20}{\ignorespaces Custom Acceptance Questions on Fuel-Anomaly and Alert Utility ($n = 4$)}}{183}{table.caption.99}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Pump-Gas Validation Dataset}}{137}{table.caption.45}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Accuracy Validation Summary}}{141}{table.caption.51}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces Drift, Noise, and Variance per Tank Level}}{142}{table.caption.52}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces LoRa Distance Test (Eight Bands)}}{146}{table.caption.57}%
+\contentsline {table}{\numberline {6.7}{\ignorespaces GSM/LTE Signal and Latency by Location}}{148}{table.caption.59}%
+\contentsline {table}{\numberline {6.8}{\ignorespaces Per-Transport End-to-End Latency (Field-Test Telemetry)}}{149}{table.caption.60}%
+\contentsline {table}{\numberline {6.9}{\ignorespaces Packet Delivery Distribution (Field-Test Telemetry)}}{150}{table.caption.61}%
+\contentsline {table}{\numberline {6.10}{\ignorespaces GPS Acquisition Verification (Field-Test Telemetry)}}{153}{table.caption.63}%
+\contentsline {table}{\numberline {6.11}{\ignorespaces Model Performance on the Project-Native Partition (634 rows, leave-one-trip-out)}}{162}{table.caption.71}%
+\contentsline {table}{\numberline {6.12}{\ignorespaces Detector versus Baseline Comparison (project-native, leave-one-trip-out)}}{164}{table.caption.72}%
+\contentsline {table}{\numberline {6.13}{\ignorespaces Out-of-Distribution Stress Test (public partition, 67 trips, 0 positives)}}{165}{table.caption.73}%
+\contentsline {table}{\numberline {6.14}{\ignorespaces Per-Class Detection Results on the Extended On-Road Validation Suite}}{166}{table.caption.74}%
+\contentsline {table}{\numberline {6.15}{\ignorespaces Alert-Rule Thresholds (Implemented)}}{171}{table.caption.78}%
+\contentsline {table}{\numberline {6.16}{\ignorespaces Extended Safety Implementation Status}}{171}{table.caption.79}%
+\contentsline {table}{\numberline {6.17}{\ignorespaces Alert-Engine Performance During Field Testing}}{172}{table.caption.80}%
+\contentsline {table}{\numberline {6.18}{\ignorespaces System Usability Scale Per-Item Mean ($n = 4$ administrators)}}{183}{table.caption.98}%
+\contentsline {table}{\numberline {6.19}{\ignorespaces Custom Acceptance Questions on Fuel-Anomaly and Alert Utility ($n = 4$)}}{183}{table.caption.99}%
 \addvspace {10pt}
 \contentsline {table}{\numberline {7.1}{\ignorespaces Technical Limitations and Future Work}}{189}{table.caption.100}%
 \addvspace {10pt}

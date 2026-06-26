@@ -11,7 +11,7 @@ The chapter placement was reviewed to keep the paper aligned with the DLSU thesi
 \hline 
 \textbf{Objectives} & \textbf{Methods / Approaches} & \textbf{Locations} \\ 
 \hline 
-GO: Develop and evaluate an IoT-based system for fleet vehicles in collaboration with Hino Parañaque Subic GS Auto Inc. (SGSA) that monitors real-time fuel levels, tracks routes using GPS, and detects unusual fuel consumption using machine learning, improving driver safety, supporting rest scheduling, and facilitating proactive vehicle maintenance through automated alerts. &
+GO: To develop and evaluate an IoT-based system for trucks, in collaboration with the partner truck company Hino Parañaque Subic GS Auto Inc. (SGSA), that monitors real-time fuel levels, tracks routes using GPS, and detects unusual fuel consumption using machine learning, with the goal of improving driver safety, supporting rest scheduling, and facilitating proactive vehicle maintenance through automated alerts using fuel and distance metrics, based on established service guidelines. &
 \begin{itemize}
     \item Embedded MCU preprocessing and aggregation
     \item LoRa/Cellular communication for low-latency and fail-safe data transfer
@@ -20,15 +20,15 @@ GO: Develop and evaluate an IoT-based system for fleet vehicles in collaboration
     \item Driver alert subsystem for operational safety
 \end{itemize} & Sec.~\ref{sec:implement} \\
 \hline 
-SO1: Measure fuel levels through the Toyota meter Mode 22 PID 21/29 channel of the OBD-II interface, ensuring non-invasive installation and real-time accuracy within ±5\%. &
+SO1: To measure fuel levels using digital float sensors integrated via the truck's ECU/diagnostic connector and GPS module, ensuring non-invasive installation and real-time accuracy within $\pm$5\%. &
 \begin{itemize}
-    \item Toyota meter Mode 22 PID 21/29 fuel acquisition through OBD-II
+    \item Digital fuel-level acquisition through the truck's ECU/diagnostic connector
     \item Edge-side median, EMA, dead-band, and direction-aware filtering
     \item Validation against dashboard-gauge walkaround pairs and signal variance
     \item Continuous validation for measurement reliability
 \end{itemize} & Secs.~\ref{sec:fuel_acquisition}, \ref{sec:fuel_preprocessing} \\
 \hline 
-SO2: Transmit real-time fuel and GPS data through prioritized IoT communication to a cloud backend, accessible through the in-vehicle HMI, mobile driver application, and administrative dashboard. &
+SO2: To transmit real-time fuel and GPS data through IoT-based communication to a cloud server, accessible through a centralized dashboard. &
 \begin{itemize}
     \item Real-time IoT transmission via LoRa, LTE, GSM 2G, WiFi, and SPIFFS replay
     \item Cloud ingestion APIs
@@ -36,21 +36,21 @@ SO2: Transmit real-time fuel and GPS data through prioritized IoT communication 
     \item Latency measurement and benchmarking to ensure timely reporting
 \end{itemize} & Sec.~\ref{sec:communication} \\
 \hline 
-SO3: Capture and log GPS location data every 5 seconds via an embedded module, correlating route information with fuel and time data for behavior tracking. &
+SO3: To capture and log GPS location data every 5 seconds via an embedded module, correlating route information with fuel and time data for behavior tracking. &
 \begin{itemize}
     \item GPS-based location logging at 5-second intervals
     \item Synchronization with fuel data
     \item Structured cloud database for multi-source data storage and route–fuel correlation
 \end{itemize} & Secs.~\ref{sec:implement}, \ref{sec:backend} \\
 \hline 
-SO4: Design and evaluate a context-aware fuel usage deviation modeling approach using non-parametric unsupervised ML models (Matrix Profile or Isolation Forest), achieving $\geq$90\% precision and $\leq$10\% false positives. &
+SO4: To design and evaluate a context-aware fuel usage deviation model using non-parametric unsupervised machine learning models (Matrix Profile or Isolation Forest), achieving 90\% precision and 10\% false positives in identifying anomalous fuel consumption patterns within controlled environments. &
 \begin{itemize}
     \item Offline training of anomaly detection models using Isolation Forest and Matrix Profile
     \item Evaluation using precision, FPR, and accuracy
     \item Context-aware thresholding to reduce false positives
 \end{itemize} & Secs.~\ref{sec:ml}, \ref{sec:evaluation} \\
 \hline 
-SO5: Develop and integrate hardware-based rest and maintenance alert mechanisms (e.g., Start/Stop button, buzzer indicators) tied to the web dashboard using cumulative fuel and distance data. &
+SO5: To develop and integrate hardware-based rest and maintenance alert mechanisms (e.g., Start/Stop button, buzzer indicators) tied to the web dashboard using cumulative fuel and distance data. &
 \begin{itemize}
     \item Driver rest and maintenance alert system with cumulative distance/time tracking
     \item Cloud-based monitoring and logging
