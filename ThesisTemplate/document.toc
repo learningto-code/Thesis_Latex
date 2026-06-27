@@ -194,4 +194,5 @@
 \contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Technical Implementation Details}}{224}{appendix.D}%
 \contentsline {section}{\numberline {D1}HMI GPIO Map}{225}{section.D.1}%
 \contentsline {section}{\numberline {D2}Telemetry JSON Payload Schema}{225}{section.D.2}%
+\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Article Paper}}{227}{appendix.E}%
 \contentsfinish 

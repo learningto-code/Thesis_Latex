@@ -1,22 +1,34 @@
 %% Article/forum paper for the fuel monitoring thesis project.
-\documentclass[10pt,journal]{IEEEtran}
+\documentclass[10pt,twocolumn]{article}
 
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{cite}
+\usepackage[letterpaper,margin=0.75in]{geometry}
 \usepackage[pdftex]{graphicx}
 \usepackage{url}
 \usepackage{hyperref}
 
 \graphicspath{{figure/}}
 
-\newcommand\MYhyperrefoptions{bookmarks=true,bookmarksnumbered=true,
-pdfpagemode={UseOutlines},plainpages=false,pdfpagelabels=true,
-colorlinks=true,linkcolor={black},citecolor={black},urlcolor={black},
+\hypersetup{
+bookmarks=true,
+bookmarksnumbered=true,
+pdfpagemode={UseOutlines},
+plainpages=false,
+pdfpagelabels=true,
+colorlinks=true,
+linkcolor={black},
+citecolor={black},
+urlcolor={black},
 pdftitle={An IoT-Enabled System for Real-Time Fuel Monitoring, GPS Tracking, and Anomaly Detection in Trucks Using Non-Parametric Unsupervised Machine Learning},
 pdfsubject={IoT-enabled fuel monitoring and anomaly detection},
 pdfauthor={Samuelle P. Barja, Konrad Romel C. Castelo, Eliza Rica R. De La Rosa, and Alyssa S. Montemayor},
-pdfkeywords={Fuel Monitoring, GPS Tracking, Anomaly Detection, Internet of Things, Unsupervised Machine Learning, Isolation Forest, Matrix Profile}}
-\hypersetup{\MYhyperrefoptions}
+pdfkeywords={Fuel Monitoring, GPS Tracking, Anomaly Detection, Internet of Things, Unsupervised Machine Learning, Isolation Forest, Matrix Profile}
+}
+
+\date{}
+\setlength{\columnsep}{0.25in}
 
 \begin{document}
 
@@ -27,199 +39,126 @@ pdfkeywords={Fuel Monitoring, GPS Tracking, Anomaly Detection, Internet of Thing
         Eliza~Rica~R.~De~La~Rosa,
         and~Alyssa~S.~Montemayor}
 
-\markboth{An IoT-Enabled System for Real-Time Fuel Monitoring, GPS Tracking, and Anomaly Detection in Trucks}{}
+\maketitle
 
-\IEEEtitleabstractindextext{%
 \begin{abstract}
-The logistics and transportation industry continues to face challenges in fuel management, anomaly detection, and real-time fleet monitoring. Existing solutions often operate in silos, resulting in fragmented data, undetected fuel irregularities, and delayed maintenance responses. This study proposes an IoT-based, context-aware system designed to monitor real-time fuel levels, track GPS location, and detect anomalous fuel consumption in trucks using non-parametric unsupervised machine learning models, including Matrix Profile and Isolation Forest. The system leverages CAN Bus/OBD-II interfacing for ECU fuel data, GPS modules for location logging, LoRa and GSM modules for reliable IoT-based communication, and embedded alert hardware for driver rest and maintenance notifications. Sensor and vehicle data are synchronized and transmitted to a cloud-based dashboard where anomalies are automatically flagged, and actionable alerts are generated. The system will be evaluated in real-world driving scenarios to measure detection accuracy, false positive rates, and response latency. This integrated platform aims to enhance operational safety, improve fuel efficiency, and enable proactive, data-driven fleet management decisions.
+Fuel accountability in delivery-truck operations requires more than a fuel gauge: it requires synchronized vehicle telemetry, route context, resilient communication, and an anomaly model that distinguishes abnormal fuel loss from traffic, idling, refueling, sender noise, and driver variability. This paper presents an implemented IoT-enabled fleet-monitoring prototype developed with Hino Para\~naque Subic GS Auto Inc. The system acquires OBD-II fuel, speed, GPS, trip-state, and alert data through an embedded HMI; transmits telemetry through LoRa, LTE/GSM, WiFi, and offline replay; stores records in a cloud backend; and detects fuel anomalies using non-parametric unsupervised learning. The production detector is Isolation Forest Model C, supported by Matrix Profile as a subsequence detector and by a data-mining layer for operating-regime interpretation. Fuel anomalies are modeled as context-conditioned deviations between observed and expected fuel-level change under speed, RPM, engine load, throttle, route, driver, and motion state. Field and controlled-injection evaluation showed 1.04\% MAPE fuel accuracy, 5.52~s median GPS sampling, 90.21\% GPS fix availability, 92.9\% precision and 1.09\% false-positive rate for Model C under leave-one-trip-out validation, and a 95.0\% alert-resolution rate. The results support the use of context-aware telemetry and interpretable anomaly signatures for practical fleet fuel monitoring, while parked-depot siphoning remains a future-work boundary requiring a dedicated stationary-state detector.
 \end{abstract}
 
-\begin{IEEEkeywords}
-Fuel Monitoring, GPS Tracking, Anomaly Detection, Internet of Things, Unsupervised Machine Learning, Isolation Forest, Matrix Profile.
-\end{IEEEkeywords}}
-
-\maketitle
-\IEEEdisplaynontitleabstractindextext
-\IEEEpeerreviewmaketitle
+\noindent\textbf{Keywords---}
+Fuel monitoring, GPS tracking, anomaly detection, Internet of Things, unsupervised machine learning, Isolation Forest, Matrix Profile, fleet management.
 
 \section{Introduction}
-\IEEEPARstart{T}{he} transportation and logistics industry is a critical driver of economic development but is increasingly facing operational inefficiencies and security challenges, especially in fuel management and vehicle tracking. Fuel theft, inaccurate fuel monitoring, inefficient routing, and lack of real-time data remain persistent issues for fleet operators, particularly in developing countries. These challenges are exacerbated by the absence of scalable, integrated technological systems that provide reliable data-driven solutions \cite{ahmed2017fuel,alquhali2019iot,crisgar2021gps}.
+Fuel cost, fuel theft, unreported leakage, poor route visibility, and delayed alert response remain persistent problems in delivery-fleet operations. Traditional approaches often treat fuel monitoring, GPS tracking, and driver alerts as separate functions, which limits their ability to explain whether a fuel drop is normal consumption, traffic-related idling, sender noise, refueling recovery, or a genuine anomaly. Prior IoT fuel-monitoring and tracking systems show the value of connected sensors but often remain hardware-only or rule-driven, while machine-learning studies on heavy vehicles frequently use datasets detached from an integrated field prototype \cite{ahmed2017fuel,alquhali2019iot,crisgar2021gps,mumcuoglu2023fuel}.
 
-Fuel is one of the most substantial and recurring expenses in logistics operations, with its accurate monitoring being essential to maintaining profitability and operational efficiency. Even minor inconsistencies in fuel tracking---such as errors in manual readings, unreported consumption, or unnoticed leakage---can accumulate into significant losses over time. Komal Shoukat Ali et al. (2018) \cite{komal2018automatic} report that fuel-related fraud and inefficiencies can contribute up to 30\% of the total operational overhead in large fleet operations. These losses are often compounded by issues such as unauthorized vehicle use, fuel siphoning, and unoptimized driving routes, which not only drive up fuel costs but also disrupt delivery schedules, vehicle maintenance cycles, and driver accountability. Despite efforts to manage these concerns, many logistics providers continue to rely on fragmented or outdated systems that offer limited visibility into fuel-related metrics and driver behavior \cite{dhivyasri2015advanced,obikoya2014design}.
+This study addresses that gap by implementing and evaluating a complete edge-to-cloud truck-monitoring system. The prototype combines OBD-II fuel and engine telemetry, GPS tracking, prioritized communication, cloud storage, dashboard visualization, HMI and mobile trip controls, and unsupervised anomaly detection. The machine-learning component is intentionally context-aware: it does not flag fuel loss only because the level dropped. Instead, it evaluates whether the observed fuel change is plausible under the vehicle's current operating context.
 
-In addition to financial implications, traditional fuel monitoring systems struggle to detect abnormal fuel consumption patterns in real time. These anomalies may be caused by aggressive or inefficient driving habits, extended engine idling, mechanical malfunctions (such as injector faults or fuel line leaks), or variable environmental conditions like terrain and traffic. However, without intelligent tools that correlate fuel data with contextual factors---such as vehicle speed, route topography, and time of day---fleet managers are often unable to distinguish between acceptable fuel use and problematic deviations. As highlighted by Mumcuoglu et al. (2023) \cite{mumcuoglu2023fuel}, conventional systems lack the sophistication to perform this level of analysis, leading to delayed detection of inefficiencies and reduced responsiveness. This underscores the urgent need for smart, data-driven solutions that combine fuel monitoring with GPS tracking and anomaly detection models to proactively manage consumption and enhance overall fleet performance \cite{barbado2022interpretable,beteto2022anomaly,fortela2023unsupervised}.
-
-To address these problems, researchers and engineers are increasingly exploring the convergence of IoT, GPS, and AI---particularly machine learning---to develop smart, real-time monitoring systems \cite{alquhali2019iot,joshi2024intelligent,prabhu2022iot}. These systems aim to optimize fuel usage, enhance fleet security, and improve operational efficiency through automation and predictive analytics.
-
-The core research gap, therefore, lies in the absence of a fully integrated, real-time, IoT-based system that combines fuel monitoring, GPS tracking, and anomaly detection powered by unsupervised machine learning. Addressing this gap is vital to improving operational efficiency, fuel security, and predictive maintenance in modern fleet management.
-
-\subsection{The Proposed Solution}
-This study proposes the development of an integrated IoT-based system that unifies fuel level monitoring, GPS-based vehicle tracking, and unsupervised machine learning for anomaly detection. Unlike previous solutions that focus on isolated functions or static datasets, this system is designed with real-time operation in mind. During initial testing, data will be simulated using a custom-built fuel tank setup to enable controlled evaluation of the system's performance and anomaly detection capabilities.
-
-For anomaly detection, the system will employ unsupervised, non-parametric machine learning algorithms like Matrix Profile and Isolation Forest. These models excel in identifying outliers within time-series data without the need for labeled datasets---making them ideal for fleet scenarios where data behavior varies with routes, driver habits, or environmental conditions. Unlike traditional parametric approaches, non-parametric models are more flexible and adaptive, as they do not assume any fixed data distribution.
-
-In addition, a context-aware dashboard will be developed to provide fleet managers with meaningful insights by correlating fuel usage patterns with routes and travel times. The dashboard will support real-time notifications such as driver rest alerts, maintenance prompts, and efficiency summaries---enabling data-informed decision-making and operational improvements.
-
-\subsection{Research Objectives}
-\textbf{General Objective:} To develop and evaluate an IoT-based system for trucks, in collaboration with the partner truck company Hino Para\~naque Subic GS Auto Inc. (SGSA), that monitors real-time fuel levels, tracks routes using GPS, and detects unusual fuel consumption using machine learning, with the goal of improving driver safety, supporting rest scheduling, and facilitating proactive vehicle maintenance through automated alerts using fuel and distance metrics, based on established service guidelines. The specific objectives are as follows:
-
-\textbf{SO1:} To measure fuel levels using digital float sensors integrated via the truck's ECU/diagnostic connector and GPS module, ensuring non-invasive installation and real-time accuracy within $\pm$5\%.
-
-\textbf{SO2:} To transmit real-time fuel and GPS data through IoT-based communication to a cloud server, accessible through a centralized dashboard.
-
-\textbf{SO3:} To capture and log GPS location data every 5 seconds via an embedded module, correlating route information with fuel and time data for behavior tracking.
-
-\textbf{SO4:} To design and evaluate a context-aware fuel usage deviation model using non-parametric unsupervised machine learning models (Matrix Profile or Isolation Forest), achieving 90\% precision and 10\% false positives in identifying anomalous fuel consumption patterns within controlled environments.
-
-\textbf{SO5:} To develop and integrate hardware-based rest and maintenance alert mechanisms (e.g., Start/Stop button, buzzer indicators) tied to the web dashboard using cumulative fuel and distance data.
+The specific contributions of this paper are: (1) an integrated IoT fuel, GPS, and alerting prototype for truck fleet monitoring; (2) a context-conditioned anomaly model grounded in physical and operational constraints; (3) an Isolation Forest production detector supported by Matrix Profile and K-Means-based operating-regime discovery; and (4) an evaluation across fuel accuracy, communication reliability, GPS cadence, anomaly-detection metrics, and alert usability.
 
 \section{Related Work}
-The transportation and logistics sector has attracted significant scholarly attention, particularly in the development of smart systems for operational efficiency and security. The academic literature reflects a growing interest in leveraging IoT, GPS, and AI technologies to enhance fleet management, particularly in areas such as fuel monitoring, vehicle tracking, and anomaly detection. Several recent studies have investigated IoT-enabled fuel monitoring, GPS tracking, and anomaly detection solutions \cite{joshi2024intelligent,prabhu2022iot,rs2024fuel,g2022real}.
+IoT-based fleet-monitoring systems have used GPS, cloud dashboards, RFID, GSM, and sensor modules to improve vehicle visibility and operational response \cite{joshi2024intelligent,prabhu2022iot,g2022real}. Fuel-specific systems have monitored tank level, theft alarms, and basic fuel events using resistance, ultrasonic, or capacitive sensing \cite{komal2018automatic,mathi2024development,tatababu2024smart}. These systems demonstrate practical monitoring value, but many are limited by fragmented architecture, small-scale validation, or rule-based detection.
 
-\textbf{Intelligent IoT-Enabled Real-Time Monitoring System for Logistics Management:} Joshi et al. \cite{joshi2024intelligent} developed a hybrid logistics management system that integrates IoT sensors, GPS, Radio Frequency Identification (RFID), and cloud analytics. Their solution achieved real-time tracking of assets and vehicles, enhancing transparency and decision-making in logistics operations. However, the study was limited by the type of hardware used and did not include advanced AI components for anomaly detection.
+Machine-learning work on fuel and vehicle anomaly detection shows that abnormal consumption can be detected from multivariate telemetry. Mumcuoglu et al. \cite{mumcuoglu2023fuel}, for example, showed that fuel-consumption anomalies can be classified in heavy-duty vehicles, while interpretable anomaly-detection literature emphasizes the importance of explaining why a point is anomalous rather than reporting only a score \cite{barbado2022interpretable}. This study builds on those directions by deploying unsupervised models inside an implemented truck telemetry system and by tying every anomaly flag to physical or operational constraints.
 
-\textbf{Fuel Consumption Classification for Heavy-Duty Vehicles:} Mumcuoglu et al. \cite{mumcuoglu2023fuel} employed machine learning to classify fuel consumption anomalies based on naturalistic driving data from 57 trucks. With an accuracy of 92.2\%, their approach effectively identified abnormal fuel consumption linked to driver behavior. Nevertheless, the dataset was relatively small (606 records), and integration with real-time vehicle diagnostics was not tested.
+\section{System Architecture}
+Fig.~\ref{fig:conceptual-diagram} summarizes the conceptual system. The truck-side embedded HMI collects vehicle telemetry, displays local status, and allows driver trip interaction. The backend stores telemetry and trip state, evaluates anomaly and safety rules, and synchronizes the administrative dashboard, mobile companion interface, and HMI feedback path.
 
-\textbf{Development of an Intelligent Fuel Monitoring and Theft Detection System:} Mathi et al. \cite{mathi2024development} introduced an Internet of Things (IoT)-based solution combining resistance-based fuel level sensors, GPS, Global System for Mobile Communications (GSM), and real-time alarm mechanisms. Their system successfully monitored fuel and battery anomalies in hybrid vehicles but lacked higher-precision sensors and deep learning integration for smarter detection.
-
-Despite these advancements, several limitations and research gaps remain:
-
-\textbf{Scalability Constraints:} Many existing solutions are limited to small-scale deployments or specific vehicle types (e.g., motorcycles, generators) and have not been validated for large truck fleets in diverse environments \cite{rs2024fuel,tatababu2024smart}.
-
-\textbf{Data and Sensor Limitations:} Several studies rely on basic sensors (resistance, ultrasonic) that may lack the accuracy and robustness needed for high-volume commercial operations. Furthermore, datasets used are often small or simulated, limiting generalizability \cite{nada2017design,krishnasamy2019}.
-
-\textbf{Fragmented Solutions:} Many systems only address a single issue---fuel monitoring, GPS tracking, or theft detection---without offering a comprehensive, unified solution integrating these components using AI and IoT \cite{g2022real,crisgar2021gps}.
-
-These gaps underline the need for a robust, scalable, and integrated IoT-enabled system capable of monitoring fuel levels in real time, tracking vehicle location, and detecting operational anomalies using machine learning algorithms. Such a system holds the potential to significantly reduce fuel fraud, enhance operational efficiency, and support more informed decision-making in fleet management.
-
-\section{System Architecture and Conceptual Design}
 \begin{figure}[!t]
 \centering
 \includegraphics[width=\columnwidth]{concep_diagram}
-\caption{Proposed conceptual diagram.}
+\caption{Conceptual diagram of the IoT-enabled fuel monitoring and anomaly-detection system.}
 \label{fig:conceptual-diagram}
 \end{figure}
 
-The system follows a layered architecture with a focus on modularity, scalability, and reliability. The conceptual framework integrates the following components:
-
-\textbf{IoT Communication:} LoRa transceivers enable low-power, long-range data transmission, with cellular backup, balancing cost and bandwidth considerations.
-
-\textbf{Cloud Intelligence:} Historical data is used to train unsupervised ML models (Isolation Forest, Matrix Profile) to detect anomalies. The cloud evaluates incoming real-time data and triggers alerts.
-
-\textbf{Client Visualization:} A web-based dashboard provides real-time visualization of fuel levels, routes, alerts, and historical playback for decision-making.
-
 \begin{figure}[!t]
 \centering
-\includegraphics[width=\columnwidth]{concep_archi}
-\caption{Proposed system architecture diagram.}
-\label{fig:system-architecture}
+\includegraphics[width=\columnwidth]{End-to-end_system_architecture}
+\caption{End-to-end edge-to-cloud system architecture.}
+\label{fig:end-to-end-architecture}
 \end{figure}
 
-The system architecture follows a layered, end-to-end IoT design composed of three major layers: the data acquisition layer, the communication and cloud processing layer, and the data visualization layer. This structure supports real-time fuel monitoring, GPS-based route tracking, driver safety alerts, and cloud-based anomaly detection.
-
-At the data acquisition layer, the vehicle is outfitted with digitally calibrated float sensors integrated through the truck's ECU/diagnostic connector to obtain accurate fuel-level measurements. The microcontroller (MCU) serves as the primary edge device, interfacing with the float sensor, GPS module (logging coordinates at 5-second intervals), rest alert subsystem, and time-tracking module. A LoRa transceiver functions as the main channel for transmitting fuel, location, and operating-hour data to the cloud, while the cellular module is used as fallback.
-
-The communication and cloud processing layer handles real-time data ingestion and anomaly detection. Incoming packets from the vehicle are received through cloud-based API endpoints and routed to processing services where the trained machine learning model---developed offline using Matrix Profile or Isolation Forest---is deployed for fuel anomaly evaluation. A Python-based alert engine evaluates fuel--location--time patterns and stores synchronized measurements in a centralized database.
-
-The data visualization layer consists of a web-based monitoring dashboard that retrieves information from the cloud database. Through this interface, clients can view real-time truck locations, fuel levels, distance traveled, driver operating hours, and alert notifications. The dashboard also supports historical playback of route and fuel usage trends, enabling improved operational awareness and proactive decision-making.
+The implemented architecture in Fig.~\ref{fig:end-to-end-architecture} follows a layered edge-to-cloud pattern. The edge layer performs OBD-II acquisition, GPS parsing, fuel filtering, trip-state handling, HMI display, and communication-channel selection. The transport layer uses prioritized LoRa, LTE/GSM, WiFi, and SPIFFS offline replay so telemetry is not silently lost during degraded network conditions. The cloud layer persists data in Supabase, runs backend rules and anomaly inference, and exposes synchronized views to the dashboard, mobile app, and HMI poll-back path.
 
 \section{Methodology}
-The methodology integrates theoretical foundations on cyber-physical systems and IoT architectures with practical implementation strategies. The system leverages real-time sensor data, including digitally calibrated float sensors interfaced via the vehicle's CAN bus or OBD-II port, GPS modules for location tracking, and embedded alert subsystems for driver safety. These components feed into a microcontroller that preprocesses signals, synchronizes time-series data, and transmits information to a cloud platform primarily via LoRa, with GSM as a backup channel.
+\subsection{Fuel Acquisition and Filtering}
+Fuel, speed, GPS, trip, and engine data are sampled by the HMI and transmitted as synchronized telemetry rows. Fuel readings are filtered before model inference to reduce sender noise and slosh. The filtering pipeline combines a median stage, exponential smoothing, and a dead-band publisher, allowing the system to suppress short tank-motion artifacts while preserving meaningful fuel trends.
 
-Offline, historical and hybrid datasets, combining fleet telemetry and publicly available vehicle logs, are used to train non-parametric unsupervised machine learning models such as Matrix Profile and Isolation Forest. These models identify anomalous fuel consumption patterns and provide context-aware alerts. In the cloud, a Python-based engine continuously evaluates incoming data, logs anomaly events, and stores synchronized measurements in a centralized database. Users access the information through a web-based dashboard that displays real-time truck status, historical fuel usage, route playback, and operational alerts.
-
-The methodology includes signal preprocessing (smoothing via moving averages), time synchronization using linear interpolation, hybrid dataset construction, and rigorous evaluation metrics (precision, false positive rate, accuracy, detection latency) to validate system objectives. The approach follows iterative, agile development cycles, allowing continuous refinement of sensor integration, communication protocols, and anomaly detection algorithms, thereby ensuring reliability, scalability, and actionable fleet monitoring insights.
-
-\subsection{Data Acquisition and Preprocessing}
-Data acquisition and preprocessing are crucial for reliable anomaly detection. The methodology includes the following steps:
-
-\textbf{Sensor Calibration:} Fuel-level sensors are calibrated using known volumes, verified with manual measurements, and cross-checked with historical data trends.
-
-\textbf{Signal Filtering:} Raw sensor signals are filtered using moving-average and median filters to reduce noise caused by vehicle motion or fuel sloshing.
-
-\textbf{Synchronization:} Fuel, GPS, and operating-hour data are timestamped and synchronized to ensure consistent data alignment for model evaluation.
-
-\textbf{Feature Engineering:} Derived features include fuel consumption rate, distance-to-fuel ratio, route segment performance, and driver behavior metrics, which feed into anomaly detection models.
-
-Sensor signals can exhibit noise, quantization error, and environmental fluctuation. To improve stability, the system uses a Simple Moving Average (SMA) filter:
+Fuel accuracy was evaluated against pump-gas reference events and the known tank capacity. The primary accuracy metric was mean absolute percentage error (MAPE):
 \begin{equation}
-\mathrm{SMA}_t = \frac{1}{n}\sum_{i=0}^{n-1}x_{t-i}.
-\label{eq:sma}
+\mathrm{MAPE} = \frac{100}{n}\sum_{i=1}^{n}\left|\frac{V_{\mathrm{sensor},i}-V_{\mathrm{ref},i}}{V_{\mathrm{ref},i}}\right|.
 \end{equation}
-This reduces high-frequency noise and creates a clearer trend for anomaly detection algorithms. Sensor streams often arrive at irregular timestamps, and synchronizing them requires interpolation theory. For two samples at timestamps $T_i$ and $T_{i+1}$, the interpolated point at $t_j$ is computed as:
+
+\subsection{Communication, GPS, and Backend Integration}
+Each telemetry row carries device-side timestamp information and channel metadata. Server-side reconciliation separates sampling cadence from backend-arrival delay. Communication was evaluated through per-channel latency, packet delivery, and offline-replay behavior. GPS was evaluated using inter-sample interval and fix availability because route context, distance, and motion state feed the anomaly detector and dashboard.
+
+\subsection{Fuel-Anomaly Model}
+A fuel anomaly is modeled as a telemetry row whose observed fuel-level change deviates from the expected fuel-level change under operating context. For row $t$,
 \begin{equation}
-x(t_j) = x(T_i) + \frac{x(T_{i+1}) - x(T_i)}{T_{i+1} - T_i}(t_j - T_i).
-\label{eq:interpolation}
+A(t)=
+\frac{\left|\Delta f_{\mathrm{obs}}(t)-\mathbb{E}[\Delta f\mid c(t)]\right|}
+{\sigma(c(t))},
+\label{eq:article-anomaly-model}
 \end{equation}
-This ensures aligned and consistent time-series data across fuel level, GPS speed, and distance.
+where $c(t)$ includes speed, RPM, engine load, throttle, route, driver, and motion state. This makes the detector a context-conditioned fuel-deviation model rather than a simple sudden-drop detector.
 
-\subsection{Anomaly Detection and Machine Learning}
-The anomaly detection workflow is as follows:
+The model is constrained by four physical constraints and four operational constraints. C1 conservation states that fuel decreases through consumption or unauthorized removal and increases only during refueling. C2 bounded consumption limits plausible fuel loss by engine work and load. C3 sender non-linearity accounts for unstable tank-level bands. C4 slosh accounts for short fuel fluctuations caused by liquid movement. O1 traffic/idling, O2 route restrictions, O3 driver variability, and O4 refuel patterns encode Philippine fleet-operation context. These constraints are implemented through direction-aware rules, refuel gates, fuel-per-RPM and fuel-per-load features, expected-consumption residuals, idle and motion-state features, route-type features, driver fuel-economy deviation, and post-refuel flags.
 
-\textbf{Offline Model Training:} Historical datasets are used to train Isolation Forest and Matrix Profile models to detect abnormal fuel usage patterns.
+\subsection{Machine Learning and Data Mining}
+Isolation Forest Model C is the production row-level detector. Model A used baseline fuel, motion, engine, and refuel-window features; Model B added driving-zone features; and Model C added per-asset, per-driver, and route-type fuel-economy deviation features. Matrix Profile was retained as a supporting subsequence detector for gradual fuel-loss patterns, not as the main production classifier.
 
-\textbf{Context-Aware Thresholding:} Thresholds are dynamically adjusted based on vehicle type, route segment, and driver behavior to reduce false positives.
+A data-mining layer supports interpretation. Constraint-violation profiling annotates each flagged row with signatures such as C2 bounded consumption, C4 slosh suppression, and O3 driver baseline deviation. K-Means clustering with $K=4$ was used only to discover operating regimes in the controlled-injection window. The seven standardized clustering features were filtered fuel delta, speed, engine load, idle duration score, motion state, throttle, and normalized RPM. The four discovered regimes corresponded to high-speed cruise, mid-speed cruise, gradual-decline behavior, and raw-slosh artifact behavior.
 
-\textbf{Evaluation Metrics:} Precision, FPR, accuracy, and detection latency are calculated; confusion matrices, ROC, and PR curves visualize performance.
-
-\section{Evaluation}
-To evaluate these models, the outputs are validated against manually labeled ground truth data. From this, the number of true positives (TP), false positives (FP), true negatives (TN), and false negatives (FN) are counted. Key metrics are computed as follows.
-
-\textbf{Precision}
+\subsection{Evaluation Protocol}
+Fuel accuracy, communication reliability, GPS cadence, anomaly detection, and alert usability were evaluated according to the study's five objectives. SO4 anomaly-detection metrics were computed using leave-one-trip-out validation on the project-native partition so that each held-out trip was scored by models trained and calibrated on separate trips. Precision and false-positive rate (FPR) were computed as:
 \begin{equation}
-\mathrm{Precision} = \frac{TP}{TP + FP}.
-\label{eq:precision}
+\mathrm{Precision}=\frac{TP}{TP+FP},\qquad
+\mathrm{FPR}=\frac{FP}{FP+TN}.
 \end{equation}
-Precision reflects how many detected anomalies are truly anomalous. A high precision means fewer false alarms, which is important for maintaining trust in the alerting system.
 
-\textbf{False Positive Rate (FPR)}
-\begin{equation}
-\mathrm{FPR} = \frac{FP}{FP + TN}.
-\label{eq:fpr}
-\end{equation}
-FPR quantifies the likelihood of incorrectly classifying normal behavior as anomalous. Lower FPR values are desired to reduce noise in the system's alerts.
+\section{Results and Discussion}
+Table~\ref{tab:article-objective-results} summarizes the main objective-level results. The fuel subsystem reached 1.04\% MAPE and 3.00\% maximum error across the 13--98\% tank range, satisfying the $\pm$5\% target. GPS reached a 5.52~s median sampling interval and 90.21\% fix availability. The communication subsystem demonstrated multi-channel delivery and meaningful offline-buffer use, preventing telemetry loss during weak connectivity.
 
-\textbf{Accuracy}
-\begin{equation}
-\mathrm{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}.
-\label{eq:accuracy}
-\end{equation}
-Accuracy provides an overall view of model correctness but can be misleading in imbalanced datasets, which is why it is used alongside precision and FPR.
+\begin{table*}[!t]
+\centering
+\caption{Objective-Level Evaluation Summary}
+\label{tab:article-objective-results}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|p{0.14\textwidth}|p{0.26\textwidth}|p{0.28\textwidth}|p{0.20\textwidth}|}
+\hline
+\textbf{Objective} & \textbf{Target} & \textbf{Measured Result} & \textbf{Status} \\
+\hline
+SO1 Fuel measurement & Fuel accuracy within $\pm$5\% & 1.04\% MAPE; 3.00\% maximum error; all validation events within tolerance & Met \\
+\hline
+SO2 Communication & Cloud-accessible real-time telemetry & LoRa, LTE/GSM, WiFi, and offline replay maintained telemetry flow under varied network conditions & Met \\
+\hline
+SO3 GPS tracking & 5~s location logging and route context & 5.52~s median sampling interval; 90.21\% GPS fix availability & Met \\
+\hline
+SO4 ML anomaly detection & $\geq$90\% precision and $\leq$10\% FPR & Isolation Forest Model C: 92.9\% precision, 92.9\% recall, and 1.09\% FPR under leave-one-trip-out evaluation & Met \\
+\hline
+SO5 Alerts and dashboard & Usable alert and monitoring workflow & 100 alerts over 17.7 days; 95.0\% resolution rate; administrator SUS score of 81.9/100 & Met \\
+\hline
+\end{tabular}
+\normalsize
+\end{table*}
 
-\textbf{Detection Latency}
-\begin{equation}
-L_{\mathrm{det}} = T_{\mathrm{detected}} - T_{\mathrm{actual}}.
-\label{eq:latency}
-\end{equation}
-Detection latency measures the difference between the time an anomaly is detected and the time it actually occurred. The objective is achieved if the unsupervised system attains at least 90\% precision (indicating that the majority of flagged events are correct), a false positive rate not exceeding 10\%, and average detection latency under 10 seconds. For interpretability, confusion matrices and performance plots such as ROC and PR curves will be used. Detection events will also be overlaid on synchronized GPS location maps and fuel-level graphs for context-aware validation.
+For anomaly detection, Model C was the strongest production detector because it considered fuel movement relative to driver, route, and operating context. It achieved 92.9\% precision, 92.9\% recall, and 1.09\% FPR on the project-native partition. The result satisfies the 90\% precision and 10\% FPR requirements while preserving Model C as the deployable detector. The Hybrid Intersection produced 97.4\% precision as a high-confidence alert channel, but Model C remains the primary production model because it provides the best row-level balance of detection and coverage.
+
+The constraint-violation analysis makes the ML result auditable. In the controlled-injection analysis, O3 driver baseline deviation appeared in every flagged row, C2 bounded consumption appeared in 69.0\% of flagged rows, and C4 slosh suppression appeared most strongly in sudden and rapid drops. The controlled-injection window had zero false positives, but this is scoped only to that window; the full leave-one-trip-out evaluation still reports the overall 1.09\% FPR. K-Means archetype discovery further showed that labelled and predicted positives were concentrated in moving-vehicle operating regimes, while a raw-slosh artifact cluster contained zero labels and zero predictions, confirming that the filter cascade suppressed C3/C4 artifacts before inference.
+
+The alert subsystem completed the operator workflow. Alerts were surfaced across fuel anomaly, overspeed, low fuel, rest, and maintenance classes, with synchronized visibility across the HMI, mobile app, and dashboard. The administrator System Usability Scale score of 81.9/100 indicates that the dashboard was not only functional but usable for routine monitoring and response.
+
+\section{Limitations and Future Work}
+The detector is strongest for in-trip and moving-vehicle anomalies because its context features depend on movement, speed, RPM, engine load, route progression, and driver-baseline deviation. Parked-depot siphoning, where the vehicle is stationary and engine-off, requires a separate stationary-state detector using long-duration fuel-level monitoring. Other limitations include the need for longer deployment with confirmed real-world theft events, broader vehicle and tank calibration, stronger modern cellular fallback, and more multi-user dashboard testing.
 
 \section{Conclusion}
-This study developed and evaluated an integrated IoT-enabled fleet monitoring system for real-time fuel measurement, GPS tracking, cloud-based telemetry, anomaly detection, and driver/fleet-manager alerting. The implemented prototype met all five specific objectives reported in the full thesis evaluation. Fuel measurement achieved a 1.04\% MAPE and a 3.00\% maximum error across the 13--98\% tank range, with all validation events remaining within the required $\pm$5\% tolerance. The communication subsystem maintained telemetry delivery across LoRa, WiFi, LTE, GSM 2G fallback, and offline buffering, while GPS logging produced a 5.52~s median sampling interval and 90.21\% GPS fix availability.
-
-For fuel-anomaly detection, the context-aware Isolation Forest model with per-asset fuel-economy deviation features achieved 92.9\% precision and a 1.09\% false-positive rate under leave-one-trip-out evaluation, satisfying the target of at least 90\% precision and at most 10\% false positives. A Hybrid Intersection detector further reached 97.4\% precision as a high-confidence alert channel. These results show that fuel anomaly detection is more reliable when raw fuel-level changes are interpreted together with trip, distance, speed, route, and vehicle-specific context rather than through static thresholds alone.
-
-The alerting and visualization components also demonstrated operational usability. During the field-test window, the system surfaced 100 alerts across rest, overspeed, fuel-anomaly, and maintenance classes, with a 95.0\% administrator resolution rate. The embedded HMI, mobile companion, and administrative dashboard provided synchronized trip state, alert review, route visualization, telemetry logs, and fleet-management functions, with the administrator dashboard obtaining an SUS score of 81.9/100. Remaining limitations include the need for longer fleet deployment with confirmed real-world anomaly cases, a dedicated parked-vehicle siphoning detector, stronger modern cellular fallback, and broader validation across additional vehicles and tank geometries. Overall, the results demonstrate that combining embedded telemetry, resilient communication, contextual unsupervised learning, and human-readable alerts can provide a practical foundation for fuel accountability and proactive fleet supervision.
+This paper presented an implemented IoT-enabled system for real-time truck fuel monitoring, GPS tracking, anomaly detection, and alert management. The prototype met the thesis objectives across fuel accuracy, communication, GPS cadence, machine-learning anomaly detection, and alert usability. The central technical finding is that fuel anomalies should be modeled as context-conditioned deviations, not as raw fuel drops alone. Isolation Forest Model C, supported by Matrix Profile and a constraint-aware data-mining layer, provided a practical and auditable production detector. Overall, the system demonstrates that embedded telemetry, resilient communication, contextual unsupervised learning, and human-readable alert explanations can support fuel accountability and proactive fleet supervision.
 
 \section*{Acknowledgment}
-The authors would like to express their sincere gratitude to their thesis adviser, Dr. John Anthony Jose, for his invaluable guidance, continuous support, constructive feedback, and encouragement throughout the conduct of this research.
+The authors thank their adviser, thesis panel, thesis coordinators, De La Salle University, Hino Para\~naque Subic GS Auto Inc., and all collaborators who supported the design, implementation, field testing, and evaluation of this project.
 
-The authors also extend their deepest appreciation to the members of the thesis panel, Dr. Lawrence Materum (Chair), Dr. Gerald Arada, and Dr. Gerino Mappatao, for their insightful comments, valuable recommendations, and expertise, which greatly contributed to the improvement of this study.
-
-The authors likewise acknowledge the support of the thesis coordinators, Dr. Alexander Co Abad and Dr. Ronnel Agulto, for their assistance and coordination throughout the thesis process.
-
-Special thanks are extended to Jayne Lois Go San Juan, whose expertise as a consultant from another field provided valuable insights that enriched the interdisciplinary aspects of this research.
-
-The authors gratefully acknowledge the Department of Electronics and Computer Engineering, De La Salle University, for providing the academic environment and resources necessary for the completion of this study. The authors also express their sincere appreciation to the partner fleet operator, Hino Para\~naque Subic GS Auto Inc. (SGSA), for its cooperation and support during the conduct of the research.
-
-The authors further wish to thank Macaranas Percival III Quinto for his assistance and for providing the resources and materials that made this research possible. They also express their gratitude to Guillarte Samuel John Deauna for providing materials that were utilized in the implementation of the study.
-
-Finally, the authors extend their heartfelt gratitude to their families who offered their unwavering encouragement, understanding, and support throughout the completion of this research.
-
-\ifCLASSOPTIONcaptionsoff
-  \newpage
-\fi
-
-\bibliographystyle{IEEEtran}
+\bibliographystyle{ieeetr}
 \bibliography{references}
 
 \end{document}
