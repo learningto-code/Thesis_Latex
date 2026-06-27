@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.25)  27 JUN 2026 05:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.25)  27 JUN 2026 05:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -7036,7 +7036,7 @@ Package pdftex.def Info: article_forum_paper.pdf , page1 used on input line 361
 
 
  <./article_forum_paper.pdf>]
-<article_forum_paper.pdf, id=4312, page=2, 614.295pt x 794.97pt>
+<article_forum_paper.pdf, id=4300, page=2, 614.295pt x 794.97pt>
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 2>
 Package pdftex.def Info: article_forum_paper.pdf , page2 used on input line 361
@@ -7055,7 +7055,7 @@ Package pdftex.def Info: article_forum_paper.pdf , page2 used on input line 361
  [229
 
  <./article_forum_paper.pdf>]
-<article_forum_paper.pdf, id=4338, page=3, 614.295pt x 794.97pt>
+<article_forum_paper.pdf, id=4316, page=3, 614.295pt x 794.97pt>
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 3>
 Package pdftex.def Info: article_forum_paper.pdf , page3 used on input line 361
@@ -7074,7 +7074,7 @@ Package pdftex.def Info: article_forum_paper.pdf , page3 used on input line 361
  [230
 
  <./article_forum_paper.pdf>]
-<article_forum_paper.pdf, id=4380, page=4, 614.295pt x 794.97pt>
+<article_forum_paper.pdf, id=4374, page=4, 614.295pt x 794.97pt>
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 4>
 Package pdftex.def Info: article_forum_paper.pdf , page4 used on input line 361
@@ -7094,7 +7094,7 @@ Package pdftex.def Info: article_forum_paper.pdf , page4 used on input line 361
 [231
 
  <./article_forum_paper.pdf>]
-<article_forum_paper.pdf, id=4388, page=5, 614.295pt x 794.97pt>
+<article_forum_paper.pdf, id=4384, page=5, 614.295pt x 794.97pt>
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 5>
 Package pdftex.def Info: article_forum_paper.pdf , page5 used on input line 361
@@ -7113,7 +7113,7 @@ Package pdftex.def Info: article_forum_paper.pdf , page5 used on input line 361
  [232
 
  <./article_forum_paper.pdf>]
-<article_forum_paper.pdf, id=4396, page=6, 614.295pt x 794.97pt>
+<article_forum_paper.pdf, id=4394, page=6, 614.295pt x 794.97pt>
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 6>
 Package pdftex.def Info: article_forum_paper.pdf , page6 used on input line 361
@@ -7132,25 +7132,6 @@ Package pdftex.def Info: article_forum_paper.pdf , page6 used on input line 361
  [233
 
  <./article_forum_paper.pdf>]
-<article_forum_paper.pdf, id=4413, page=7, 614.295pt x 794.97pt>
-File: article_forum_paper.pdf Graphic file (type pdf)
-<use article_forum_paper.pdf, page 7>
-Package pdftex.def Info: article_forum_paper.pdf , page7 used on input line 361
-.
-(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-File: article_forum_paper.pdf Graphic file (type pdf)
-<use article_forum_paper.pdf, page 7>
-Package pdftex.def Info: article_forum_paper.pdf , page7 used on input line 361
-.
-(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-File: article_forum_paper.pdf Graphic file (type pdf)
-<use article_forum_paper.pdf, page 7>
-Package pdftex.def Info: article_forum_paper.pdf , page7 used on input line 361
-.
-(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- [234
-
- <./article_forum_paper.pdf>]
 
 Package datagidx Warning: Rerun required to sort the index/glossary databases.
 
@@ -7165,47 +7146,45 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 47978 strings out of 476106
- 830307 string characters out of 5793933
+ 47974 strings out of 476106
+ 830178 string characters out of 5793933
  2128559 words of memory out of 5000000
- 66675 multiletter control sequences out of 15000+600000
+ 66672 multiletter control sequences out of 15000+600000
  628750 words of font info for 551 fonts, out of 8000000 for 9000
  67 hyphenation exceptions out of 8191
  114i,19n,110p,2735b,7613s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-tcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
-r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on document.pdf (260 pages, 19134192 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmtcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
+bm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
+a.pfb>
+Output written on document.pdf (259 pages, 19021617 bytes).
 PDF statistics:
- 5493 PDF objects out of 6186 (max. 8388607)
- 4899 compressed objects within 49 object streams
- 1770 named destinations out of 2073 (max. 500000)
- 100358 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 5471 PDF objects out of 6186 (max. 8388607)
+ 4884 compressed objects within 49 object streams
+ 1769 named destinations out of 2073 (max. 500000)
+ 100353 words of extra memory for PDF output out of 106986 (max. 10000000)
 

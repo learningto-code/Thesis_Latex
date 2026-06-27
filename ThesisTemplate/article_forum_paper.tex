@@ -1,5 +1,5 @@
 %% Article/forum paper for the fuel monitoring thesis project.
-\documentclass[10pt,twocolumn]{article}
+\documentclass[10pt,journal]{IEEEtran}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -7,7 +7,6 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{tabularx}
-\usepackage[letterpaper,margin=0.75in]{geometry}
 \usepackage[pdftex]{graphicx}
 \usepackage{url}
 \usepackage{hyperref}
@@ -30,8 +29,6 @@ pdfauthor={Samuelle P. Barja, Konrad Romel C. Castelo, Eliza Rica R. De La Rosa,
 pdfkeywords={Fuel Monitoring, GPS Tracking, Anomaly Detection, Internet of Things, Unsupervised Machine Learning, Isolation Forest, Matrix Profile}
 }
 
-\date{}
-\setlength{\columnsep}{0.25in}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
 \begin{document}
@@ -43,17 +40,23 @@ pdfkeywords={Fuel Monitoring, GPS Tracking, Anomaly Detection, Internet of Thing
         Eliza~Rica~R.~De~La~Rosa,
         and~Alyssa~S.~Montemayor}
 
-\maketitle
+\markboth{An IoT-Enabled System for Real-Time Fuel Monitoring, GPS Tracking, and Anomaly Detection in Trucks}{}
 
+\IEEEtitleabstractindextext{%
 \begin{abstract}
 Fuel accountability in delivery-truck operations requires more than a fuel gauge: it requires synchronized vehicle telemetry, route context, resilient communication, and an anomaly model that distinguishes abnormal fuel loss from traffic, idling, refueling, sender noise, and driver variability. This paper presents an implemented IoT-enabled fleet-monitoring prototype developed with Hino Para\~naque Subic GS Auto Inc. The system acquires OBD-II fuel, speed, GPS, trip-state, and alert data through an embedded HMI; transmits telemetry through LoRa, LTE/GSM, WiFi, and offline replay; stores records in a cloud backend; and detects fuel anomalies using non-parametric unsupervised learning. The production detector is Isolation Forest Model C, supported by Matrix Profile as a subsequence detector and by a data-mining layer for operating-regime interpretation. Fuel anomalies are modeled as context-conditioned deviations between observed and expected fuel-level change under speed, RPM, engine load, throttle, route, driver, and motion state. Field and controlled-injection evaluation showed 1.04\% MAPE fuel accuracy, 5.52~s median GPS sampling, 90.21\% GPS fix availability, 92.9\% precision and 1.09\% false-positive rate for Model C under leave-one-trip-out validation, and a 95.0\% alert-resolution rate. The results support the use of context-aware telemetry and interpretable anomaly signatures for practical fleet fuel monitoring, while parked-depot siphoning remains a future-work boundary requiring a dedicated stationary-state detector.
 \end{abstract}
 
-\noindent\textbf{Keywords---}
+\begin{IEEEkeywords}
 Fuel monitoring, GPS tracking, anomaly detection, Internet of Things, unsupervised machine learning, Isolation Forest, Matrix Profile, fleet management.
+\end{IEEEkeywords}}
+
+\maketitle
+\IEEEdisplaynontitleabstractindextext
+\IEEEpeerreviewmaketitle
 
 \section{Introduction}
-Fuel cost, fuel theft, unreported leakage, poor route visibility, and delayed alert response remain persistent problems in delivery-fleet operations. Traditional approaches often treat fuel monitoring, GPS tracking, and driver alerts as separate functions, which limits their ability to explain whether a fuel drop is normal consumption, traffic-related idling, sender noise, refueling recovery, or a genuine anomaly. Prior IoT fuel-monitoring and tracking systems show the value of connected sensors but often remain hardware-only or rule-driven, while machine-learning studies on heavy vehicles frequently use datasets detached from an integrated field prototype \cite{ahmed2017fuel,alquhali2019iot,crisgar2021gps,mumcuoglu2023fuel}.
+\IEEEPARstart{F}{uel} cost, fuel theft, unreported leakage, poor route visibility, and delayed alert response remain persistent problems in delivery-fleet operations. Traditional approaches often treat fuel monitoring, GPS tracking, and driver alerts as separate functions, which limits their ability to explain whether a fuel drop is normal consumption, traffic-related idling, sender noise, refueling recovery, or a genuine anomaly. Prior IoT fuel-monitoring and tracking systems show the value of connected sensors but often remain hardware-only or rule-driven, while machine-learning studies on heavy vehicles frequently use datasets detached from an integrated field prototype \cite{ahmed2017fuel,alquhali2019iot,crisgar2021gps,mumcuoglu2023fuel}.
 
 This study addresses that gap by implementing and evaluating a complete edge-to-cloud truck-monitoring system. The prototype combines OBD-II fuel and engine telemetry, GPS tracking, prioritized communication, cloud storage, dashboard visualization, HMI and mobile trip controls, and unsupervised anomaly detection. The machine-learning component is intentionally context-aware: it does not flag fuel loss only because the level dropped. Instead, it evaluates whether the observed fuel change is plausible under the vehicle's current operating context.
 
@@ -115,7 +118,7 @@ The implemented architecture in Fig.~\ref{fig:end-to-end-architecture} follows a
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=\columnwidth]{ESP32_Hardware_Block_Diagram}
+\includegraphics[width=\columnwidth]{image}
 \caption{Embedded HMI hardware block showing the separation of OBD-II/CAN, GPS, display, radio, modem, and driver-control functions.}
 \label{fig:article-hardware-block}
 \end{figure}
@@ -264,9 +267,24 @@ The present labels were primarily controlled injected anomalies rather than conf
 This paper presented an implemented IoT-enabled system for real-time truck fuel monitoring, GPS tracking, anomaly detection, and alert management. The prototype met the thesis objectives across fuel accuracy, communication, GPS cadence, machine-learning anomaly detection, and alert usability. The central technical finding is that fuel anomalies should be modeled as context-conditioned deviations, not as raw fuel drops alone. Isolation Forest Model~C, supported by Matrix Profile and a constraint-aware data-mining layer, provided a practical and auditable production detector. Overall, the system demonstrates that embedded telemetry, resilient communication, contextual unsupervised learning, and human-readable alert explanations can support fuel accountability and proactive fleet supervision.
 
 \section*{Acknowledgment}
-The authors thank their adviser, thesis panel, thesis coordinators, De La Salle University, Hino Para\~naque Subic GS Auto Inc., and all collaborators who supported the design, implementation, field testing, and evaluation of this project.
+The authors would like to express their sincere gratitude to their thesis adviser, Dr. John Anthony Jose, for his invaluable guidance, continuous support, constructive feedback, and encouragement throughout the conduct of this research.
 
-\bibliographystyle{ieeetr}
+The authors also extend their deepest appreciation to the members of the thesis panel, Dr. Lawrence Materum (Chair), Dr. Gerald Arada, and Dr. Gerino Mappatao, for their insightful comments, valuable recommendations, and expertise, which greatly contributed to the improvement of this study.
+
+The authors likewise acknowledge the support of the thesis coordinators, Dr. Alexander Co Abad and Dr. Ronnel Agulto, for their assistance and coordination throughout the thesis process.
+
+Special thanks are extended to Jayne Lois Go San Juan, whose expertise as a consultant from another field provided valuable insights that enriched the interdisciplinary aspects of this research.
+
+The authors gratefully acknowledge the Department of Electronics and Computer Engineering, De La Salle University, for providing the academic environment and resources necessary for the completion of this study. The authors also express their sincere appreciation to the partner fleet operator, Hino Parañaque Subic GS Auto Inc. (SGSA), for its cooperation and support during the conduct of the research.
+
+The authors further wish to thank Macaranas Percival III Quinto for his assistance and for providing the resources and materials that made this research possible. They also express their gratitude to Guillarte Samuel John Deauna for providing materials that were utilized in the implementation of the study.
+
+Finally, the authors extend their heartfelt gratitude to their families who offered their unwavering encouragement, understanding, and support throughout the completion of this research. Their confidence and belief in the authors served as a constant source of motivation.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+\bibliographystyle{IEEEtran}
 \bibliography{references}
 
 \end{document}
