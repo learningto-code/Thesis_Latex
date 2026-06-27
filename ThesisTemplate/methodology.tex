@@ -502,7 +502,6 @@ Telemetry records older than the active-retention window are moved from \texttt{
 
 The anomaly-detection pipeline uses Isolation Forest Model C as the primary production detector and Matrix Profile as a supporting subsequence detector. Model C receives context-aware features derived from fuel level, speed, distance, engine operation, driver behavior, route context, and fuel-economy baseline deviation. Matrix Profile is retained to support detection of gradual subsequence-level fuel-loss patterns. Model performance is evaluated using leave-one-trip-out validation so each held-out trip is scored by models trained and calibrated on separate trips.
 
-\setcounter{subsection}{-1}
 \subsection{Anomaly Model and Environmental Constraints}
 \label{sec:anomaly_model_constraints}
 

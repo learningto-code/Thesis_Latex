@@ -109,19 +109,19 @@
 \contentsline {subsection}{\numberline {5.6.7}Alert Rule Implementation}{112}{subsection.5.6.7}%
 \contentsline {subsection}{\numberline {5.6.8}Archival Pipeline}{113}{subsection.5.6.8}%
 \contentsline {section}{\numberline {5.7}Machine Learning Methodology}{114}{section.5.7}%
-\contentsline {subsection}{\numberline {5.7.0}Anomaly Model and Environmental Constraints}{114}{subsection.5.7.0}%
-\contentsline {subsection}{\numberline {5.7.1}Machine Learning Architecture}{116}{subsection.5.7.1}%
-\contentsline {subsection}{\numberline {5.7.2}Dataset Composition}{117}{subsection.5.7.2}%
-\contentsline {subsection}{\numberline {5.7.3}Anomaly Injection Methodology}{118}{subsection.5.7.3}%
-\contentsline {subsection}{\numberline {5.7.4}Feature Engineering}{119}{subsection.5.7.4}%
-\contentsline {subsection}{\numberline {5.7.5}Data-Mining Layer}{122}{subsection.5.7.5}%
-\contentsline {subsubsection}{\numberline {5.7.5.1}Constraint-Violation Profiling}{122}{subsubsection.5.7.5.1}%
-\contentsline {subsubsection}{\numberline {5.7.5.2}Archetype Discovery}{122}{subsubsection.5.7.5.2}%
-\contentsline {subsection}{\numberline {5.7.6}Isolation Forest Training Methodology}{123}{subsection.5.7.6}%
-\contentsline {subsection}{\numberline {5.7.7}Matrix Profile Methodology}{123}{subsection.5.7.7}%
-\contentsline {subsection}{\numberline {5.7.8}Hybrid Fusion Methodology}{124}{subsection.5.7.8}%
-\contentsline {subsection}{\numberline {5.7.9}Contextual Gate Methodology}{124}{subsection.5.7.9}%
-\contentsline {subsection}{\numberline {5.7.10}Backend Inference Integration}{124}{subsection.5.7.10}%
+\contentsline {subsection}{\numberline {5.7.1}Anomaly Model and Environmental Constraints}{114}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Machine Learning Architecture}{116}{subsection.5.7.2}%
+\contentsline {subsection}{\numberline {5.7.3}Dataset Composition}{117}{subsection.5.7.3}%
+\contentsline {subsection}{\numberline {5.7.4}Anomaly Injection Methodology}{118}{subsection.5.7.4}%
+\contentsline {subsection}{\numberline {5.7.5}Feature Engineering}{119}{subsection.5.7.5}%
+\contentsline {subsection}{\numberline {5.7.6}Data-Mining Layer}{122}{subsection.5.7.6}%
+\contentsline {subsubsection}{\numberline {5.7.6.1}Constraint-Violation Profiling}{122}{subsubsection.5.7.6.1}%
+\contentsline {subsubsection}{\numberline {5.7.6.2}Archetype Discovery}{122}{subsubsection.5.7.6.2}%
+\contentsline {subsection}{\numberline {5.7.7}Isolation Forest Training Methodology}{123}{subsection.5.7.7}%
+\contentsline {subsection}{\numberline {5.7.8}Matrix Profile Methodology}{123}{subsection.5.7.8}%
+\contentsline {subsection}{\numberline {5.7.9}Hybrid Fusion Methodology}{124}{subsection.5.7.9}%
+\contentsline {subsection}{\numberline {5.7.10}Contextual Gate Methodology}{124}{subsection.5.7.10}%
+\contentsline {subsection}{\numberline {5.7.11}Backend Inference Integration}{124}{subsection.5.7.11}%
 \contentsline {section}{\numberline {5.8}Evaluation Methodology}{125}{section.5.8}%
 \contentsline {subsection}{\numberline {5.8.1}Cross-Validation Design}{125}{subsection.5.8.1}%
 \contentsline {subsection}{\numberline {5.8.2}Objective-Based Evaluation Protocol}{126}{subsection.5.8.2}%
