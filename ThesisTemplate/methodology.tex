@@ -502,6 +502,59 @@ Telemetry records older than the active-retention window are moved from \texttt{
 
 The anomaly-detection pipeline uses Isolation Forest Model C as the primary production detector and Matrix Profile as a supporting subsequence detector. Model C receives context-aware features derived from fuel level, speed, distance, engine operation, driver behavior, route context, and fuel-economy baseline deviation. Matrix Profile is retained to support detection of gradual subsequence-level fuel-loss patterns. Model performance is evaluated using leave-one-trip-out validation so each held-out trip is scored by models trained and calibrated on separate trips.
 
+\setcounter{subsection}{-1}
+\subsection{Anomaly Model and Environmental Constraints}
+\label{sec:anomaly_model_constraints}
+
+A fuel anomaly is formally defined as a telemetry row whose observed fuel-level change deviates from the expected fuel-level change under the current operating context. For row $t$, the normalized anomaly magnitude is represented as
+
+\begin{equation}
+A(t) =
+\frac{\left|\Delta f_{\mathrm{obs}}(t) - \mathbb{E}[\Delta f \mid c(t)]\right|}
+{\sigma(c(t))}
+\label{eq:fuel_anomaly_model}
+\end{equation}
+
+\noindent
+where $\Delta f_{\mathrm{obs}}(t)$ is the observed filtered fuel-level change, $\mathbb{E}[\Delta f \mid c(t)]$ is the expected fuel-level change under context $c(t)$, and $\sigma(c(t))$ is the expected spread of fuel change under that context. The context vector $c(t)$ includes speed, RPM, engine load, throttle, route, driver, and motion state. The system is therefore not a simple ``fuel dropped suddenly'' detector. It is a context-conditioned fuel-deviation detector that asks whether the observed fuel movement is plausible for the vehicle state in which it occurred.
+
+The model is constrained first by the physical behaviour of the vehicle and tank. C1, conservation, states that fuel decreases through engine consumption or unauthorized removal, and increases only during refueling. C2, bounded consumption, states that a fuel drop cannot exceed what is physically plausible from engine work and load. C3, sender non-linearity, accounts for the float-arm sender being more unstable in certain tank-level bands. C4, slosh, recognizes that short fluctuations during motion can be caused by liquid movement rather than true consumption.
+
+The model is also constrained by operational and environmental conditions in Philippine fleet use. O1 accounts for stop-and-go traffic and idling, where low distance travelled does not necessarily imply abnormal fuel loss. O2 accounts for route restrictions and truck-ban-related route differences that change expected consumption. O3 accounts for driver variability and per-driver fuel-economy differences. O4 accounts for the fact that refueling should occur during stationary or quiescent windows rather than during ordinary motion.
+
+\begin{table}[!htbp]
+\centering
+\caption{Constraint-to-Mechanism Mapping for Fuel-Anomaly Detection}
+\label{tab:constraint_mechanism_mapping}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{|p{0.22\textwidth}|X|X|}
+\hline
+\textbf{Constraint} & \textbf{System Mechanism} & \textbf{Purpose} \\
+\hline
+C1 Conservation & Direction-aware step rule and refuel quiescence window & Separate true fuel decreases and refueling events from impossible direction changes. \\
+\hline
+C2 Bounded consumption & \texttt{fuel\_drop\_per\_rpm}, \texttt{fuel\_drop\_per\_load}, and \texttt{expected\_consumption\_residual} features & Compare observed fuel loss against engine-work plausibility. \\
+\hline
+C3 Sender non-linearity & Median and EMA filter cascade tuned by tank behaviour & Reduce sender-band instability before model inference. \\
+\hline
+C4 Slosh & Median window and dead-band publisher & Suppress short fuel fluctuations caused by tank movement. \\
+\hline
+O1 Traffic and idling & \texttt{idle\_duration\_score} and \texttt{motion\_state\_code} & Distinguish stop-and-go operation from abnormal stationary loss. \\
+\hline
+O2 Route restrictions & \texttt{route\_type\_code} and route-segment performance features & Condition expected consumption on route type and segment behaviour. \\
+\hline
+O3 Driver variability & \texttt{driver\_kmpl\_deviation\_pct} and \texttt{driver\_behavior\_score} & Detect deviations from the driver's normal fuel-economy band. \\
+\hline
+O4 Refuel pattern & \texttt{time\_since\_refuel\_norm}, \texttt{post\_refuel\_flag}, and contextual refuel gate & Exempt plausible refueling and post-refuel stabilization windows. \\
+\hline
+\end{tabularx}
+\normalsize
+\end{table}
+
+Table~\ref{tab:constraint_mechanism_mapping} links each physical or operational constraint to an implemented mechanism in the feature pipeline, filter cascade, or contextual gate. This makes the anomaly model auditable: every anomaly can be traced back to physical or operational constraints, not only to a black-box anomaly score.
+
 \subsection{Machine Learning Architecture}
 
 \begin{figure}[!htbp]
@@ -514,6 +567,43 @@ The anomaly-detection pipeline uses Isolation Forest Model C as the primary prod
 Figure~\ref{fig:ml_anomaly_detection_architecture} summarizes the pipeline from sensor sources and edge preprocessing to backend ingest, Supabase storage, 33-feature Model C vectors, dual-model inference, hybrid fusion, persisted anomaly flags, alert insertion, HMI feedback, and dashboard display.
 
 The diagram should be read as the bridge between methodology and evaluation. The left side shows where the raw evidence originates, the middle shows how it becomes model features, and the right side shows how a model decision becomes a user-facing alert. This is why Chapter~6 reports both model metrics and alert-system behaviour: a high anomaly score is useful only if it is persisted, gated, and surfaced to the operator.
+
+\begin{figure}[!htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+    node distance=0cm,
+    process/.style={
+        draw=blue!55!black,
+        fill=blue!8,
+        align=center,
+        minimum height=0.95cm,
+        text width=2.55cm,
+        font=\scriptsize,
+        rounded corners=1pt
+    },
+    arrow/.style={->, line width=0.6pt, draw=gray!75!black}
+]
+\node[process] (raw) at (0,0) {Raw OBD-II + GPS telemetry};
+\node[process] (filter) at (3.1,0) {Fuel filtering};
+\node[process] (features) at (6.2,0) {Contextual feature extraction};
+\node[process] (gates) at (9.3,0) {Environmental constraint gates};
+\node[process] (iforest) at (12.4,0) {Isolation Forest Model C};
+\node[process] (signature) at (15.5,0) {Constraint-violation signature};
+\node[process] (alert) at (18.6,0) {Anomaly alert explanation};
+\draw[arrow] (raw) -- (filter);
+\draw[arrow] (filter) -- (features);
+\draw[arrow] (features) -- (gates);
+\draw[arrow] (gates) -- (iforest);
+\draw[arrow] (iforest) -- (signature);
+\draw[arrow] (signature) -- (alert);
+\end{tikzpicture}%
+}
+\caption{Anomaly Modeling and Data-Mining Pipeline}
+\label{fig:anomaly_modeling_data_mining_pipeline}
+\end{figure}
+
+Figure~\ref{fig:anomaly_modeling_data_mining_pipeline} summarizes the methodological path used in the implemented detector. Raw telemetry is first filtered, then converted into context features, screened by environmental constraints, scored by Isolation Forest Model~C, and finally translated into a constraint-violation signature that can be attached to an operator-facing alert.
 
 \subsection{Dataset Composition}
 The evaluation corpus merges 20{,}412 telemetry rows across 79 trips from two sources. The project-native partition contains the 634 rows captured by the prototype, on which the injected anomalies (six anomalous trips, 85 anomalous samples) were applied. The public partition is the 19{,}778-row publicly-derived corpus, retained without anomaly labels as the out-of-distribution clean-route domain.
@@ -676,6 +766,21 @@ The feature names in Table~\ref{tab:if_feature_set_variants} are kept in their b
 \endgroup
 
 The 33 features span three progressively extended groups. Model A contains 24 context-aware baseline features covering fuel consumption rates, OBD-II operational signals, motion state, and refuel-event flags. Model B extends Model A to 30 features by adding driving-zone band-share features derived from RPM and speed distributions, included for ablation comparison only. Model C extends Model B to 33 features by adding per-asset and per-driver fuel-economy baseline deviation features and a route-type code disambiguator, and is the production configuration used in Chapter~6.
+
+\subsection{Data-Mining Layer}
+\label{sec:data_mining_layer}
+
+Isolation Forest Model~C is the row-level anomaly scorer used by the deployed ML pipeline. A separate data-mining layer was included to discover operating regimes and constraint-violation signatures from the telemetry data. This layer does not introduce a new production classifier; it explains how flagged rows relate to the physical and operational constraints defined in Section~\ref{sec:anomaly_model_constraints}.
+
+\subsubsection{Constraint-Violation Profiling}
+
+Every row flagged by the model can be annotated with constraint signatures such as C1, C2, C4, O1, O3, and O4. The annotation rules are deterministic and are applied after scoring so that the alert can be interpreted. C1 fires when a fuel drop is observed while parked. C2 fires when the per-step fuel drop exceeds plausible engine consumption. C4 fires when the raw-versus-filtered gap indicates slosh suppression. O1 fires when fuel drop occurs inside idle windows. O3 fires when the driver KMPL deviation exceeds the baseline band. O4 fires when the row is inside a post-refuel quiescence window.
+
+\subsubsection{Archetype Discovery}
+
+K-Means clustering with $K = 4$ was used only as an unsupervised data-mining layer to discover natural operating regimes inside the controlled-injection window. The clustering used seven $z$-standardized features: \texttt{fuel\_delta\_\allowbreak filtered}, \texttt{speed\_\allowbreak filtered}, \texttt{engine\_load\_pct\_\allowbreak norm}, \texttt{idle\_duration\_\allowbreak score}, \texttt{motion\_state\_\allowbreak code}, \texttt{throttle\_pct\_\allowbreak norm}, and \texttt{engine\_rpm\_\allowbreak normalized}. Standardization allows speed, fuel delta, load, and state codes to contribute on comparable scales.
+
+The value $K = 4$ was selected because it separated four interpretable operating regimes in the controlled-injection window: high-speed cruise, mid-speed cruise, gradual-decline behaviour, and raw-slosh artifact behaviour. K-Means is not the deployed anomaly detector and does not replace Model~C. Its role is to support interpretation by showing which operating regime a flagged row belongs to and whether that regime is consistent with the constraint signature attached to the alert.
 
 \subsection{Isolation Forest Training Methodology}
 The Isolation Forest is trained as an unsupervised outlier detector because the normal operating data are more abundant than confirmed abnormal fuel-loss events. The contamination setting is fixed at 0.015, representing the expectation that true fuel anomalies are rare in ordinary fleet operation. Each model uses 300 trees and samples up to 256 records per tree, giving the detector enough random partitions to separate unusual fuel-context combinations without requiring labelled theft examples during training. For every leave-one-trip-out fold, the anomaly threshold is recalibrated from the clean training trips by using the 0.985 quantile of the training scores. This keeps the threshold consistent across the evaluation and avoids manually tuning it to a particular held-out trip.

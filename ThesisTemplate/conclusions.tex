@@ -35,6 +35,8 @@ GSM 2G degradation & Carrier availability and legacy-network phaseout reduce the
 \normalsize
 \end{table}
 
+The current deployed fuel-anomaly detector is strongest for in-trip and moving-vehicle anomalies because it uses contextual movement, speed, RPM, engine load, route state, and driver-baseline deviation to decide whether fuel loss is plausible. Parked-depot siphoning is a remaining limitation: when the vehicle is stationary and the engine is off, the production feature set has little movement or load context to compare against. Future work should add a separate stationary-state detector based on long-duration fuel-level monitoring so overnight or depot siphoning can be handled without weakening the moving-vehicle Model~C threshold.
+
 \section{Contributions}
 
 The interrelated \index{contributions} contributions and supplements that have been developed by the author(s) in this \documentType \ are listed as follows. Only those that are unique to the authors' work are included.

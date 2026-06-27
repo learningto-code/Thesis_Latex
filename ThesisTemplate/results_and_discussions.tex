@@ -666,6 +666,92 @@ Table~\ref{tab:so4_perclass} expands the SO4 evaluation from row-level aggregate
 
 Aggregated across the twelve trips, the model achieved a 95.41\% agreement rate with the ground-truth labels (25{,}482 of 26{,}707 rows). It demonstrates strong detection of moving-vehicle anomalies and clean specificity on control trips (zero false positives across 2{,}700 rows). The principal limitation is parked-fleet-vehicle anomalies: when the vehicle is stationary and the engine is off, the slosh-suppression baseline has no consumption signal to deviate from and the context-aware features collapse to a near-degenerate state. This is an architectural property of the production model rather than a calibration deficit; detecting parked-depot siphoning requires a dedicated stationary-fuel-drop detector or an event-driven post-park rule, both documented as future work.
 
+\subsection{Constraint-Violation and Pattern-Mining Analysis}
+\label{sec:constraint_violation_pattern_mining}
+
+The earlier SO4 tables quantify how often the detector is correct; this section explains why rows were flagged. The analysis maps each flagged row to the physical and operational constraints defined in Section~\ref{sec:anomaly_model_constraints}, then uses the data-mining layer in Section~\ref{sec:data_mining_layer} to show which operating regimes contain the flagged rows.
+
+\begin{table}[!htbp]
+\centering
+\caption{Per-Class Constraint-Violation Signature}
+\label{tab:per_class_constraint_signature}
+\tiny
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.15}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{0.18\textwidth}|c|c|c|c|c|c|c|}
+\hline
+\textbf{Anomaly class} & \textbf{Flagged rows} & \textbf{C1 conservation} & \textbf{C2 bounded consumption} & \textbf{C4 slosh suppressed} & \textbf{O1 idle anomaly} & \textbf{O3 driver baseline deviation} & \textbf{O4 refuel exemption} \\
+\hline
+Sudden fuel drop & 2 & 0 (0.0\%) & 0 (0.0\%) & 2 (100.0\%) & 0 (0.0\%) & 2 (100.0\%) & 0 (0.0\%) \\
+\hline
+Abnormal rapid decrease & 8 & 0 (0.0\%) & 6 (75.0\%) & 6 (75.0\%) & 0 (0.0\%) & 8 (100.0\%) & 0 (0.0\%) \\
+\hline
+Gradual leak & 18 & 0 (0.0\%) & 14 (77.8\%) & 5 (27.8\%) & 0 (0.0\%) & 18 (100.0\%) & 0 (0.0\%) \\
+\hline
+All flagged & 29 & 0 (0.0\%) & 20 (69.0\%) & 13 (44.8\%) & 0 (0.0\%) & 29 (100.0\%) & 0 (0.0\%) \\
+\hline
+\end{tabular}
+}
+\normalsize
+\end{table}
+
+Table~\ref{tab:per_class_constraint_signature} shows that O3 is the dominant signature because every flagged row violates the per-driver KMPL baseline. C2 is the second strongest signature at 69.0\%, showing that many flags also exceed plausible consumption under engine-work constraints. C4 appears more often in sudden and rapid drops because those windows contain raw sender movement that the slosh-suppression cascade attenuates before inference. O4 correctly suppresses refuel windows. C1 and O1 remain zero, which shows that deployed Model~C is mainly a moving-vehicle detector and does not yet detect parked-depot siphoning.
+
+\begin{table}[!htbp]
+\centering
+\caption{Constraint Coverage of the Confusion Matrix on the Controlled-Injection Window}
+\label{tab:confusion_constraint_coverage}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.15}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{0.22\textwidth}|c|c|c|c|}
+\hline
+\textbf{Group} & \textbf{$n$} & \textbf{C2 bounded consumption} & \textbf{C4 slosh suppressed} & \textbf{O3 driver baseline deviation} \\
+\hline
+True positive & 28 & 20 (71.4\%) & 13 (46.4\%) & 28 (100.0\%) \\
+\hline
+False negative & 1 & 1 (100.0\%) & 0 (0.0\%) & 0 (0.0\%) \\
+\hline
+True negative & 107 & 6 (5.6\%) & 6 (5.6\%) & 0 (0.0\%) \\
+\hline
+False positive & 0 & -- & -- & -- \\
+\hline
+\end{tabular}
+}
+\normalsize
+\end{table}
+
+Table~\ref{tab:confusion_constraint_coverage} explains the controlled-injection confusion matrix in constraint terms. Every true positive violates O3, meaning that the production detector's strongest signal in this window is deviation from the driver-specific fuel-economy baseline. The single false negative violates C2 but not O3, explaining why the model missed it: the row looked physically excessive in isolation but did not depart strongly enough from the driver's baseline band. True negatives only weakly trigger C2 and C4, consistent with residual sender variance after filtering. The controlled-injection window had zero false positives, but this statement is scoped only to that window; the full leave-one-trip-out evaluation in Table~\ref{tab:so4_model_perf} still reports the overall 1.09\% FPR.
+
+\begin{table}[!htbp]
+\centering
+\caption{Discovered Anomaly Archetypes}
+\label{tab:discovered_anomaly_archetypes}
+\tiny
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.15}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|p{0.13\textwidth}|c|c|c|c|c|p{0.39\textwidth}|}
+\hline
+\textbf{Archetype} & \textbf{Label} & \textbf{Rows} & \textbf{Labelled positive} & \textbf{Predicted positive} & \textbf{Mean fuel delta filtered} & \textbf{Mean speed (km/h)} & \textbf{Operational interpretation} \\
+\hline
+0 & High-speed cruise & 57 & 14 & 14 & -0.098\% & 78.6 & Houses abnormal-rapid-decrease and gradual-leak rows under highway-speed conditions; 100\% recall on positives. \\
+\hline
+3 & Mid-speed cruise & 47 & 10 & 10 & -0.077\% & 73.0 & Houses remaining gradual-leak rows under mid-speed urban conditions; 100\% recall on positives. \\
+\hline
+1 & Mid-speed gradual decline & 26 & 5 & 4 & -0.108\% & 66.5 & Contains the trailing rows of a long gradual leak where per-step delta decays below the slosh-suppression baseline; contains the single missed row. \\
+\hline
+2 & Raw-slosh artifact & 6 & 0 & 0 & -4.95\% & 77.1 & Represents sender non-linearity and slosh artifacts suppressed by the filter; correctly has zero labels and zero predictions. \\
+\hline
+\end{tabular}
+}
+\normalsize
+\end{table}
+
+Table~\ref{tab:discovered_anomaly_archetypes} reports the K-Means archetypes discovered without using anomaly labels. Three archetypes host all labelled and predicted positives, showing that the anomalies occur inside moving-vehicle operating regimes rather than as a single raw fuel-drop cluster. The raw-slosh artifact archetype has zero labels and zero predictions, which confirms that the filter cascade handled C3/C4 sender non-linearity and slosh artifacts before Model~C inference. Together, Tables~\ref{tab:per_class_constraint_signature}--\ref{tab:discovered_anomaly_archetypes} convert the headline ML metrics from black-box scores into a constraint-anchored audit trail.
+
 \subsection{Figures for SO4}
 Figure~\ref{fig:so4_score_hist} shows the anomaly-score distribution with the calibrated threshold (0.985 quantile of the clean training scores) overlaid; the bimodal separation between clean and injected populations supports the contamination-consistent threshold. Figure~\ref{fig:so4_confusion} presents the confusion matrices for Models~A, B, and C, visually evidencing the ablation, and Figure~\ref{fig:so4_perf_bars} compares precision and FPR across the variants and baselines.
 
