@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.25)  27 JUN 2026 04:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.25)  27 JUN 2026 04:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6986,135 +6986,169 @@ Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
 d on input line 346.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [226]
-<article_forum_paper.pdf, id=4268, 614.295pt x 794.97pt>
-File: article_forum_paper.pdf Graphic file (type pdf)
-<use article_forum_paper.pdf>
-Package pdftex.def Info: article_forum_paper.pdf  used on input line 354.
-(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-File: article_forum_paper.pdf Graphic file (type pdf)
-<use article_forum_paper.pdf>
-Package pdftex.def Info: article_forum_paper.pdf  used on input line 354.
-(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<article_forum_paper.pdf, id=4271, page=1, 614.295pt x 794.97pt>
-File: article_forum_paper.pdf Graphic file (type pdf)
-<use article_forum_paper.pdf, page 1>
-Package pdftex.def Info: article_forum_paper.pdf , page1 used on input line 354
-.
-(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-File: article_forum_paper.pdf Graphic file (type pdf)
-<use article_forum_paper.pdf, page 1>
-Package pdftex.def Info: article_forum_paper.pdf , page1 used on input line 354
-.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
 
 <use figure/../format/dlsu_thesis_paper_letterhead.pdf>
 Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 354.
+d on input line 352.
 (pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
  [227
 
 
 
 ]
+<article_forum_paper.pdf, id=4273, 614.295pt x 794.97pt>
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf>
+Package pdftex.def Info: article_forum_paper.pdf  used on input line 361.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf>
+Package pdftex.def Info: article_forum_paper.pdf  used on input line 361.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+<article_forum_paper.pdf, id=4276, page=1, 614.295pt x 794.97pt>
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 1>
-Package pdftex.def Info: article_forum_paper.pdf , page1 used on input line 354
+Package pdftex.def Info: article_forum_paper.pdf , page1 used on input line 361
 .
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 1>
-Package pdftex.def Info: article_forum_paper.pdf , page1 used on input line 354
+Package pdftex.def Info: article_forum_paper.pdf , page1 used on input line 361
 .
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
-
-<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
-Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 354.
-(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 1>
-Package pdftex.def Info: article_forum_paper.pdf , page1 used on input line 354
+Package pdftex.def Info: article_forum_paper.pdf , page1 used on input line 361
 .
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf, page 1>
+Package pdftex.def Info: article_forum_paper.pdf , page1 used on input line 361
+.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf, page 1>
+Package pdftex.def Info: article_forum_paper.pdf , page1 used on input line 361
+.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
  [228
+
 
  <./article_forum_paper.pdf>]
 <article_forum_paper.pdf, id=4312, page=2, 614.295pt x 794.97pt>
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 2>
-Package pdftex.def Info: article_forum_paper.pdf , page2 used on input line 354
+Package pdftex.def Info: article_forum_paper.pdf , page2 used on input line 361
 .
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 2>
-Package pdftex.def Info: article_forum_paper.pdf , page2 used on input line 354
+Package pdftex.def Info: article_forum_paper.pdf , page2 used on input line 361
 .
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
-
-<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
-Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 354.
-(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 2>
-Package pdftex.def Info: article_forum_paper.pdf , page2 used on input line 354
+Package pdftex.def Info: article_forum_paper.pdf , page2 used on input line 361
 .
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
  [229
 
  <./article_forum_paper.pdf>]
-<article_forum_paper.pdf, id=4358, page=3, 614.295pt x 794.97pt>
+<article_forum_paper.pdf, id=4338, page=3, 614.295pt x 794.97pt>
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 3>
-Package pdftex.def Info: article_forum_paper.pdf , page3 used on input line 354
+Package pdftex.def Info: article_forum_paper.pdf , page3 used on input line 361
 .
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 3>
-Package pdftex.def Info: article_forum_paper.pdf , page3 used on input line 354
+Package pdftex.def Info: article_forum_paper.pdf , page3 used on input line 361
 .
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
-
-<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
-Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 354.
-(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 3>
-Package pdftex.def Info: article_forum_paper.pdf , page3 used on input line 354
+Package pdftex.def Info: article_forum_paper.pdf , page3 used on input line 361
 .
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
  [230
 
  <./article_forum_paper.pdf>]
-<article_forum_paper.pdf, id=4363, page=4, 614.295pt x 794.97pt>
+<article_forum_paper.pdf, id=4380, page=4, 614.295pt x 794.97pt>
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 4>
-Package pdftex.def Info: article_forum_paper.pdf , page4 used on input line 354
+Package pdftex.def Info: article_forum_paper.pdf , page4 used on input line 361
 .
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 4>
-Package pdftex.def Info: article_forum_paper.pdf , page4 used on input line 354
+Package pdftex.def Info: article_forum_paper.pdf , page4 used on input line 361
 .
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: figure/../format/dlsu_thesis_paper_letterhead.pdf Graphic file (type pdf)
-
-<use figure/../format/dlsu_thesis_paper_letterhead.pdf>
-Package pdftex.def Info: figure/../format/dlsu_thesis_paper_letterhead.pdf  use
-d on input line 354.
-(pdftex.def)             Requested size: 614.31223pt x 794.99231pt.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: article_forum_paper.pdf Graphic file (type pdf)
 <use article_forum_paper.pdf, page 4>
-Package pdftex.def Info: article_forum_paper.pdf , page4 used on input line 354
+Package pdftex.def Info: article_forum_paper.pdf , page4 used on input line 361
 .
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 
 [231
+
+ <./article_forum_paper.pdf>]
+<article_forum_paper.pdf, id=4388, page=5, 614.295pt x 794.97pt>
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf, page 5>
+Package pdftex.def Info: article_forum_paper.pdf , page5 used on input line 361
+.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf, page 5>
+Package pdftex.def Info: article_forum_paper.pdf , page5 used on input line 361
+.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf, page 5>
+Package pdftex.def Info: article_forum_paper.pdf , page5 used on input line 361
+.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [232
+
+ <./article_forum_paper.pdf>]
+<article_forum_paper.pdf, id=4396, page=6, 614.295pt x 794.97pt>
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf, page 6>
+Package pdftex.def Info: article_forum_paper.pdf , page6 used on input line 361
+.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf, page 6>
+Package pdftex.def Info: article_forum_paper.pdf , page6 used on input line 361
+.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf, page 6>
+Package pdftex.def Info: article_forum_paper.pdf , page6 used on input line 361
+.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [233
+
+ <./article_forum_paper.pdf>]
+<article_forum_paper.pdf, id=4413, page=7, 614.295pt x 794.97pt>
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf, page 7>
+Package pdftex.def Info: article_forum_paper.pdf , page7 used on input line 361
+.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf, page 7>
+Package pdftex.def Info: article_forum_paper.pdf , page7 used on input line 361
+.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: article_forum_paper.pdf Graphic file (type pdf)
+<use article_forum_paper.pdf, page 7>
+Package pdftex.def Info: article_forum_paper.pdf , page7 used on input line 361
+.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [234
 
  <./article_forum_paper.pdf>]
 
@@ -7131,13 +7165,13 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 47966 strings out of 476106
- 829919 string characters out of 5793933
+ 47978 strings out of 476106
+ 830306 string characters out of 5793933
  2128560 words of memory out of 5000000
- 66666 multiletter control sequences out of 15000+600000
+ 66675 multiletter control sequences out of 15000+600000
  628750 words of font info for 551 fonts, out of 8000000 for 9000
  67 hyphenation exceptions out of 8191
- 114i,18n,110p,2735b,7613s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 114i,19n,110p,2735b,7613s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
@@ -7168,10 +7202,10 @@ ve/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
 r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on document.pdf (257 pages, 18430935 bytes).
+Output written on document.pdf (260 pages, 19134202 bytes).
 PDF statistics:
- 5461 PDF objects out of 6186 (max. 8388607)
- 4885 compressed objects within 49 object streams
- 1767 named destinations out of 2073 (max. 500000)
- 100343 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 5493 PDF objects out of 6186 (max. 8388607)
+ 4899 compressed objects within 49 object streams
+ 1770 named destinations out of 2073 (max. 500000)
+ 100358 words of extra memory for PDF output out of 106986 (max. 10000000)
 

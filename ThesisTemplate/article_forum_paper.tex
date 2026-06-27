@@ -4,6 +4,9 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{cite}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
 \usepackage[letterpaper,margin=0.75in]{geometry}
 \usepackage[pdftex]{graphicx}
 \usepackage{url}
@@ -29,6 +32,7 @@ pdfkeywords={Fuel Monitoring, GPS Tracking, Anomaly Detection, Internet of Thing
 
 \date{}
 \setlength{\columnsep}{0.25in}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
 \begin{document}
 
@@ -55,10 +59,40 @@ This study addresses that gap by implementing and evaluating a complete edge-to-
 
 The specific contributions of this paper are: (1) an integrated IoT fuel, GPS, and alerting prototype for truck fleet monitoring; (2) a context-conditioned anomaly model grounded in physical and operational constraints; (3) an Isolation Forest production detector supported by Matrix Profile and K-Means-based operating-regime discovery; and (4) an evaluation across fuel accuracy, communication reliability, GPS cadence, anomaly-detection metrics, and alert usability.
 
+The work was developed with Hino Para\~naque Subic GS Auto Inc. (SGSA), where field constraints shaped the engineering choices. Direct tank modification and dipstick calibration were not available, so the system used non-invasive OBD-II/ECU fuel acquisition, manufacturer dashboard readings as a supporting reference, and known-volume pump-gas events as the primary validation reference. Likewise, the communication design could not assume continuous cellular connectivity, so the prototype includes multiple radio paths and local replay.
+
 \section{Related Work}
 IoT-based fleet-monitoring systems have used GPS, cloud dashboards, RFID, GSM, and sensor modules to improve vehicle visibility and operational response \cite{joshi2024intelligent,prabhu2022iot,g2022real}. Fuel-specific systems have monitored tank level, theft alarms, and basic fuel events using resistance, ultrasonic, or capacitive sensing \cite{komal2018automatic,mathi2024development,tatababu2024smart}. These systems demonstrate practical monitoring value, but many are limited by fragmented architecture, small-scale validation, or rule-based detection.
 
 Machine-learning work on fuel and vehicle anomaly detection shows that abnormal consumption can be detected from multivariate telemetry. Mumcuoglu et al. \cite{mumcuoglu2023fuel}, for example, showed that fuel-consumption anomalies can be classified in heavy-duty vehicles, while interpretable anomaly-detection literature emphasizes the importance of explaining why a point is anomalous rather than reporting only a score \cite{barbado2022interpretable}. This study builds on those directions by deploying unsupervised models inside an implemented truck telemetry system and by tying every anomaly flag to physical or operational constraints.
+
+The practical limitation in many prior systems is that a fuel drop is treated as self-explanatory. In actual fleet operation, a fuel-level decrease can arise from normal engine work, payload, traffic, route grade, idling, sender non-linearity, tank slosh, refueling recovery, or driver style. The present work therefore combines telemetry engineering with interpretable anomaly detection: the alert is not just a model output, but a context-conditioned event that is reconciled with route, engine, motion, and operational state.
+
+\section{Objectives and Evaluation Contract}
+The study was organized around five task objectives. SO1 evaluates whether the fuel signal is accurate enough to support monitoring and downstream anomaly detection. SO2 evaluates whether telemetry can reach the backend through the available communication paths. SO3 evaluates GPS cadence and route context. SO4 evaluates whether the unsupervised anomaly detector meets the required precision and false-positive rate. SO5 evaluates whether alerts and trip states are visible and usable across the HMI, mobile companion, and dashboard.
+
+Table~\ref{tab:article-task-summary} is intentionally formatted as a normal one-column table so it remains inside the two-column article layout instead of spanning the page. It summarizes the task-level result chain used in the thesis evaluation.
+
+\begin{table}[!t]
+\centering
+\caption{Task Evaluation Summary}
+\label{tab:article-task-summary}
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\columnwidth}{@{}p{0.14\columnwidth}Y Y p{0.12\columnwidth}@{}}
+\toprule
+\textbf{Task} & \textbf{Target} & \textbf{Measured result} & \textbf{Status} \\
+\midrule
+SO1 & Fuel accuracy within $\pm$5\% & 1.04\% MAPE; 3.00\% maximum error; all validation events within tolerance & Met \\
+SO2 & Real-time cloud telemetry & LoRa, LTE/GSM, WiFi, and SPIFFS offline replay preserved telemetry flow under field connectivity limits & Met \\
+SO3 & 5~s GPS route logging & 5.52~s median sampling interval and 90.21\% GPS fix availability across live trips & Met \\
+SO4 & $\geq$90\% precision and $\leq$10\% FPR & Isolation Forest Model C reached 92.9\% precision, 92.9\% recall, and 1.09\% FPR under leave-one-trip-out validation & Met \\
+SO5 & Usable alerts and interfaces & 100 alerts over 17.7 days; 95.0\% resolution rate; administrator SUS score of 81.9/100 & Met \\
+\bottomrule
+\end{tabularx}
+\normalsize
+\end{table}
 
 \section{System Architecture}
 Fig.~\ref{fig:conceptual-diagram} summarizes the conceptual system. The truck-side embedded HMI collects vehicle telemetry, displays local status, and allows driver trip interaction. The backend stores telemetry and trip state, evaluates anomaly and safety rules, and synchronizes the administrative dashboard, mobile companion interface, and HMI feedback path.
@@ -79,9 +113,29 @@ Fig.~\ref{fig:conceptual-diagram} summarizes the conceptual system. The truck-si
 
 The implemented architecture in Fig.~\ref{fig:end-to-end-architecture} follows a layered edge-to-cloud pattern. The edge layer performs OBD-II acquisition, GPS parsing, fuel filtering, trip-state handling, HMI display, and communication-channel selection. The transport layer uses prioritized LoRa, LTE/GSM, WiFi, and SPIFFS offline replay so telemetry is not silently lost during degraded network conditions. The cloud layer persists data in Supabase, runs backend rules and anomaly inference, and exposes synchronized views to the dashboard, mobile app, and HMI poll-back path.
 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{ESP32_Hardware_Block_Diagram}
+\caption{Embedded HMI hardware block showing the separation of OBD-II/CAN, GPS, display, radio, modem, and driver-control functions.}
+\label{fig:article-hardware-block}
+\end{figure}
+
+Fig.~\ref{fig:article-hardware-block} shows the physical implementation counterpart of the system architecture. The ESP32-based HMI coordinates CAN/OBD-II acquisition, GPS reception, display output, LoRa radio transmission, LTE/GSM modem use, local storage, and driver buttons. Physical controls are retained for safety-relevant actions such as rest acknowledgement and alert response because a touchscreen alone is not ideal in a field vehicle.
+
+The backend uses the trip session as the canonical state object. When a driver starts, rests, resumes, or ends a trip through the HMI or mobile companion, the backend synchronizes that state to the dashboard and associates incoming telemetry with the active trip. This design prevents a common problem in fleet prototypes: data may arrive, but it is not linked to a clear operating session. Here, telemetry rows, alerts, route traces, and driver responses share the same trip context.
+
 \section{Methodology}
-\subsection{Fuel Acquisition and Filtering}
-Fuel, speed, GPS, trip, and engine data are sampled by the HMI and transmitted as synchronized telemetry rows. Fuel readings are filtered before model inference to reduce sender noise and slosh. The filtering pipeline combines a median stage, exponential smoothing, and a dead-band publisher, allowing the system to suppress short tank-motion artifacts while preserving meaningful fuel trends.
+\subsection{Telemetry Acquisition and Filtering}
+Fuel, speed, GPS, trip, and engine data are sampled by the HMI and transmitted as synchronized telemetry rows. The main OBD-II and ECU-derived fields include fuel level, speed, RPM, engine load, throttle position, mass airflow, coolant temperature, runtime, and diagnostic status. Fuel level is the primary measurement for SO1 and SO4, while the remaining fields provide the operating context needed to judge whether a fuel change is plausible.
+
+Fuel readings are filtered before model inference to reduce sender noise and slosh. The filtering pipeline in Fig.~\ref{fig:article-fuel-filter} combines a median stage, exponential smoothing, and a dead-band publisher, allowing the system to suppress short tank-motion artifacts while preserving meaningful fuel trends.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{Fuel-level_filter_cascade}
+\caption{Fuel-level filter cascade used to stabilize the sender signal before dashboard publication and anomaly inference.}
+\label{fig:article-fuel-filter}
+\end{figure}
 
 Fuel accuracy was evaluated against pump-gas reference events and the known tank capacity. The primary accuracy metric was mean absolute percentage error (MAPE):
 \begin{equation}
@@ -90,6 +144,8 @@ Fuel accuracy was evaluated against pump-gas reference events and the known tank
 
 \subsection{Communication, GPS, and Backend Integration}
 Each telemetry row carries device-side timestamp information and channel metadata. Server-side reconciliation separates sampling cadence from backend-arrival delay. Communication was evaluated through per-channel latency, packet delivery, and offline-replay behavior. GPS was evaluated using inter-sample interval and fix availability because route context, distance, and motion state feed the anomaly detector and dashboard.
+
+The communication policy is prioritized rather than single-path. LoRa is used for short-range depot or yard telemetry, LTE/GSM is used for wide-area connectivity, WiFi supports depot or driver-hotspot use, and SPIFFS local storage protects data when no radio path is available. Offline replay is treated as a valid delivery path because a fleet-monitoring system should preserve telemetry even when immediate cloud access fails.
 
 \subsection{Fuel-Anomaly Model}
 A fuel anomaly is modeled as a telemetry row whose observed fuel-level change deviates from the expected fuel-level change under operating context. For row $t$,
@@ -106,6 +162,15 @@ The model is constrained by four physical constraints and four operational const
 \subsection{Machine Learning and Data Mining}
 Isolation Forest Model C is the production row-level detector. Model A used baseline fuel, motion, engine, and refuel-window features; Model B added driving-zone features; and Model C added per-asset, per-driver, and route-type fuel-economy deviation features. Matrix Profile was retained as a supporting subsequence detector for gradual fuel-loss patterns, not as the main production classifier.
 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{ML_Anomaly_Detection_Architecture}
+\caption{Machine-learning anomaly-detection architecture from filtered telemetry to model score, contextual gate, stored alert, and dashboard/HMI feedback.}
+\label{fig:article-ml-architecture}
+\end{figure}
+
+Fig.~\ref{fig:article-ml-architecture} summarizes the implemented ML pipeline. After telemetry is stored, the backend constructs a feature vector and calls the ML service. The service returns anomaly flags, scores, and model source information. A contextual gate then suppresses repeated flags inside the same event window, legitimate drive-rise recovery, and parked-refuel quiescence cases before user-facing alerts are inserted.
+
 A data-mining layer supports interpretation. Constraint-violation profiling annotates each flagged row with signatures such as C2 bounded consumption, C4 slosh suppression, and O3 driver baseline deviation. K-Means clustering with $K=4$ was used only to discover operating regimes in the controlled-injection window. The seven standardized clustering features were filtered fuel delta, speed, engine load, idle duration score, motion state, throttle, and normalized RPM. The four discovered regimes corresponded to high-speed cruise, mid-speed cruise, gradual-decline behavior, and raw-slosh artifact behavior.
 
 \subsection{Evaluation Protocol}
@@ -115,45 +180,88 @@ Fuel accuracy, communication reliability, GPS cadence, anomaly detection, and al
 \mathrm{FPR}=\frac{FP}{FP+TN}.
 \end{equation}
 
+The SO4 corpus included project-native trips with controlled injected anomalies, normal control rows, and a public-clean stress partition used to check whether the detector remains quiet on clean-route data. The project-native partition was the binding benchmark for the thesis objective because it represents the actual prototype telemetry and injected anomaly labels. Public-clean data was used only as out-of-domain supporting evidence.
+
 \section{Results and Discussion}
-Table~\ref{tab:article-objective-results} summarizes the main objective-level results. The fuel subsystem reached 1.04\% MAPE and 3.00\% maximum error across the 13--98\% tank range, satisfying the $\pm$5\% target. GPS reached a 5.52~s median sampling interval and 90.21\% fix availability. The communication subsystem demonstrated multi-channel delivery and meaningful offline-buffer use, preventing telemetry loss during weak connectivity.
+\subsection{SO1: Fuel Measurement}
+The fuel subsystem reached 1.04\% MAPE and 3.00\% maximum error across the 13--98\% tank range, satisfying the $\pm$5\% target. The worst observed event remained two percentage points inside the allowed error band. The filtered-signal noise analysis also showed that residual noise was below 0.1\% across the reported tank bands, supporting the claim that the filter cascade suppresses short slosh, ADC jitter, and sender bounce before the value is shown or modeled.
 
-\begin{table*}[!t]
+This result should be interpreted as operational field accuracy rather than laboratory tank calibration. Direct dipstick validation was not permitted, so known-volume pump events and manufacturer dashboard readings were used. Under that constraint, the result is still sufficient for dashboard monitoring, low-fuel alerting, and anomaly features that depend on fuel percentage.
+
+\subsection{SO2: Communication Performance}
+The communication subsystem met SO2 because every available path was exercised rather than only described. LoRa supported depot-scale and line-of-sight fallback communication, LTE served as the main wide-area path, GSM~2G provided a degraded fringe fallback, WiFi supported local or hotspot use, and SPIFFS replay prevented silent data loss during outages.
+
+The main engineering lesson is that latency and packet preservation are different questions. Cellular latency can become high during modem or network renegotiation, but offline replay still protects the record. The thesis field log showed that a meaningful share of delivered telemetry used the offline buffer, which confirms the value of treating local storage as part of the communication architecture rather than as an afterthought.
+
+\begin{figure}[!t]
 \centering
-\caption{Objective-Level Evaluation Summary}
-\label{tab:article-objective-results}
+\includegraphics[width=\columnwidth]{Offline-buffer_fall-through_flowchart}
+\caption{Offline-buffer fall-through path used when live communication channels are unavailable.}
+\label{fig:article-offline-buffer}
+\end{figure}
+
+\subsection{SO3: GPS Tracking and Route Context}
+The GPS subsystem reached a 5.52~s median sampling interval and 90.21\% GPS fix availability. The median interval is close to the 5~s firmware target; the longer mean and tail are explained by real field behavior such as OBD polling, GPS parsing, packet construction, connectivity delay, and replayed telemetry.
+
+GPS is not used only for map display. The route trace supplies segment distance, movement state, speed context, and route-type information for Model~C. This is why SO3 supports SO4: without route and motion context, the anomaly detector would have to judge a fuel change as a raw time-series drop instead of as a contextual fuel-deviation event.
+
+\subsection{SO4: Machine-Learning Detection}
+For anomaly detection, Model~C was the strongest production detector because it considered fuel movement relative to driver, route, and operating context. It achieved 92.9\% precision, 92.9\% recall, and 1.09\% FPR on the project-native leave-one-trip-out partition. The result satisfies the 90\% precision and 10\% FPR requirements while preserving Model~C as the deployable row-level detector.
+
+\begin{table}[!t]
+\centering
+\caption{SO4 Model-C Performance Summary}
+\label{tab:article-modelc-summary}
 \scriptsize
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{|p{0.14\textwidth}|p{0.26\textwidth}|p{0.28\textwidth}|p{0.20\textwidth}|}
-\hline
-\textbf{Objective} & \textbf{Target} & \textbf{Measured Result} & \textbf{Status} \\
-\hline
-SO1 Fuel measurement & Fuel accuracy within $\pm$5\% & 1.04\% MAPE; 3.00\% maximum error; all validation events within tolerance & Met \\
-\hline
-SO2 Communication & Cloud-accessible real-time telemetry & LoRa, LTE/GSM, WiFi, and offline replay maintained telemetry flow under varied network conditions & Met \\
-\hline
-SO3 GPS tracking & 5~s location logging and route context & 5.52~s median sampling interval; 90.21\% GPS fix availability & Met \\
-\hline
-SO4 ML anomaly detection & $\geq$90\% precision and $\leq$10\% FPR & Isolation Forest Model C: 92.9\% precision, 92.9\% recall, and 1.09\% FPR under leave-one-trip-out evaluation & Met \\
-\hline
-SO5 Alerts and dashboard & Usable alert and monitoring workflow & 100 alerts over 17.7 days; 95.0\% resolution rate; administrator SUS score of 81.9/100 & Met \\
-\hline
-\end{tabular}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\columnwidth}{@{}p{0.30\columnwidth}Y@{}}
+\toprule
+\textbf{Metric} & \textbf{Result} \\
+\midrule
+Evaluation method & Leave-one-trip-out validation on project-native partition \\
+Production detector & Isolation Forest Model~C \\
+Primary result & 92.9\% precision, 92.9\% recall, 1.09\% FPR \\
+High-confidence channel & Hybrid Intersection reached 97.4\% precision \\
+Main false-negative source & Trailing rows of long gradual-leak windows where per-step loss decayed below the slosh-suppression baseline \\
+Main false-positive source & Brief post-refuel acceleration excursions rejected by the contextual gate in production \\
+\bottomrule
+\end{tabularx}
 \normalsize
-\end{table*}
+\end{table}
 
-For anomaly detection, Model C was the strongest production detector because it considered fuel movement relative to driver, route, and operating context. It achieved 92.9\% precision, 92.9\% recall, and 1.09\% FPR on the project-native partition. The result satisfies the 90\% precision and 10\% FPR requirements while preserving Model C as the deployable detector. The Hybrid Intersection produced 97.4\% precision as a high-confidence alert channel, but Model C remains the primary production model because it provides the best row-level balance of detection and coverage.
+The Hybrid Intersection produced higher precision as a high-confidence alert channel, but Model~C remains the production detector because it provides the best row-level balance of detection and coverage. Model~A missed many gradual-leak rows because baseline features alone cannot separate low-rate abnormal loss from sender drift. Model~B improved with driving-zone features. Model~C further improved detection because per-asset, per-driver, and route-type deviation features create a meaningful expectation for fuel economy in the current operating context.
 
-The constraint-violation analysis makes the ML result auditable. In the controlled-injection analysis, O3 driver baseline deviation appeared in every flagged row, C2 bounded consumption appeared in 69.0\% of flagged rows, and C4 slosh suppression appeared most strongly in sudden and rapid drops. The controlled-injection window had zero false positives, but this is scoped only to that window; the full leave-one-trip-out evaluation still reports the overall 1.09\% FPR. K-Means archetype discovery further showed that labelled and predicted positives were concentrated in moving-vehicle operating regimes, while a raw-slosh artifact cluster contained zero labels and zero predictions, confirming that the filter cascade suppressed C3/C4 artifacts before inference.
+The constraint-violation analysis makes the ML result auditable. In the controlled-injection analysis, O3 driver baseline deviation appeared in every flagged row, C2 bounded consumption appeared in 69.0\% of flagged rows, and C4 slosh suppression appeared most strongly in sudden and rapid drops. The controlled-injection window had zero false positives, but this is scoped only to that window; the full leave-one-trip-out evaluation still reports the overall 1.09\% FPR.
 
-The alert subsystem completed the operator workflow. Alerts were surfaced across fuel anomaly, overspeed, low fuel, rest, and maintenance classes, with synchronized visibility across the HMI, mobile app, and dashboard. The administrator System Usability Scale score of 81.9/100 indicates that the dashboard was not only functional but usable for routine monitoring and response.
+K-Means archetype discovery further showed that labelled and predicted positives were concentrated in moving-vehicle operating regimes, while a raw-slosh artifact cluster contained zero labels and zero predictions. This supports the engineering interpretation that the filter cascade and contextual features suppressed C3/C4 artifacts before inference.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{fig_6_26_abc_model_performance}
+\caption{Model-performance comparison used to support the SO4 production-detector selection.}
+\label{fig:article-model-performance}
+\end{figure}
+
+\subsection{SO5: Alerts, HMI, and Dashboard}
+The alert subsystem completed the operator workflow. Alerts were surfaced across fuel anomaly, overspeed, low fuel, rest, and maintenance classes, with synchronized visibility across the HMI, mobile companion, and administrative dashboard. The field-test audit recorded 100 alerts over 17.7 days and a 95.0\% resolution rate.
+
+The administrator System Usability Scale score of 81.9/100 indicates that the dashboard was not only functional but usable for routine monitoring and response. This matters because a detector is operationally incomplete if alerts are not visible, persistent, and resolvable. The HMI, mobile app, and dashboard together support the loop from telemetry to event, from event to alert, and from alert to documented response.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{fig_5_6b_state_sync}
+\caption{Cross-interface trip-state synchronization between HMI, backend, database, dashboard, and mobile surface.}
+\label{fig:article-state-sync}
+\end{figure}
 
 \section{Limitations and Future Work}
 The detector is strongest for in-trip and moving-vehicle anomalies because its context features depend on movement, speed, RPM, engine load, route progression, and driver-baseline deviation. Parked-depot siphoning, where the vehicle is stationary and engine-off, requires a separate stationary-state detector using long-duration fuel-level monitoring. Other limitations include the need for longer deployment with confirmed real-world theft events, broader vehicle and tank calibration, stronger modern cellular fallback, and more multi-user dashboard testing.
 
+The present labels were primarily controlled injected anomalies rather than confirmed theft events. This is acceptable for prototype validation but should be expanded before production-scale claims are made. Future work should also evaluate multiple truck models, recalibrate sender non-linearity per tank, add stronger LTE-only or 5G-capable modem options, and improve parked-state fuel monitoring without increasing false positives from thermal drift or sender settling.
+
 \section{Conclusion}
-This paper presented an implemented IoT-enabled system for real-time truck fuel monitoring, GPS tracking, anomaly detection, and alert management. The prototype met the thesis objectives across fuel accuracy, communication, GPS cadence, machine-learning anomaly detection, and alert usability. The central technical finding is that fuel anomalies should be modeled as context-conditioned deviations, not as raw fuel drops alone. Isolation Forest Model C, supported by Matrix Profile and a constraint-aware data-mining layer, provided a practical and auditable production detector. Overall, the system demonstrates that embedded telemetry, resilient communication, contextual unsupervised learning, and human-readable alert explanations can support fuel accountability and proactive fleet supervision.
+This paper presented an implemented IoT-enabled system for real-time truck fuel monitoring, GPS tracking, anomaly detection, and alert management. The prototype met the thesis objectives across fuel accuracy, communication, GPS cadence, machine-learning anomaly detection, and alert usability. The central technical finding is that fuel anomalies should be modeled as context-conditioned deviations, not as raw fuel drops alone. Isolation Forest Model~C, supported by Matrix Profile and a constraint-aware data-mining layer, provided a practical and auditable production detector. Overall, the system demonstrates that embedded telemetry, resilient communication, contextual unsupervised learning, and human-readable alert explanations can support fuel accountability and proactive fleet supervision.
 
 \section*{Acknowledgment}
 The authors thank their adviser, thesis panel, thesis coordinators, De La Salle University, Hino Para\~naque Subic GS Auto Inc., and all collaborators who supported the design, implementation, field testing, and evaluation of this project.

@@ -349,9 +349,17 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\chapter{Article Paper}
 	\label{ch:appendix_article_paper}
-	\includepdf[pages=-,%
-		pagecommand={},]
-	{article_forum_paper.pdf}
+	\cleardoublepage
+	{
+		\ClearWallPaper
+		\nolinenumbers
+		\includepdf[pages=-,%
+			scale=1.0,%
+			frame,%
+			pagecommand={\thispagestyle{empty}},%
+		]
+		{article_forum_paper.pdf}
+	}
 	\cleardoublepage
 	
 
