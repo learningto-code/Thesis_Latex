@@ -19,10 +19,10 @@
 \contentsline {table}{\numberline {5.5}{\ignorespaces Alert Rule Thresholds Implemented}}{112}{table.caption.38}%
 \contentsline {table}{\numberline {5.6}{\ignorespaces Extended Safety Implementation Status}}{113}{table.caption.39}%
 \contentsline {table}{\numberline {5.7}{\ignorespaces Constraint-to-Mechanism Mapping for Fuel-Anomaly Detection}}{115}{table.caption.40}%
-\contentsline {table}{\numberline {5.9}{\ignorespaces Dataset Composition for Evaluation Corpus}}{117}{table.caption.43}%
-\contentsline {table}{\numberline {5.10}{\ignorespaces Anomaly Scenario Coverage}}{118}{table.caption.44}%
-\contentsline {table}{\numberline {5.11}{\ignorespaces Feature Set Across Isolation Forest Variants (A / B / C)}}{120}{table.5.11}%
-\contentsline {table}{\numberline {5.12}{\ignorespaces Objective, Protocol, and Metric}}{126}{table.caption.45}%
+\contentsline {table}{\numberline {5.8}{\ignorespaces Dataset Composition for Evaluation Corpus}}{117}{table.caption.43}%
+\contentsline {table}{\numberline {5.9}{\ignorespaces Anomaly Scenario Coverage}}{118}{table.caption.44}%
+\contentsline {table}{\numberline {5.10}{\ignorespaces Feature Set Across Isolation Forest Variants (A / B / C)}}{120}{table.5.10}%
+\contentsline {table}{\numberline {5.11}{\ignorespaces Objective, Protocol, and Metric}}{126}{table.caption.45}%
 \addvspace {10pt}
 \contentsline {table}{\numberline {6.1}{\ignorespaces Summary of results for achieving the objectives}}{136}{table.6.1}%
 \contentsline {table}{\numberline {6.2}{\ignorespaces Objective Compliance Matrix}}{140}{table.caption.46}%
