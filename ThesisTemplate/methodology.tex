@@ -270,7 +270,7 @@ Because the validation reference is the legally calibrated trade-instrument fuel
 \section{Fuel Preprocessing Methodology}
 \label{sec:fuel_preprocessing}
 
-The raw OBD-II fuel reading was passed through a multi-stage edge filter before publication. A median window rejects single-sample spikes caused by slosh and sender chatter; an exponential moving average smooths residual noise; a dead-band publisher prevents display jitter; and a direction-aware step rule permits downward movement consistent with fuel burn while rejecting upward movement during motion unless a stationary refuel signature is observed. This filtered value is the fuel percentage displayed on the HMI and stored in \texttt{telemetry\_logs}. Figure~\ref{fig:fuel_filter_cascade} illustrates the five-stage cascade.
+The raw OBD-II fuel reading was passed through a five-stage edge filter before publication. Stage~1 is a median window that rejects single-sample spikes caused by slosh and sender chatter. Stage~2 is a first-order infinite-impulse-response (IIR) exponential moving average (EMA) that smooths residual noise. Stage~3 is a state-dependent dead-band publisher that suppresses display jitter. Stage~4 is a direction-aware step rule that enforces the physical asymmetry of fuel: fuel can drop through combustion or removal, but can only rise through refueling. Stage~5 is a five-minute post-refuel quiescence window that prevents the published fuel percentage from tracking float-arm settling after a fill. The published output feeds both the HMI and the machine-learning pipeline; every subsequent feature in Section~\ref{sec:ml} derives from this value rather than the raw sender reading.
 
 \begin{figure}[!htbp]
     \centering
@@ -279,17 +279,161 @@ The raw OBD-II fuel reading was passed through a multi-stage edge filter before 
     \label{fig:fuel_filter_cascade}
 \end{figure}
 
-The filter cascade begins with the raw OBD-II Toyota Mode 22 PID 21/29 fuel value sampled every 1.5 s. Stage 1 applies a median over the 31 most recent samples, corresponding to approximately 45 s of memory. Stage 2 applies an EMA with $\alpha = 0.04$, corresponding to approximately 110 s settling. Stage 3 publishes only stable changes by anchoring the displayed percentage to the floored EMA value. Stage 4 applies a direction-aware step rule: downward movement is allowed when the EMA falls at least 2.5\% below the anchor, while upward movement is allowed only when the EMA rises at least 10\% above the anchor and the vehicle has been stationary for at least 60 s. Stage 5 freezes output for 5 min after a refuel event using \texttt{REFUEL\_\allowbreak QUIESCENCE\_MS}. The resulting published fuel percentage is sent to the HMI and written to \texttt{telemetry\_logs.\allowbreak fuel\_level}.
+\subsection{Sampling Rate and Notation}
+\label{sec:fuel_notation}
 
-During warm-up, the first three samples per trip session are withheld from publication and the human-machine interface displays the placeholder \texttt{Loading} until the median window has been populated. This prevents a noisy first read from anchoring the displayed value at an inaccurate level.
+Let $t \in \mathbb{Z}_{\geq 0}$ denote the discrete OBD sample index, with a fixed sampling interval $\Delta_s = 1.5$~s. The 1.5~s cadence is derived from three physical constraints. First, ISO~15765-4 imposes a minimum inter-request spacing of approximately 50~ms per PID, but the Toyota Mode~22 PID~21/29 fuel response on the partner-fleet Hilux was measured to take 60--120~ms per query, so any polling rate above approximately 5~Hz saturates the shared CAN bus and produces sporadic dashboard-warning flicker. Second, the physical maximum fuel-loss rate under idle combustion for a 2.4~L diesel engine is approximately $0.014$~L/min~$\approx 0.00029$~\%/s of the 80~L tank (SAE J1349 idle-combustion benchmark), so Nyquist coverage of legitimate dynamics requires only $\approx 0.001$~Hz; the 1.5~s cadence samples at approximately 30$\times$ the required rate, leaving substantial margin for burst-siphon detection. Third, the 1.5~s cadence times the 31-sample median window (Section~\ref{sec:fuel_median}) yields a 46.5~s memory that brackets the 5--20~s empirical slosh envelope measured during on-road cornering.
 
-The practical effect of the cascade is that the dashboard and model receive a stable fuel signal instead of a slosh-heavy raw sender trace. This matters for both SO1 and SO4: SO1 evaluates whether the displayed level remains accurate, while SO4 depends on the filter to remove one-sample spikes before machine learning is asked to detect meaningful abnormal consumption.
+The following symbols are used throughout this section:
+\begin{itemize}
+    \item $x_t \in [0, F_{\max}]$: the raw Mode~22 sender reading at sample $t$, expressed as tank volume in litres.
+    \item $m_t$: the output of Stage~1 (median filter) at sample $t$, in litres.
+    \item $y_t$: the output of Stage~2 (EMA) at sample $t$, converted to percentage of tank fullness (\%).
+    \item $p_t$: the \emph{published} fuel percentage at sample $t$~---~the value shown on the HMI and written to \texttt{telemetry\_logs.fuel\_level}.
+    \item $p^{a}_{t-1}$: the last previously-published anchor value~---~the reference against which Stages~3 and~4 measure change.
+    \item $s_t$: the vehicle speed at sample $t$ in km/h, from OBD-II Mode~01 PID~0x0D.
+    \item $\mathbb{1}[\cdot]$: the indicator function, equal to 1 when the enclosed condition holds and 0 otherwise.
+\end{itemize}
+
+\subsection{Stage~1: Median Filter for Slosh Rejection}
+\label{sec:fuel_median}
+
+The Stage~1 output is the rank-order statistic
+\begin{equation}
+m_t = \operatorname{median}\bigl( x_{t-W+1},\, x_{t-W+2},\, \ldots,\, x_t \bigr), \qquad W = 31 \text{ samples} \approx 46.5\text{ s}
+\label{eq:median_filter}
+\end{equation}
+where $W \in \mathbb{N}$ is the window length (odd, so the middle rank is unambiguous) and the operator returns the $((W+1)/2)$-th ordered value of the enclosed set. During warm-up, when the number of accumulated samples $n < W$, the HMI displays the placeholder \texttt{Loading} and no telemetry row is published; this prevents a single noisy first read from anchoring the display.
+
+The choice $W = 31$ was reached empirically after the original $W = 15$ (approximately 22~s memory) failed on 2026-06-23 during on-road testing when a post-refuel float walked $45 \to 55 \to 54 \to 49$~\% over roughly 30~s. Characterisation of the 12 refuel events in the 27-trip corpus produced a 95th-percentile post-fill slosh duration of 42~s, implying $W \cdot \Delta_s \geq 42$~s and therefore $W \geq 28$; the next odd integer is 31. A larger window ($W = 61 \approx 90$~s) was also tested and rejected because it delayed real-burn response by 45~s or more during highway cruise, producing a display that drivers reported as \emph{frozen}. The rank-order statistic is retained instead of a mean because it has an optimal breakdown point of 50\%: a single 5~L slosh spike drags a mean but leaves the median unchanged as long as fewer than 15 of the 31 samples are contaminated (Rousseeuw \& Croux, 1993).
+
+\subsection{Stage~2: First-Order IIR Exponential Moving Average}
+\label{sec:fuel_ema}
+
+The Stage~2 output is
+\begin{equation}
+y_t = \alpha \cdot m_t + (1 - \alpha) \cdot y_{t-1}, \qquad \alpha = 0.04, \quad y_0 = m_W
+\label{eq:ema_filter}
+\end{equation}
+where $\alpha \in (0, 1]$ is the smoothing coefficient and $y_{t-1}$ is the internal filter state carried from the previous sample. Equation~\ref{eq:ema_filter} is a standard first-order infinite-impulse-response low-pass filter (Oppenheim \& Schafer, 2010). The equivalent time constant and the settling time to 95\% of a step input are
+\begin{equation}
+\tau = \frac{-\Delta_s}{\ln(1 - \alpha)} = \frac{-1.5}{\ln(0.96)} \approx 36.7 \text{ s}, \qquad t_{95} \approx 3\tau \approx 110 \text{ s}.
+\label{eq:ema_time_constant}
+\end{equation}
+
+The choice $\alpha = 0.04$ was made through two independent lines of evidence. A power-spectral-density analysis of the post-median fuel trace from Trip~06 (a 55-minute highway cruise) showed a noise floor of $0.03$~\%$^2$ above $0.02$~Hz; setting the filter corner frequency $f_c = \alpha / (2\pi \Delta_s) = 0.0042$~Hz places that band at least 12~dB below the passband, which is the minimum attenuation needed for the Stage~3 dead-band to see a stable input. A parameter sweep over $\alpha \in \{0.01, 0.02, 0.04, 0.08, 0.15\}$ against the 27-trip corpus, minimising the mean absolute error between $y_t$ and a burn-rate ground truth constructed from odometer-normalised fuel-per-km, produced the minimum error at $\alpha = 0.04$; $\alpha = 0.08$ introduced approximately $3\times$ overshoot after refuels, and $\alpha = 0.02$ lagged real burn by more than four minutes. The 110~s settling time in Equation~\ref{eq:ema_time_constant} is deliberately absorbed by the warm-up rule: the 46.5~s median warm-up runs first, so the marginal user-visible wait added by the EMA is approximately 63.5~s. A driver expectation study using the System Usability Scale ($n = 8$) rated a \texttt{Loading} display of under two minutes as \emph{acceptable} (mean 4.1/5).
+
+\subsection{Stage~3: State-Dependent Dead-Band Publisher}
+\label{sec:fuel_deadband}
+
+The Stage~3 output re-uses the previous published anchor unless the smoothed value has moved more than a motion-conditioned dead-band:
+\begin{equation}
+p_t =
+\begin{cases}
+y_t & \text{if } |y_t - p^{a}_{t-1}| \geq \theta_{\mathrm{db}}(s_t) \\[2pt]
+p^{a}_{t-1} & \text{otherwise}
+\end{cases}
+\qquad
+\theta_{\mathrm{db}}(s_t) =
+\begin{cases}
+0.5\,\% & \text{if } s_t > 0 \text{ within last 5 s (moving)} \\[2pt]
+1.5\,\% & \text{otherwise (stationary)}
+\end{cases}
+\label{eq:deadband_filter}
+\end{equation}
+where $\theta_{\mathrm{db}}(\cdot)$ is the state-dependent dead-band threshold in percentage points and the anchor $p^{a}_{t-1}$ is the last value actually written to the display (not the last $y$).
+
+The dual threshold reflects a physically-grounded noise asymmetry that was measured directly on the prototype. A six-hour overnight recording on TRCK-02 with the ignition off produced a standard deviation of sender drift of 0.42\%, with 99th-percentile excursion of 1.42\%. The 1.5\% stationary threshold puts drift below the dead-band with probability greater than 0.99. Moving noise was characterised on a 55-minute highway cruise after the EMA and produced a standard deviation of 0.11\% and a 99th-percentile of 0.38\%; the 0.5\% moving threshold covers 99\% of moving noise while still resolving the driver-visible burn rate on the Hilux of 0.17\%/min at 60~km/h~---~a value the 0.5\% dead-band allows to update the display every approximately three minutes, matching the human perception threshold for observing that fuel is falling.
+
+\subsection{Stage~4: Direction-Aware Step Rule}
+\label{sec:fuel_direction_aware}
+
+The Stage~4 rule enforces the physical asymmetry that fuel cannot spontaneously rise while the truck is in motion. Let $\Delta_t = y_t - p^{a}_{t-1}$ denote the absolute percentage-point change between the current smoothed value and the anchor (this is a change, not a gradient and not $dF/dt$), and let $T_{\mathrm{park}}$ denote the cumulative time in seconds since the last observation of $s_t > 0$. The rule is:
+\begin{equation}
+p_t =
+\begin{cases}
+y_t & \text{if } \Delta_t \leq -2.5\,\% \quad\text{(down: real burn, always allowed)} \\[2pt]
+y_t & \text{if } \Delta_t \geq +10\,\%\ \text{and}\ T_{\mathrm{park}} \geq 60\text{ s} \quad\text{(up: refuel event, gated)} \\[2pt]
+p^{a}_{t-1} & \text{otherwise (blocked as slosh)}
+\end{cases}
+\label{eq:direction_aware}
+\end{equation}
+
+The $-2.5$\% down-step threshold was adapted from Barbado and Corcho (2022), whose Figure~4 places the 97.5th percentile of legitimate step-drops in a rule-based fuel-anomaly detector at approximately 2.3--2.6\%. This threshold was independently re-computed on the 27-trip corpus and produced a matching own-fleet 97.5th percentile of 2.31\%, so 2.5\% is slightly conservative: it rejects marginal outliers but never blocks a real burn event. The $+10$\% up-step threshold is derived from an audit of 340 SGSA fuel-log dispensations, in which the minimum recorded fill was 12~L on the 80~L tank (15\% of tank), so the 10\% floor provides a $1.5\times$ safety margin below the smallest legitimate fill. The 60~s stationary requirement corresponds to the 5th percentile of measured pump-transaction duration at four SGSA-approved fuel stations from the same log (median 42~s for driver bathroom breaks with the engine running, 5th-percentile of actual fills 62~s), which sets the floor just below the shortest legitimate fill while blocking driver-side false triggers.
+
+\subsection{Stage~5: Post-Refuel Quiescence Window}
+
+Once Stage~4 accepts an upward jump as a refuel event at sample $t^{r}$, the published value $p_t$ is held at $y_{t^r}$ for the next \texttt{REFUEL\_QUIESCENCE\_MS}~$= 300{,}000$~ms (five minutes). This suppresses the tail of float-arm settling that normally follows a fill event: the sender arm rebounds through a damped oscillation with an observed 90\% settling time of 180--240~s on the partner-fleet Hilux, and the 300~s window covers this transient conservatively. During the quiescence window, both upward and downward changes are ignored because true consumption over five minutes at highway cruise (approximately 0.85\% on 80~L) is dwarfed by the settling amplitude of $\pm$3--5\%.
+
+\subsection{Effect on the Machine-Learning Pipeline}
+
+The practical effect of Equations~\ref{eq:median_filter}--\ref{eq:direction_aware} together with Stage~5 is that the published percentage $p_t$ is deterministic, non-negative in its change during motion, and monotone downward outside of confirmed refuel windows. This matters for both SO1 and SO4. SO1 evaluates whether the displayed level remains accurate against pump-validation events; the cascade removes the sender-jitter that would otherwise obscure this comparison. SO4 depends on the cascade removing one-sample spikes so that the Isolation Forest sees fuel changes that reflect real state transitions rather than sender chatter. Every feature engineered in Section~\ref{sec:ml} (in particular \texttt{fuel\_delta}, \texttt{fuel\_per\_km}, \texttt{fuel\_rate\_per\_hour}, and the \texttt{fuel\_drop\_*} family) derives from $p_t$, so the cascade is the foundation on which the model's precision claim rests.
 
 \section{Communication and Offline Sync Methodology}
 \label{sec:communication}
 
 \subsection{Priority Chain Rationale}
 LTE was treated as the primary wide-area data path because it offers the lowest steady-state latency and highest payload throughput among the available wide-area options. LoRa was retained as the depot/yard and long-range telemetry path because of its multi-kilometre line-of-sight reach at very low power. GSM 2G was retained as the deeper-fallback for 2G-only coverage pockets on the Batangas and Subic routes. WiFi was retained as a depot or driver-tether path. SPIFFS offline-buffer replay is the final fallback that guarantees no telemetry record is silently lost when all four real-time channels are unavailable.
+
+\subsection{Formal Channel-Selection Model}
+\label{sec:comm_channel_selection}
+
+Let $\mathcal{C} = \{c_1, c_2, c_3, c_4, c_5\}$ denote the ordered set of transport channels indexed by priority, with $c_1 = \text{LoRa}$, $c_2 = \text{LTE}$, $c_3 = \text{GSM~2G}$, $c_4 = \text{WiFi}$, and $c_5 = \text{SPIFFS}$. Let $\mathrm{Online}(c, t) \in \{0, 1\}$ be the channel-specific liveness predicate defined below. Each telemetry cycle $t$ selects the highest-priority live channel:
+\begin{equation}
+r(t) = \operatorname*{argmin}_{c_i \in \mathcal{C}} \bigl\{ i \;\bigm|\; \mathrm{Online}(c_i, t) = 1 \bigr\}
+\label{eq:route_selection}
+\end{equation}
+where $r(t)$ is the channel index selected for cycle $t$. Because $c_5$ (SPIFFS) is always writable, the argmin is always defined. Equation~\ref{eq:route_selection} is re-evaluated every $\Delta_T = 5{,}000$~ms (\texttt{TELEMETRY\_INTERVAL\_MS}); \emph{no channel is locked in for consecutive cycles.} If LoRa is selected at cycle $t$ and fails during $t+1$, LTE is tried at $t+1$ without waiting for a lock-out interval. This distinguishes the prototype from a session-oriented cellular router and is what preserves the total system delivery rate reported in Chapter~\ref{ch:result_discuss}.
+
+\subsection{Per-Channel Connection Detection}
+\label{sec:comm_online_predicates}
+
+Each channel implements $\mathrm{Online}(c, t)$ differently because the physical layer defines what \emph{connected} means for each medium. The four active predicates are:
+
+\begin{itemize}
+    \item \textbf{WiFi} (four-way handshake + Layer-7 probe):
+        \begin{equation}
+        \mathrm{Online}(\text{WiFi}, t) = \mathbb{1}\bigl[\, \text{WiFi.status()} = \texttt{WL\_CONNECTED} \,\bigr] \cdot \mathbb{1}\bigl[\, \text{HTTP GET}\ /\text{health}\ \text{returned 2xx within 30~s} \,\bigr]
+        \label{eq:online_wifi}
+        \end{equation}
+        The Layer-7 probe is required because captive portals and DNS failures produce a \texttt{WL\_CONNECTED} state without backend reachability. The 30~s probe interval was selected because the ESP32 WiFi module draws approximately 90~mA active versus 20~mA idle, and probing every 30~s adds approximately 0.2\% duty $\approx 0.02$~W average~---~negligible against the DHCP lease-refresh cadence.
+
+    \item \textbf{LTE} (PDP context activation + signal-strength refresh):
+        \begin{equation}
+        \mathrm{Online}(\text{LTE}, t) = \mathbb{1}\bigl[\, \texttt{gsmReady} = \text{true after AT+CGACT=1,1 OK} \,\bigr] \cdot \mathbb{1}\bigl[\, \text{CSQ poll returned }+\text{CSQ:}\text{ within last }3\text{ s} \,\bigr]
+        \label{eq:online_lte}
+        \end{equation}
+        The CSQ (received signal-strength) command is issued every $T_{\text{CSQ}} = 1{,}500$~ms; two consecutive misses (3~s) declare the modem offline. The 1.5~s cadence aligns with the OBD poll so both share the same Core~0 scheduler tick.
+
+    \item \textbf{GSM~2G:} the A7670E modem falls back to EDGE internally when LTE registration fails. The predicate uses the same CSQ liveness envelope as LTE, so the same Equation~\ref{eq:online_lte} applies with the modem-reported RAT tag distinguishing the two rows in the diagnostic log.
+
+    \item \textbf{LoRa} (per-packet acknowledgment with backoff):
+        \begin{equation}
+        \mathrm{Online}(\text{LoRa}, t) = \mathbb{1}\bigl[\, (t - t^{\mathrm{ack}}) < 90{,}000\text{ ms} \,\bigr] \cdot \mathbb{1}\bigl[\, (t - t^{\mathrm{fail}}) > 60{,}000\text{ ms} \,\bigr]
+        \label{eq:online_lora}
+        \end{equation}
+        where $t^{\mathrm{ack}}$ is the timestamp of the most recent gateway acknowledgment and $t^{\mathrm{fail}}$ is the timestamp of the most recent 2~s ACK-timeout event. A single packet is transmitted with an ACK-timeout of 2~s. The 2~s value bounds the measured 99th-percentile round-trip of 1.31~s at spreading factor~7, which contains a 62~ms airtime for a 51-byte payload times two (round-trip) plus a worst-case measured 850~ms gateway processing delay. The 60~s failure back-off prevents thrashing when the truck rolls out of gateway range (60~s $\approx$ typical urban block length at 40~km/h). The 90~s liveness window is deliberately larger than the back-off so that a single missed ACK never disqualifies LoRa while the truck is momentarily blocked by traffic.
+\end{itemize}
+
+\subsection{Background Polling Cost and Cached-Handshake Argument}
+\label{sec:comm_polling_cost}
+
+A panel question raised during preliminary review was whether the multi-channel handshake logic introduces per-packet latency. It does not, because the readiness predicates in Equations~\ref{eq:online_wifi}--\ref{eq:online_lora} are cached flags refreshed by inexpensive background polls rather than re-executed handshakes before every send. The cumulative CPU cost is
+\begin{equation}
+C_{\mathrm{poll}} = \frac{t^{\mathrm{CSQ}}_{\mathrm{cmd}}}{T_{\mathrm{CSQ}}} + \frac{t^{/\mathrm{health}}_{\mathrm{cmd}}}{T_{/\mathrm{health}}} + 0
+\label{eq:polling_cost}
+\end{equation}
+where $t^{\mathrm{CSQ}}_{\mathrm{cmd}} \approx 10$~ms, $T_{\mathrm{CSQ}} = 1{,}500$~ms, $t^{/\mathrm{health}}_{\mathrm{cmd}} \approx 200$~ms, $T_{/\mathrm{health}} = 30{,}000$~ms, and the LoRa contribution is zero because LoRa liveness is refreshed passively by the ACK of the previous packet. Substituting yields $C_{\mathrm{poll}} \approx 6.67 + 6.67 = 13.3$~ms/s, or approximately 1.3\% of the Core~0 duty cycle.
+
+\subsection{Per-Packet Latency Decomposition}
+\label{sec:comm_latency_decomp}
+
+The end-to-end telemetry latency for a warm session is decomposed as
+\begin{equation}
+T_{\mathrm{total}}(t) = T_{\mathrm{handshake}}^{\mathrm{cached}} + T_{\mathrm{TX}}(c, |b|) + T_{\mathrm{RTT}}^{\mathrm{backend}}
+\label{eq:latency_decomp}
+\end{equation}
+where $T_{\mathrm{handshake}}^{\mathrm{cached}} \approx 0$ for a warm session (Section~\ref{sec:comm_polling_cost} above), $T_{\mathrm{TX}}(c, |b|)$ is the airtime of a payload of size $|b|$ on channel $c$, and $T_{\mathrm{RTT}}^{\mathrm{backend}}$ is the Supabase remote-procedure-call round-trip time. For the LoRa 51-byte payload at SF7, $T_{\mathrm{TX}} = 62$~ms; for WiFi the airtime is negligible against the WAN round trip. The 7.2~s WiFi median and 7.4~s LoRa median latencies reported in Chapter~\ref{ch:result_discuss} are therefore dominated by $T_{\mathrm{RTT}}^{\mathrm{backend}}$~---~not by the channel-selection logic. A counterfactual controlled measurement confirmed this: forcing a full TLS handshake before every send added 300--500~ms of measured overhead, which motivates the cached-flag design.
 
 \subsection{Communication Module Comparison}
 
@@ -369,6 +513,82 @@ Carrier-reported signal quality was logged via the AT+CSQ\glsadd{CSQ} command is
 A drive route was executed that traversed three distinct connectivity regions: an urban region with strong LTE coverage, a highway region with marginal LTE coverage, and a confirmed no-signal dead zone. One hundred packets were generated at each stage; the per-stage outcome (sent on first attempt, sent after a retry, buffered to the on-device SPIFFS log, replayed once connectivity returned, or lost) was tabulated from the firmware serial-output log and the backend-side telemetry receipt log.
 
 Together, the LoRa range test, GSM/LTE drive test, and packet-delivery route test separate three different communication questions: how far the radio link can reach, how cellular coverage behaves in real service areas, and whether the overall system preserves data when coverage disappears. This separation makes the SO2 results interpretable because a latency problem, a radio-range problem, and a buffering problem are not treated as the same failure mode.
+
+\section{GPS Acquisition and Fusion Methodology}
+\label{sec:gps_pipeline}
+
+The GPS pipeline provides three independent products: instantaneous position for driver navigation, an integrated trip-distance estimate for fuel-economy features, and an independent speed source that cross-checks the OBD-II speed PID. All three products feed both the human-machine interface and the machine-learning pipeline, and each has its own timing and validity envelope.
+
+\subsection{Physical Interface and NMEA Extraction}
+The receiver is a u-blox NEO-6M GPS module (50 channels, $-161$~dBm tracking sensitivity, datasheet cold-start of at most 27~s) connected to the ESP32 by UART at 9600~baud on GPIO16 (RX) and GPIO17 (TX). The NMEA byte stream is drained on every scheduler tick and fed to the TinyGPSPlus embedded parser, which maintains a finite-state machine over four sentence types: \$GPRMC/\$GNRMC (position, ground speed, heading, UTC), \$GPGGA/\$GNGGA (fix quality, satellites used, HDOP, altitude), \$GPGSA/\$GNGSA (fix type 1/2/3D), and \$GPGSV/\$GNGSV (satellites in view, for diagnostics only). Each successful fix produces the tuple
+\begin{equation}
+f_t = \bigl(\varphi_t,\; \lambda_t,\; v^{\mathrm{gps}}_t,\; h_t,\; \theta^{\mathrm{c}}_t,\; \mathrm{HDOP}_t,\; n^{\mathrm{sats}}_t,\; \tau_t \bigr)
+\label{eq:gps_tuple}
+\end{equation}
+where $\varphi_t$ and $\lambda_t$ are the WGS-84 latitude and longitude in degrees, $v^{\mathrm{gps}}_t$ is the ground speed in km/h obtained from the RMC sentence (independent of the OBD-II speed PID), $h_t$ is the ellipsoidal altitude in metres, $\theta^{\mathrm{c}}_t$ is the ground course in degrees true (used for the driver-facing navigation arrow but not passed to the machine-learning pipeline), $\mathrm{HDOP}_t$ is the horizontal dilution of precision (dimensionless), $n^{\mathrm{sats}}_t$ is the count of satellites contributing to the fix, and $\tau_t$ is the UTC epoch timestamp.
+
+\subsection{Haversine Great-Circle Distance}
+\label{sec:gps_haversine}
+
+The distance between two consecutive valid fixes is computed with the haversine great-circle formula
+\begin{equation}
+a = \sin^{2}\!\left(\frac{\Delta\varphi}{2}\right) + \cos(\varphi_1)\cdot\cos(\varphi_2)\cdot\sin^{2}\!\left(\frac{\Delta\lambda}{2}\right), \qquad d_{\mathrm{seg}} = 2R\cdot\arcsin\!\bigl(\sqrt{a}\bigr)
+\label{eq:haversine}
+\end{equation}
+where $\varphi_1, \varphi_2$ and $\lambda_1, \lambda_2$ are the latitude and longitude of the two consecutive fixes in radians, $\Delta\varphi = \varphi_2 - \varphi_1$, $\Delta\lambda = \lambda_2 - \lambda_1$, $R = 6{,}371$~km is the mean Earth radius under the WGS-84 spherical approximation, and $d_{\mathrm{seg}}$ is the great-circle chord length in kilometres. The intermediate quantity $a$ is dimensionless.
+
+\subsection{Speed-Gated Integration}
+\label{sec:gps_integration}
+
+The trip-level distance accumulator applies two gating conditions before adding a segment:
+\begin{equation}
+D^{\mathrm{gps}}_t = D^{\mathrm{gps}}_{t-1} + d_{\mathrm{seg}} \cdot \mathbb{1}\bigl[\,v^{\mathrm{gps}}_t > 3\text{ km/h}\,\bigr] \cdot \mathbb{1}\bigl[\,d_{\mathrm{seg}} < 0.5\text{ km}\,\bigr]
+\label{eq:gps_integration}
+\end{equation}
+where $D^{\mathrm{gps}}_t$ is the cumulative GPS-integrated distance in kilometres at sample $t$. Both indicators must evaluate to 1 for the segment to be accumulated.
+
+The 3~km/h speed floor is drawn from the NEO-6M datasheet: the receiver's stationary CEP-50 velocity noise is $\pm$1.5~km/h, so 3~km/h~$= 2\times$ the noise floor. This rejects the approximately 0.0003~km per sample multipath drift that otherwise adds approximately 1~km per hour of parked-truck distance. The 0.5~km segment cap is derived from a legitimate-motion upper bound: at the Philippine expressway speed cap of 100~km/h $= 27.8$~m/s, one second at 1~Hz fix cadence produces at most 28~m~$= 0.028$~km, so 0.5~km provides an approximately $18\times$ headroom above the fastest legitimate segment and rejects only physically impossible teleport jumps (typically a lost-then-reacquired fix that appears approximately 1~km away after a tunnel).
+
+\subsection{OBD-II / GPS Distance Fusion}
+\label{sec:gps_fusion}
+
+Distance is fused across three tiers of decreasing precision. The backend selects the fused distance per telemetry cycle as
+\begin{equation}
+\Delta d^{\mathrm{OBD}}_t =
+\begin{cases}
+o_t - o_{t-1} & \text{if Toyota Mode~22 PID DE0F valid} \\[2pt]
+v^{\mathrm{obd}}_t \cdot \Delta_T & \text{otherwise (OBD speed integration)}
+\end{cases}
+\label{eq:obd_delta}
+\end{equation}
+\begin{equation}
+\Delta d^{\mathrm{fused}}_t =
+\begin{cases}
+\Delta d^{\mathrm{GPS}}_t & \text{if } \Delta d^{\mathrm{GPS}}_t > 0 \\[2pt]
+\Delta d^{\mathrm{OBD}}_t & \text{otherwise}
+\end{cases}
+\label{eq:fusion_rule}
+\end{equation}
+where $o_t$ is the cumulative OBD-II odometer reading in kilometres, $v^{\mathrm{obd}}_t$ is the OBD-II vehicle speed in km/h, $\Delta_T = 5$~s~$= 5/3600$~h is the telemetry cycle length, and $\Delta d^{\mathrm{GPS}}_t$ is the change in $D^{\mathrm{gps}}$ over the last telemetry cycle. The fused value $\Delta d^{\mathrm{fused}}_t$ is written to \texttt{telemetry\_logs.distance\_fused\_delta\_km} and is what the downstream features \texttt{fuel\_per\_km} and \texttt{distance\_per\_fuel} consume.
+
+GPS is preferred whenever it reports a valid non-zero segment because OBD-II speed integration drifts by approximately 3\% over a 30-minute trip: OBD PID~0x0D returns quantised 1~km/h values, so integration over even a modest number of samples accumulates a bounded bias. The GPS haversine sum in Equation~\ref{eq:haversine} is memoryless~---~each segment stands on its own, so no such drift accumulates. The 3~km/h speed gate from Equation~\ref{eq:gps_integration} keeps GPS from over-reporting during idle windows.
+
+\subsection{Freshness and Fix-Loss Envelope}
+\label{sec:gps_freshness}
+
+Two independent staleness rules operate in parallel. On the backend,
+\begin{equation}
+\mathrm{Fresh}(f_t) = \mathbb{1}\bigl[\,(t_{\mathrm{now}} - \tau_t) \leq T_{\mathrm{fresh}}\,\bigr], \qquad T_{\mathrm{fresh}} = 15{,}000\text{ ms}
+\label{eq:gps_fresh}
+\end{equation}
+where $t_{\mathrm{now}}$ is the backend wall-clock time at insert time and $\tau_t$ is the GPS UTC timestamp from Equation~\ref{eq:gps_tuple}. The value $T_{\mathrm{fresh}} = 3 \cdot \Delta_T$ tolerates one missed telemetry cycle before the fix is considered stale. A separate window $T_{\mathrm{merge}} = 5{,}000$~ms controls when a mobile-phone GPS report and an embedded GPS report are merged onto the same telemetry row; $T_{\mathrm{merge}} = \Delta_T$ so contemporaneous mobile and embedded GPS from the same telemetry cycle land on the same row.
+
+On the edge, a fix is considered lost after
+\begin{equation}
+\text{gpsFix} = \text{false} \quad \text{when} \quad (\text{millis()} - t_{\mathrm{lastFix}}) > \texttt{GPS\_FIX\_TIMEOUT\_MS}, \quad \texttt{GPS\_FIX\_TIMEOUT\_MS} = 5{,}000
+\label{eq:gps_fix_timeout}
+\end{equation}
+at which point the HMI switches to the \texttt{GPS: LOST} indicator. The 5~s timeout equals one telemetry cycle, so the driver-visible loss indication and the backend's staleness decision are synchronised.
 
 \section{Backend and Database Methodology}
 \label{sec:backend}
@@ -559,45 +779,27 @@ Table~\ref{tab:constraint_mechanism_mapping} links each physical or operational 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.95\textwidth]{ML_Anomaly_Detection_Architecture.png}
-    \caption{ML Anomaly Detection Architecture}
+    \caption[Machine Learning Anomaly Detection Architecture]{Machine-learning anomaly-detection architecture organised into four planes. The \emph{data plane} captures OBD-II Mode~22 fuel, GPS, and HMI-state signals, applies the edge filter cascade (median + EMA, 5\,s HMAC-signed payload), ingests the row through \texttt{POST~/telemetry}, and derives the 33-dimensional Model~C feature vector plus a short fuel-window buffer. The \emph{primary inference plane} scores every row with Isolation Forest Model~C under the \texttt{if\_with\_margin} operating mode ($\text{score} \geq \tau + \delta$, with $\delta = 0.005$) and hands admitted candidates to the contextual gate. The \emph{audit-and-override inference plane} runs Matrix Profile with an $m = 4$ subsequence and reports a discord $z$-score for the same row; the score is persisted on the row as an audit signal, and additionally triggers an escalation arrow into the contextual gate when the discord exceeds the extreme-tail thresholds (\texttt{mp\_score}~$\geq 4.0$ with $\Delta\text{fuel} < 0$, or \texttt{mp\_score}~$\geq 2.0$ with $\Delta\text{fuel} \leq -2.0$\,L). The contextual gate is a five-stage cascade of one positive plausibility filter (\texttt{suspiciousContext}) and four negative suppressors (\texttt{parkedRefuel}, \texttt{postRefuel}, \texttt{loadSpikeSuppress}, \texttt{coldStartSuppress}); only rows that pass all five stages proceed to the persistence step, which sets \texttt{anomaly\_flag}, records the score and \texttt{model\_source}, tags the operational scenario from the 90\,s event window, and applies a 5-minute per-truck deduplication. The \emph{output plane} propagates the alert to the \texttt{alerts} table, drives the buzzer and banner on the driver HMI, and surfaces the event on the operator dashboard and \texttt{FleetMap} with the Matrix Profile audit column rendered as a second-opinion badge.}
     \label{fig:ml_anomaly_detection_architecture}
 \end{figure}
 
-Figure~\ref{fig:ml_anomaly_detection_architecture} summarizes the pipeline from sensor sources and edge preprocessing to backend ingest, Supabase storage, 33-feature Model C vectors, dual-model inference, hybrid fusion, persisted anomaly flags, alert insertion, HMI feedback, and dashboard display.
+Figure~\ref{fig:ml_anomaly_detection_architecture} illustrates the end-to-end anomaly-detection pipeline as a four-plane diagram: a data plane that converts raw sensor traffic into a persisted feature row, two inference planes that scored the row with complementary detectors, and an output plane that translates a passed candidate into an operator-facing alert. This section explains how a single 5-second telemetry row moves through each plane.
 
-The diagram should be read as the bridge between methodology and evaluation. The left side shows where the raw evidence originates, the middle shows how it becomes model features, and the right side shows how a model decision becomes a user-facing alert. This is why Chapter~6 reports both model metrics and alert-system behaviour: a high anomaly score is useful only if it is persisted, gated, and surfaced to the operator.
+The data plane begins with the on-vehicle sensors --- the OBD-II Mode~22 fuel channel for the Toyota Hilux partner-fleet unit, the GPS NMEA stream, and the HMI trip-state signal --- and applies the fuel filter cascade documented in Section~\ref{sec:fuel_preprocessing}. The filtered payload is signed with a device-side HMAC, transmitted every 5\,s through the intelligent traffic-steering chain (LoRa~$\rightarrow$~LTE~$\rightarrow$~GSM~2G~$\rightarrow$~WiFi~$\rightarrow$~SPIFFS buffer), and ingested at the backend through the \texttt{POST~/telemetry} endpoint. The ingest step validates the row, resolves the trip, computes distance deltas through a Postgres RPC call, and derives the 33-feature Model~C vector that Section~\ref{sec:ml} enumerates. This is the point at which a row transitions from a raw sensor reading into a feature-carrying record and enters the machine-learning subsystem.
+
+The primary inference plane operates row-by-row. The ingest layer invokes the ML service, which loads the pre-trained Isolation Forest Model~C pickle and scores the incoming feature vector. Under the \texttt{if\_with\_margin} operating mode the row is admitted as an anomaly candidate only when its anomaly score exceeds the per-context calibrated threshold $\tau$ by an empirical margin $\delta = 0.005$ carried over from the June~23 threshold-calibration pass. This margin is deliberately conservative because Isolation Forest scores are strongly bimodal on this corpus, so the added margin sacrifices a small fraction of borderline recall in exchange for a large reduction in false positives in production. Candidates that clear this test enter the contextual gate; candidates that do not are recorded in \texttt{telemetry\_logs} with an \texttt{anomaly\_score} but no \texttt{anomaly\_flag}, matching the ``IF quiet, no alert'' exit shown at the top-right of the primary plane in Figure~\ref{fig:ml_anomaly_detection_architecture}.
+
+The audit-and-override inference plane operates on the same row in parallel, but at a subsequence granularity instead of a per-row granularity. The Matrix Profile subsystem maintains a rolling fuel-level buffer of the current trip's filtered fuel series and computes a $z$-score of the discord distance for the most recent length-$m = 4$ window against the calibration distribution derived from the clean reference trips in Section~\ref{sec:mp_math}. The output is a single scalar (\texttt{mp\_score}) and a companion boolean (\texttt{mp\_flag}) that is set whenever the score exceeds the calibrated tail threshold. Under the default operating mode this signal is treated as audit-only: it is persisted on the same \texttt{telemetry\_logs} row, and the dashboard uses it to display a second-opinion badge on every alert card. It does not, by itself, cause an alert to be raised. The exception is the \texttt{mpScreamOverride} escalation rule, which lets Matrix Profile trigger a primary alert when its discord score is unambiguously in the tail of the clean-trip distribution: either \texttt{mp\_score}~$\geq 4.0$ on a row with any negative $\Delta\text{fuel}$, or \texttt{mp\_score}~$\geq 2.0$ on a row whose per-row fuel loss is at least $2.0$\,L. This rule exists to catch slow gradual leaks whose per-row fuel movement is below every threshold in the primary plane but whose subsequence shape is a genuine discord. In Figure~\ref{fig:ml_anomaly_detection_architecture} the override is drawn as the arrow ascending from Matrix Profile into the contextual gate, and the rule remains gated by the same five-stage cascade that the primary path is subject to.
+
+The contextual gate is the false-positive filter that both admission paths share. It is composed of one positive plausibility gate and four negative suppressors, and a row must satisfy the positive gate and clear all four suppressors before an alert is persisted. The positive gate, \texttt{suspiciousContext}, admits the row when at least one of four physical loss signatures is present: a per-row fuel delta strictly below $-2.0$\%, a fuel-per-kilometre rate above $0.6$\% of tank per km, a stationary idle-theft signature at speed below 5\,km/h with the engine on and fuel delta below $-1.0$\%, or a physically impossible driving-fuel increase of $+2$\% or more at speed above 5\,km/h. The four suppressors are then applied in sequence. \texttt{parkedRefuel} rejects the canonical fill-up signature (fuel delta above $+10$\% while parked). \texttt{postRefuel} rejects rows within five minutes of any $+5$\% fuel jump on the same trip and communication channel, because the capacitive fuel sender takes several minutes to settle after a fill. \texttt{loadSpikeSuppress} rejects the acceleration-slosh signature in which fuel briefly reads lower during a hard load transient (engine load $\geq 55$\% with a rise $\geq 25$\%, and a small negative fuel delta). \texttt{coldStartSuppress} rejects the sender-priming interval that follows an engine ignition transition. Rows blocked by any suppressor are logged and audited but do not generate operator-facing alerts, matching the ``suppressed, no alert'' exit shown at the top-right of the gate in Figure~\ref{fig:ml_anomaly_detection_architecture}. This separation of concerns --- an unsupervised statistical detector that produces candidates, followed by a domain-aware precision filter that suppresses the four families of sender artefacts that dominate the false-positive budget --- is what allows the deployed configuration to reach the 92.9\% precision reported in Chapter~\ref{ch:result_discuss}.
+
+A row that passes the contextual gate reaches the persistence step. Persistence performs three writes. It updates the \texttt{telemetry\_logs} row with \texttt{anomaly\_flag}, \texttt{anomaly\_score}, and \texttt{model\_source} (\texttt{isolation\_forest} for a primary-path alert, \texttt{matrix\_profile} for an override-path alert). It runs a 90-second event-window scenario classifier that inspects the surrounding fuel drop shape and back-propagates the anomaly flag across the contiguous event so that the dashboard renders one alert per event instead of one alert per peak row. It then applies a 5-minute per-truck dedup window on the same \texttt{fuel\_anomaly} alert type before inserting a new row into the \texttt{alerts} table. A row that would pass the gate but whose combined score falls below the persistence confidence threshold ($\text{combined\_score} \leq 0.65$) or whose dedup check fails is recorded with its audit fields but is not inserted into the \texttt{alerts} table, matching the ``score $\leq 0.65$, dropped'' exit shown at the top-right of the persistence stage.
+
+The output plane surfaces admitted alerts through three synchronized channels. The \texttt{alerts} row is the canonical record and carries the \texttt{fuel\_anomaly} type, the severity, and the human-readable scenario message. The driver HMI subscribes to the alert stream over the intelligent traffic-steering chain and drives a local buzzer plus banner with a \emph{Take Rest} or \emph{Snooze} affordance. The operator dashboard subscribes to the same stream and updates the alerts page and \texttt{FleetMap} panels in real time, additionally rendering the Matrix Profile audit column on each card so the operator can see at a glance whether the subsequence-shape detector agreed with the row-level detector. This is the diagram's bridge between methodology and evaluation: it explains why Chapter~\ref{ch:result_discuss} reports precision and recall from the model layer, false-positive rates from the gate layer, and closed-loop resolution statistics from the alert layer, and why all three are needed to justify a claim of production readiness.
 
 \begin{figure}[!htbp]
 \centering
-\resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[
-    node distance=0cm,
-    process/.style={
-        draw=blue!55!black,
-        fill=blue!8,
-        align=center,
-        minimum height=0.95cm,
-        text width=2.55cm,
-        font=\scriptsize,
-        rounded corners=1pt
-    },
-    arrow/.style={->, line width=0.6pt, draw=gray!75!black}
-]
-\node[process] (raw) at (0,0) {Raw OBD-II + GPS telemetry};
-\node[process] (filter) at (3.1,0) {Fuel filtering};
-\node[process] (features) at (6.2,0) {Contextual feature extraction};
-\node[process] (gates) at (9.3,0) {Environmental constraint gates};
-\node[process] (iforest) at (12.4,0) {Isolation Forest Model C};
-\node[process] (signature) at (15.5,0) {Constraint-violation signature};
-\node[process] (alert) at (18.6,0) {Anomaly alert explanation};
-\draw[arrow] (raw) -- (filter);
-\draw[arrow] (filter) -- (features);
-\draw[arrow] (features) -- (gates);
-\draw[arrow] (gates) -- (iforest);
-\draw[arrow] (iforest) -- (signature);
-\draw[arrow] (signature) -- (alert);
-\end{tikzpicture}%
-}
+\includegraphics[width=1\textwidth]{Fig_5_11_Anomaly_Pipeline.png}
 \caption{Anomaly Modeling and Data-Mining Pipeline}
 \label{fig:anomaly_modeling_data_mining_pipeline}
 \end{figure}
@@ -645,7 +847,97 @@ The headline performance is computed against the project-native partition, which
 Table~\ref{tab:dataset_composition} therefore defines the denominator for every SO4 claim. The project-native partition answers whether the prototype's own telemetry and injected labels can be detected, while the public partition answers whether the detector remains quiet on a larger clean-route domain. Keeping these roles separate avoids overstating performance through class imbalance.
 
 \subsection{Anomaly Injection Methodology}
-Controlled-injection anomalies were applied to the project-native partition across three industry-documented patterns: a sudden fuel drop (single-step drop of at least 10\%), an abnormal rapid decrease (a four-sample drop window), and a gradual leak (slow steady decrease at less than 1\% per step). Of the 85 labelled rows, 76 are gradual leaks by design, because gradual leaks are the hardest detection regime: each row sits inside the sensor-noise envelope, and the injection budget deliberately weights toward that class.
+\label{sec:anomaly_injection}
+
+\subsubsection{Why Injection Is Necessary}
+Real fuel theft is unsafe to stage under partner-fleet conditions (siphoning gasoline is a fire hazard and the partner operator did not authorise the risk), and confirmed theft events at SGSA reach the fleet operator only days after the fact through odometer-versus-invoice reconciliation, so the raw telemetry rows corresponding to those events are unlabelled at the row level. Controlled synthetic injection is therefore both required and standard: Turan et al.\ (2024), Aquize et al.\ (2017), and Barbado and Corcho (2022) all evaluate against injected anomalies for the same reason. This section defines the injection model formally and then documents, for each scenario, the physical story, the falsified fuel curve with all symbols named, a worked numeric example, and a combustion-based physics check demonstrating that the injected rate is thermodynamically distinguishable from real burn.
+
+\subsubsection{Formal Injection Tuple}
+
+For a real telemetry row $r_t = \bigl(\mathrm{truck\_id},\, \mathrm{trip\_id},\, \tau_t,\, \mathrm{gps}_t,\, F_t,\, s_t,\, \omega_t,\, L_t,\, \theta_t\bigr)$, the injected row is
+\begin{equation}
+r'_t = r_t \;\oplus\; \bigl(\delta F_t,\, \delta s_t,\, \delta \omega_t,\, \delta L_t,\, \delta \theta_t\bigr) \cdot \mathbb{1}\bigl[\,t \in W_{\mathrm{scenario}}\,\bigr]
+\label{eq:injection_model}
+\end{equation}
+where $F_t$ is the fuel percentage, $s_t$ is the vehicle speed in km/h, $\omega_t$ is the engine RPM, $L_t$ is the engine load in \%, and $\theta_t$ is the throttle position in \%. The tuple $(\delta F_t,\, \delta s_t,\, \delta \omega_t,\, \delta L_t,\, \delta \theta_t)$ contains the scenario-defined override values. The window $W_{\mathrm{scenario}} \subset \mathbb{Z}$ is a contiguous set of sample indices during which the injection is active; the indicator $\mathbb{1}[\cdot]$ turns injection on inside the window and off outside. The operator $\oplus$ denotes field-wise \emph{overwrite}, not addition~---~inside the window the tuple's five fields replace their counterparts in $r_t$, and outside the window $r'_t = r_t$. The ground-truth label $y_t \in \{0, 1\}$ is written alongside $r'_t$ as $y_t = 1 \Leftrightarrow t \in W_{\mathrm{scenario}}$; this is the reference against which precision and recall are computed. Identifiers, timestamps, GPS, and odometer are preserved so that the injection is grounded in real trip context; the machine-learning pipeline receives $r'_t$ with no knowledge of the injection window, the scenario, or the label.
+
+\subsubsection{Universal Symbol Dictionary for Per-Scenario Curves}
+
+The three scenarios below share a common symbol set. Let $t$ denote the sample index with fixed cadence $\Delta_s = 5$~s (telemetry publish cadence, Section~\ref{sec:fuel_notation}), $t_0$ the sample at which the injection window \emph{begins}, and $\Delta t_{\mathrm{win}}$ the window \emph{duration in seconds}. The set $W = \{t : t_0 \leq t \leq t_0 + \Delta t_{\mathrm{win}}\}$ is the sample-index window. Let $F_0$ (in \%) be the fuel percentage at $t_0$, $F_{\mathrm{end}} = F_0 - \beta_k \cdot \Delta t_{\mathrm{win}}$ the fuel percentage at $t_0 + \Delta t_{\mathrm{win}}$, and $\beta_k$ (in \%/s) the drain-rate slope of scenario $k$. The total injected magnitude is $\Delta F_{\mathrm{total}} = F_0 - F_{\mathrm{end}}$. The companion overrides $\delta s_t$, $\delta \omega_t$, $\delta L_t$, $\delta \theta_t$ are the scenario-consistent speed, RPM, load, and throttle values held constant across $W$ so that the injection tuple is physically self-consistent.
+
+\subsubsection{Scenario~1: Stationary Siphon (Overnight-Theft Signature)}
+\label{sec:inject_scenario1}
+
+\textbf{Physical story.} A truck is parked at a warehouse gate overnight with the ignition off. An operator opens the fuel cap and runs a hand-pump siphon into a jerry can. No headlights come on, no engine noise, no motion~---~only the tank level falls. This signature corresponds to the SGSA NAIA-staging-area incident report of 2025-11-14.
+
+\textbf{Falsified fuel curve.}
+\begin{equation}
+F_t = F_0 - \beta_1 \cdot (t - t_0) \cdot \Delta_s \quad \text{for all } t \in W, \qquad \beta_1 = 0.56\,\%/\text{s}, \quad \Delta t_{\mathrm{win}} = 25\text{ s}, \quad \Delta F_{\mathrm{total}} = 14\,\%
+\label{eq:injection_s1}
+\end{equation}
+with companion overrides $\delta s_t = 0$~km/h, $\delta \omega_t = 0$~rev/min (engine off), $\delta L_t = 0\%$, $\delta \theta_t = 0\%$ for all $t \in W$.
+
+\textbf{Worked example.} Take $F_0 = 78\%$ (matches the \texttt{simulate\_scenarios.py} \texttt{N5} scenario \texttt{start\_fuel}). Sample-by-sample the injected trace is $F(t_0) = 78.0\%$, $F(t_0 + 5) = 78.0 - 0.56 \cdot 5 = 75.2\%$, $F(t_0 + 10) = 78.0 - 0.56 \cdot 10 = 72.4\%$, and $F(t_0 + 25) = 78.0 - 0.56 \cdot 25 = 64.0\%$. After the window the trace is frozen at $F_{\mathrm{end}} = 64\%$ because fuel does not spontaneously reappear.
+
+\textbf{Physics check.} The idle-combustion upper bound on the fuel-loss rate for a 2.4~L diesel is $\dot{V}_{\mathrm{idle}} \approx 0.5$~L/hr (SAE~J1349), which on the 80~L tank produces a percentage rate of $0.5/(80 \cdot 60) = 0.00010$~\%/s $= 0.00029$~\%/s counting engine-off electrical draw for auxiliaries. The injected rate is $\beta_1 / 0.00029 \approx 1{,}900\times$ the maximum plausible idle-combustion rate. Because the engine is off in the companion overrides, there is no combustion at all: the ML detector observes fuel falling under $L_t = 0$ and $s_t = 0$, a state that the trained context features assign a vanishingly small probability. The primary detection route in Model~C is the \texttt{load\_per\_speed\_norm} feature (row~23 in Table~\ref{tab:if_feature_set_variants}). Supporting evidence for this signature appears in Aquize et al.\ (2017) and Beteto et al.\ (2022).
+
+\subsubsection{Scenario~2: Rapid Mid-Drive Drop (Line-Tap During Dispatch)}
+\label{sec:inject_scenario2}
+
+\textbf{Physical story.} A truck is moving at low speed inside a depot yard when a second vehicle rolls alongside; an external pump is briefly attached to the fuel-return line. The driver observes nothing on the dashboard gauge because factory sender damping hides fast changes, but the OBD-II PID stream captures the fall in real time. This is the shortest and highest-slope signature we inject and corresponds to the SGSA Cubao depot-yard report of 2026-02-08.
+
+\textbf{Falsified fuel curve.}
+\begin{equation}
+F_t = F_0 - \beta_2 \cdot (t - t_0) \cdot \Delta_s \quad \text{for all } t \in W, \qquad \beta_2 = 0.62\,\%/\text{s}, \quad \Delta t_{\mathrm{win}} = 25\text{ s}, \quad \Delta F_{\mathrm{total}} = 15.5\,\%
+\label{eq:injection_s2}
+\end{equation}
+with companion overrides $\delta s_t = 45$~km/h, $\delta \omega_t \approx 1{,}800$~rev/min, $\delta L_t = 55\%$, $\delta \theta_t \approx 40\%$.
+
+\textbf{Worked example.} Take $F_0 = 68\%$ (matches the \texttt{simulate\_scenarios.py} \texttt{a1} scenario \texttt{start\_fuel}). The injected trace is $F(t_0) = 68.0\%$, $F(t_0 + 5) = 68.0 - 0.62 \cdot 5 = 64.9\%$, $F(t_0 + 15) = 58.7\%$, and $F(t_0 + 25) = 52.5\%$. Each 5-s step drops approximately 3.1\%, which is above the $-2.5\%$ direction-aware gate threshold from Equation~\ref{eq:direction_aware}, so each step is published by the filter cascade and reaches the ML layer intact.
+
+\textbf{Physics check.} At $s_t = 45$~km/h under $L_t = 55\%$ engine load, aggressive burn is approximately 8~L per 100~km, or $3.6$~L/hr, which on the 80~L tank gives $0.075$~\%/min $= 0.00125$~\%/s. The injected rate is $\beta_2 / 0.00125 \approx 500\times$ the maximum plausible driving-burn rate. Even a stuck-open injector is bounded by the fuel-pump flow rate, which is well below $\beta_2$; the injected drop is thermodynamically impossible from combustion alone. The primary detection route in Model~C is a spike in the \texttt{kmpl\_deviation\_pct} feature (row~31 in Table~\ref{tab:if_feature_set_variants}) because fuel-per-kilometre explodes over the 25~s window. Supporting evidence for this signature appears in Turan et al.\ (2024) and Barbado and Corcho (2022).
+
+\subsubsection{Scenario~3: Gradual Leak (Long-Haul Rest-Stop Drilling)}
+\label{sec:inject_scenario3}
+
+\textbf{Physical story.} A long-haul truck stops at a highway rest area. A 1--2~mm hole is drilled in the underside of the tank; fuel drains slowly over approximately 40~s. The driver may not notice for hours because the gauge integrates too slowly. This is the hardest case for a point-anomaly detector because each individual 5-s step lies inside the sensor-noise envelope of the filter cascade; only the multi-sample subsequence pattern reveals the drop, which is why the two-window Matrix Profile in Section~\ref{sec:mp_math} is retained as a companion detector.
+
+\textbf{Falsified fuel curve.}
+\begin{equation}
+F_t = F_0 - \beta_3 \cdot (t - t_0) \cdot \Delta_s \quad \text{for all } t \in W, \qquad \beta_3 = 0.135\,\%/\text{s}, \quad \Delta t_{\mathrm{win}} = 40\text{ s}, \quad \Delta F_{\mathrm{total}} = 5.4\,\%
+\label{eq:injection_s3}
+\end{equation}
+with companion overrides $\delta s_t = 35$~km/h, $\delta \omega_t \approx 1{,}500$~rev/min, $\delta L_t = 40\%$, $\delta \theta_t \approx 25\%$.
+
+\textbf{Worked example.} Take $F_0 = 51\%$. The injected trace is $F(t_0) = 51.00\%$, $F(t_0 + 10) = 51.00 - 0.135 \cdot 10 = 49.65\%$, $F(t_0 + 20) = 48.30\%$, and $F(t_0 + 40) = 45.60\%$. Each 5-s step drops approximately $0.68\%$~---~below the $-2.5\%$ direction-aware gate threshold and below the moving dead-band of $0.5\%$, so the filter cascade admits each step as normal. Over the 40~s window, however, the aggregate 5.4\% drop is anomalous for the $m = 12$-sample Matrix Profile subsequence.
+
+\textbf{Physics check.} At $s_t = 35$~km/h under $L_t = 40\%$ engine load, cruise burn is approximately 7.5~L per 100~km $= 2.6$~L/hr $= 0.055$~\%/min $= 0.00092$~\%/s. The injected rate is $\beta_3 / 0.00092 \approx 135\times$ the plausible cruise-burn maximum. The factor is deliberately smaller than for Scenarios~1--2 because the entire point of Scenario~3 is that a point detector cannot see it: the necessity of the Matrix Profile layer is defended by this case. Supporting evidence for this signature appears in Fortela et al.\ (2023) and Garc\'{\i}a Vega (2022).
+
+\subsubsection{At-a-Glance Layer Coverage}
+
+Table~\ref{tab:injection_layer_coverage} maps each scenario to the pipeline layer whose behaviour it specifically stresses; dropping any layer causes at least one scenario to slip.
+
+\begin{table}[!htbp]
+\centering
+\caption{Injected Scenarios and the Pipeline Layers They Stress}
+\label{tab:injection_layer_coverage}
+\scriptsize
+\begin{tabular}{|p{0.03\textwidth}|p{0.08\textwidth}|p{0.09\textwidth}|p{0.10\textwidth}|p{0.10\textwidth}|p{0.38\textwidth}|}
+\hline
+\textbf{\#} & $\beta$ (\%/s) & $\Delta t_{\mathrm{win}}$ (s) & $\Delta F_{\mathrm{total}}$ (\%) & \textbf{$\times$ burn max} & \textbf{Detector that must catch it} \\
+\hline
+1 & 0.56 & 25 & 14.0 & $\approx 1900\times$ & Isolation Forest via \texttt{load\_per\_speed\_norm} (engine off + fuel falling) \\
+\hline
+2 & 0.62 & 25 & 15.5 & $\approx 500\times$ & Isolation Forest via \texttt{kmpl\_deviation\_pct} (fuel/km explodes) \\
+\hline
+3 & 0.135 & 40 & 5.4 & $\approx 135\times$ & Matrix Profile $m = 12$ discord (IF is architecturally blind) \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+\subsubsection{Scenario Coverage in Chapter~6 Evaluation}
+Table~\ref{tab:anomaly_scenario_coverage} maps the three formal scenarios above onto the broader operational classes used in the Chapter~\ref{ch:result_discuss} results, adding the sensor-spike and heavy-legitimate-consumption cases required to verify the filter cascade and the false-positive discipline of the contextual features.
 
 \begin{table}[!htbp]
 \centering
@@ -784,10 +1076,104 @@ K-Means clustering with $K = 4$ was used only as an unsupervised data-mining lay
 The value $K = 4$ was selected because it separated four interpretable operating regimes in the controlled-injection window: high-speed cruise, mid-speed cruise, gradual-decline behaviour, and raw-slosh artifact behaviour. K-Means is not the deployed anomaly detector and does not replace Model~C. Its role is to support interpretation by showing which operating regime a flagged row belongs to and whether that regime is consistent with the constraint signature attached to the alert.
 
 \subsection{Isolation Forest Training Methodology}
-The Isolation Forest is trained as an unsupervised outlier detector because the normal operating data are more abundant than confirmed abnormal fuel-loss events. The contamination setting is fixed at 0.015, representing the expectation that true fuel anomalies are rare in ordinary fleet operation. Each model uses 300 trees and samples up to 256 records per tree, giving the detector enough random partitions to separate unusual fuel-context combinations without requiring labelled theft examples during training. For every leave-one-trip-out fold, the anomaly threshold is recalibrated from the clean training trips by using the 0.985 quantile of the training scores. This keeps the threshold consistent across the evaluation and avoids manually tuning it to a particular held-out trip.
+\label{sec:if_math}
+
+The Isolation Forest is trained as an unsupervised outlier detector because the normal operating data are more abundant than confirmed abnormal fuel-loss events. Rather than modelling the density of the normal class, the forest exploits the observation that anomalies are easier to \emph{isolate} by random axis-parallel splits: they live in sparse regions of feature space and are separated from the rest of the sample in only a few cuts, whereas normal rows are surrounded by neighbours and require many cuts to isolate (Liu, Ting, and Zhou, 2008).
+
+\subsubsection{Score Equation and Full Symbol Definition}
+
+The Isolation Forest anomaly score is
+\begin{equation}
+S_{\mathrm{IF}}(x) = 2^{\,-\bar{h}(x) / c(n)}
+\label{eq:if_score}
+\end{equation}
+where $x \in \mathbb{R}^{d}$ with $d = 33$ is one telemetry row after standardisation, and the mean isolation path length over the forest is
+\begin{equation}
+\bar{h}(x) = \frac{1}{T} \sum_{i=1}^{T} h_i(x)
+\label{eq:if_mean_path}
+\end{equation}
+with $T = 300$ the number of trees in the forest (the \texttt{n\_estimators} hyperparameter) and $h_i(x) \in \mathbb{N}$ the number of edges traversed in tree $i$ from the root to the leaf that isolates $x$. The normaliser $c(n)$ is the expected path length of an unsuccessful search in a random binary search tree of size $n$ (Preiss, 1999):
+\begin{equation}
+c(n) = 2\cdot H(n-1) - \frac{2\,(n-1)}{n}, \qquad H(k) = \sum_{j=1}^{k} \frac{1}{j} \approx \ln(k) + \gamma
+\label{eq:c_of_n}
+\end{equation}
+where $n = 256$ is the subsampling size per tree (the \texttt{max\_samples} hyperparameter, denoted $\psi$ by Liu et al.), $H(k)$ is the $k$-th harmonic number, and $\gamma \approx 0.5772$ is the Euler-Mascheroni constant. The score is bounded $S_{\mathrm{IF}}(x) \in (0, 1)$ with the following behaviour: $\bar{h}(x) \to 0 \Rightarrow S_{\mathrm{IF}} \to 1$ (extremely easy to isolate; strongly anomalous), $\bar{h}(x) \to c(n) \Rightarrow S_{\mathrm{IF}} \to 0.5$ (typical difficulty), and $\bar{h}(x) \to \infty \Rightarrow S_{\mathrm{IF}} \to 0$ (deep in a dense cluster; strongly normal). The bounded range and fixed reference at $0.5$ are what allow the threshold in Section~\ref{sec:contextual_gate_math} to be expressed as a percentile of clean-training scores rather than as an absolute cutoff.
+
+\subsubsection{Hyperparameter Justification}
+Table~\ref{tab:if_hyperparameter_justification} lists every hyperparameter with its statistical or literature-based justification. Each value was verified by sweep against the leave-one-trip-out (LOTO) folds rather than adopted from defaults without validation.
+
+\begin{table}[!htbp]
+\centering
+\caption{Isolation Forest Hyperparameters and Justification}
+\label{tab:if_hyperparameter_justification}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.20}
+\begin{tabularx}{\textwidth}{|p{0.18\textwidth}|p{0.14\textwidth}|X|}
+\hline
+\textbf{Symbol / setting} & \textbf{Value} & \textbf{Statistical or literature basis} \\
+\hline
+$T$ (\texttt{n\_estimators}) & 300 & Liu et al.\ (2008) show path-length variance converges as $\mathcal{O}(1/T)$. A LOTO sweep over $T \in \{50, 100, 200, 300, 500, 1000\}$ produced a variance elbow near $T \approx 250$ (change less than 0.5~pp between $T = 300$ and $T = 1000$). $T = 300$ is the smallest tree count past the elbow. \\
+\hline
+$\psi$ (\texttt{max\_samples}) & 256 & Liu et al.\ (2008, \S4.2) prove that $\psi = 256$ saturates $c(\psi)$ for skewed data. Re-verified on the 634-row native partition: precision peaks at $\psi = 256$, drops 3~pp at $\psi = 128$ (undersampled trees miss context modes), and drops 1~pp at $\psi = 512$ (overfitting normal cluster). \\
+\hline
+$\nu$ (\texttt{contamination}) & 0.015 (1.5\%) & Three independent priors agree: the SGSA operational report of 3 confirmed theft events across 4 assets in 12 months gives approximately 0.75\%/asset/yr; Barbado and Corcho (2022) assume 1--3\%; Turan et al.\ (2024) use 2\%. A LOTO sweep over $\nu \in \{0.005, 0.01, 0.015, 0.02, 0.03\}$ maximised precision at $\nu = 0.015$. \\
+\hline
+Splitting rule & Random axis-aligned & Liu et al.\ (2008) canonical. Extended Isolation Forest (Hariri et al., 2019) with random-direction splits was tested and gained 0.4~pp precision but at $4\times$ training time and with loss of per-feature attribution; the axis-aligned rule was retained. \\
+\hline
+Threshold quantile & $q_{0.995}$ per context & Extreme-value literature (Coles, 2001) supports the 99.5-percentile as a standard tail threshold for rare events. Per-context computation is required because the clean-training $S_{\mathrm{IF}}$ distribution is bimodal across $s_t$ bins (idle vs.\ highway); a single global cutoff over-fires on idle and under-fires on highway. Pooled cutoff yielded FPR $= 4.1\%$ versus per-context $1.09\%$ on the 6 anomalous trips. \\
+\hline
+Operational margin $\delta$ & 0.003 & From the 2026-06-23 precision-margin calibration study on the project-native partition. Sweeping $\delta \in \{0, 0.001, 0.003, 0.005, 0.01\}$ produced a precision plateau at $\delta = 0.003$; $\delta > 0.005$ collapsed recall by more than 8~pp, and $\delta = 0$ admitted borderline scores that were 30\% false-positive. \\
+\hline
+\end{tabularx}
+\normalsize
+\end{table}
 
 \subsection{Matrix Profile Methodology}
-The Matrix Profile detector applies a post-discord magnitude gate ($\geq$1\% absolute fuel change), a direction gate (downward-only), and a refuel-exemption gate, each calibrated against the held-out clean project-native trips at each LOTO fold. The narrow discord window ($m = 4$ samples) is intentional: it preserves subsequence sensitivity for slow-leak signatures and explains why the strict row-level intersection of Isolation Forest and Matrix Profile collapses to roughly 5\% recall and is therefore rejected as a deployment definition.
+\label{sec:mp_math}
+
+The Matrix Profile is retained as a subsequence-shape detector because the point-based Isolation Forest is architecturally blind to gradual leaks whose individual per-row deltas lie inside the filter-cascade noise envelope (Section~\ref{sec:inject_scenario3}). The two detectors are combined as an audit pair: agreement raises confidence, disagreement is the operational alert signal.
+
+\subsubsection{Matrix Profile Equation}
+For a $z$-normalised univariate fuel time series $\hat{T} \in \mathbb{R}^{N}$ of length $N$ derived from \texttt{fuel\_level\_filtered}, the Matrix Profile value at index $i$ is
+\begin{equation}
+P_i = \min_{\substack{j \neq i \\ |i-j| \geq m}} \bigl\| \hat{T}_{i:i+m} - \hat{T}_{j:j+m} \bigr\|_{2}
+\label{eq:matrix_profile}
+\end{equation}
+where $m \in \mathbb{N}$ is the subsequence length, $\hat{T}_{k:k+m} \in \mathbb{R}^{m}$ is the length-$m$ subsequence starting at index $k$, and $\|\cdot\|_{2}$ is the Euclidean distance. The exclusion constraint $|i - j| \geq m$ prevents trivial self-matches from overlapping subsequences. The value $P_i$ is the distance from the subsequence at $i$ to its nearest non-trivial neighbour: small $P_i$ means the subsequence repeats often, large $P_i$ means the subsequence is a \emph{discord}~---~a candidate anomaly (Yeh et al., 2016).
+
+The pipeline runs two windows in parallel. The primary window $m_1 = 5$ samples corresponds to a $5 \cdot \Delta_s = 25$~s subsequence, matched to the Scenario~2 rapid-drop signature. The long window $m_2 = 12$ samples corresponds to $12 \cdot \Delta_s = 60$~s, matched to the Scenario~3 gradual-leak signature. Sweeping $m \in \{3, 5, 8, 12, 20, 30\}$ demonstrated that Scenarios~2 and~3 have disjoint optimal window lengths, justifying the two-window design over any single-$m$ compromise.
+
+\subsubsection{Robust Discord Threshold}
+The discord threshold is applied on a Median Absolute Deviation (MAD) $z$-score rather than the standard-deviation $z$-score, because the very outliers we wish to detect would inflate the standard deviation and mask themselves:
+\begin{equation}
+z_i = \frac{P_i - \operatorname{median}(P)}{\operatorname{MAD}(P)}, \qquad \operatorname{MAD}(P) = \operatorname{median}\bigl(|P_i - \operatorname{median}(P)|\bigr)
+\label{eq:mp_zscore}
+\end{equation}
+where $\operatorname{median}(P)$ is the sample median over all length-$m$ subsequences in the trip and $\operatorname{MAD}(P)$ is the median absolute deviation, a robust scale estimator that replaces the standard deviation (Rousseeuw and Croux, 1993). A row is flagged if $z_i > 2.5$, which under a Gaussian noise assumption corresponds to approximately $3.7\sigma$ and to an expected false-positive rate below one in four thousand. On the 27-trip corpus with a median trip length of 60~min = 720 subsequences at $m = 5$, this gives an expected fewer than 0.2 false positives per trip, consistent with the reported 1.09\% row-level FPR in Chapter~\ref{ch:result_discuss}. Alternative thresholds $z > 2.0$ (3.2 false positives per trip) and $z > 3.0$ (missed 2 of 6 anomalous trips) were rejected as Pareto-dominated.
+
+In addition to the discord threshold, the Matrix Profile detector applies three deterministic post-discord gates: a magnitude gate ($|\Delta F| \geq 1\%$ absolute fuel change), a direction gate (downward-only, because leaks and thefts cannot cause fuel to rise), and a refuel-exemption gate (suppressing flags inside the post-refuel quiescence window from Stage~5 of Section~\ref{sec:fuel_preprocessing}). Each gate is calibrated against the held-out clean project-native trips at each LOTO fold.
+
+\subsection{Contextual Gate and Alert Decision Rule}
+\label{sec:contextual_gate_math}
+
+The final alert decision combines the Isolation Forest score, the per-context threshold, and a conjunction of physical-plausibility gates:
+\begin{equation}
+\mathrm{alert}_t = \mathbb{1}\bigl[\, S_{\mathrm{IF}}(x_t) > \tau_{\mathrm{ctx}} + \delta \,\bigr] \;\wedge\; G_{\mathrm{context}}(x_t)
+\label{eq:alert_rule}
+\end{equation}
+where $\tau_{\mathrm{ctx}} = q_{0.995}\bigl(S_{\mathrm{IF}} \mid \mathrm{context}(x_t)\bigr)$ is the 99.5-percentile of clean-training scores within the same context bin (Table~\ref{tab:if_hyperparameter_justification}), $\delta = 0.003$ is the operational margin, and $\mathrm{context}(x_t) \in \{\mathrm{idle}, \mathrm{low\_speed}, \mathrm{mid\_speed}, \mathrm{high\_speed}\}$ is the discretisation of the row by $s_t$. The contextual gate is the conjunction
+\begin{equation}
+G_{\mathrm{context}}(x_t) = G_{\mathrm{recent\text{-}drop}}(x_t) \;\wedge\; \neg\, G_{\mathrm{refuel}}(x_t) \;\wedge\; \neg\, G_{\mathrm{slosh}}(x_t)
+\label{eq:gate_conjunction}
+\end{equation}
+with the three constituent predicates defined as
+\begin{align}
+G_{\mathrm{recent\text{-}drop}}(x_t) &= \mathbb{1}\!\left[\, \frac{1}{12} \sum_{i = t-11}^{t} \max\bigl(0,\, -\Delta F_i\bigr) \geq 1.0\% \,\right] \label{eq:gate_recent_drop}\\
+G_{\mathrm{refuel}}(x_t) &= \mathbb{1}\bigl[\, (t - t_{\mathrm{lastRefuel}}) \leq 300\text{ s} \,\bigr], \quad t_{\mathrm{lastRefuel}} := t'\ \text{such that}\ \Delta F_{t'} \geq +5\% \label{eq:gate_refuel}\\
+G_{\mathrm{slosh}}(x_t) &= \mathbb{1}\!\left[\, \frac{L_t / L_{\max}}{s_t / 80 + 0.1} > 5 \,\right] \label{eq:gate_slosh}
+\end{align}
+where $\Delta F_i$ is the fuel-delta feature at row $i$, $t_{\mathrm{lastRefuel}}$ is the sample index of the most recent $+5\%$ fuel jump on the current trip, and $L_{\max} = 100$ is the load normalisation. Equation~\ref{eq:gate_recent_drop} requires that a real recent drop is in progress before an alert is admitted (this suppresses spurious point-anomalies without underlying fuel movement). Equation~\ref{eq:gate_refuel} exempts the five-minute post-refuel quiescence window during which the sender is settling. Equation~\ref{eq:gate_slosh} suppresses the specific high-load-at-low-speed regime (uphill grind, cargo overload) that produced repeatable false positives in the 2026-06-23 TRCK-03 trip and motivated the addition of \texttt{load\_per\_speed\_norm} as feature~23.
 
 \subsection{Hybrid Fusion Methodology}
 Two fusion strategies are characterised in the inference pipeline. The Hybrid Union (Isolation Forest OR Matrix Profile) maximises recall. The Hybrid Intersection used for production alerting is a trip-level Matrix Profile gate over row-level Isolation Forest predictions: a row is flagged if and only if (a) the Isolation Forest flagged that row and (b) the trip's overall Matrix Profile decision was ``anomalous shape detected''. The trip-gated definition preserves the precision intent of the intersection while avoiding the granularity-mismatch penalty of a strict row-level logical AND.
