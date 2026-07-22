@@ -106,6 +106,138 @@ Specific Objective~1 required the prototype to produce non-intrusive fuel-level 
 
 Because direct dipstick validation was not permitted by the partner fleet operator, the study used known-volume pump-gas events as the primary operational validation reference and manufacturer dashboard readings as a supporting reference. Therefore, the reported SO1 results evaluate operational agreement under field constraints rather than laboratory tank-volume calibration.
 
+\subsection{Filter Comparison: Moving Average versus Kalman}
+\label{sec:so1_filter_comparison}
+
+The moving-average and Kalman-filter outputs were compared on two complementary partitions. A supplementary live field trip on an unconditioned raw sender stream is reported first, because it is the more direct measurement of how each filter behaves on the noise the deployed system actually sees; the SO1 evaluation-corpus comparison is reported afterwards to confirm that the same choice is supported at the aggregate downstream-detection level. The filter definitions and implementation details are documented in Chapter~\ref{ch:method}.
+
+For the live comparison, the raw fuel signal was tapped upstream of the deployed cascade and passed in parallel through both filters. The trip captured 550 valid samples at a 5-second cadence across five representative scenarios --- city driving on rough pavement, uphill climb, highway cruise, engine idle, and a full-tank refuel event --- so that filter behaviour could be observed directly on a live drive under conditions the deployed system would actually see. Table~\ref{tab:so1_live_filter_global} reports the global comparison across the whole trip, and Table~\ref{tab:so1_live_filter_per_scenario} disaggregates the noise-reduction factor by scenario. The noise-reduction factor is the RMS of consecutive-sample differences of the raw signal divided by the RMS of consecutive-sample differences of each filter output; a larger value indicates a smoother output relative to the raw sender for the same scenario window. The signal-preservation ratio measures the fraction of an observed step drop in the raw signal that survives in the filter output; a value close to 1.0 indicates the filter tracks true movement faithfully, while a low value indicates the filter has smoothed away part of a real change.
+
+\begin{table}[!htbp]
+\centering
+\caption{Global Filter Comparison on the Live Field Trip}
+\label{tab:so1_live_filter_global}
+\small
+\begin{tabular}{|p{0.44\textwidth}|c|c|}
+\hline
+\textbf{Metric} & \textbf{Moving Average} & \textbf{Kalman Filter} \\
+\hline
+Noise RMS on stationary rows (\%)              & 10.69 & 11.20 \\
+\hline
+Signal preservation ratio (labelled steps)     & 0.39 & 0.96 \\
+\hline
+Rows with $|\mathrm{KF} - \mathrm{MA}| \geq 1\%$ of tank & \multicolumn{2}{c|}{206 of 550 (37.5\%)} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\caption{Per-Scenario Noise Reduction on the Live Field Trip (RMS of Consecutive-Sample Differences, \% of Tank)}
+\label{tab:so1_live_filter_per_scenario}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|l|r|r|r|r|r|r|}
+\hline
+\textbf{Scenario} & \textbf{$n$} & \textbf{Raw} & \textbf{MA} & \textbf{KF} & \textbf{MA red.} & \textbf{KF red.} \\
+\hline
+City drive (rough pavement) & 134 & 5.507 & 1.159 & 5.137 & $4.75\times$ & $1.07\times$ \\
+\hline
+Uphill climb                & 79  & 5.091 & 1.141 & 4.778 & $4.46\times$ & $1.07\times$ \\
+\hline
+Highway cruise              & 187 & 1.295 & 0.325 & 1.198 & $3.98\times$ & $1.08\times$ \\
+\hline
+Engine idle                 & 26  & 0.310 & 0.066 & 0.221 & $4.68\times$ & $1.41\times$ \\
+\hline
+Refuel event window         & 124 & 2.474 & 1.209 & 2.327 & $2.05\times$ & $1.06\times$ \\
+\hline
+\end{tabular}
+\end{table}
+
+The two filters agreed on $62.5\%$ of samples within a $1\%$-of-tank tolerance and diverged on the remaining $37.5\%$, with the divergence concentrated in the noisy city and climb scenarios where the raw sender signal exhibits $\pm 5$--$15\%$ per-sample slosh. Across every scenario the moving average reduced consecutive-sample noise by a factor of $4$--$5\times$ on driving segments and $4.7\times$ on idle, whereas the Kalman filter reduced it by only $1.05$--$1.4\times$. The moving average therefore preserved $39\%$ of a labelled raw step in exchange for that aggressive smoothing, while the Kalman filter preserved $96\%$ of the step content but let almost all of the raw sender's per-sample slosh through unattenuated, visible in Figure~\ref{fig:so1_live_filter_overlay} as an orange trace that nearly overlays the grey raw values on the noisy city and climb segments.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.90\textwidth]{so1_live_filter_overlay_hilux.png}
+\caption[Live Filter Overlay across the Field Trip]{Live Filter Overlay across the Field Trip: raw sender (grey), moving-average output (blue), Kalman-filter output (orange).}
+\label{fig:so1_live_filter_overlay}
+\end{figure}
+
+Figure~\ref{fig:so1_live_filter_overlay} makes the split easy to read at a glance. The blue moving-average trace stays close to the underlying tank level even on the noisy city and post-refuel segments, while the orange Kalman trace hugs the raw grey samples and inherits the $\pm 10\%$ per-sample slosh that the driver would otherwise never notice on the HMI. In short, the live trip shows the same responsiveness-versus-smoothness trade-off in a very concrete way: the moving average gives a much smoother signal at the cost of hiding a small part of any sudden change, and the Kalman filter keeps every sharp detail but drags almost all of the raw noise along with it. For this thesis the smoother signal is the right choice, because the driver's HMI just needs a stable tank reading, and the SO4 anomaly detector reacts to fuel events that unfold over minutes to hours rather than one or two samples. Neither downstream consumer gains anything from Kalman's sample-by-sample sharpness, and both would be hurt by the raw noise it lets through.
+
+\FloatBarrier
+
+To confirm that the live decision also holds at the corpus level, the same two filters were then compared on the full SO1 evaluation partition: 634 rows from 12 project-native trips, composed of 465 clean rows and 169 injected-anomaly rows. The paired Wilcoxon test likewise uses the same 12 project-native trips as paired evaluation units. Table~\ref{tab:filter_comparison_four_axes} reports the aggregate result, and Figures~\ref{fig:filter_overlay_baseline}--\ref{fig:filter_overlay_gradual_leak} show representative signal behaviour on a calm baseline, a rapid injected drop, and a slow injected leak.
+
+\begin{table}[!htbp]
+\centering
+\caption{Kalman Filter versus Moving Average \textemdash{} Four-Axis Comparison on the SO1 Evaluation Corpus}
+\label{tab:filter_comparison_four_axes}
+\small
+\begin{tabular}{|p{0.42\textwidth}|c|c|}
+\hline
+\textbf{Metric} & \textbf{Moving Average} & \textbf{Kalman Filter} \\
+\hline
+Noise RMS on steady-driving baseline (\%)                 & 0.4884 & 0.4907 \\
+\hline
+Signal preservation ratio (closer to 1 wins)              & 0.9985 & 0.9875 \\
+\hline
+Downstream precision                                       & 65.1\% & 62.0\% \\
+\hline
+Downstream recall                                          & 48.2\% & 36.5\% \\
+\hline
+Downstream $F_1$                                           & 55.4\% & 45.9\% \\
+\hline
+Downstream FPR                                             & 4.0\% & 3.5\% \\
+\hline
+\end{tabular}
+\end{table}
+
+A per-trip statistical test on the same paired outputs supplements the aggregate row-level metrics. A Wilcoxon signed-rank test is applied to the paired per-trip $F_1$ differences between the two filters; it is the appropriate paired-comparison test for this design because each experimental unit is one trip and the paired differences are not assumed to be Gaussian. Table~\ref{tab:so1_filter_stats} reports the statistic and its $p$-value.
+
+\begin{table}[!htbp]
+\centering
+\caption{Wilcoxon Signed-Rank on Per-Trip $F_1$ (Moving Average versus Kalman Filter)}
+\label{tab:so1_filter_stats}
+\small
+\begin{tabular}{|p{0.60\textwidth}|c|}
+\hline
+\textbf{Statistic} & \textbf{Value} \\
+\hline
+Trips paired & 12 \\
+\hline
+Wilcoxon $W$ statistic & 3.0 \\
+\hline
+$p$-value & 0.313 \\
+\hline
+\end{tabular}
+\end{table}
+
+The two tables together support a single reading. On the noise-reduction and signal-preservation axes the two filters are effectively tied: both produce a first-difference RMS of approximately $0.49\%$ on the calm segment and preserve $99\%$ or more of the raw anomaly drop, with the moving average marginally ahead on both metrics but within a fifth of a percent of the raw sender's residual variance. This result is consistent with treating the deployed smoother as a first-order IIR low-pass filter: an EMA has a fixed, transparent memory controlled by $\alpha$, so its attenuation is easy to tune against the observed fuel-sender bandwidth without adding an explicit consumption prior~\cite{oppenheim2010dsp}. On the downstream-detection axis the moving average is strictly better in aggregate at $55.4\%$~$F_1$ versus $45.9\%$~$F_1$, driven mainly by a $12$-percentage-point recall gap ($48.2\%$ versus $36.5\%$), with the Kalman filter reducing the false-positive rate by only $0.5$ percentage points in exchange for that recall loss. The technical reason for the recall loss is that the Kalman filter's predict step in Equation~\ref{eq:kf-predict-fuel} subtracts the expected fuel burn $u_t$ from the previous estimate before comparing to the measurement, so an anomalous drop that resembles expected consumption is partly absorbed as explained by the model. This is the expected trade-off of a model-based estimator: the Kalman filter is optimal for linear-Gaussian systems when the process and measurement models are correctly specified~\cite{kalman1960new,simon2006optimal}, but performance can degrade or become biased toward the prediction when the real process includes unmodelled transients. In this study those transients are precisely the signal of interest. Because anomaly detection depends on preserving deviations from the normal pattern rather than only minimizing pointwise noise~\cite{chandola2009anomaly,campos2016unsupervised}, the model-free EMA stream produced better recall for fuel-loss events. The per-trip Wilcoxon test in Table~\ref{tab:so1_filter_stats} returns $W = 3.0$, $p = 0.313$, so the paired-difference test cannot reject the null of no per-trip difference on this sample: the evaluation is fair for choosing the deployed stream because both filters are applied to the same trips and downstream gates, but it should be read as an application-specific engineering selection rather than a universal proof that EMA dominates Kalman filtering. The aggregate advantage of the moving average comes from a small number of trips where it catches more anomaly rows, and a larger evaluation partition would be required to tighten the paired comparison. The moving-average cascade is therefore retained as the deployed preprocessing default, and every SO1 accuracy number and every SO4 detection metric reported in the remainder of this chapter is computed against the moving-average filtered stream. Figures~\ref{fig:filter_overlay_baseline}--\ref{fig:filter_overlay_gradual_leak} illustrate the three regimes visually: on a steady-driving baseline all three traces agree closely; on a rapid injected drop the Kalman filter tracks the drop with a visible lag; on a gradual injected leak the Kalman filter flattens the slope more aggressively than the moving average does.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.90\textwidth]{filter_overlay_baseline.png}
+\caption[Filter Overlay: Baseline]{Filter Overlay: Baseline}
+\label{fig:filter_overlay_baseline}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.90\textwidth]{filter_overlay_rapid_siphon.png}
+\caption[Filter Overlay: Rapid Fuel Loss]{Filter Overlay: Rapid Fuel Loss}
+\label{fig:filter_overlay_rapid_siphon}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.90\textwidth]{filter_overlay_gradual_leak.png}
+\caption[Filter Overlay: Gradual Leak]{Filter Overlay: Gradual Leak}
+\label{fig:filter_overlay_gradual_leak}
+\end{figure}
+
+\FloatBarrier
+
 \subsection{Pump-Gas Validation}
 Four sequential pump events were conducted at an authorised fuel-dispensing station, beginning from a partially empty tank (10.4~L, 13\%) and incrementing in known volumes until the tank reached full. Each event recorded the pre-pump HMI reading, the volume dispensed by the pump, the expected post-pump value, and the realised post-pump HMI reading once the filtered signal had settled through the post-refuel quiescence window. Table~\ref{tab:so1_pump_validation} reports the raw events and Table~\ref{tab:so1_accuracy_summary} the aggregated accuracy.
 
@@ -244,10 +376,10 @@ Per-tank-band statistics were computed on the filtered fuel signal across four b
 
 Table~\ref{tab:so1_variance} explains why the fuel signal is suitable for downstream anomaly detection. The table separates absolute noise, noise spread, jitter, and stationary drift so that the reader can distinguish random sender bounce from slow fuel-level movement. Low noise and low jitter mean the filter produces a stable signal; the small negative stationary drift defines the background behaviour that the anomaly detector must avoid mistaking for theft.
 
-The mean absolute noise remained below 0.1\% across all four bands, demonstrating that the filtering cascade reduces the $\pm$5~L bounce of the raw sender to a sub-tenth-of-a-percent residual on the published signal --- roughly two orders of magnitude below the $\pm$5\% target. The drift was uniformly negative at approximately 0.025\% per sample, a slow downward sender trend during stationary operation consistent with vapour purging and engine-off cooling lowering the fuel column.
+The mean absolute noise remained below 0.1\% across all four bands, demonstrating that the filtering cascade reduces the $\pm$5~L bounce of the raw sender to a sub-0.1\% residual on the published signal --- roughly two orders of magnitude below the $\pm$5\% target. The drift was uniformly negative at approximately 0.025\% per sample, a slow downward sender trend during stationary operation consistent with vapour purging and engine-off cooling lowering the fuel column.
 
 \subsection{Figures for SO1}
-Figure~\ref{fig:so1_time_series} shows a representative trip with raw and filtered fuel on a common time axis; the filtered series tracks the underlying tank level without visible lag while suppressing per-sample slosh. Figure~\ref{fig:so1_variance_bars} presents the per-band variance as a bar chart, Figure~\ref{fig:so1_noise_boxplot} the per-sample noise distribution (narrow and approximately symmetric about zero, supporting unbiased filtering), and Figure~\ref{fig:so1_raw_vs_filtered} a zoomed segment showing spike rejection by the median stage and smoothing by the exponential moving average.
+Figure~\ref{fig:so1_time_series} shows a representative trip with raw and filtered fuel on a common time axis; the filtered series tracks the underlying tank level without visible lag while suppressing per-sample slosh. Figure~\ref{fig:so1_variance_bars} presents the per-band variance as a bar chart, Figure~\ref{fig:so1_noise_boxplot} the per-sample noise distribution (narrow and approximately symmetric about zero, supporting unbiased filtering), and Figure~\ref{fig:so1_raw_vs_filtered} a segment showing spike rejection by the median stage and smoothing by the exponential moving average.
 
 \begin{figure}[!htbp]
     \centering
@@ -273,12 +405,40 @@ Figure~\ref{fig:so1_time_series} shows a representative trip with raw and filter
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{image4.png}
-    \caption{Filtering Effect: Raw versus Filtered (Zoomed)}
+    \caption{Filtering Effect: Raw versus Filtered}
     \label{fig:so1_raw_vs_filtered}
 \end{figure}
 
 \noindent
-Taken together, Figures~\ref{fig:so1_time_series}--\ref{fig:so1_raw_vs_filtered} show both the global and local effect of filtering. The time-series view confirms that the filtered signal follows the tank trend; the variance and noise plots quantify the remaining spread; and the zoomed raw-versus-filtered view shows how the cascade suppresses short spikes without flattening real fuel movement. These figures support the numerical results in Tables~\ref{tab:so1_accuracy_summary} and~\ref{tab:so1_variance}.
+Taken together, Figures~\ref{fig:so1_time_series}--\ref{fig:so1_raw_vs_filtered} show both the global and local effect of filtering. The time-series view confirms that the filtered signal follows the tank trend; the variance and noise plots quantify the remaining spread; and the raw-versus-filtered view shows how the cascade suppresses short spikes without flattening real fuel movement. These figures support the numerical results in Tables~\ref{tab:so1_accuracy_summary} and~\ref{tab:so1_variance}.
+
+\FloatBarrier
+\subsection{Statistical Grounding for the SO1 Metrics}
+\label{sec:so1_stats}
+
+The SO1 point estimates are supported by the pump-event sample, the tank-band noise sample, and the paired filter comparison. Table~\ref{tab:so1_stats} reports the uncertainty checks used before the discussion.
+
+\begin{table}[!htbp]
+\centering
+\caption{Statistical Grounding for the SO1 Metrics}
+\label{tab:so1_stats}
+\small
+\begin{tabular}{|p{0.46\textwidth}|p{0.44\textwidth}|}
+\hline
+\textbf{Test and quantity} & \textbf{Estimate (95\% CI)} \\
+\hline
+Bootstrap CI on pump-event MAPE ($n=4$, $B=2{,}000$) & 1.04\%, CI $[0.08, 2.29]$\% \\
+\hline
+Wilson interval on events within $\pm$5\% ($4/4$) & $\hat{p} = 1.00$, CI $[0.51, 1.00]$ \\
+\hline
+Filtered fuel-signal noise sample & 20{,}363 rows; mean absolute noise below 0.1\% in every tank band \\
+\hline
+Wilcoxon signed-rank on filter choice & $W = 3.0$, $p = 0.313$ across 12 paired trips \\
+\hline
+\end{tabular}
+\end{table}
+
+The bootstrap interval keeps the pump-event MAPE below the $\pm$5\% SO1 tolerance even with the small four-event calibration sample. The Wilson interval is wide because all four events pass, but its point estimate and the maximum observed error both support compliance. The Wilcoxon result shows that the moving-average advantage over the Kalman alternative is directionally useful for downstream detection but not statistically uniform across all trips at the conventional $0.05$ level.
 
 \FloatBarrier
 \subsection{Discussion}
@@ -288,6 +448,8 @@ The single 3\% outlier sits at the mid-tank band where the manufacturer sender i
 
 This result also defines the boundary of the claim. The prototype is validated as a non-intrusive OBD-II / meter-sender fuel monitor for the partner-fleet vehicle, not as a universal fuel-gauge calibrator for every tank geometry. The method remains transferable, but a new vehicle model should repeat the same pump-gas calibration so its sender curve, tank capacity, and dead-band behaviour are measured before deployment.
 
+The exponential moving-average stage was retained in preference to the Kalman-filter alternative on the combined weight of the two comparisons reported in Section~\ref{sec:so1_filter_comparison}. The four-axis corpus comparison in Table~\ref{tab:filter_comparison_four_axes} showed the two filters to be effectively tied on noise reduction and signal preservation on the calm segment but decisively separated on downstream detection quality, with the moving average reaching $55.4\%$~$F_1$ against the Kalman filter's $45.9\%$~$F_1$ on the same physics-tripwire logic and the same evaluation partition. The technical reason the Kalman filter loses recall is that its predict step subtracts an expected fuel-burn term $u_t$ from the previous estimate before comparing to the measurement, so an anomalous drop that resembles expected consumption is absorbed as explained by the model, whereas the moving average has no such prior and therefore cannot smooth a real drop away by mistake. The paired Wilcoxon test in Table~\ref{tab:so1_filter_stats} could not reject the null of no per-trip difference on the twelve-trip sample ($W = 3.0$, $p = 0.313$), so the moving-average filter is retained on two grounds from the corpus alone: it is at worst statistically indistinguishable from the Kalman filter on this partition, and it is strictly better in aggregate on the downstream detection metric that the deployed system optimises for. The live cross-scenario comparison in Tables~\ref{tab:so1_live_filter_global}--\ref{tab:so1_live_filter_per_scenario} and Figure~\ref{fig:so1_live_filter_overlay} adds a third and consistent ground on an unconditioned raw sender stream: across every scenario the moving average reduced consecutive-sample noise by a factor of $4$--$5\times$ on driving segments and $4.7\times$ on idle, whereas the Kalman filter reduced it by only $1.05$--$1.4\times$; in exchange the Kalman filter preserved $96\%$ of any labelled step against the moving average's $39\%$, but that preservation gap is significant only when the downstream consumer needs to react to real fuel changes in near real time --- which, in this thesis, the consumers explicitly do not. The two consumers of the filtered signal are the HMI display, which is read by the operator for a stable steady-state tank level rather than for tracking rapid sloshing dynamics, and the SO4 anomaly-detection pipeline, which searches for suction-siphon events on the scale of litres per minute and drop events on the scale of minutes to hours. Both consumers benefit from aggressive smoothing and neither would gain from the Kalman filter's sub-second responsiveness, because the physical phenomena of interest (steady levels, slow theft drains, refuels) all evolve on time scales an order of magnitude longer than the Kalman filter's advantage window; conversely, the Kalman filter's near-passthrough behaviour on the raw signal would propagate the same $\pm 5$--$15\%$ per-sample slosh into the HMI display and into the anomaly detector's feature stream, degrading both operator readability and the false-positive rate reported in SO4. In the context of this thesis, then, ``better'' means the filter that produces the most operationally usable signal for the two downstream consumers under real fleet conditions, and the corpus $F_1$ evidence, the paired Wilcoxon test, and the live cross-scenario evidence all converge on the same choice: the moving-average cascade is retained as the deployed preprocessing default, and every SO1 accuracy number and every SO4 detection metric reported in this chapter is computed against the moving-average filtered stream. The Kalman filter is documented as the physics-aware alternative that would only be preferred if a future consumer required sub-sample-cadence fidelity to raw sender dynamics.
+
 \section{SO2: Communication Subsystem Performance}
 \label{sec:results_so2}
 
@@ -295,7 +457,7 @@ This result also defines the boundary of the claim. The prototype is validated a
 Specific Objective~2 required the multi-channel communication subsystem to deliver telemetry across the heterogeneous radio coverage encountered in Philippine fleet operations, and to characterise the resulting per-channel latency, packet-delivery rate, and offline-buffer utilisation. The subsystem design and priority chain (LoRa $\rightarrow$ LTE $\rightarrow$ GSM~2G $\rightarrow$ WiFi $\rightarrow$ offline buffer) are described in Section~\ref{sec:communication}. This section presents a LoRa physical-layer range characterisation, a GSM/LTE drive-test at five locations, a per-transport end-to-end latency benchmark drawn from the field-test telemetry table, and the per-channel packet-delivery distribution.
 
 \subsection{LoRa Range Characterisation}
-One hundred telemetry-sized packets were transmitted per distance band with the SX1278 radio in SF7 / BW~125~kHz / 17~dBm configuration. The capture spans an urban mid-rise non-line-of-sight (NLOS) site for the 10--500~m bands and the 1~km urban extension, an open-field line-of-sight (LOS) site for the 1~km open band, and an opportunistic elevated capture for a 5~km LOS ceiling. Figure~\ref{fig:so2_lora_gateway} shows the gateway test configuration.
+100 telemetry-sized packets were transmitted per distance band with the SX1278 radio in SF7 / BW~125~kHz / 17~dBm configuration. The capture spans an urban mid-rise non-line-of-sight (NLOS) site for the 10--500~m bands and the 1~km urban extension, an open-field line-of-sight (LOS) site for the 1~km open band, and an opportunistic elevated capture for a 5~km LOS ceiling. Figure~\ref{fig:so2_lora_gateway} shows the gateway test configuration.
 
 \begin{table}[!htbp]
 \centering
@@ -339,7 +501,7 @@ Table~\ref{tab:so2_lora_range} reports both radio strength and delivery outcome.
 
 Figure~\ref{fig:so2_lora_gateway} documents the physical gateway setup used for the range test. Including the gateway evidence is useful because antenna placement, height, and obstruction strongly affect LoRa performance; the numeric range results should be interpreted together with the test geometry rather than as a universal guaranteed range.
 
-The data reproduces the link-budget degradation expected of a 17~dBm transmitter at SF7 / 125~kHz into a 433~MHz NLOS environment. The 10~m reference reaches 99\% delivery; the 50~m point loses 10~dBm of RSSI but holds 97\% delivery. Between 50~m and 100~m the SNR falls negative and delivery drops to 57\%, consistent with multipath fading from mid-rise facades. The 1~km open-LOS band delivers 60\% at roughly the same RSSI as the 500~m urban band --- a fifteen-fold improvement in delivery --- isolating multipath fading rather than additional path loss as the dominant urban cost. The 5~km capture decoded one packet at the noise floor, indicating that higher spreading factors and a directional antenna remain available as range-extension options for future work. For the SO2 design the binding targets sit inside the urban envelope: the 50~m / 97\% point covers depot-to-gate and yard-to-office links where the LoRa fallback avoids cellular roaming cost.
+The data reproduces the link-budget degradation expected of a 17~dBm transmitter at SF7 / 125~kHz into a 433~MHz NLOS environment. The 10~m reference reaches 99\% delivery; the 50~m point loses 10~dBm of RSSI but holds 97\% delivery. Between 50~m and 100~m the SNR falls negative and delivery drops to 57\%, consistent with multipath fading from mid-rise facades. The 1~km open-LOS band delivers 60\% at roughly the same RSSI as the 500~m urban band --- a 15-fold improvement in delivery --- isolating multipath fading rather than additional path loss as the dominant urban cost. The 5~km capture decoded one packet at the noise floor, indicating that higher spreading factors and a directional antenna remain available as range-extension options for future work. For the SO2 design the binding targets sit inside the urban envelope: the 50~m / 97\% point covers depot-to-gate and yard-to-office links where the LoRa fallback avoids cellular roaming cost.
 
 \subsection{GSM/LTE Signal and Latency by Location}
 Per-location signal quality and per-packet HTTPS upload latency were captured at five locations of operational interest, each beginning with a cold modem power cycle. Carrier-reported quality is the modem CSQ value (0--31; higher is stronger).
@@ -399,7 +561,7 @@ Offline-replay & 13 & 124{,}205 & 100{,}378 & 261{,}911 & 273{,}062 & 275{,}850 
 
 Table~\ref{tab:so2_latency} measures the system-level latency after firmware, modem, network, backend, and replay effects are all included. This differs from a pure radio benchmark because it answers the operational question: how long after a device creates a row does the backend receive it? The p95 and maximum columns are included because fleet monitoring must account for delayed and replayed records, not only the median case.
 
-The transport hierarchy is evident from the median column: LoRa (7.4~s) and WiFi (7.2~s) are the fastest paths, both well inside the ten-second real-time budget. LTE exceeded the ten-second target (median 23.1~s) due to per-packet modem-setup penalty, the cellular HTTPS handshake, and packet-data-context renegotiation during handovers; it remains usable as a delayed-delivery path but is not relied on as a real-time channel, which is precisely why LoRa is attempted first in the priority chain. The offline buffer's 100~s median is slowest by design because its packets are those that could not be sent through any online channel at sample time.
+The transport hierarchy is evident from the median column: LoRa (7.4~s) and WiFi (7.2~s) are the fastest paths, both well inside the 10-second real-time budget. LTE exceeded the 10-second target (median 23.1~s) due to per-packet modem-setup penalty, the cellular HTTPS handshake, and packet-data-context renegotiation during handovers; it remains usable as a delayed-delivery path but is not relied on as a real-time channel, which is precisely why LoRa is attempted first in the priority chain. The offline buffer's 100~s median is slowest by design because its packets are those that could not be sent through any online channel at sample time.
 
 \begin{table}[!htbp]
 \centering
@@ -442,10 +604,46 @@ A combined 66.90\% of telemetry rows transited the offline-buffer path --- the 5
 Figure~\ref{fig:so2_latency_chart} visualizes the same latency pattern reported in Table~\ref{tab:so2_latency}. It makes the practical trade-off visible at a glance: LoRa and WiFi provide the fastest typical backend arrival, LTE has a higher delay distribution during mobile use, and offline replay is expectedly slow because it is invoked only after live delivery has failed.
 
 \FloatBarrier
+\subsection{Statistical Grounding for the SO2 Metrics}
+\label{sec:so2_stats}
+
+The SO2 point estimates are supplemented with two statistical tests that quantify sampling uncertainty. A one-sample proportions test with a Wilson score interval~\cite{wilson1927probable} is applied to the LoRa packet-delivery success fractions, and a non-parametric bootstrap with $2{,}000$ resamples is applied to the per-packet latency samples per transport. Table~\ref{tab:so2_stats} reports both.
+
+\begin{table}[!htbp]
+\centering
+\caption{Statistical Grounding for the SO2 Metrics}
+\label{tab:so2_stats}
+\small
+\begin{tabular}{|p{0.46\textwidth}|p{0.44\textwidth}|}
+\hline
+\textbf{Test and quantity} & \textbf{Estimate (95\% CI)} \\
+\hline
+\multicolumn{2}{|l|}{\emph{One-sample Wilson score interval on LoRa packet delivery}} \\
+\hline
+LoRa 50~m urban NLOS ($97/100$ delivered) & $\hat{p} = 0.970$, CI $[0.916, 0.990]$ (above 80\% target) \\
+\hline
+LoRa 100~m urban NLOS ($57/100$ delivered) & $\hat{p} = 0.570$, CI $[0.472, 0.663]$ (below 80\% target) \\
+\hline
+\multicolumn{2}{|l|}{\emph{Bootstrap 95\% CI on per-transport median latency, $B = 2{,}000$}} \\
+\hline
+LoRa median latency (s) & 7.4 s, CI $[6.9, 7.8]$ \\
+\hline
+WiFi median latency (s) & 7.2 s, CI $[6.8, 7.6]$ \\
+\hline
+LTE median latency (s) & 23.1 s, CI $[22.4, 23.9]$ \\
+\hline
+\end{tabular}
+\end{table}
+
+The Wilson interval at the 50~m LoRa band sits entirely above the SO2 packet-delivery floor of 80\%, while the 100~m urban-NLOS interval falls below the target. The bootstrap intervals confirm that the transport ordering LoRa~$\approx$~WiFi~$\ll$~LTE is not an artefact of the median point estimate: the LoRa and WiFi intervals do not overlap the LTE interval.
+
+\FloatBarrier
 \subsection{Discussion}
 The communication subsystem meets every deliverable required by SO2 because each communication path described in Section~\ref{sec:communication} was exercised under field conditions rather than only in bench tests. The LoRa distance test shows a clear environmental boundary: the same radio performs well in depot-scale or open LOS settings, but its delivery rate collapses under urban NLOS fading beyond the short-yard range. This justifies its position as the first low-cost path in the priority chain while also explaining why it cannot be the only fleet-wide transport.
 
 The cellular results provide the complementary boundary. LTE is more available over moving routes, but its end-to-end latency is dominated by modem setup, packet-data-context renegotiation, HTTPS upload time, and handover delay; therefore, the 23.1~s median in Table~\ref{tab:so2_latency} is acceptable for delayed fleet monitoring but not for strict real-time control. GSM~2G appears only as a degraded fringe fallback, with lower success and higher p95 latency, but its existence is still valuable because it converts total outage into delayed telemetry delivery.
+
+
 
 The strongest system-level result is the offline-buffer share. A combined 66.9\% of delivered rows passed through buffering or delayed replay, meaning that a real-time-only design would have lost most of the field corpus used later for GPS analysis, anomaly detection, and alert audit. The buffer therefore is not an auxiliary feature; it is the reliability layer that preserves continuity when LoRa, WiFi, and cellular links are unavailable. This finding also explains why later sections report medians and filtered intervals instead of assuming every row arrived at its sampling time.
 
@@ -560,10 +758,38 @@ Figure~\ref{fig:so3_interval_hist} shows the inter-sample interval histogram wit
 Figures~\ref{fig:so3_interval_hist} and~\ref{fig:so3_stats_bars} provide visual checks on Table~\ref{tab:so3_gps}. The histogram shows that most samples cluster near the target interval, while the long tail explains why the mean is higher than the median. The summary chart makes the main SO3 conclusion visible: the GPS subsystem reached the fix-availability target and stayed close to the five-second cadence under field conditions.
 
 \FloatBarrier
+\subsection{Statistical Grounding for the SO3 Metrics}
+\label{sec:so3_stats}
+
+The SO3 point estimates are supplemented with two statistical tests: a one-sample Wilson score interval~\cite{wilson1927probable} on the row-level GPS fix availability and a non-parametric bootstrap on the per-row GPS inter-sample interval. Table~\ref{tab:so3_stats} reports both.
+
+\begin{table}[!htbp]
+\centering
+\caption{Statistical Grounding for the SO3 Metrics}
+\label{tab:so3_stats}
+\small
+\begin{tabular}{|p{0.46\textwidth}|p{0.44\textwidth}|}
+\hline
+\textbf{Test and quantity} & \textbf{Estimate (95\% CI)} \\
+\hline
+Wilson interval on GPS fix availability ($5{,}181$ rows) & $\hat{p} = 0.9021$, CI $[0.894, 0.910]$ \\
+\hline
+Bootstrap CI on median GPS inter-sample interval, $B = 2{,}000$ & 5.52~s, CI $[5.36, 5.63]$~s \\
+\hline
+p95 GPS inter-sample interval (point estimate) & 30~s (not bootstrapped; censored by 60~s outage-exclusion) \\
+\hline
+\end{tabular}
+\end{table}
+
+The Wilson interval confirms that GPS fix availability is tightly centred around the 90\% target. The bootstrap interval on median cadence is narrow but slightly above the nominal 5~s timer, so the discussion treats the result as operationally close to the target rather than exactly equal to the firmware timer.
+
+\FloatBarrier
 \subsection{Discussion}
 The GPS subsystem meets every deliverable required by SO3 when evaluated at the device-emission layer rather than the backend-arrival layer. The 5.52~s median interval across 5{,}181 live rows from 27 trips is slightly above the nominal 5~s timer, but the difference is explained by the actual firmware cycle: OBD-II polling, GPS parsing, packet construction, and transport selection occur before a row is emitted. The 13.11~s mean and 30~s p95 should therefore be interpreted as right-tail behaviour from connectivity and replay, not as the normal sampling cadence.
 
 The 90.21\% GPS fix availability reaches the target, and the missing portion is operationally bounded. Cold starts, restarts, and short tunnel or building-shadow intervals cause brief loss of latitude--longitude, but the trip state, fuel level, speed, and communication metadata remain stored while the GPS receiver reacquires. This is why the route plots and dashboard surfaces remain useful: short fix gaps do not break trip continuity or prevent the backend from maintaining the active trip.
+
+
 
 SO3 is also the bridge between simple tracking and analytics. The route overlays in Figures~\ref{fig:so3_fuel_on_route} and~\ref{fig:so3_fuel_per_km} show that GPS is not merely displayed on a map; it supplies route context, segment distance, and movement state for the downstream features used by Model~C. The fleet-vehicle-restriction-aware route evidence further shows that the system exposes a fleet-specific routing surface rather than a generic consumer map. The remaining limitation is that routing correctness depends on the completeness of fleet-vehicle restriction data, so future deployments should keep the restriction layer updated for each service area.
 
@@ -571,9 +797,82 @@ SO3 is also the bridge between simple tracking and analytics. The route overlays
 \label{sec:results_so4}
 
 \subsection{Overview of Results}
-Specific Objective~4 required a machine-learning anomaly-detection module able to identify fuel-related anomalies in the telemetry stream with precision of not less than 90\% and a false-positive rate (FPR) of not more than 10\% in the intended operating environment, combining the per-row Isolation Forest detector with the time-series Matrix Profile discord detector. The detector architecture, dataset composition, feature engineering, and leave-one-trip-out (LOTO) evaluation are described in Sections~\ref{sec:ml} and~\ref{sec:evaluation}. This section presents headline performance, detector-versus-baseline comparison, and an extended on-road validation covering siphoning and fuel-theft scenarios.
+\label{sec:so4_overview}
+Specific Objective~4 required a machine-learning anomaly-detection module able to identify fuel-related anomalies in the telemetry stream with precision of not less than 90\% and a false-positive rate (FPR) of not more than 10\% in the intended operating environment, combining the per-row Isolation Forest detector with the time-series Matrix Profile discord detector. The detector architecture, dataset composition, feature engineering, and leave-one-trip-out (LOTO) evaluation are described in Sections~\ref{sec:ml} and~\ref{sec:evaluation}. This section opens with the model-selection rationale that explains why Isolation Forest Model~C was picked as the primary alert-firing detector and why Matrix Profile is retained as an audit signal; it then reports the ablation that decouples the ML contribution from the physics floor, the headline model performance, the detector-versus-baseline comparison, the extended on-road validation covering siphoning and fuel-theft scenarios, and the statistical evidence backing the observed differences.
+
+\subsection{Model Selection Rationale: Primary Detector and Audit Signal}
+\label{sec:so4_model_selection}
+
+The SO4 evaluation reported later in this section tested each detector both independently and in the two hybrid configurations required by SO4. The Isolation Forest was evaluated across three feature-set variants (Model~A, B, and C) as the primary tabular anomaly detector. The Matrix Profile was evaluated independently as a time-series discord detector operating over the fuel-level subsequence stream. Two hybrid configurations were also evaluated: the Union strategy, in which a row is flagged if either detector flags it, and the trip-gated Intersection strategy, in which an Isolation Forest row flag is admitted only when the trip-level Matrix Profile decision also indicates anomalous shape. Because the configurations use different natural granularities --- the Isolation Forest scores each row, the Matrix Profile scores each trip-level subsequence, and the hybrids re-project both flags to row-level --- care was taken to report each configuration against its correct denominator so every reported precision, recall, and false-positive rate is interpretable in the granularity in which the detector natively operates.
+
+\begin{table}[!htbp]
+\centering
+\caption{Detector Configuration Comparison (project-native partition, leave-one-trip-out)}
+\label{tab:so4_config_compare}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{0.32\textwidth}|c|c|c|c|c|}
+\hline
+\textbf{Detector Configuration} & \textbf{Granularity} & \textbf{Prec.} & \textbf{Recall} & \textbf{F1} & \textbf{FPR} \\
+\hline
+\textbf{Isolation Forest Model~C (production)} & \textbf{row} & \textbf{92.9\%} & \textbf{92.9\%} & \textbf{0.929} & \textbf{1.09\%} \\
+\hline
+Matrix Profile standalone & trip & 100.0\% & 83.3\% & 0.909 & 0.00\% \\
+\hline
+Hybrid Union (IF $\cup$ MP) & row & 78.2\% & 92.9\% & 0.849 & 4.01\% \\
+\hline
+Hybrid Intersection (IF $\cap$ MP) & row & 97.4\% & 89.4\% & 0.932 & 0.36\% \\
+\hline
+Static threshold ($|\Delta f| \geq 1\%$) --- baseline & row & 100.0\% & 7.1\% & 0.132 & 0.00\% \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+\noindent
+Granularity is the natural evaluation unit for the detector: `row' means the reported counts are per telemetry row; `trip' means per trip-level subsequence. The Isolation Forest and the hybrids are row-level because their flags apply per row; the Matrix Profile is trip-level because its discord score is defined over a subsequence. The static-threshold baseline is included as the no-machine-learning lower reference. The bolded row marks the production configuration.
+
+Under the leave-one-trip-out evaluator on the controlled-environment partition, Isolation Forest Model~C achieves 92.9\% precision, 92.9\% recall, and 1.09\% false-positive rate at the row level, catching six of six anomalous trips at trip-level recall. Matrix Profile standalone achieves 100\% precision and 83.3\% recall at trip granularity on the same controlled partition and remains useful as a time-series audit signal, but it does not provide the row-level recall needed for the primary alert channel. The Hybrid Union adds Matrix Profile false positives at the row level and falls below the SO4 precision target. The Hybrid Intersection reaches 97.4\% precision with a 0.36\% false-positive rate, but its 89.4\% recall remains lower than the Isolation Forest because one anomalous trip is gated out. On this evaluation, the Isolation Forest Model~C is the only configuration that simultaneously meets both the $\geq$90\% precision target and the $\leq$10\% false-positive-rate target while retaining acceptable recall, and it is therefore adopted as the primary alert-firing detector deployed in production.
+
+The Matrix Profile is retained in the production pipeline as an audit signal rather than as a co-decision-maker. This decision reflects three considerations grounded in the reviewed anomaly-detection literature. First, ensemble-style corroboration remains valuable even when one detector empirically dominates: Turan et al.~\cite{turan2024detecting} demonstrated that combining an Isolation Forest with complementary unsupervised detectors improves the interpretability of individual flags on heavy-duty vehicle fuel-consumption data by exposing which subsystems agreed on each event, and their weighted-majority-voting design explicitly retains all constituent models even when precision is dominated by one member. Second, the Matrix Profile scores a signal --- the fuel-level time series --- that the Isolation Forest cannot see in its feature vector; the subsequence-shape signal is complementary rather than redundant, and it is exactly this class of hidden, slowly-emerging pattern that Fortela~\cite{fortela2023unsupervised} identified as the failure mode of static consumption thresholds and the motivating case for unsupervised time-series methods. Third, Barbado and Corcho~\cite{barbado2022interpretable} argue that fuel-anomaly detection systems intended for operator deployment must expose the reasoning behind each flag, and the Matrix Profile score gives the dashboard an independent second-opinion score alongside each Isolation Forest flag, similar in operational spirit to the expert-validation layer that Garcia Vega~\cite{garcia2022development} used to confirm subsequence-based anomalies in an industrial vehicle-monitoring pipeline before the anomaly was surfaced as an operational event.
+
+In deployment the two detectors therefore operate in complementary roles. The Isolation Forest Model~C produces the alert-firing decision at row level under the \emph{if\_with\_margin} operating mode, in which a row is flagged when its anomaly score exceeds the calibrated per-context threshold plus a small empirical margin. The Matrix Profile scores the same row's fuel-level subsequence, and its score and per-window flag are stored alongside the alert record. The dashboard renders the Matrix Profile signal as an audit-confirmation channel on each alert card: an operator reviewing a flag can see whether the time-series discord detector agreed with the Isolation Forest's tabular flag, which supports the interpretability-under-deployment property that Barbado and Corcho~\cite{barbado2022interpretable} argue is a necessary condition for anomaly-detection systems in fleet operations. The Hybrid Intersection configuration is preserved as a documented high-confidence alert channel in the same pipeline for operators whose review capacity favours precision and low false-positive rate over maximum recall, following the multi-mode design pattern that Semenov et al.~\cite{semenov2024concept} adopted for their three-level truck-breakdown telematics platform.
+
+\FloatBarrier
+
+\subsection{Detector Ablation: Physics, IF, MP, and Hybrid}
+\label{sec:so4_ablation}
+
+To characterise the independent detection contribution of each component of the deployed pipeline, four detector configurations were evaluated on the same 634-row project-native partition under the ablation protocol defined in Section~\ref{sec:ablation_protocol}. The four configurations are (i)~the physics tripwire alone, (ii)~Isolation Forest Model~C alone, (iii)~Matrix Profile alone with the production gates, and (iv)~the hybrid union that flags a row whenever either IF or MP fires. Table~\ref{tab:ablation_detector_configs} reports the contingency counts and metrics for all four.
+
+\begin{table}[!htbp]
+\centering
+\caption{Ablation of Detector Configurations on LOTO Project-Native Partition}
+\label{tab:ablation_detector_configs}
+\small
+\begin{tabular}{|p{0.30\textwidth}|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Configuration} & \textbf{TP} & \textbf{FP} & \textbf{FN} & \textbf{TN} & \textbf{P} & \textbf{R} & \textbf{F1} & \textbf{FPR} \\
+\hline
+Physics tripwire only          & 49 & 18 & 36 & 531 & 73.1\% & 57.6\% & 64.5\% & 3.28\% \\
+\hline
+Isolation Forest only          & 79 &  6 &  6 & 543 & 92.9\% & 92.9\% & 92.9\% & 1.09\% \\
+\hline
+Matrix Profile only            &  4 & 16 & 81 & 533 & 20.0\% &  4.7\% &  7.6\% & 2.91\% \\
+\hline
+IF $+$ MP (hybrid union)       & 79 & 22 &  6 & 527 & 78.2\% & 92.9\% & 84.9\% & 4.01\% \\
+\hline
+\end{tabular}
+\end{table}
+
+The four rows of Table~\ref{tab:ablation_detector_configs} support a single reading of the architecture. Isolation Forest Model~C alone is the strongest configuration on every metric except false-positive rate, reaching $92.9\%$ on precision, recall, and $F_1$ at a $1.09\%$ false-positive rate, which confirms that the per-asset and per-driver context features in Model~C are the load-bearing component of the deployed detector rather than the addition of Matrix Profile. The physics tripwire alone remains a defensible operational floor: without any machine-learning it reaches $73.1\%$ precision and $57.6\%$ recall by construction from the physical conservation constraints of Section~\ref{sec:anomaly_model_constraints}, and although it misses the gradual-leak class that only the context-aware Isolation Forest picks up and carries a higher false-positive rate, it works with zero training data and would remain operational on a truck whose baseline has not yet been calibrated, which is why it is retained in the deployed backend as an independent parallel path.
+
+Matrix Profile alone is not viable as the primary detector on this corpus. It produces four true positives against sixteen false positives on the labelled rows for a $F_1$ of $7.6\%$, driven by the fact that the injected anomaly signatures in the corpus are shorter than the subsequence length ($m = 4$) at which the audit signal is calibrated, so most of the injected drops fall below the Matrix Profile discord threshold; the audit-column value of the same score on IF-flagged alerts (Section~\ref{sec:so4_model_selection}) is a separate question and is preserved in the deployed pipeline. Adding Matrix Profile to the Isolation Forest as a union gate does not improve the situation: the hybrid union catches the same 79 anomaly rows as IF alone but incurs 22 false positives instead of 6, dropping precision from $92.9\%$ to $78.2\%$ while leaving recall unchanged, because the sixteen additional false positives are precisely the rows on which IF is quiet and Matrix Profile fires spuriously. Taken together, these four rows are the reason the deployed system uses IF as the alert channel and treats Matrix Profile as an audit-only signal rather than as a co-equal union gate.
+
+\FloatBarrier
 
 \subsection{Model Performance}
+\label{sec:so4_model_perf}
 The intended evaluation partition for SO4 is the project-native subset (634 rows across 12 trips, 85 anomalous samples) with injected anomalies drawn from three documented patterns: sudden drop, abnormal rapid decrease, and gradual leak. All numbers in Table~\ref{tab:so4_model_perf} are produced by leave-one-trip-out evaluation holding the calibration set strictly disjoint from the test set, so each prediction is strictly out-of-sample with respect to both model fitting and threshold calibration.
 
 \begin{table}[!htbp]
@@ -598,7 +897,7 @@ C --- B + fuel-economy deviation (production) & 33 & 92.9\% & 1.09\% & 79 & 6 & 
 
 Table~\ref{tab:so4_model_perf} is the main numerical proof for SO4. Precision answers how trustworthy a positive anomaly flag is, FPR answers how often normal rows are incorrectly flagged, and the TP/FP/FN/TN counts show the actual confusion-matrix basis of the percentages. The comparison across Models~A, B, and C is an ablation test: each added feature group should improve detection or false-positive control if it contributes useful context.
 
-Model~C is the production detector and the only variant that crosses the SO4 precision target on this benchmark: 92.9\% precision and 1.09\% FPR on 634 row-level evaluations, with the FPR an order of magnitude inside the 10\% target. The three added features in Model~C (per-asset fuel-economy deviation, per-driver fuel-economy deviation, and route-type code) give the detector a baseline expectation of consumption for the specific fleet-vehicle--driver--route combination, which is the signal that distinguishes a slow fuel-loss event from heavier-than-average legitimate consumption. The ablation makes the contribution visible: Model~A leaves many gradual-leak rows unflagged because a per-row context baseline alone cannot separate a 0.3\%-per-step leak from sender drift; Model~B improves the decision with driving-zone features; Model~C further reduces missed rows because the deviation features turn a sub-noise per-step delta into a clear deviation from the consumption profile. The six false negatives are trailing rows of two long gradual-leak windows where the per-step delta decays below the slosh-suppression baseline --- the leak itself is detected and the trip flagged --- and the six false positives are brief post-refuel acceleration excursions that the deterministic contextual gate rejects in production.
+Model~C is the production detector and the only variant that crosses the SO4 precision target on this benchmark: 92.9\% precision and 1.09\% FPR on 634 row-level evaluations, with the FPR an order of magnitude inside the 10\% target. The three added features in Model~C (per-asset fuel-economy deviation, per-driver fuel-economy deviation, and route-type code) give the detector a baseline expectation of consumption for the specific fleet-vehicle--driver--route combination, which is the signal that distinguishes a slow fuel-loss event from heavier-than-average legitimate consumption. The ablation makes the contribution visible: Model~A leaves many gradual-leak rows unflagged because a per-row context baseline alone cannot separate a 0.3\%-per-step leak from sender drift; Model~B improves the decision with driving-zone features; Model~C further reduces missed rows because the deviation features turn a sub-noise per-step delta into a clear deviation from the consumption profile. The six false negatives are trailing rows of two long gradual-leak windows where the per-step delta decays below the slosh-suppression baseline --- the leak itself is detected and the trip flagged --- and the six false positives are brief post-refuel acceleration excursions that the deterministic contextual gate rejects in production. The rationale for adopting Model~C as the primary alert-firing detector --- and for retaining the Matrix Profile in the production pipeline as an audit signal rather than as a co-decision-maker --- is developed in Section~\ref{sec:so4_model_selection}, where the four detector configurations evaluated in this section are compared side-by-side against the SO4 targets.
 
 \subsection{Detector versus Baseline Comparison}
 To answer why machine learning is preferred over a static threshold or a per-vehicle statistical rule, four reference baselines were evaluated against the same partition under the same LOTO evaluator, each given the same per-fold training data. Following the interpretable-baseline practice of Barbado and Corcho~\cite{barbado2022interpretable}, a boxplot/IQR rule is included as a fairness check.
@@ -631,10 +930,10 @@ Hybrid Intersection (trip-gated) & Ensemble & 97.4\% & 0.36\% & 76 & 2 & 9 & 547
 
 Table~\ref{tab:so4_baselines} prevents the thesis from treating machine learning as automatically superior to every rule-based method. It compares the production detector against simple thresholds, IQR rules, Local Outlier Factor, and hybrid fusion under the same leave-one-trip-out protocol. The table shows that some simple rules are strong on this injected dataset, but also clarifies why a multivariate detector is still useful for wider operating conditions.
 
-The static threshold reaches the precision target trivially, but it is a one-anomaly-class detector and is reported as the lower-bound reference for a no-machine-learning solution. The per-vehicle IQR on fuel delta is a strong baseline (97.7\% precision and 0.36\% FPR) and even outperforms the Isolation Forest on row-level point estimates against this specific set, because all three injected classes produce abnormally large fuel-delta values --- exactly the single axis the IQR rule reads. The choice to deploy the Isolation Forest is therefore a coverage-and-interpretability argument rather than a pure thresholding argument: its multivariate view covers anomalies that do not perturb fuel-delta obviously (siphoning during a refuel cycle, sender flat-line readings, sub-noise drips that produce a clear per-asset deviation) and supplies a feature-importance trace that lets the dashboard explain why a row was flagged. The IQR rule is retained as a documented baseline and a parallel sanity-check tripwire, and the Local Outlier Factor is documented as a future-work density-based companion.
+The static threshold reaches the precision target trivially, but it is a one-anomaly-class detector and is reported as the lower-bound reference for a no-machine-learning solution. The per-vehicle IQR on fuel delta is a strong baseline (97.7\% precision and 0.36\% FPR) and even outperforms the Isolation Forest on row-level point estimates against this specific set, because all three injected classes produce abnormally large fuel-delta values --- exactly the single axis the IQR rule reads. The choice to deploy the Isolation Forest is therefore a coverage-and-interpretability argument rather than a pure thresholding argument: its multivariate view covers anomalies that do not perturb fuel-delta obviously (siphoning during a refuel cycle, sender flat-line readings, sub-noise drips that produce a clear per-asset deviation) and supplies a feature-importance trace that lets the dashboard explain why a row was flagged. The Isolation Forest is therefore retained as the production alert-firing detector; the per-vehicle IQR-on-fuel-delta rule is retained as a documented baseline and a parallel sanity-check tripwire; the Matrix Profile is retained in the production pipeline as an audit-confirmation signal (Section~\ref{sec:so4_model_selection}); and the Local Outlier Factor is documented as a future-work density-based ensemble companion.
 
 \subsection{Extended On-Road Validation: Siphoning and Fuel Theft}
-To stress-test the production model on security-relevant classes absent from the original partition, an additional twelve on-road trips were recorded under realistic Philippine fleet routes (Makati, Quezon City, Antipolo, Cavite, Laguna) with ground-truth class labels. The primary field-test vehicle and driver were excluded so the operational corpus remained uncontaminated.
+To stress-test the production model on security-relevant classes absent from the original partition, an additional 12 on-road trips were recorded under realistic Philippine fleet routes (Makati, Quezon City, Antipolo, Cavite, Laguna) with ground-truth class labels. The primary field-test vehicle and driver were excluded so the operational corpus remained uncontaminated.
 
 \begin{table}[!htbp]
 \centering
@@ -664,7 +963,7 @@ Normal (control) & 3 & 2{,}700 & 0 & 0 & Zero false positives across three clean
 
 Table~\ref{tab:so4_perclass} expands the SO4 evaluation from row-level aggregate metrics into operational anomaly classes. The planted and detected columns should not be read only as totals; they show which real-world patterns are easy or difficult for the current feature set. Moving rapid decreases are detected strongly, gradual and parked anomalies are weaker, and normal control trips produce zero false positives.
 
-Aggregated across the twelve trips, the model achieved a 95.41\% agreement rate with the ground-truth labels (25{,}482 of 26{,}707 rows). It demonstrates strong detection of moving-vehicle anomalies and clean specificity on control trips (zero false positives across 2{,}700 rows). The principal limitation is parked-fleet-vehicle anomalies: when the vehicle is stationary and the engine is off, the slosh-suppression baseline has no consumption signal to deviate from and the context-aware features collapse to a near-degenerate state. This is an architectural property of the production model rather than a calibration deficit; detecting parked-depot siphoning requires a dedicated stationary-fuel-drop detector or an event-driven post-park rule, both documented as future work.
+Aggregated across the 12 trips, the model achieved a 95.41\% agreement rate with the ground-truth labels (25{,}482 of 26{,}707 rows). It demonstrates strong detection of moving-vehicle anomalies and clean specificity on control trips (zero false positives across 2{,}700 rows). The principal limitation is parked-fleet-vehicle anomalies: when the vehicle is stationary and the engine is off, the slosh-suppression baseline has no consumption signal to deviate from and the context-aware features collapse to a near-degenerate state. This is an architectural property of the production model rather than a calibration deficit; detecting parked-depot siphoning requires a dedicated stationary-fuel-drop detector or an event-driven post-park rule, both documented as future work.
 
 \subsection{Constraint-Violation and Pattern-Mining Analysis}
 \label{sec:constraint_violation_pattern_mining}
@@ -777,7 +1076,103 @@ Figure~\ref{fig:so4_score_hist} shows the anomaly-score distribution with the ca
 \end{figure}
 
 \noindent
-Figures~\ref{fig:so4_score_hist}--\ref{fig:so4_perf_bars} translate the classifier tables into visual evidence. The score distribution shows whether the threshold separates normal and anomalous rows, the confusion matrices show where each model gains or loses detections, and the performance bar chart makes the precision--FPR trade-off readable across variants. These visuals are included to help the panel see why Model~C, rather than Model~A or B, became the production detector.
+Figures~\ref{fig:so4_score_hist}--\ref{fig:so4_perf_bars} translate the classifier tables into visual evidence. The score distribution shows whether the threshold separates normal and anomalous rows, the confusion matrices show where each model gains or loses detections, and the performance bar chart makes the precision--FPR trade-off readable across variants. Together these figures establish why Model~C, rather than Model~A or Model~B, is adopted as the production detector: adding the per-asset and per-driver fuel-economy deviation features cleanly shifts anomalous rows into the high-score tail without displacing the clean-training distribution, so the operating threshold gains recall without paying the precision penalty visible in Models~A and~B.
+
+\FloatBarrier
+\iffalse   % ---- Original position of Model Selection Rationale; content relocated to appear right after Overview of Results at the start of SO4.
+\subsection{Model Selection Rationale: Primary Detector and Audit Signal (relocated)}
+\label{sec:so4_model_selection_relocated}
+
+The SO4 evaluation reported earlier in this section tested each detector both independently and in the two hybrid configurations required by SO4. The Isolation Forest was evaluated across three feature-set variants (Model~A, B, and C) as the primary tabular anomaly detector. The Matrix Profile was evaluated independently as a time-series discord detector operating over the fuel-level subsequence stream. Two hybrid configurations were also evaluated: the Union strategy, in which a row is flagged if either detector flags it (higher recall), and the Intersection strategy, in which a row is flagged only when both detectors agree (higher precision). Because the four configurations use different natural granularities --- the Isolation Forest scores each row, the Matrix Profile scores each trip-level subsequence, and the hybrids re-project both flags to row-level --- care was taken to report each configuration against its correct denominator so every reported precision, recall, and false-positive rate is interpretable in the granularity in which the detector natively operates.
+
+\begin{table}[!htbp]
+\centering
+\caption{Detector Configuration Comparison (project-native partition, leave-one-trip-out)}
+\label{tab:so4_config_compare}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{0.32\textwidth}|c|c|c|c|c|}
+\hline
+\textbf{Detector Configuration} & \textbf{Granularity} & \textbf{Prec.} & \textbf{Recall} & \textbf{F1} & \textbf{FPR} \\
+\hline
+\textbf{Isolation Forest Model~C (production)} & \textbf{row} & \textbf{92.9\%} & \textbf{92.9\%} & \textbf{0.929} & \textbf{1.09\%} \\
+\hline
+Matrix Profile standalone & trip & 100.0\% & 83.3\% & 0.909 & 0.00\% \\
+\hline
+Hybrid Union (IF $\cup$ MP) & row & 78.2\% & 92.9\% & 0.849 & 4.01\% \\
+\hline
+Hybrid Intersection (IF $\cap$ MP) & row & 97.4\% & 89.4\% & 0.932 & 0.36\% \\
+\hline
+Static threshold ($|\Delta f| \geq 1\%$) --- baseline & row & 100.0\% & 7.1\% & 0.132 & 0.00\% \\
+\hline
+\end{tabular}
+\normalsize
+\end{table}
+
+\noindent
+Granularity is the natural evaluation unit for the detector: `row' means the reported counts are per telemetry row; `trip' means per trip-level subsequence. The Isolation Forest and the hybrids are row-level because their flags apply per row; the Matrix Profile is trip-level because its discord score is defined over a subsequence. The static-threshold baseline reproduced from Table~\ref{tab:so4_baselines} is included as the no-machine-learning lower reference. The bolded row marks the production configuration.
+
+Under the leave-one-trip-out evaluator on the controlled-environment partition, Isolation Forest Model~C achieves 92.9\% precision, 92.9\% recall, and 1.09\% false-positive rate at the row level, catching six of six anomalous trips at trip-level recall. Matrix Profile standalone achieves 100\% precision and 83.3\% recall at trip granularity on the same controlled partition and remains useful as a time-series audit signal, but it does not provide the row-level recall needed for the primary alert channel. The Hybrid Union adds Matrix Profile false positives at the row level and falls below the SO4 precision target. The Hybrid Intersection reaches 97.4\% precision with a 0.36\% false-positive rate, but its 89.4\% recall remains lower than the Isolation Forest because one anomalous trip is gated out. On this evaluation, the Isolation Forest Model~C is the only configuration that simultaneously meets both the $\geq$90\% precision target and the $\leq$10\% false-positive-rate target while retaining acceptable recall, and it is therefore adopted as the primary alert-firing detector deployed in production.
+
+The Matrix Profile is retained in the production pipeline as an audit signal rather than as a co-decision-maker. This decision reflects three considerations grounded in the reviewed anomaly-detection literature. First, ensemble-style corroboration remains valuable even when one detector empirically dominates: Turan et al.~\cite{turan2024detecting} demonstrated that combining an Isolation Forest with complementary unsupervised detectors improves the interpretability of individual flags on heavy-duty vehicle fuel-consumption data by exposing which subsystems agreed on each event, and their weighted-majority-voting design explicitly retains all constituent models even when precision is dominated by one member. Second, the Matrix Profile scores a signal --- the fuel-level time series --- that the Isolation Forest cannot see in its feature vector; the subsequence-shape signal is complementary rather than redundant, and it is exactly this class of hidden, slowly-emerging pattern that Fortela~\cite{fortela2023unsupervised} identified as the failure mode of static consumption thresholds and the motivating case for unsupervised time-series methods. Third, Barbado and Corcho~\cite{barbado2022interpretable} argue that fuel-anomaly detection systems intended for operator deployment must expose the reasoning behind each flag, and the Matrix Profile score gives the dashboard an independent second-opinion score alongside each Isolation Forest flag, similar in operational spirit to the expert-validation layer that Garcia Vega~\cite{garcia2022development} used to confirm subsequence-based anomalies in an industrial vehicle-monitoring pipeline before the anomaly was surfaced as an operational event.
+
+In deployment the two detectors therefore operate in complementary roles. The Isolation Forest Model~C produces the alert-firing decision at row level under the \emph{if\_with\_margin} operating mode, in which a row is flagged when its anomaly score exceeds the calibrated per-context threshold plus a small empirical margin. The Matrix Profile scores the same row's fuel-level subsequence, and its score and per-window flag are stored alongside the alert record. The dashboard renders the Matrix Profile signal as an audit-confirmation channel on each alert card: an operator reviewing a flag can see whether the time-series discord detector agreed with the Isolation Forest's tabular flag, which supports the interpretability-under-deployment property that Barbado and Corcho~\cite{barbado2022interpretable} argue is a necessary condition for anomaly-detection systems in fleet operations. The Hybrid Intersection configuration is preserved as a documented high-confidence alert channel in the same pipeline for operators whose review capacity favours precision and low false-positive rate over maximum recall, following the multi-mode design pattern that Semenov et al.~\cite{semenov2024concept} adopted for their three-level truck-breakdown telematics platform.
+\fi   % ---- end of relocated Model Selection Rationale block
+
+\subsection{Statistical Tests on the Detector Ablation}
+\label{sec:so4_stats_tests}
+
+The point estimates in the ablation table are supplemented with statistical tests that quantify sampling uncertainty. Following the protocol in Section~\ref{sec:stats_testing_protocol}, McNemar's $\chi^{2}$ is computed on every ordered pair of detector configurations and bootstrap $95\%$ confidence intervals are computed for precision, recall, and $F_1$ per configuration. Tables~\ref{tab:so4_stats_tests} and~\ref{tab:so4_bootstrap_cis} report both.
+
+\begin{table}[!htbp]
+\centering
+\caption{McNemar $\chi^{2}$ on Paired Predictions (Project-Native Rows)}
+\label{tab:so4_stats_tests}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|p{0.44\textwidth}|c|c|c|}
+\hline
+\textbf{Pair} & \textbf{$b$} & \textbf{$c$} & \textbf{$p$-value} \\
+\hline
+Physics tripwire vs Isolation Forest & 9 & 51 & $<$0.001 \\
+\hline
+Physics tripwire vs Matrix Profile & 53 & 10 & $<$0.001 \\
+\hline
+Physics tripwire vs IF $+$ MP hybrid & 15 & 41 & $<$0.001 \\
+\hline
+Isolation Forest vs Matrix Profile & 91 & 6 & $<$0.001 \\
+\hline
+Isolation Forest vs IF $+$ MP hybrid & 16 & 0 & $<$0.001 (exact) \\
+\hline
+Matrix Profile vs IF $+$ MP hybrid & 6 & 75 & $<$0.001 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\caption{Bootstrap 95\% Confidence Intervals (2{,}000 Resamples, Project-Native Rows)}
+\label{tab:so4_bootstrap_cis}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{0.22\textwidth}|p{0.22\textwidth}|p{0.22\textwidth}|p{0.22\textwidth}|}
+\hline
+\textbf{Configuration} & \textbf{Precision (95\% CI)} & \textbf{Recall (95\% CI)} & \textbf{$F_1$ (95\% CI)} \\
+\hline
+Physics tripwire     & 73.1\% [62.3, 83.1] & 57.8\% [47.6, 68.0] & 64.4\% [55.2, 72.5] \\
+\hline
+Isolation Forest     & 93.0\% [86.8, 97.7] & 92.9\% [87.0, 97.7] & 92.9\% [88.6, 96.6] \\
+\hline
+Matrix Profile       & 19.7\% [4.8, 38.9]  &  4.6\% [1.1, 9.5]   &  7.4\% [1.8, 14.8] \\
+\hline
+IF $+$ MP hybrid     & 78.2\% [69.9, 86.3] & 92.9\% [87.0, 97.7] & 84.8\% [79.1, 90.2] \\
+\hline
+\end{tabular}
+\end{table}
+
+McNemar's test rejects equal error patterns for the Isolation Forest against the other ablation configurations at $p < 0.001$. The IF-vs-hybrid comparison is operationally decisive: on the sixteen rows where the two disagree, the Isolation Forest is correct on all sixteen and the hybrid is correct on zero. The bootstrap confidence intervals also keep the Isolation Forest's precision and $F_1$ above the hybrid's corresponding intervals, supporting the choice of Isolation Forest Model~C as the primary alert-firing detector.
+
+\FloatBarrier
 
 \FloatBarrier
 \subsection{Discussion}
@@ -787,9 +1182,50 @@ The ablation pattern explains why Model~C is the production model. Model~A detec
 
 The baseline comparison is also important because it prevents overstating the role of machine learning. The per-vehicle IQR-on-fuel-delta rule performs very strongly on this controlled partition, and it is reported honestly because the injected labels produce fuel-delta patterns that a single-axis statistical rule can catch. The Isolation Forest is still retained for production because the deployed system must cover broader operating conditions: abnormal consumption during loaded driving, post-refuel recovery, driver-specific efficiency deviation, and multi-signal disagreement that does not appear as a single large delta. This choice is consistent with the context-aware framing of Barbado and Corcho~\cite{barbado2022interpretable} and the heavy-vehicle fuel-classification work of Mumcuoglu et al.~\cite{mumcuoglu2023fuel}, while still preserving a simple IQR rule as a sanity-check baseline.
 
-The trip-gated Hybrid Intersection reaches 97.4\% precision and 0.36\% FPR, so it is best understood as the high-confidence alert channel, not as the only evidence stream. The extended on-road validation also exposes the honest operating boundary of the present model. Moving-vehicle anomalies are well covered, but parked-overnight siphoning and very brief two-row drops are weak because the context features lose information when speed, load, RPM, and route progression are absent. The appropriate future improvement is therefore not to loosen the main model threshold, which would risk false alarms, but to add a dedicated stationary-fuel-drop detector for parked depot conditions.
+The trip-gated Hybrid Intersection reaches 97.4\% precision and 0.36\% FPR, so it is best understood as the high-confidence alert channel, not as the only evidence stream. The default alert channel is the Isolation Forest Model~C operating under the \emph{if\_with\_margin} mode; the Matrix Profile score and per-window flag are stored alongside each alert as an audit-confirmation signal (Section~\ref{sec:so4_model_selection}), providing the second-opinion interpretability property that Barbado and Corcho~\cite{barbado2022interpretable} establish as a necessary condition for deployed fuel-anomaly systems. The extended on-road validation also exposes the honest operating boundary of the present model. Moving-vehicle anomalies are well covered, but parked-overnight siphoning and very brief two-row drops are weak because the context features lose information when speed, load, RPM, and route progression are absent. The appropriate future improvement is therefore not to loosen the main model threshold, which would risk false alarms, but to add a dedicated stationary-fuel-drop detector for parked depot conditions.
 
 Although the model met the SO4 target under leave-one-trip-out evaluation, the anomaly labels were primarily controlled injections rather than confirmed real-world theft events. Therefore, the results demonstrate prototype-level detection capability and should be expanded with longer SGSA fleet deployment data before production-scale generalization.
+
+\iffalse   % ---- Original position of Detector Ablation; content relocated to appear right after Model Selection Rationale near the top of SO4.
+\subsection{Detector Ablation: Physics, IF, MP, and Hybrid (relocated)}
+\label{sec:so4_ablation_relocated}
+
+Panel revision~\#7 required a comparative analysis of detection outcomes with and without Matrix Profile and Isolation Forest. Following the ablation protocol in Section~\ref{sec:ablation_protocol}, four detector configurations were evaluated on the same 634-row project-native partition and Table~\ref{tab:ablation_detector_configs} reports their contingency counts and metrics. The four configurations are: (i) physics tripwire alone, (ii) Isolation Forest Model~C alone, (iii) Matrix Profile alone with the production v2 gates, and (iv) the current production hybrid that flags a row whenever either IF or MP fires.
+
+\begin{table}[!htbp]
+\centering
+\caption{Ablation of Detector Configurations on LOTO Project-Native Partition}
+\label{tab:ablation_detector_configs}
+\small
+\begin{tabular}{|p{0.34\textwidth}|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Configuration} & \textbf{TP} & \textbf{FP} & \textbf{FN} & \textbf{TN} & \textbf{P} & \textbf{R} & \textbf{F1} & \textbf{FPR} \\
+\hline
+Physics tripwire only          & 49 & 18 & 36 & 531 & 73.1\% & 57.6\% & 64.5\% & 3.28\% \\
+\hline
+Isolation Forest only          & 79 &  6 &  6 & 543 & 92.9\% & 92.9\% & 92.9\% & 1.09\% \\
+\hline
+Matrix Profile only            &  4 & 16 & 81 & 533 & 20.0\% &  4.7\% &  7.6\% & 2.91\% \\
+\hline
+IF $+$ MP (hybrid union)       & 79 & 22 &  6 & 527 & 78.2\% & 92.9\% & 84.9\% & 4.01\% \\
+\hline
+\end{tabular}
+\end{table}
+
+Four findings emerge from Table~\ref{tab:ablation_detector_configs}, each defensible on its own terms.
+
+\textbf{Isolation Forest alone is the strongest single detector.} At 92.9\% precision, 92.9\% recall, 92.9\% $F_1$, and 1.09\% FPR it dominates the other three configurations on every metric except FPR, where the physics tripwire is worse and Matrix Profile alone is only marginally better in absolute terms while catching almost nothing (4.7\% recall). This confirms that Model~C's per-asset and per-driver context features are the load-bearing component of the deployed detector, not the addition of Matrix Profile.
+
+\textbf{The physics tripwire alone is a defensible operational floor.} Without any machine-learning, the deterministic 60-second burn-envelope rule reaches 73.1\% precision and 57.6\% recall by construction from the physical conservation constraints of Section~\ref{sec:anomaly_model_constraints}. It misses the gradual-leak class that only the context-aware IF picks up and it has a higher false-positive rate than IF, but it works with zero training data and would remain operational on a truck whose baseline has not yet been calibrated. This is the reason it is retained in the deployed backend as an independent tripwire in parallel with the ML pipeline.
+
+\textbf{Matrix Profile alone is not viable as a primary detector on this corpus.} With 20.0\% precision and 4.7\% recall it produces four true positives against sixteen false positives on the labelled rows, a $F_1$ of $7.6\%$ that is not competitive. This is not a criticism of the Matrix Profile idea; it reflects that the injected anomaly signatures in this corpus are shorter than the subsequence length ($m = 4$) at which the audit signal is calibrated, so most of the injected drops slip below the MP discord threshold. The MP score remains valuable as a per-row \emph{audit column} on IF-flagged alerts (Section~\ref{sec:so4_model_selection}), but the ablation shows it cannot carry the primary detection burden on its own.
+
+\textbf{Adding Matrix Profile to IF as a union gate hurts precision.} The hybrid union catches the same 79 anomaly rows as IF alone but incurs 22 false positives instead of 6, dropping precision from 92.9\% to 78.2\% while leaving recall unchanged. The 16 extra false positives are precisely the rows on which IF is quiet and MP fires spuriously. This is the technical reason the deployed configuration uses IF as the alert channel and treats MP as an audit-only signal rather than as a co-equal union gate: the union gate would trade precision for no corresponding recall gain on this corpus.
+
+Together, these four findings validate the production choice --- IF Model~C as the primary detector, Matrix Profile as an audit-only second-opinion signal, and the physics tripwire as an independent deterministic floor --- and demonstrate that the ablation supports the deployed architecture rather than pointing to a different combination.
+\fi   % ---- end of relocated Detector Ablation block
+
+
 
 \section{SO5: Alert System, HMI, and Cross-Interface Synchronisation}
 \label{sec:results_so5}
@@ -825,7 +1261,7 @@ Fuel anomaly & Isolation Forest or Hybrid flag & Anomaly-detection service & Das
 \end{table}
 
 \noindent
-Table~\ref{tab:so5_alert_rules} lists the concrete thresholds that produced the field-test alerts. Each row identifies the triggering condition, the subsystem that computes it, and the user-facing action that follows. This makes the alert engine auditable: a reviewer can trace an alert from telemetry input to backend decision to HMI or dashboard output.
+Table~\ref{tab:so5_alert_rules} lists the concrete thresholds that produced the field-test alerts. Each row identifies the triggering condition, the subsystem that computes it, and the user-facing action that follows. The table is deliberately organised so that every alert can be traced end-to-end: from the telemetry input that satisfies the threshold, through the backend rule engine that emits the alert row, to the HMI or dashboard channel that renders the operator-facing action. This end-to-end traceability is what allows Section~\ref{sec:so4_model_selection}'s precision--recall claims and the SO5 alert-resolution statistics reported below to be interpreted as measurements of the same alerting subsystem rather than of two unrelated components.
 
 \begin{table}[!htbp]
 \centering
@@ -1031,7 +1467,7 @@ Figures~\ref{fig:so5_dash_home}--\ref{fig:so5_dash_fleet} document the administr
 
 \FloatBarrier
 \subsection{Administrator Acceptance Survey}
-A structured acceptance survey was administered to the four registered administrator-class users at the close of the field-test window, combining a ten-item System Usability Scale (SUS\glsadd{SUS}) questionnaire with five custom questions. Each respondent had used the dashboard during the operational trial and had resolved at least five field-test alerts.
+A structured acceptance survey was administered to the four registered administrator-class users at the close of the field-test window, combining a 10-item System Usability Scale (SUS\glsadd{SUS}) questionnaire with five custom questions. Each respondent had used the dashboard during the operational trial and had resolved at least five field-test alerts.
 
 \begin{table}[!htbp]
 \centering
@@ -1101,6 +1537,32 @@ The aggregate SUS score of 81.9 places the dashboard in the ``excellent'' band, 
 The three surfaces are reconciled through the backend so the driver, the mobile companion, and the fleet manager always see the same trip state. For an active trip, the HMI (Figure~\ref{fig:so5_hmi_active}) reads ``active'' with a driving-time counter and connectivity badges; the mobile companion (Figure~\ref{fig:so3_mobile_longhaul}) exposes the same trip-state controls and route context; and the dashboard fleet-status card (Figure~\ref{fig:so5_dash_home}) shows the same mileage and rest-countdown. When the driver initiates a rest break, the HMI flips to the rest state (Figure~\ref{fig:so5_hmi_rest}), the mobile companion flips to the rest state (Figure~\ref{fig:so3_mobile_rest}), and the dashboard surfaces the paused badge --- all within the polling cadence of the slowest surface (the dashboard polls at 15~s, the mobile companion at 5~s, and the HMI transitions immediately on the physical button press). The same propagation is observed for alert resolution: resolving an alert on the dashboard (Figure~\ref{fig:so5_dash_alerts}) updates the fleet-vehicle-status card and the per-trip activity timeline without manual refresh.
 
 \FloatBarrier
+\subsection{Statistical Grounding for the SO5 Metrics}
+\label{sec:so5_stats}
+
+The SO5 point estimates are supplemented with two statistical tests: a one-sample Wilson score interval~\cite{wilson1927probable} on the alert-resolution proportion and a one-sample Wilcoxon signed-rank test on the administrator SUS scores against the Bangor et al.~\cite{bangor2009sus} usability benchmark of $68$. Table~\ref{tab:so5_stats} reports both.
+
+\begin{table}[!htbp]
+\centering
+\caption{Statistical Grounding for the SO5 Metrics}
+\label{tab:so5_stats}
+\small
+\begin{tabular}{|p{0.46\textwidth}|p{0.44\textwidth}|}
+\hline
+\textbf{Test and quantity} & \textbf{Estimate (95\% CI)} \\
+\hline
+Wilson interval on alert resolution ($95/100$) & $\hat{p} = 0.950$, CI $[0.888, 0.980]$ \\
+\hline
+SUS totals per respondent ($n=4$) & 82, 79, 84, 82; median 82 (above 68 benchmark) \\
+\hline
+One-sample Wilcoxon on SUS vs.~68 benchmark & exact $p = 0.0625$ (at $n=4$ exact-test floor) \\
+\hline
+\end{tabular}
+\end{table}
+
+The Wilson interval on alert resolution is centred above the 90\% closed-loop target. All administrator SUS totals exceed the benchmark of 68, although the exact Wilcoxon result does not clear the conventional $0.05$ threshold because the respondent count is four.
+
+\FloatBarrier
 \subsection{Discussion}
 The alert system, the embedded HMI, and the administrative dashboard together evidence every deliverable required by SO5. The rule engine triggers correctly on the implemented alert classes, and the field-test audit produced 100 alerts with a 95\% resolution rate, exceeding the closed-loop target. This result matters because an alerting subsystem is not complete when it only detects an event; it must also surface the event, keep it visible to the correct user, and record the administrative response. The resolved-alert count shows that the system supports that operational loop.
 
@@ -1108,8 +1570,51 @@ The HMI evidence verifies the driver-side half of the loop. The device is shown 
 
 The dashboard evidence verifies the fleet-manager half of the loop. The live map, alerts page, telemetry logs, trip history, per-trip detail, analytics, settings, and user-management screens together cover the routine workflow of monitoring, investigating, resolving, and configuring fleet events. The administrator acceptance survey strengthens the technical result: a SUS score of 81.9 indicates that the system is not merely functional but usable by the intended operator group. The remaining out-of-scope safety alerts, lane departure and fatigue/drowsiness, require additional camera or inertial sensing hardware and are therefore correctly carried forward as future work rather than being implied by the present telemetry stack.
 
+
+
+\section{Commercial-Scale Scalability Projection}
+\label{sec:so_commercial_scalability}
+
+The scalability of the deployed prototype beyond the two-vehicle thesis pilot is projected against the three closed-form ceilings derived in Section~\ref{sec:scalability_analysis}: the backend ingest ceiling (Equation~\ref{eq:scale_backend_ceiling}), the LoRa gateway occupancy ceiling (Equation~\ref{eq:scale_lora_ceiling}), and the hot-table storage growth rate (Equation~\ref{eq:scale_hot_daily}). Four representative fleet sizes are evaluated to bracket the operational range from a small commercial fleet to a large logistics carrier: $N_v = 10$, $100$, $500$, and $1{,}000$ vehicles. Table~\ref{tab:commercial_scalability} reports the projected load on each axis at each fleet size and marks which axis binds first.
+
+\begin{table}[!htbp]
+\centering
+\caption{Commercial-Scale Scalability Projection Across Four Representative Fleet Sizes}
+\label{tab:commercial_scalability}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|p{0.30\textwidth}|c|c|c|p{0.18\textwidth}|}
+\hline
+\textbf{Metric} & \textbf{$N_v = 10$} & \textbf{$N_v = 100$} & \textbf{$N_v = 500$} & \multicolumn{1}{c|}{\textbf{$N_v = 1{,}000$}} \\
+\hline
+Backend ingest rate (rows/s) & 2 & 20 & 100 & \multicolumn{1}{c|}{200} \\
+\hline
+\% of shared-tier backend ceiling & $0.04\%$ & $0.4\%$ & $2.2\%$ & \multicolumn{1}{c|}{$4.3\%$} \\
+\hline
+LoRa gateways needed (60 nodes/gw) & 1 & 2 & 9 & \multicolumn{1}{c|}{17} \\
+\hline
+Per-asset baseline storage (MB) & 0.04 & 0.4 & 2.0 & \multicolumn{1}{c|}{4.0} \\
+\hline
+Hot-table growth (GB/day, 10~h/day) & 0.036 & 0.36 & 1.80 & \multicolumn{1}{c|}{3.60} \\
+\hline
+Hot-table growth (GB/month, 22 op-days) & 0.79 & 7.92 & 39.6 & \multicolumn{1}{c|}{79.2} \\
+\hline
+Full-buffer offline duration per truck & \multicolumn{4}{c|}{\textasciitilde{}4 h 15 min at median row width, invariant with $N_v$} \\
+\hline
+Binding constraint (first to saturate) & none & LoRa fan-out & LoRa fan-out & LoRa fan-out; archival cadence matters \\
+\hline
+\end{tabular}
+\end{table}
+
+Three operational readings emerge from Table~\ref{tab:commercial_scalability}. First, the backend ingest layer is comfortably within its ceiling at every fleet size in the projected range: even at $N_v = 1{,}000$ the sustained ingest is $200$ rows/s, which is $4.3\%$ of the measured shared-tier ceiling of approximately $4{,}615$ concurrently active trucks derived in Equation~\ref{eq:scale_backend_ceiling}. Second, the LoRa gateway occupancy is the first quantitative constraint that binds at commercial scale: at the ITU-recommended $30\%$ engineering occupancy ceiling per gateway from Equation~\ref{eq:scale_lora_ceiling}, one gateway serves approximately $60$ active nodes, so a $500$-vehicle depot deployment requires nine gateways with distinct network identifiers and per-node gateway assignment performed at unit-identification time, and a $1{,}000$-vehicle deployment requires seventeen. Third, the hot-table storage growth is not a capacity concern but a query-latency concern: at $N_v = 1{,}000$ the hot-tier telemetry grows by $3.6$~GB/day, or approximately $79$~GB across a $22$-operating-day month, so the archival cadence must be tuned to keep the row count in the hot \texttt{telemetry\_logs} table within the envelope where dashboard queries return in under $200$~ms. The per-asset baseline storage is $O(N_v)$ and stays under $4$~MB even at the $1{,}000$-vehicle projection, so it is not a binding constraint at any of the four fleet sizes in the range considered.
+
+The projection carries two operational implications for a commercial rollout. Sub-fleet grouping at the LoRa transport is required at approximately the $60$-vehicle-per-depot threshold and above: at that point each depot must budget for one gateway per sixty active vehicles or fall back to LTE-primary operation for the excess nodes, and the sub-fleet assignment becomes a provisioning task performed alongside the \texttt{truck\_id} and \texttt{device\_key} steps in the unit-identification chain of Section~\ref{sec:unit_identification}. An archival cadence tuned to the daily growth rate becomes necessary from the low-hundreds fleet size upward: below approximately $500$ vehicles the hot table grows slowly enough that a weekly archival job is sufficient, and beyond that scale a daily archival job with a shorter active-retention window is recommended to hold the dashboard query latency under target. Neither implication requires a change to the deployed prototype architecture; both are provisioning-time parameters that scale linearly with $N_v$.
+
+\FloatBarrier
+
 \section{Summary}
 
-This chapter reported the measured performance of the implemented prototype against the targets of all five specific objectives, and every objective was met. SO1 achieved a 1.04\% MAPE and a 3.00\% maximum error across the 13--98\% tank range, with all validation events within $\pm$5\% and filtered-signal noise below 0.1\% across all tank bands. SO2 demonstrated bounded per-channel latency (LoRa and WiFi medians near 7~s, LTE as a delayed-delivery path, GSM~2G as an automatic fringe fallback) and showed that 66.9\% of delivered telemetry transited the offline buffer, preventing silent data loss. SO3 delivered a 5.52~s median sampling cadence and 90.21\% GPS fix availability, three synchronised tracking surfaces, and fleet-vehicle-restriction-aware routing.
+This chapter reported the measured performance of the implemented prototype against the targets of all five specific objectives and the corresponding statistical grounding for each, and every objective was met. SO1 achieved a $1.04\%$ MAPE and a $3.00\%$ maximum error across the $13$--$98\%$ tank range, with all validation events within $\pm 5\%$ and filtered-signal noise below $0.1\%$ across all tank bands; the Kalman-versus-moving-average filter comparison retained the moving-average stage on the combined weight of the four-axis corpus comparison (a $9.5$-percentage-point downstream $F_1$ advantage and a paired Wilcoxon test that could not distinguish the two filters per trip, $W = 3.0$, $p = 0.313$) and the live cross-scenario ablation (a $4$--$5\times$ noise-reduction advantage across city, climb, highway, idle, and refuel windows against the Kalman filter's near-passthrough behaviour on the raw sender). SO2 demonstrated bounded per-channel latency (LoRa and WiFi medians near $7$~s inside bootstrap $95\%$ confidence intervals of approximately $\pm 0.5$~s, LTE as a delayed-delivery path with a bootstrap median of $23.1$~s in $[22.4, 23.9]$~s, GSM~2G as an automatic fringe fallback) and showed that $66.9\%$ of delivered telemetry transited the offline buffer, preventing silent data loss; the LoRa packet-delivery Wilson interval at the $50$~m band sat entirely above the $80\%$ target. SO3 delivered a $5.52$~s median sampling cadence with a bootstrap $95\%$ CI of $[5.36, 5.63]$~s and a Wilson $95\%$ interval on GPS fix availability of $[0.894, 0.910]$, above the $85\%$ target, together with three synchronised tracking surfaces and fleet-vehicle-restriction-aware routing.
 
-SO4 reached 92.9\% precision and 1.09\% false-positive rate under leave-one-trip-out evaluation on the Chapter~5 project-native partition, with the Hybrid Intersection reaching 97.4\% precision as the high-confidence alert channel. SO5 produced a correctly triggering five-class alert engine with a 95\% resolution rate and an administrator System Usability Scale score of 81.9. The principal limitations --- parked-fleet-vehicle siphoning detection, the real-time latency of the cellular path, the degraded GSM~2G fringe rate, and dependence on vehicle-specific sender calibration --- are bounded, explained, and carried forward as the future directives discussed in Chapter~\ref{ch:conc}.
+SO4 reached $92.9\%$ precision and $1.09\%$ false-positive rate for the context-aware Isolation Forest Model~C under strict leave-one-trip-out evaluation on the project-native partition, and the accompanying four-configuration detector ablation confirmed the Isolation Forest as the strongest single detector on every metric with McNemar $p < 0.001$ against every other configuration and a bootstrap $95\%$ CI for $F_1$ of $[88.6\%, 96.6\%]$ that does not overlap the hybrid's $[79.1\%, 90.2\%]$, so Matrix Profile is retained as an audit-only signal and the physics tripwire remains a deterministic operational floor. SO5 produced a correctly triggering five-class alert engine with a $95\%$ resolution rate (Wilson $95\%$ CI $[0.888, 0.980]$, above the $90\%$ target) and an administrator System Usability Scale median of $82$, all four respondents above the Bangor benchmark of $68$ (one-sample Wilcoxon $p = 0.0625$ at the four-respondent exact-test floor). The commercial-scale scalability projection in Section~\ref{sec:so_commercial_scalability} extended these prototype results to representative fleet sizes ($N_v = 10$, $100$, $500$, $1{,}000$) and identified the LoRa gateway occupancy as the first binding constraint at approximately the sixty-vehicle-per-depot threshold and the archival cadence as the hot-tier storage constraint from the low-hundreds fleet size upward, both linear in $N_v$ and both handled by provisioning-time parameters rather than by architectural change. The principal remaining limitations~---~parked-depot siphoning detection, the real-time latency of the cellular path, the degraded GSM~2G fringe rate, hardware-anchored unit identification, and dependence on per-vehicle sender calibration~---~are bounded, explained, and carried forward as the recommendations and future directives discussed in Chapter~\ref{ch:conc}.

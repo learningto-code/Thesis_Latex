@@ -1,0 +1,2502 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(document.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(format/preamble.ltx
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/memoir\memoir.cls
+Document Class: memoir 2025/03/10 v3.8.3b configurable book, report, article do
+cument class
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/xpatch\xpatch.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
+ex.def))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse
+.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/memoir\mem12.clo)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\dcolumn.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\delarray.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.st
+y))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitl
+estring.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty)
+))) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/base\shortvrb.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/textcase\textcase.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/ulem\ulem.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption-memoir.s
+to))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/isomath\isomath.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/fixmath\fixmath.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\mathrsfs.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xintexpr.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xintfrac.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xint.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xintcore.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xintkernel.sty)))
+) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xinttools.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xinttrig.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xintlog.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/poormanlog\poormanlog.st
+y
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/poormanlog\poormanlog.
+tex))))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/breakcites\breakcites.st
+y) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cf
+g)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def)
+)) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotating.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty))
+(C:\Program Files\MiKTeX\tex/latex/placeins\placeins.sty)
+(C:\Program Files\MiKTeX\tex/latex/enumitem\enumitem.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nome
+tadata.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/mdwtools\mdwtab.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/ltablex\ltablex.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/eqparbox\eqparbox.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.st
+y)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/excludeonly\excludeonly.
+sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-pdft
+ex.def)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.cfg)
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/blindtext\blindtext.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3ke
+ys2e.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datetime\datetime.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fmtcount.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex))
+) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fcprefix.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fcnumparser.sty
+))
+
+Package fmtcount Warning: \ordinal already defined use \FCordinal instead. on i
+nput line 438.
+
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datetime\datetime-defaul
+ts.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/comment\comment.sty
+Excluding comment 'comment')
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/notoccite\notoccite.sty)
+ (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+ (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titletoc.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinek
+eys.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.st
+y
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.
+sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.st
+y) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.
+sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfile
+check.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqueco
+unter.sty)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/memoir\memhfixc.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/soul\soul.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/soul\soul-ori.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty)
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/clipboard\clipboard.sty)
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithmic.s
+ty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.s
+ty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
+common.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
+latex.def)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.c
+ode.tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex))
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.s
+ty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.s
+ty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+.code.tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.
+code.tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeysl
+ibraryfiltered.code.tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cf
+g)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+-pdftex.def
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+-common-pdf.def)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+softpath.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+protocol.code.tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+.code.tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.
+tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.c
+ode.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser
+.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.basic.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.trigonometric.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.random.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.comparison.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.base.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.round.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.misc.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.integerarithmetics.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.c
+ode.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.
+code.tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.t
+ex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+points.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathconstruct.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathusage.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+scopes.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+graphicstate.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+transformations.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+quick.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+objects.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathprocessing.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+arrows.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+shade.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+image.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+external.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+layers.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+transparency.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+patterns.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+rdf.code.tex)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodules
+hapes.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulep
+lot.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcom
+p-version-0-65.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcom
+p-version-1-18.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.st
+y
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.
+code.tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.
+tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.c
+ode.tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+\tikz.code.tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
+ryplothandlers.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulem
+atrix.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarytopaths.code.tex)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/alphalph\alphalph.sty)
+ (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg)))
+ (format/postamble.ltx
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty)
+Writing index file document.idx 
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datagidx.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/xfor\xfor.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tracklang\tracklang.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/tracklang\tracklang.te
+x))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-base.s
+ty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-l3fp.d
+ef)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-utf8.l
+df)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/mfirstuc\mfirstuc.sty))
+(abbreviation.tex) (notation.tex) (glossary.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookmark.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pdftex.def)
+) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\psdextra.def)
+
+Package hyperref Warning: Option `bookmarks' has already been used,
+(hyperref)                setting the option has no effect on input line 82.
+
+
+Package hyperref Warning: Option `pdfpagelabels' has already been used,
+(hyperref)                setting the option has no effect on input line 82.
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/wallpaper\wallpaper.sty)
+ (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)))
+(index_citations.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd)
+(document.aux (introduction.aux) (literature_review.aux)
+(theoretical_considerations.aux) (design_considerations.aux) (methodology.aux)
+(results_and_discussions.aux) (conclusions.aux) (appendix_partner_evidence.aux)
+(appendix_survey_instrument.aux) (appendix_technical_details.aux))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
+i
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
+se.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cf
+g)) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-ptm.cfg
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fc-english.def)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(format/pre_toc.ltx (format/titlep.ltx
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd)
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-pdfdoc.de
+f) [1{C:/Users/Samu/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/
+Samu/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./figure/../fo
+rmat/DLSU_Logo.png>]) (format/defense.ltx) (format/approval.ltx)
+(format/aaa.ltx (abstract.tex)
+[2 <./figure/../format/dlsu_thesis_paper_letterhead.pdf>])) (document.toc
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd)
+Overfull \hbox (3.79529pt too wide) detected at line 8
+ [][]\OT1/ptm/b/n/12 xxiii[][]
+
+[3]
+[4]
+[5]
+[6]
+[7]
+[8]
+Overfull \hbox (5.6594pt too wide) in paragraph at lines 224--224
+ [][] [][][]\OT1/ptm/b/n/12 (-20) PARTNER CO-OR-DI-NA-TION AND PRO-TO-TYPE DEMO
+N-STRA- 
+)
+[9] (document.lof
+[10])
+[11] (document.lot
+[12])
+[13] (document.lol)
+[14]
+[15]
+[16]
+[17]
+[18]
+[19]
+[20]
+[21]
+[22]
+[23]
+Underfull \hbox (badness 1314) in paragraph at lines 203--203
+[]\OT1/ptm/m/n/12 (+20) A tech-nique used to iden-tify data
+
+Underfull \hbox (badness 1314) in paragraph at lines 203--203
+[]\OT1/ptm/m/n/12 (+20) A branch of com-puter sci-ence fo-
+
+Underfull \hbox (badness 1629) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) quire hu-man in-tel-li-gence, such as
+
+Underfull \hbox (badness 1024) in paragraph at lines 203--203
+[]\OT1/ptm/m/n/12 (+20) Data anal-y-sis per-formed on cloud-
+
+[24]
+[25]
+[26]
+Underfull \hbox (badness 2302) in paragraph at lines 203--203
+[]\OT1/ptm/m/n/12 (+20) A con-fi-dence in-ter-val for a bi-no-
+
+Underfull \hbox (badness 1019) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) mial pro-por-tion that re-mains ac-cu-
+
+Underfull \hbox (badness 1005) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) a model's pre-dic-tions in-ter-pretable,
+
+[27]
+Underfull \hbox (badness 1558) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) quency sweeps (chirps), pro-vid-ing
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+[]\OT1/ptm/m/n/12 (+20) The fleet-manager in-ter-face that
+
+Underfull \hbox (badness 3407) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) presents fleet-vehicle sta-tus, trips,
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) maps, teleme-try logs, an-a-lyt-ics,
+
+Underfull \hbox (badness 3492) in paragraph at lines 203--203
+[]\OT1/ptm/m/n/12 (+20) The cloud-side ser-vice layer that
+
+Underfull \hbox (badness 3646) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) re-ceives teleme-try, stores records,
+
+Underfull \hbox (badness 3919) in paragraph at lines 203--203
+[]\OT1/ptm/m/n/12 (+20) A mea-sured fuel-volume or fuel-
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+[]\OT1/ptm/m/n/12 (+20) A pub-licly de-rived clean-route
+
+Underfull \hbox (badness 1668) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) data come from a dif-fer-ent route,
+
+[29]
+Underfull \hbox (badness 1152) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) used by the pro-to-type to pre-serve
+
+[30]
+[31]
+[1] (introduction.tex
+[2]
+[3] (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd)
+[4]
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
+[]\OT1/ptm/b/n/9 (+20) Literature Ti-tle
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+[]\OT1/ptm/b/n/9 (+20) Literature Ti-tle
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
+[]\OT1/ptm/m/n/9 (+20) Intelligent IoT-
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
+\OT1/ptm/m/n/9 (+20) Enabled Real-Time
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
+\OT1/ptm/m/n/9 (+20) Mon-i-tor-ing Sys-tem
+
+Underfull \hbox (badness 5105) in paragraph at lines 58--58
+\OT1/ptm/m/n/9 (+20) for Lo-gis-tics Man-
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+[]\OT1/ptm/m/n/9 (+20) Logistics sys-tems
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+\OT1/ptm/m/n/9 (+20) lack in-te-gra-tion and
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+\OT1/ptm/m/n/9 (+20) real-time mon-i-tor-ing
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+[]\OT1/ptm/m/n/9 (+20) Hybrid IoT-based
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) com-bin-ing sen-sors,
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) GPS, RFID, and
+
+Underfull \hbox (badness 3942) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) cloud an-a-lyt-ics for
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--61
+\OT1/ptm/m/n/9 (+20) of as-sets,
+
+Underfull \hbox (badness 1325) in paragraph at lines 61--61
+\OT1/ptm/m/n/9 (+20) ve-hi-cles, and
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+[]\OT1/ptm/m/n/9 (+20) Constrained by
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+\OT1/ptm/m/n/9 (+20) lacks ad-vanced
+
+Underfull \hbox (badness 3158) in paragraph at lines 62--63
+\OT1/ptm/m/n/9 (+20) AI for anomaly
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--65
+\OT1/ptm/m/n/9 (+20) Ve-hi-cle Mon-i-tor-ing
+
+Underfull \hbox (badness 4886) in paragraph at lines 67--67
+\OT1/ptm/m/n/9 (+20) with cloud stor-age
+
+Underfull \hbox (badness 2343) in paragraph at lines 68--68
+[]\OT1/ptm/m/n/9 (+20) Enabled real-
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) of lo-ca-tion,
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) speed, and
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) pas-sen-ger
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+[]\OT1/ptm/m/n/9 (+20) Limited to in-
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+\OT1/ptm/m/n/9 (+20) sti-tu-tional use;
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+\OT1/ptm/m/n/9 (+20) lacks anomaly
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+\OT1/ptm/m/n/9 (+20) de-tec-tion and
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+\OT1/ptm/m/n/9 (+20) com-mer-cial
+
+Underfull \hbox (badness 5548) in paragraph at lines 72--72
+[]\OT1/ptm/m/n/9 (+20) GPS-Based Ve-hi-cle
+
+Underfull \hbox (badness 1810) in paragraph at lines 72--72
+\OT1/ptm/m/n/9 (+20) Track-ing and Theft
+
+Underfull \hbox (badness 7869) in paragraph at lines 72--72
+\OT1/ptm/m/n/9 (+20) ing Google Cloud
+
+Underfull \hbox (badness 1838) in paragraph at lines 73--73
+[]\OT1/ptm/m/n/9 (+20) Ineffective ve-hi-cle re-
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--74
+[]\OT1/ptm/m/n/9 (+20) Implemented GPS-
+
+Underfull \hbox (badness 5592) in paragraph at lines 74--74
+\OT1/ptm/m/n/9 (+20) Google Cloud IoT
+
+Underfull \hbox (badness 2302) in paragraph at lines 74--74
+\OT1/ptm/m/n/9 (+20) Core, MQTT, Fire-
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--74
+\OT1/ptm/m/n/9 (+20) base, and PWA
+
+Underfull \hbox (badness 2343) in paragraph at lines 75--75
+[]\OT1/ptm/m/n/9 (+20) Enabled real-
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+\OT1/ptm/m/n/9 (+20) time ve-hi-cle
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+\OT1/ptm/m/n/9 (+20) de-tec-tion,
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+\OT1/ptm/m/n/9 (+20) and re-mote
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+\OT1/ptm/m/n/9 (+20) adap-ta-tion for
+
+Underfull \hbox (badness 6893) in paragraph at lines 79--79
+[]\OT1/ptm/m/n/9 (+20) Fuel Quan-tity and
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
+\OT1/ptm/m/n/9 (+20) Au-to-mo-biles Us-ing
+
+Underfull \hbox (badness 3557) in paragraph at lines 81--81
+\OT1/ptm/m/n/9 (+20) gauges and qual-ity
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+[]\OT1/ptm/m/n/9 (+20) Achieved
+
+Underfull \hbox (badness 1552) in paragraph at lines 82--82
+\OT1/ptm/m/n/9 (+20) ac-cu-rate real-
+
+Underfull \hbox (badness 1292) in paragraph at lines 82--82
+\OT1/ptm/m/n/9 (+20) time quan-tity
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+\OT1/ptm/m/n/9 (+20) and qual-ity
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+[]\OT1/ptm/m/n/9 (+20) Fuel Con-sump-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+\OT1/ptm/m/n/9 (+20) Clas-si-fi-ca-tion for
+
+Underfull \hbox (badness 2717) in paragraph at lines 86--86
+\OT1/ptm/m/n/9 (+20) [[][]Mum-cuoglu et al.,
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--87
+[]\OT1/ptm/m/n/9 (+20) Identifying ab-nor-mal
+
+Underfull \hbox (badness 1331) in paragraph at lines 87--87
+\OT1/ptm/m/n/9 (+20) fuel con-sump-tion due
+
+Underfull \hbox (badness 1990) in paragraph at lines 87--87
+\OT1/ptm/m/n/9 (+20) to driver be-hav-ior or
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--88
+[]\OT1/ptm/m/n/9 (+20) Machine learn-ing
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--88
+\OT1/ptm/m/n/9 (+20) con-sid-er-ing weight
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--89
+[]\OT1/ptm/m/n/9 (+20) 92.2% ac-
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--89
+\OT1/ptm/m/n/9 (+20) cu-racy; F1
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--89
+\OT1/ptm/m/n/9 (+20) score 0.78
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--89
+\OT1/ptm/m/n/9 (+20) for out-lier
+
+Underfull \hbox (badness 5726) in paragraph at lines 93--93
+\OT1/ptm/m/n/9 (+20) & Theft De-tec-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--93
+\OT1/ptm/m/n/9 (+20) Sys-tem [[][]Ko-mal
+
+Underfull \hbox (badness 2582) in paragraph at lines 93--93
+\OT1/ptm/m/n/9 (+20) Shoukat Ali et al.,
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+[]\OT1/ptm/m/n/9 (+20) Fuel sen-sors, Ar-
+
+Underfull \hbox (badness 2941) in paragraph at lines 95--95
+\OT1/ptm/m/n/9 (+20) duino, GSM, GPS,
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+\OT1/ptm/m/n/9 (+20) Lab-View for data
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
+[]\OT1/ptm/m/n/9 (+20) Real-time
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
+\OT1/ptm/m/n/9 (+20) mon-i-tor-ing,
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
+\OT1/ptm/m/n/9 (+20) alerts for
+
+Underfull \hbox (badness 2894) in paragraph at lines 97--98
+[]\OT1/ptm/m/n/9 (+20) Tested on ba-sic
+
+Underfull \hbox (badness 3568) in paragraph at lines 97--98
+\OT1/ptm/m/n/9 (+20) hard-ware; lacks
+
+Underfull \hbox (badness 2073) in paragraph at lines 97--98
+\OT1/ptm/m/n/9 (+20) ad-vanced an-a-lyt-
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+[]\OT1/ptm/m/n/9 (+20) Development of
+
+Underfull \hbox (badness 5147) in paragraph at lines 100--100
+\OT1/ptm/m/n/9 (+20) an In-tel-li-gent Fuel
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+\OT1/ptm/m/n/9 (+20) De-tec-tion Sys-tem
+
+Underfull \hbox (badness 3657) in paragraph at lines 101--101
+\OT1/ptm/m/n/9 (+20) anoma-lies in hy-brid/-
+
+Underfull \hbox (badness 1308) in paragraph at lines 102--102
+\OT1/ptm/m/n/9 (+20) GPS, GSM, buzzer,
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+[]\OT1/ptm/m/n/9 (+20) Reliable
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+\OT1/ptm/m/n/9 (+20) mon-i-tor-ing
+
+Underfull \hbox (badness 4254) in paragraph at lines 103--103
+\OT1/ptm/m/n/9 (+20) and anomaly
+
+Underfull \hbox (badness 7869) in paragraph at lines 104--105
+[]\OT1/ptm/m/n/9 (+20) Lacks ad-vanced
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+\OT1/ptm/m/n/9 (+20) sen-sors for en-
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+\OT1/ptm/m/n/9 (+20) hanced leak
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
+[]\OT1/ptm/m/n/9 (+20) Unsupervised Ma-
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
+\OT1/ptm/m/n/9 (+20) chine Learn-ing to
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
+\OT1/ptm/m/n/9 (+20) De-tect Im-pend-ing
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
+\OT1/ptm/m/n/9 (+20) Emis-sions [[][]Fortela
+
+Underfull \hbox (badness 1377) in paragraph at lines 108--108
+\OT1/ptm/m/n/9 (+20) sions test-ing of light-
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--109
+[]\OT1/ptm/m/n/9 (+20) Unsupervised ML
+
+Underfull \hbox (badness 5490) in paragraph at lines 109--109
+\OT1/ptm/m/n/9 (+20) meth-ods (PCA, K-
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--109
+\OT1/ptm/m/n/9 (+20) Means, SOM) on
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+[]\OT1/ptm/m/n/9 (+20) Trend de-tec-
+
+Underfull \hbox (badness 2057) in paragraph at lines 110--110
+\OT1/ptm/m/n/9 (+20) tion in large
+
+Underfull \hbox (badness 3769) in paragraph at lines 111--112
+\OT1/ptm/m/n/9 (+20) time op-er-a-tional
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+[]\OT1/ptm/m/n/9 (+15) Ultrasonic/capacitive
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+\OT1/ptm/m/n/9 (+20) sen-sors, flow sen-
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+\OT1/ptm/m/n/9 (+20) sors, GSM, GPS,
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+\OT1/ptm/m/n/9 (+20) in-tel-li-gent theft
+
+Underfull \hbox (badness 5939) in paragraph at lines 121--121
+[]\OT1/ptm/m/n/9 (+20) Design and Im-ple-
+
+Underfull \hbox (badness 1668) in paragraph at lines 121--121
+\OT1/ptm/m/n/9 (+20) ing GPS Based on
+
+Underfull \hbox (badness 6125) in paragraph at lines 122--122
+[]\OT1/ptm/m/n/9 (+20) Inefficient GPS-based
+
+Underfull \hbox (badness 6173) in paragraph at lines 123--123
+\OT1/ptm/m/n/9 (+20) in-te-grated with se-
+
+Underfull \hbox (badness 4779) in paragraph at lines 124--124
+\OT1/ptm/m/n/9 (+20) tion track-ing
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+[]\OT1/ptm/m/n/9 (+20) Dependent on
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+\OT1/ptm/m/n/9 (+20) GSM/GPS re-
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+\OT1/ptm/m/n/9 (+20) li-a-bil-ity; lacks
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+\OT1/ptm/m/n/9 (+20) IoT in-te-gra-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+\OT1/ptm/m/n/9 (+20) and anomaly
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--130
+[]\OT1/ptm/m/n/9 (+20) Fuel sen-sors and
+
+Underfull \hbox (badness 3735) in paragraph at lines 130--130
+\OT1/ptm/m/n/9 (+20) GSM mod-ule with
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
+[]\OT1/ptm/m/n/9 (+20) Monitors
+
+Underfull \hbox (badness 2096) in paragraph at lines 131--131
+\OT1/ptm/m/n/9 (+20) fuel, trig-gers
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
+\OT1/ptm/m/n/9 (+20) alarms, and
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
+\OT1/ptm/m/n/9 (+20) sends GPS
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
+[]\OT1/ptm/m/n/9 (+20) Basic sen-sors;
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
+\OT1/ptm/m/n/9 (+20) and an-a-lyt-ics
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
+\OT1/ptm/m/n/9 (+20) in com-plex
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--135
+[]\OT1/ptm/m/n/9 (+20) Interpretable Ma-
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--135
+\OT1/ptm/m/n/9 (+20) chine Learn-ing
+
+Underfull \hbox (badness 1728) in paragraph at lines 135--135
+\OT1/ptm/m/n/9 (+20) Mod-els for Ve-hi-cle
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--135
+\OT1/ptm/m/n/9 (+20) Fuel Con-sump-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--136
+[]\OT1/ptm/m/n/9 (+20) Detecting/explaining
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
+[]\OT1/ptm/m/n/9 (+20) Unsupervised
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
+\OT1/ptm/m/n/9 (+20) anomaly de-tec-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
+\OT1/ptm/m/n/9 (+20) com-bined with
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--138
+[]\OT1/ptm/m/n/9 (+20) Up to 80%
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--138
+\OT1/ptm/m/n/9 (+20) anoma-lous
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--138
+\OT1/ptm/m/n/9 (+20) in-stances
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--138
+\OT1/ptm/m/n/9 (+20) ex-plained;
+
+Underfull \hbox (badness 6445) in paragraph at lines 138--138
+\OT1/ptm/m/n/9 (+20) re-duc-tion up
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+[]\OT1/ptm/m/n/9 (+20) Only an-a-lyzed
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+\OT1/ptm/m/n/9 (+20) rel-e-vance; not
+
+[6] [7]
+[8]
+[9]
+[10]
+[11]
+\clipboard {GO}{GO: To develop and evaluate an IoT-based system for trucks, in 
+collaboration with the partner truck company Hino Parañaque Subic GS Auto Inc.
+ (SGSA\glsadd {SGSA}), that monitors real-time fuel levels, tracks routes using
+ GPS, and detects unusual fuel consumption using machine learning, with the goa
+l of improving driver safety, supporting rest scheduling, and facilitating proa
+ctive vehicle maintenance through automated alerts using fuel and distance metr
+ics, based on established service guidelines.}
+
+[12]
+\clipboard {SO1}{SO1: To measure fuel levels using digital float sensors integr
+ated via the truck's ECU\glsadd {ECU}/diagnostic connector and GPS module, ensu
+ring non-invasive installation and real-time accuracy within $\pm $5\%.}
+\clipboard {SO2}{SO2: To transmit real-time fuel and GPS data through IoT-based
+ communication to a cloud server, accessible through a centralized dashboard.}
+\clipboard {SO3}{SO3: To capture and log GPS location data every 5 seconds via 
+an embedded module, correlating route information with fuel and time data for b
+ehavior tracking.}
+\clipboard {SO4}{SO4: To design and evaluate a context-aware fuel usage deviati
+on model using non-parametric unsupervised machine learning models (Matrix Prof
+ile or Isolation Forest), achieving 90\% precision and 10\% false positives in 
+identifying anomalous fuel consumption patterns within controlled environments.
+}
+\clipboard {SO5}{SO5: To develop and integrate hardware-based rest and maintena
+nce alert mechanisms (e.g., Start/Stop button, buzzer indicators) tied to the w
+eb dashboard using cumulative fuel and distance data.}
+
+Underfull \hbox (badness 2165) in paragraph at lines 243--243
+\OT1/ptm/m/n/9 (+20) the part-ner truck com-pany
+
+Underfull \hbox (badness 2277) in paragraph at lines 243--243
+\OT1/ptm/m/n/9 (+20) Hino Para[]naque Subic GS
+
+Underfull \hbox (badness 3623) in paragraph at lines 243--243
+\OT1/ptm/m/n/9 (+20) Auto Inc. (SGSA), that
+
+Underfull \hbox (badness 1708) in paragraph at lines 243--243
+\OT1/ptm/m/n/9 (+20) schedul-ing, and fa-cil-i-tat-ing
+
+Underfull \hbox (badness 3735) in paragraph at lines 277--277
+\OT1/ptm/m/n/9 (+20) a cloud server, ac-ces-si-ble
+
+Underfull \hbox (badness 1205) in paragraph at lines 277--277
+\OT1/ptm/m/n/9 (+20) through a cen-tral-ized dash-
+
+Underfull \hbox (badness 1721) in paragraph at lines 287--287
+[]\OT1/ptm/m/n/9 (+20) SO3: To cap-ture and log
+
+[13] [14]
+[15]
+[16]
+[17]
+[18]
+[19]
+[20]
+[21]
+[22]
+[23]
+[24]
+[25]
+[26]
+[27 <./figure/BARJA.png> <./figure/CASTELO.png> <./figure/DELAROSA.png>]
+[28 <./figure/MONTEMAYOR.png>]
+Underfull \hbox (badness 6758) in paragraph at lines 523--523
+[]\OT1/ptm/b/n/9 (+20) Unit Cost
+
+Underfull \hbox (badness 1158) in paragraph at lines 523--523
+[]\OT1/ptm/b/n/9 (+20) Total Cost
+
+Underfull \hbox (badness 6758) in paragraph at lines 528--528
+[]\OT1/ptm/b/n/9 (+20) Unit Cost
+
+Underfull \hbox (badness 1158) in paragraph at lines 528--528
+[]\OT1/ptm/b/n/9 (+20) Total Cost
+
+Underfull \hbox (badness 3977) in paragraph at lines 558--558
+[]\OT1/ptm/m/n/9 (+20) Resistors (1x220 ohms,
+
+[29])
+[30]
+[31] (literature_review.tex
+[32 <./figure/prisma.png>]
+[33]
+[34]
+[35]
+[36]
+[37]
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 90--90
+[]\OT1/ptm/m/n/12 (+20) Network Ar-chi-tec-
+
+Underfull \hbox (badness 3343) in paragraph at lines 90--90
+[]\OT1/ptm/m/n/12 (+20) Extensive broad ge-o-graph-i-cal
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--90
+[]\OT1/ptm/m/n/12 (+20) High-capacity and density-
+
+Underfull \hbox (badness 1226) in paragraph at lines 90--90
+\OT1/ptm/m/n/12 (+20) closer prox-im-ity to mod-ern cell
+
+[39]
+[40 <./figure/GlobeCoverage.png>]
+[41 <./figure/SmartCoverage.png>]
+[42]
+[43]
+[44]
+[45]
+[46]
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+[]\OT1/ptm/m/n/9 (+20) Tatababu et al.
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+\OT1/ptm/m/n/9 (+20) (2024) [[][]Tatababu
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+[]\OT1/ptm/m/n/9 (-11) Ultrasonic/Capacitive
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+\OT1/ptm/m/n/9 (+20) Smart-phone/Web
+
+Underfull \hbox (badness 5475) in paragraph at lines 159--159
+[]\OT1/ptm/m/n/9 (+20) Theft de-tec-tion, fuel
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+[]\OT1/ptm/m/n/9 (+20) Accurate for re-
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+\OT1/ptm/m/n/9 (+20) mote gen-er-a-tor
+
+Underfull \hbox (badness 2521) in paragraph at lines 159--159
+\OT1/ptm/m/n/9 (+20) mon-i-tor-ing, GPS-
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
+[]\OT1/ptm/m/n/9 (+20) IoT, GPS, RFID,
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
+[]\OT1/ptm/m/n/9 (+20) High track-ing
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
+\OT1/ptm/m/n/9 (+20) re-spon-sive alert
+
+Underfull \hbox (badness 3769) in paragraph at lines 161--162
+[]\OT1/ptm/m/n/9 (+20) Limited by hard-ware
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+[]\OT1/ptm/m/n/9 (+20) Vigneshwaran et
+
+Underfull \hbox (badness 2951) in paragraph at lines 163--163
+\OT1/ptm/m/n/9 (+20) al. (2020) [[][]Vi-g-
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+\OT1/ptm/m/n/9 (+20) nesh-waran et al.,
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+[]\OT1/ptm/m/n/9 (+20) Improves safety,
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+\OT1/ptm/m/n/9 (+20) schedul-ing, and
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+[]\OT1/ptm/m/n/9 (+20) Not highly scal-able;
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+\OT1/ptm/m/n/9 (+20) lacks de-tailed in-te-
+
+Underfull \hbox (badness 6741) in paragraph at lines 163--164
+\OT1/ptm/m/n/9 (+20) gra-tion with mod-ern
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+\OT1/ptm/m/n/9 (+20) [[][]Patil and Patil,
+
+Underfull \hbox (badness 1742) in paragraph at lines 165--165
+[]\OT1/ptm/m/n/9 (+20) Tracking sys-tem with
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+[]\OT1/ptm/m/n/9 (+20) Comprehensive
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+\OT1/ptm/m/n/9 (+20) ve-hi-cle se-cu-rity,
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+\OT1/ptm/m/n/9 (+20) real-time alerts,
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+\OT1/ptm/m/n/9 (+20) de-tec-tion of
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
+[]\OT1/ptm/m/n/9 (+20) Low adapt-abil-ity to
+
+Underfull \hbox (badness 4416) in paragraph at lines 165--166
+\OT1/ptm/m/n/9 (+20) harsh con-di-tions like
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+[]\OT1/ptm/m/n/9 (+20) Unsupervised Ma-
+
+Underfull \hbox (badness 1337) in paragraph at lines 167--167
+[]\OT1/ptm/m/n/9 (+20) Detects hid-den trends
+
+Underfull \hbox (badness 1057) in paragraph at lines 167--167
+\OT1/ptm/m/n/9 (+20) lies; an-a-lyzes cor-re-la-
+
+Underfull \hbox (badness 2181) in paragraph at lines 167--167
+[]\OT1/ptm/m/n/9 (+20) Effectively iden-ti-
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+\OT1/ptm/m/n/9 (+20) fies non-obvious
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+\OT1/ptm/m/n/9 (+20) pat-terns within
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+\OT1/ptm/m/n/9 (+20) flaws in stan-
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+\OT1/ptm/m/n/9 (+20) dard-ized test-ing
+
+Underfull \hbox (badness 3780) in paragraph at lines 167--168
+\OT1/ptm/m/n/9 (+20) ve-hi-cle data; con-clu-
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--169
+[]\OT1/ptm/m/n/9 (+20) Unsupervised
+
+Underfull \hbox (badness 2035) in paragraph at lines 169--169
+\OT1/ptm/m/n/9 (+20) Anomaly De-tec-tion;
+
+Underfull \hbox (badness 1242) in paragraph at lines 169--169
+\OT1/ptm/m/n/9 (+20) ity via XAI met-
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+[]\OT1/ptm/m/n/9 (+20) Performance de-pends
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+\OT1/ptm/m/n/9 (+20) heav-ily on qual-ity
+
+Underfull \hbox (badness 2261) in paragraph at lines 169--170
+\OT1/ptm/m/n/9 (+20) of telem-at-ics data or
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
+[]\OT1/ptm/m/n/9 (+20) Self-Organizing
+
+Underfull \hbox (badness 1038) in paragraph at lines 173--173
+[]\OT1/ptm/m/n/9 (+20) Ensemble of iso-la-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
+\OT1/ptm/m/n/9 (+20) trees that iden-tify
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
+\OT1/ptm/m/n/9 (+20) anoma-lies through
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
+[]\OT1/ptm/m/n/9 (+20) Non-parametric
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
+\OT1/ptm/m/n/9 (+20) with linear-time
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
+\OT1/ptm/m/n/9 (+20) com-plex-ity and
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
+\OT1/ptm/m/n/9 (+20) low mem-ory
+
+Underfull \hbox (badness 7925) in paragraph at lines 173--174
+[]\OT1/ptm/m/n/9 (+20) No la-beled data re-
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+[]\OT1/ptm/m/n/9 (+20) Matrix Pro-file
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+[]\OT1/ptm/m/n/9 (+20) Z-normalized nearest-
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\OT1/ptm/m/n/9 (+20) neighbor sim-i-lar-ity
+
+Underfull \hbox (badness 2165) in paragraph at lines 175--175
+\OT1/ptm/m/n/9 (+20) pro-file for mo-tif and
+
+Underfull \hbox (badness 2027) in paragraph at lines 175--175
+\OT1/ptm/m/n/9 (+20) with min-i-mal pa-
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
+[]\OT1/ptm/m/n/9 (+20) Deterministic, in-ter-
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
+\OT1/ptm/m/n/9 (+20) pretable, and near
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--177
+[]\OT1/ptm/m/n/9 (+20) DAMP Stream-ing
+
+Underfull \hbox (badness 1648) in paragraph at lines 177--177
+\OT1/ptm/m/n/9 (+20) com-pu-ta-tion for high-
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+[]\OT1/ptm/m/n/9 (+20) Multidimensional
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+[]\OT1/ptm/m/n/9 (+20) Extension of Ma-trix
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+\OT1/ptm/m/n/9 (+20) time-series anomaly
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
+[]\OT1/ptm/m/n/9 (+20) Competitive per-for-
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
+\OT1/ptm/m/n/9 (+20) highly in-ter-pretable
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+[]\OT1/ptm/m/n/9 (+20) Comprehensive re-
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+\OT1/ptm/m/n/9 (+20) view and tax-on-omy
+
+Underfull \hbox (badness 3058) in paragraph at lines 181--181
+\OT1/ptm/m/n/9 (+20) of anomaly de-tec-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+[]\OT1/ptm/m/n/9 (+20) Defines anomaly
+
+Underfull \hbox (badness 2189) in paragraph at lines 181--181
+\OT1/ptm/m/n/9 (+20) de-tec-tion in mul-
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+\OT1/ptm/m/n/9 (+20) ti-vari-ate truck
+
+Underfull \hbox (badness 1033) in paragraph at lines 181--182
+\OT1/ptm/m/n/9 (+20) in-sights and iden-ti-fies
+
+Underfull \hbox (badness 4556) in paragraph at lines 183--183
+\OT1/ptm/m/n/9 (+20) tive CAN-bus sen-sor
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
+[]\OT1/ptm/m/n/9 (+20) Effective for OBD-
+
+Underfull \hbox (badness 3058) in paragraph at lines 183--184
+\OT1/ptm/m/n/9 (+20) ments and em-bed-ded
+[48] [49]
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/b/n/12 (+20) ML for
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/b/n/12 (+20) Fuel
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/b/n/12 (+20) Anoma-
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Geotab
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) [[][]Geotab,
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) OBD/telematics
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Fuel-up records
+
+Underfull \hbox (badness 3260) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) and en-gine data
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) No (rule
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) pur-chase greater
+
+Underfull \hbox (badness 1067) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) than ca-pac-ity, and
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Transaction-rule
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Samsara
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) [[][]Sam-sara,
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Telematics
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) gate-way, fuel
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Real-time fuel
+
+Underfull \hbox (badness 5077) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) level and us-age
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Configurable
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) sudden-drop alert
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Static thresh-old;
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) blind to grad-ual
+
+Underfull \hbox (badness 5147) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) lo-ca-tion mis-match
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Sees only fill-up
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Wialon
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) [[][]Wialon,
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Sensor-threshold
+
+Underfull \hbox (badness 4739) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) drain events with
+
+Underfull \hbox (badness 6412) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) man-u-ally re-viewed;
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Fleet Com-
+
+Underfull \hbox (badness 6510) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) plete [[][]Fleet
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) Com-plete,
+
+Underfull \hbox (badness 7064) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Fuel us-age and
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) No spec-
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) i-fied
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) adap-tive
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Reporting-based
+
+Underfull \hbox (badness 1308) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) tive anomaly de-tec-
+
+Underfull \hbox (badness 1867) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Drain/refill event
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Per-sensor rate-
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) of-change drain
+
+Underfull \hbox (badness 3375) in paragraph at lines 218--218
+\OT1/ptm/m/n/12 (+20) thresh-olds; op-tion
+
+Underfull \hbox (badness 2269) in paragraph at lines 218--218
+[]\OT1/ptm/m/n/12 (+20) Manual tun-ing; in-
+
+[51]
+[52]
+[53]
+Underfull \hbox (badness 2165) in paragraph at lines 248--249
+\OT1/ptm/m/n/9 (+20) ing non-parametric un-su-
+
+Underfull \hbox (badness 2310) in paragraph at lines 248--249
+\OT1/ptm/m/n/9 (+20) Iso-la-tion For-est), achiev-
+
+Underfull \hbox (badness 1675) in paragraph at lines 248--249
+\OT1/ptm/m/n/9 (+20) tion pat-terns within con-
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--251
+\OT1/ptm/m/n/9 (+20) anoma-lies; com-bined box-
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--251
+\OT1/ptm/m/n/9 (+20) plot/IQR pre-filtering with
+
+Underfull \hbox (badness 1688) in paragraph at lines 251--251
+\OT1/ptm/m/n/9 (+20) + OBD-II + multi-channel-
+
+Underfull \hbox (badness 2376) in paragraph at lines 251--251
+\OT1/ptm/m/n/9 (+20) communication + live-alert
+
+Underfull \hbox (badness 1394) in paragraph at lines 251--252
+\OT1/ptm/m/n/9 (+20) dash-board, mo-bile driver
+
+Underfull \hbox (badness 6641) in paragraph at lines 251--252
+\OT1/ptm/m/n/9 (+20) web app, and un-su-per-
+
+Underfull \hbox (badness 8038) in paragraph at lines 254--254
+\OT1/ptm/m/n/9 (+20) pre-hen-sive sys-tem
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--254
+\OT1/ptm/m/n/9 (+20) in-te-grat-ing fuel
+
+Underfull \hbox (badness 6641) in paragraph at lines 254--254
+\OT1/ptm/m/n/9 (+20) anomaly de-tec-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--254
+\OT1/ptm/m/n/9 (+20) with GPS-based
+
+Underfull \hbox (badness 3118) in paragraph at lines 254--254
+\OT1/ptm/m/n/9 (+20) track-ing, and pre-
+
+Underfull \hbox (badness 1635) in paragraph at lines 254--255
+\OT1/ptm/m/n/9 (+20) ule, cor-re-lat-ing route in-
+
+Underfull \hbox (badness 2556) in paragraph at lines 254--255
+\OT1/ptm/m/n/9 (+20) for-ma-tion with fuel and
+
+Underfull \hbox (badness 1048) in paragraph at lines 254--255
+\OT1/ptm/m/n/9 (+20) ing; de-sign and eval-u-ate
+
+Underfull \hbox (badness 2790) in paragraph at lines 254--255
+\OT1/ptm/m/n/9 (+20) a context-aware fuel us-
+
+Underfull \hbox (badness 3039) in paragraph at lines 254--255
+\OT1/ptm/m/n/9 (+20) age de-vi-a-tion model us-
+
+Underfull \hbox (badness 2165) in paragraph at lines 254--255
+\OT1/ptm/m/n/9 (+20) ing non-parametric un-su-
+
+Underfull \hbox (badness 1057) in paragraph at lines 254--255
+\OT1/ptm/m/n/9 (+20) te-nance re-minders into a
+
+Underfull \hbox (badness 1163) in paragraph at lines 257--257
+\OT1/ptm/m/n/9 (+20) fuel fraud costs [[][]Japan In-ter-
+
+Underfull \hbox (badness 1648) in paragraph at lines 257--257
+\OT1/ptm/m/n/9 (+20) na-tional Co-op-er-a-tion Agency,
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--257
+[]\OT1/ptm/m/n/9 (+20) Models may mis-clas-sify
+
+Underfull \hbox (badness 5924) in paragraph at lines 257--257
+\OT1/ptm/m/n/9 (+20) con-sump-tion as anoma-lies
+
+Underfull \hbox (badness 6493) in paragraph at lines 257--257
+\OT1/ptm/m/n/9 (+20) when Philip-pine op-er-at-ing
+
+Underfull \hbox (badness 4608) in paragraph at lines 257--258
+[]\OT1/ptm/m/n/9 (+20) (GO, SO4) Col-lect and
+
+Underfull \hbox (badness 1248) in paragraph at lines 257--258
+\OT1/ptm/m/n/9 (+20) train on op-er-a-tional data
+
+Underfull \hbox (badness 1596) in paragraph at lines 260--260
+[]\OT1/ptm/m/n/9 (+20) Commercial sys-tems use sin-
+
+Underfull \hbox (badness 1715) in paragraph at lines 260--260
+[]\OT1/ptm/m/n/9 (+20) Shared thresh-old-ing can-not
+
+Underfull \hbox (badness 4660) in paragraph at lines 260--261
+[]\OT1/ptm/m/n/9 (+20) (SO4) Learn per-vehicle
+
+Underfull \hbox (badness 1546) in paragraph at lines 260--261
+\OT1/ptm/m/n/9 (+20) each truck's own op-er-at-
+
+Underfull \hbox (badness 1960) in paragraph at lines 263--264
+[]\OT1/ptm/m/n/9 (+20) (SO4) Ap-ply the Ma-trix
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
+\OT1/ptm/m/n/9 (+20) Pro-file for anomalous-
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
+\OT1/ptm/m/n/9 (+20) subsequence or dis-cord
+
+Underfull \hbox (badness 6125) in paragraph at lines 266--266
+\OT1/ptm/m/n/9 (+20) 2023[][], [][]Bar-bado and Cor-cho,
+
+Underfull \hbox (badness 3907) in paragraph at lines 266--266
+\OT1/ptm/m/n/9 (+20) 2022[][]]; deep mod-els bur-den
+
+Underfull \hbox (badness 3668) in paragraph at lines 266--266
+\OT1/ptm/m/n/9 (+20) streams [[][]Hirth et al., 2025[][],
+
+Underfull \hbox (badness 1354) in paragraph at lines 266--266
+\OT1/ptm/m/n/9 (+20) alert de-liv-ery across op-er-a-
+[54] [55]
+[56])
+[57]
+[58]
+[59] (theoretical_considerations.tex
+[60]
+[61]
+[62]
+[63]
+[64]
+[65]
+[66]
+[67]
+[68]
+[69])
+[70]
+[71] (design_considerations.tex
+Overfull \hbox (4.40166pt too wide) in paragraph at lines 15--16
+\OT1/ptm/m/n/12 (-20) smart trans-ducer guide-lines [[][]IEEE Stan-dards As-so-
+ci-a-tion, 2024a[][]]. The CAN bus/OBD-
+
+[72]
+[73]
+[74]
+[75]
+Overfull \hbox (6.63985pt too wide) in alignment at lines 87--93
+ [] [] [] [] [] 
+
+Overfull \hbox (6.63985pt too wide) in alignment at lines 93--98
+ [] [] [] [] [] 
+
+Underfull \hbox (badness 2556) in paragraph at lines 102--103
+[]\OT1/ptm/m/n/9 (+20) Limited RAM for
+
+Underfull \hbox (badness 1082) in paragraph at lines 104--104
+[]\OT1/ptm/m/n/9 (+20) ILI9341 2.4" TFT +
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+[]\OT1/ptm/m/n/9 (+20) Touch only used
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+\OT1/ptm/m/n/9 (+20) for non-critical
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+\OT1/ptm/m/n/9 (+20) ac-tions; phys-i-cal
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+\OT1/ptm/m/n/9 (+20) but-tons used for
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+\OT1/ptm/m/n/9 (+20) safety-critical
+
+Underfull \hbox (badness 4608) in paragraph at lines 106--106
+\OT1/ptm/m/n/9 (+20) style) + mobile-app
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--106
+[]\OT1/ptm/m/n/9 (+20) Resilient to embedded-GPS
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--108
+[]\OT1/ptm/m/n/9 (+20) Wide-area
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+[]\OT1/ptm/m/n/9 (+20) HTTPACTION +
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+\OT1/ptm/m/n/9 (+20) TLS rene-go-ti-a-tion
+
+Underfull \hbox (badness 7468) in paragraph at lines 108--109
+\OT1/ptm/m/n/9 (+20) can push me-dian
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+[]\OT1/ptm/m/n/9 (+20) Wide-area
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+\OT1/ptm/m/n/9 (+20) comms - fall-
+
+Underfull \hbox (badness 3815) in paragraph at lines 110--110
+[]\OT1/ptm/m/n/9 (+20) GSM 2G via same
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+\OT1/ptm/m/n/9 (+20) A7670E (with CG-
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+\OT1/ptm/m/n/9 (+20) NAP-N/C-FUN+CSTT
+
+Underfull \hbox (badness 4792) in paragraph at lines 110--111
+[]\OT1/ptm/m/n/9 (+20) Lower through-put;
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
+[]\OT1/ptm/m/n/9 (+20) WiFi (driver phone
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
+[]\OT1/ptm/m/n/9 (+20) Recovers comms when
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
+\OT1/ptm/m/n/9 (+20) LTE+GSM+LoRa are all
+
+Underfull \hbox (badness 3449) in paragraph at lines 114--115
+\OT1/ptm/m/n/9 (+20) com-pli-ance to en-
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+[]\OT1/ptm/m/n/9 (+20) SPIFFS append-
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+\OT1/ptm/m/n/9 (+20) only ring buffer,
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+\OT1/ptm/m/n/9 (+20) re-played with
+
+Overfull \hbox (50.90948pt too wide) in paragraph at lines 116--116
+\OT1/cmtt/m/n/9 channel[]used='offline[]replay'
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+[]\OT1/ptm/m/n/9 (+20) Render cold-start
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+\OT1/ptm/m/n/9 (+20) first POST af-ter
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
+[]\OT1/ptm/m/n/9 (+20) Isolation For-est
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
+\OT1/ptm/m/n/9 (+20) Model C (con-
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
+\OT1/ptm/m/n/9 (+20) tam-i-na-tion=0.015,
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
+\OT1/ptm/m/n/9 (+20) n[]estimators=300,
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
+[]\OT1/ptm/m/n/9 (+20) Threshold-only /
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+\OT1/ptm/m/n/9 (+20) in-jec-tion re-al-ism;
+
+Underfull \hbox (badness 3965) in paragraph at lines 122--122
+[]\OT1/ptm/m/n/9 (+20) Matrix Pro-file (win-
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+[]\OT1/ptm/m/n/9 (+20) Less ro-bust than
+
+Underfull \hbox (badness 4048) in paragraph at lines 122--123
+\OT1/ptm/m/n/9 (+20) Model C at row-
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+\OT1/ptm/m/n/9 (+20) level scor-ing;
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+\OT1/ptm/m/n/9 (+20) re-tained as sup-
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+\OT1/ptm/m/n/9 (+20) port-ing ev-i-dence
+
+Overfull \hbox (6.63985pt too wide) in alignment at lines 98--124
+ [] [] [] [] [] 
+
+[76] [77]
+[78]
+[79]
+[80]
+Overfull \hbox (28.79436pt too wide) in paragraph at lines 171--172
+\OT1/ptm/m/n/12 (-20) Communication pro-to-cols and se-cu-rity mea-sures are al
+igned with ISO/IEC 27018, ISO/IEC 27001,
+
+[81]
+[82]
+Underfull \hbox (badness 1596) in paragraph at lines 203--203
+[]\OT1/ptm/m/n/12 (+20) Fast, un-su-per-vised, han-
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) dles mul-ti-vari-ate data;
+
+Underfull \hbox (badness 3503) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) Model C sup-ports con-
+
+Underfull \hbox (badness 1783) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) sen-si-tiv-ity to con-tam-i-na-
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+[]\OT1/ptm/m/n/12 (+20) Shape-based time-series
+
+Underfull \hbox (badness 7907) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) dis-cord de-tec-tion; use-
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) ful for slow-leak and
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+[]\OT1/ptm/m/n/12 (+20) Requires window-size
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) tun-ing; pri-mar-ily one-
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) dimensional un-less
+
+Underfull \hbox (badness 6575) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) data; less ro-bust than
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+\OT1/ptm/m/n/12 (+20) Model C at row-level
+
+[83])
+[84]
+[85] (methodology.tex
+Underfull \hbox (badness 2512) in paragraph at lines 60--60
+[]\OT1/ptm/m/n/9 (+20) GO: To de-velop and
+
+Underfull \hbox (badness 1194) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) eval-u-ate an IoT-based
+
+Underfull \hbox (badness 1590) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) sys-tem for trucks, in
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) fuel lev-els, tracks
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) de-tects un-usual fuel
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) con-sump-tion us-ing
+
+Underfull \hbox (badness 7451) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) rest schedul-ing, and
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) fa-cil-i-tat-ing proac-tive
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) ve-hi-cle main-te-nance
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) through au-to-mated
+
+Underfull \hbox (badness 2478) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) alerts us-ing fuel and
+
+Underfull \hbox (badness 1424) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) sen-sors in-te-grated via
+
+Underfull \hbox (badness 1642) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) the truck's ECU/-di-ag-
+
+Underfull \hbox (badness 5050) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) nos-tic con-nec-tor and
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+[]\OT1/ptm/m/n/9 (+20) Secs. [][]5.3[][],
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+[]\OT1/ptm/m/n/9 (+20) SO2: To trans-mit
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) com-mu-ni-ca-tion to a
+
+Underfull \hbox (badness 3068) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) through a cen-tral-ized
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+[]\OT1/ptm/m/n/9 (+20) Secs. [][]5.1[][],
+
+Underfull \hbox (badness 1394) in paragraph at lines 60--60
+[]\OT1/ptm/m/n/9 (+20) SO4: To de-sign and
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) eval-u-ate a context-
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) aware fuel us-age
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) de-vi-a-tion model us-
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) ing non-parametric
+
+Underfull \hbox (badness 2744) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) un-su-per-vised ma-chine
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) Pro-file or Iso-la-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) For-est), achiev-ing
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) 90% pre-ci-sion and
+
+Underfull \hbox (badness 1817) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) iden-ti-fy-ing anoma-lous
+
+Underfull \hbox (badness 1648) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) fuel con-sump-tion pat-
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+[]\OT1/ptm/m/n/9 (+20) Secs. [][]5.8[][],
+
+Underfull \hbox (badness 3068) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) rest and main-te-nance
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) alert mech-a-nisms
+
+Underfull \hbox (badness 1571) in paragraph at lines 60--60
+\OT1/ptm/m/n/9 (+20) us-ing cu-mu-la-tive fuel
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+[]\OT1/ptm/m/n/9 (+20) Secs. [][]5.2[][],
+[86] [87] [88]
+[89]
+[90 <./figure/concep_diagram.png>]
+[91 <./figure/End-to-end_system_architecture.png>]
+[92]
+[93 <./figure/IPO.png>]
+[94]
+[95]
+[96]
+[97]
+[98 <./figure/image.png>]
+[99]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00043pt
+(hyperref)                removed on input line 216.
+
+
+[100]
+[101]
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
+[]\OT1/cmtt/m/n/9 fuel[]level \OT1/ptm/m/n/9 (+20) (fil-tered) +
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
+\OT1/cmtt/m/n/9 fuel[]source='mode22' \OT1/ptm/m/n/9 (+20) +
+
+[102]
+[103]
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
+[]\OT1/ptm/m/n/9 (+20) ISO 15765-
+
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
+\OT1/ptm/m/n/9 (+20) Or-ga-ni-za-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
+[]\OT1/ptm/m/n/9 (+20) ISO 15031-
+
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
+\OT1/ptm/m/n/9 (+20) Or-ga-ni-za-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
+[]\OT1/ptm/m/n/9 (+20) ISO 15031-
+
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
+\OT1/ptm/m/n/9 (+20) Or-ga-ni-za-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
+[]\OT1/ptm/m/n/9 (+20) ISO 15031-
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
+\OT1/ptm/m/n/9 (+20) Or-ga-ni-za-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 307--308
+[]\OT1/ptm/m/n/9 (+20) ISO 15031-
+
+Underfull \hbox (badness 10000) in paragraph at lines 307--308
+\OT1/ptm/m/n/9 (+20) Or-ga-ni-za-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+[]\OT1/ptm/m/n/9 (+20) ISO 15031-
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+\OT1/ptm/m/n/9 (+20) Or-ga-ni-za-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
+[]\OT1/ptm/m/n/9 (+20) ISO 15765-
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
+\OT1/ptm/m/n/9 (+20) Or-ga-ni-za-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 313--313
+[]\OT1/ptm/m/n/9 (+20) UART NMEA GPRMC
+
+Underfull \hbox (badness 10000) in paragraph at lines 313--313
+[]\OT1/ptm/m/n/9 (+20) deg,
+
+Underfull \hbox (badness 2035) in paragraph at lines 315--315
+[]\OT1/ptm/m/n/9 (+20) ESP32 RTC / NTP-
+
+Overfull \hbox (0.53067pt too wide) in paragraph at lines 315--316
+[]\OT1/ptm/m/n/9 (-20) IETF RFC 5905
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
+
+
+[104]
+[105]
+[106 <./figure/Fuel-level_filter_cascade.png>]
+[107]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 352.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 352.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 352.
+
+
+[108]
+[109]
+[110]
+[111]
+[112]
+[113]
+[114]
+[115]
+[116]
+[117]
+[118]
+[119]
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
+[]\OT1/ptm/m/n/9 (+20) SPIFFS
+
+[120]
+Underfull \hbox (badness 10000) in paragraph at lines 651--652
+[]\OT1/ptm/m/n/9 (+20) Depot and
+
+Underfull \hbox (badness 10000) in paragraph at lines 653--653
+[]\OT1/ptm/m/n/9 (-15) Medium
+
+Underfull \hbox (badness 10000) in paragraph at lines 653--653
+
+
+Underfull \hbox (badness 3895) in paragraph at lines 653--654
+[]\OT1/ptm/m/n/9 (+20) Primary cel-lu-
+
+Underfull \hbox (badness 10000) in paragraph at lines 655--655
+[]\OT1/ptm/m/n/9 (+20) A7670E fall-
+
+Underfull \hbox (badness 10000) in paragraph at lines 655--655
+[]\OT1/ptm/m/n/9 (-15) Medium
+
+Underfull \hbox (badness 10000) in paragraph at lines 655--655
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 655--656
+[]\OT1/ptm/m/n/9 (+20) Cellular fall-
+
+Underfull \hbox (badness 10000) in paragraph at lines 657--657
+\OT1/ptm/m/n/9 (+20) MHz, SF7,
+
+Underfull \hbox (badness 10000) in paragraph at lines 657--657
+[]\OT1/ptm/m/n/9 (+20) Very
+
+Underfull \hbox (badness 10000) in paragraph at lines 657--658
+[]\OT1/ptm/m/n/9 (+20) Primary
+
+Underfull \hbox (badness 1194) in paragraph at lines 657--658
+\OT1/ptm/m/n/9 (+20) teleme-try path
+
+Underfull \hbox (badness 10000) in paragraph at lines 657--658
+\OT1/ptm/m/n/9 (+20) (in-tel-li-gent
+
+Underfull \hbox (badness 10000) in paragraph at lines 657--658
+\OT1/ptm/m/n/9 (+20) traffic-steering
+
+[121]
+[122]
+[123 <./figure/Communication_Method_Comparison_radar.png>]
+[124 <./figure/Offline-buffer_fall-through_flowchart.png>]
+[125]
+[126]
+[127]
+[128]
+[129]
+[130]
+[131]
+Underfull \hbox (badness 3058) in paragraph at lines 872--873
+[]\OT1/ptm/m/n/9 (+20) User iden-ti-fier, role, as-signed fleet-
+
+Underfull \hbox (badness 2698) in paragraph at lines 874--875
+[]\OT1/ptm/m/n/9 (+20) Vehicle iden-ti-fier, fleet-vehicle code,
+
+Underfull \hbox (badness 1087) in paragraph at lines 876--877
+[]\OT1/ptm/m/n/9 (+20) Trip iden-ti-fier, fleet-vehicle iden-ti-fier,
+
+[132]
+[133]
+[134 <./figure/fig_5_6_erd.png>]
+[135 <./figure/fig_5_6b_state_sync.png>]
+[136]
+Underfull \hbox (badness 10000) in paragraph at lines 938--938
+[]\OT1/ptm/m/n/9 (+20) backend
+
+Underfull \hbox (badness 2302) in paragraph at lines 940--940
+[]\OT1/ptm/m/n/9 (+20) backend trip ag-gre-ga-
+
+Underfull \hbox (badness 4556) in paragraph at lines 940--941
+[]\OT1/ptm/m/n/9 (+20) Dashboard ban-ner + planned
+
+[137]
+[138]
+[139]
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
+[]\OT1/cmtt/m/n/9 fuel[]drop[]per[]rpm\OT1/ptm/m/n/9 (+20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
+\OT1/cmtt/m/n/9 fuel[]drop[]per[]load\OT1/ptm/m/n/9 (+20) , and
+
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
+\OT1/cmtt/m/n/9 expected[]consumption[]residual
+
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
+[]\OT1/cmtt/m/n/9 idle[]duration[]score \OT1/ptm/m/n/9 (+20) and
+
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
+[]\OT1/cmtt/m/n/9 driver[]kmpl[]deviation[]pct \OT1/ptm/m/n/9 (+20) and
+
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
+[]\OT1/cmtt/m/n/9 time[]since[]refuel[]norm\OT1/ptm/m/n/9 (+20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
+\OT1/cmtt/m/n/9 post[]refuel[]flag\OT1/ptm/m/n/9 (+20) , and con-tex-tual
+
+LaTeX Warning: Float too large for page by 8.25026pt on input line 1053.
+
+
+[140]
+[141 <./figure/thesis_defense_pipeline_v2.png>]
+[142]
+[143]
+[144]
+[145 <./figure/Fig_5_11_Anomaly_Pipeline_light.png>]
+[146]
+[147]
+[148]
+[149]
+[150]
+[151]
+[152]
+[153]
+Underfull \hbox (badness 10000) in paragraph at lines 1248--1248
+[]$\OML/cmm/m/it/9 ^^AF[]$
+
+Underfull \hbox (badness 10000) in paragraph at lines 1248--1248
+[]$\OMS/cmsy/m/n/9 ^^B$ \OT1/ptm/b/n/9 (+20) burn
+
+Underfull \hbox (badness 1199) in paragraph at lines 1280--1280
+[]\OT1/ptm/m/n/9 (+20) Heavy le-git-i-mate con-
+
+[154]
+Underfull \hbox (badness 10000) in paragraph at lines 1319--1319
+[]\OT1/cmtt/m/n/8 fuel[]delta \OT1/ptm/m/n/8 (+20) /
+
+Overfull \hbox (22.29352pt too wide) in paragraph at lines 1325--1325
+[]\OT1/cmtt/m/n/8 route[]segment[]performance
+
+Underfull \hbox (badness 10000) in paragraph at lines 1325--1325
+
+
+Overfull \hbox (5.29327pt too wide) in paragraph at lines 1327--1327
+[]\OT1/cmtt/m/n/8 driver[]behavior[]score
+
+Underfull \hbox (badness 10000) in paragraph at lines 1327--1327
+
+
+Overfull \hbox (5.29327pt too wide) in paragraph at lines 1329--1329
+[]\OT1/cmtt/m/n/8 engine[]rpm[]normalized
+
+Underfull \hbox (badness 10000) in paragraph at lines 1329--1329
+
+
+Overfull \hbox (25.14104pt too wide) in paragraph at lines 1335--1335
+[]\OT1/cmtt/m/n/8 fuel[]drop[]while[]stationary
+
+Underfull \hbox (badness 10000) in paragraph at lines 1335--1335
+
+
+Overfull \hbox (19.91345pt too wide) in paragraph at lines 1337--1337
+[]\OT1/cmtt/m/n/8 fuel[]drop[]with[]engine[]off
+
+Underfull \hbox (badness 10000) in paragraph at lines 1337--1337
+
+
+Overfull \hbox (8.3533pt too wide) in paragraph at lines 1347--1347
+[]\OT1/cmtt/m/n/8 time[]since[]refuel[]norm
+
+Underfull \hbox (badness 10000) in paragraph at lines 1347--1347
+
+
+Overfull \hbox (8.3533pt too wide) in paragraph at lines 1351--1351
+[]\OT1/cmtt/m/n/8 delta[]engine[]load[]norm
+
+Underfull \hbox (badness 10000) in paragraph at lines 1351--1351
+
+
+Overfull \hbox (39.29376pt too wide) in paragraph at lines 1357--1357
+[]\OT1/cmtt/m/n/8 expected[]consumption[]residual
+
+Underfull \hbox (badness 10000) in paragraph at lines 1357--1357
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1371--1371
+[]\OT1/ptm/m/n/8 (+20) Per-asset fuel-economy
+
+Overfull \hbox (21.10349pt too wide) in paragraph at lines 1373--1373
+[]\OT1/cmtt/m/n/8 driver[]kmpl[]deviation[]pct
+
+Underfull \hbox (badness 10000) in paragraph at lines 1373--1373
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.5.11}) 
+has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1377 \end{longtable}
+                       [155] [156]
+[157]
+[158]
+[159]
+Underfull \hbox (badness 10000) in paragraph at lines 1462--1462
+[]\OT1/ptm/m/n/9 (+20) Random axis-
+
+Underfull \hbox (badness 2126) in paragraph at lines 1462--1462
+[]$\OML/cmm/m/it/9 q[]$ \OT1/ptm/m/n/9 (+20) per con-
+
+[160]
+Overfull \hbox (58.99937pt too wide) in paragraph at lines 1472--1473
+\OT1/ptm/m/n/12 (-20) For a $\OML/cmm/m/it/12 z$\OT1/ptm/m/n/12 (-20) -normalis
+ed uni-vari-ate fuel time se-ries $[] \OMS/cmsy/m/n/12 2 \U/msb/m/n/12 R[]$ \OT
+1/ptm/m/n/12 (-20) of length $\OML/cmm/m/it/12 N$ \OT1/ptm/m/n/12 (-20) de-rive
+d from \OT1/cmtt/m/n/12 fuel[]level[]filtered\OT1/ptm/m/n/12 (-20) ,
+
+[161]
+Overfull \hbox (1.40083pt too wide) in paragraph at lines 1487--1488
+\OT1/ptm/m/n/12 (-20) small $\OML/cmm/m/it/12 P[]$ \OT1/ptm/m/n/12 (-20) means 
+the subsequence repeats often, large $\OML/cmm/m/it/12 P[]$ \OT1/ptm/m/n/12 (-2
+0) means the subsequence is a \OT1/ptm/m/it/12 (-20) discord \OT1/ptm/m/n/12 (-
+20) ---
+
+[162]
+[163]
+[164]
+[165]
+[166]
+[167]
+[168]
+Overfull \hbox (44.63153pt too wide) in paragraph at lines 1571--1572
+\OT1/ptm/m/n/12 (-20) lookups re-quired by \OT1/cmtt/m/n/12 postRefuel \OT1/ptm
+/m/n/12 (-20) (needs the most re-cent re-fuel times-tamp) and \OT1/cmtt/m/n/12 
+coldStartSuppress
+
+[169]
+Underfull \hbox (badness 1527) in paragraph at lines 1610--1610
+\OT1/ptm/m/n/9 (+20) so-lute noise (%), drift at
+
+Underfull \hbox (badness 10000) in paragraph at lines 1610--1610
+[]\OT1/ptm/m/n/9 (+20) Median + p95 la-tency,
+
+Underfull \hbox (badness 10000) in paragraph at lines 1610--1610
+\OT1/ptm/m/n/9 (+20) packet-success frac-tion,
+
+Underfull \hbox (badness 10000) in paragraph at lines 1610--1610
+\OT1/ptm/m/n/9 (+20) SPIFFS-replay share,
+
+Underfull \hbox (badness 10000) in paragraph at lines 1610--1610
+\OT1/ptm/m/n/9 (+20) driver-response cap-ture,
+
+[170]
+[171]
+[172]
+Overfull \hbox (0.46269pt too wide) in paragraph at lines 1684--1684
+[]\OT1/phv/b/n/17.28 (-20) Data Col-lec-tion and Research-Ethics Pro-ce-dure 
+
+[173]
+[174]
+[175]
+[176]
+[177]
+[178])
+[179]
+[180] (results_and_discussions.tex
+Underfull \hbox (badness 2512) in paragraph at lines 68--68
+[]\OT1/ptm/m/n/9 (+20) GO: To de-velop and
+
+Underfull \hbox (badness 1194) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) eval-u-ate an IoT-based
+
+Underfull \hbox (badness 1590) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) sys-tem for trucks, in
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) fuel lev-els, tracks
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) de-tects un-usual fuel
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) con-sump-tion us-ing
+
+Underfull \hbox (badness 7451) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) rest schedul-ing, and
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) fa-cil-i-tat-ing proac-tive
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) ve-hi-cle main-te-nance
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) through au-to-mated
+
+Underfull \hbox (badness 2478) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) alerts us-ing fuel and
+
+Underfull \hbox (badness 1424) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) sen-sors in-te-grated via
+
+Underfull \hbox (badness 1642) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) the truck's ECU/-di-ag-
+
+Underfull \hbox (badness 5050) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) nos-tic con-nec-tor and
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+[]\OT1/ptm/m/n/9 (+20) SO2: To trans-mit
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) com-mu-ni-ca-tion to a
+
+Underfull \hbox (badness 3068) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) through a cen-tral-ized
+
+Underfull \hbox (badness 1394) in paragraph at lines 68--68
+[]\OT1/ptm/m/n/9 (+20) SO4: To de-sign and
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) eval-u-ate a context-
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) aware fuel us-age
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) de-vi-a-tion model us-
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) ing non-parametric
+
+Underfull \hbox (badness 2744) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) un-su-per-vised ma-chine
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) Pro-file or Iso-la-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) For-est), achiev-ing
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) 90% pre-ci-sion and
+
+Underfull \hbox (badness 1817) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) iden-ti-fy-ing anoma-lous
+
+Underfull \hbox (badness 1648) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) fuel con-sump-tion pat-
+
+Underfull \hbox (badness 3068) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) rest and main-te-nance
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) alert mech-a-nisms
+
+Underfull \hbox (badness 1571) in paragraph at lines 68--68
+\OT1/ptm/m/n/9 (+20) us-ing cu-mu-la-tive fuel
+[181] [182] [183]
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+[]\OT1/ptm/m/n/9 (+20) No dip-stick val-i-da-tion;
+
+Underfull \hbox (badness 1062) in paragraph at lines 95--95
+\OT1/ptm/m/n/9 (+20) trolled in-jected anoma-lies
+
+Underfull \hbox (badness 2073) in paragraph at lines 95--95
+[]\OT1/ptm/m/n/9 (+20) 100 alerts, 95% re-solved,
+
+[184]
+[185]
+[186]
+[187 <./figure/so1_initial_cluster.jpg> <./figure/so1_initial_hmi.jpg>]
+[188 <./figure/so1_pump1_receipt.jpg> <./figure/so1_pump1_cluster.jpg> <./figur
+e/so1_pump1_hmi.jpg> <./figure/so1_pump2_receipt.jpg> <./figure/so1_pump2_clust
+er.jpg> <./figure/so1_pump2_hmi.jpg>]
+[189 <./figure/so1_pump3_receipt.png (PNG copy)> <./figure/so1_pump3_cluster.jp
+g> <./figure/so1_pump3_hmi.jpg> <./figure/so1_pump4_receipt.jpg> <./figure/so1_
+pump4_cluster.jpg> <./figure/so1_pump4_hmi.png>]
+[190]
+[191]
+[192 <./figure/image1.png> <./figure/image2.png>]
+[193 <./figure/image3.png> <./figure/image4.png>]
+[194]
+[195]
+[196 <./figure/image5.jpg>]
+[197]
+[198]
+[199]
+[200 <./figure/image6.png>]
+[201]
+[202]
+[203]
+[204 <./figure/image7.jpg>]
+[205 <./figure/image8.jpg>]
+[206 <./figure/image9.jpg> <./figure/image10.jpg>]
+[207 <./figure/image11.png>]
+[208 <./figure/image12.png>]
+[209 <./figure/image13.png> <./figure/image14.png>]
+[210]
+[211]
+Underfull \hbox (badness 6300) in paragraph at lines 616--616
+[]\OT1/ptm/m/n/9 (+20) Static thresh-old ($\OMS/cmsy/m/n/9 j\OML/cmm/m/it/9 ^^A
+[]\OMS/cmsy/m/n/9 j ^^U
+
+Underfull \hbox (badness 10000) in paragraph at lines 618--618
+[]\OT1/ptm/m/n/9 (+20) Per-vehicle IQR on fu-el/km
+
+Underfull \hbox (badness 1275) in paragraph at lines 620--620
+[]\OT1/ptm/m/n/9 (+20) Per-vehicle IQR on fuel delta
+
+Underfull \hbox (badness 2818) in paragraph at lines 622--622
+[]\OT1/ptm/m/n/9 (+20) Local Out-lier Fac-tor (nov-elty,
+
+[212]
+[213]
+Underfull \hbox (badness 1584) in paragraph at lines 649--649
+[]\OT1/ptm/m/n/9 (+20) Abnormal rapid de-
+
+Underfull \hbox (badness 2173) in paragraph at lines 653--654
+[]\OT1/ptm/m/n/9 (+20) Mixed: short-window de-pot si-phon-
+
+Underfull \hbox (badness 5345) in paragraph at lines 655--656
+[]\OT1/ptm/m/n/9 (+20) Short-burst gas-station theft caught;
+
+Underfull \hbox (badness 7099) in paragraph at lines 655--656
+\OT1/ptm/m/n/9 (+20) overnight de-pot small-volume theft
+
+[214]
+Underfull \hbox (badness 10000) in paragraph at lines 695--695
+[]\OT1/ptm/m/n/8 (+20) Abnormal rapid de-
+
+[215]
+Underfull \hbox (badness 10000) in paragraph at lines 749--749
+[]\OT1/ptm/m/n/8 (+20) High-speed
+
+Underfull \hbox (badness 1603) in paragraph at lines 749--749
+[]\OT1/ptm/m/n/8 (+20) Mid-speed grad-
+
+Underfull \hbox (badness 2894) in paragraph at lines 749--749
+[]\OT1/ptm/m/n/8 (+20) Contains the trail-ing rows of a long grad-ual
+
+Underfull \hbox (badness 10000) in paragraph at lines 749--749
+[]\OT1/ptm/m/n/8 (+20) Raw-slosh ar-ti-
+
+[216]
+[217 <./figure/image15.png>]
+[218 <./figure/fig_6_28_abc_confusion_matrices.png> <./figure/fig_6_26_abc_mode
+l_performance.png>]
+[219]
+[220]
+[221]
+[222]
+[223]
+Underfull \hbox (badness 2478) in paragraph at lines 852--853
+[]\OT1/ptm/m/n/9 (+20) Buzzer, on-screen alert,
+
+Underfull \hbox (badness 10000) in paragraph at lines 854--854
+[]\OT1/ptm/m/n/9 (+20) Maintenance
+
+Underfull \hbox (badness 3158) in paragraph at lines 856--856
+[]\OT1/ptm/m/n/9 (+20) Speed $\OMS/cmsy/m/n/9 ^^U$ \OT1/ptm/m/n/9 (+20) 100 km/
+h (con-fig-
+
+Underfull \hbox (badness 10000) in paragraph at lines 860--860
+[]\OT1/ptm/m/n/9 (+20) Anomaly-detection ser-
+
+[224]
+[225]
+[226]
+[227 <./figure/image19.jpg> <./figure/image20.jpg>]
+[228 <./figure/image21.jpg> <./figure/image22.jpg>]
+[229 <./figure/image24.jpg> <./figure/image23.jpg>]
+[230 <./figure/image25.jpg>]
+[231 <./figure/image26.jpg>]
+[232 <./figure/image27.jpg> <./figure/image28.png>]
+[233 <./figure/image29.jpg> <./figure/image30.jpg>]
+[234 <./figure/image31.jpg> <./figure/image32.jpg> <./figure/image33.jpg>]
+[235 <./figure/image35.jpg> <./figure/image36.jpg> <./figure/image37.jpg>]
+[236 <./figure/image38.jpg>]
+[237]
+[238]
+[239])
+[240]
+[241] (conclusions.tex
+[242]
+[243]
+[244]
+[245]
+[246])
+[247] (document.bbl
+bibitemlist
+
+[248]
+Underfull \hbox (badness 2884) in paragraph at lines 156--160
+[]\OT1/ptm/m/n/10.95 (+20) Federal Com-mu-ni-ca-tions Com-mis-sion (2025).
+
+[249]
+Underfull \hbox (badness 10000) in paragraph at lines 247--252
+[]\OT1/ptm/m/n/10.95 (+20) IEEE Stan-dards As-so-ci-a-tion (2025).  The evo-lu-
+
+
+Underfull \hbox (badness 3439) in paragraph at lines 247--252
+\OT1/ptm/m/n/10.95 (+20) tion of wi-fi tech-nol-ogy and stan-dards.  [][]$https
+ : / / standards . ieee . org / beyond-[]standards /
+
+Underfull \hbox (badness 2229) in paragraph at lines 254--258
+[]\OT1/ptm/m/n/10.95 (+20) International Elec-trotech-ni-cal Com-mis-sion
+
+[250]
+Underfull \hbox (badness 2608) in paragraph at lines 336--340
+\OT1/ptm/m/n/10.95 (+20) iza-tion (2023).  Iso 50001 | en-ergy man-age-ment sys
+-tems.  [][]$https : / / www . iso . org /
+
+[251]
+[252]
+Underfull \hbox (badness 2671) in paragraph at lines 471--475
+[]\OT1/ptm/m/n/10.95 (+20) Meitrack.  Lora-based fleet track-ing so-lu-tion.  [
+][]$https : / / www . meitrack . com /
+
+Underfull \hbox (badness 10000) in paragraph at lines 508--513
+\OT1/ptm/m/n/10.95 (+20) docs / expert-[]center / vehicle-[]telematics-[]techno
+logy / fuel-[]management / fuel-[]control-[]in-[]navixy /
+
+[253]
+Underfull \hbox (badness 10000) in paragraph at lines 522--527
+[]\OT1/ptm/m/n/10.95 (+20) Opensignal.  Se asia - cov-er-age.  [][]$https : / /
+ www . tutela . com /
+
+[254]
+Underfull \hbox (badness 3158) in paragraph at lines 629--634
+[]\OT1/ptm/m/n/10.95 (+20) SAE In-ter-na-tional (2023).  SAE J1939: Se-rial con
+-trol and
+
+Underfull \hbox (badness 4779) in paragraph at lines 629--634
+\OT1/ptm/m/n/10.95 (+20) com-mu-ni-ca-tions heavy duty ve-hi-cle net-work.  [][
+]$https : / / www . sae . org / standards / j1939[]
+
+[255])
+[256]
+
+pdfTeX warning: pdflatex.exe (file ./appendix_urerb_decision_letter.pdf): PDF i
+nclusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex.exe (file ./appendix_urerb_decision_letter.pdf): PDF i
+nclusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex.exe (file ./appendix_urerb_decision_letter.pdf): PDF i
+nclusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+[257]
+[258 <./appendix_urerb_decision_letter.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./appendix_urerb_decision_letter.pdf): PDF i
+nclusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+[259 <./appendix_urerb_decision_letter.pdf>]
+[260] (appendix_partner_evidence.tex)
+[261 <./figure/appendix_partner_initial_consultation.jpg>]
+[262 <./figure/appendix_partner_cabin_inspection.jpg>]
+[263 <./figure/appendix_partner_vehicle_inspection.jpg>]
+[264 <./figure/appendix_partner_dashboard_evaluation.jpg>]
+[265 <./figure/appendix_partner_interface_demo.jpg> <./figure/appendix_partner_
+successful_demo.jpg>]
+[266 <./figure/appendix_partner_group_photo.jpg>]
+[267 <./figure/bc7897d2-1def-4bd1-a88f-ad0f7de31006.jpg>]
+[268 <./figure/8c9537bb-6ff9-4b5e-a021-b60768d2aef8.jpg>]
+[269] (appendix_survey_instrument.tex
+[270]
+[271])
+[272]
+[273] (appendix_technical_details.tex
+[274])
+[275]
+[276]
+[277 <./article_forum_paper.pdf>]
+[278 <./article_forum_paper.pdf>]
+[279 <./article_forum_paper.pdf>]
+[280 <./article_forum_paper.pdf>]
+[281 <./article_forum_paper.pdf>]
+[282 <./article_forum_paper.pdf>]
+
+Package datagidx Warning: Rerun required to ensure the index/glossary location 
+lists are up-to-date.
+
+
+Package datagidx Warning: Rerun required to sort the index/glossary databases.
+
+(document.aux (introduction.aux) (literature_review.aux)
+(theoretical_considerations.aux) (design_considerations.aux) (methodology.aux)
+(results_and_discussions.aux) (conclusions.aux) (appendix_partner_evidence.aux)
+(appendix_survey_instrument.aux) (appendix_technical_details.aux))
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)<C:/Users/Samu/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Samu/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/S
+amu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:
+/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12
+.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmmi6.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi7.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmmi8.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Samu/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Samu/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Samu/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Samu/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Samu
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/User
+s/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+<C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
+y6.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmsy7.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy8.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmsy9.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmtcsc10.pfb><C:/Users/Samu/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/Samu/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/Samu/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/Samu/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Us
+ers/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm
+10.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uh
+vb8a.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/
+uhvr8a.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/u
+tmb8a.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/ut
+mbi8a.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/ut
+mr8a.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utm
+ri8a.pfb>
+Output written on document.pdf (313 pages, 19657645 bytes).
+Transcript written on document.log.

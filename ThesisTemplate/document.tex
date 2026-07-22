@@ -33,12 +33,12 @@
 % document IDs
 
 % specify if dissertation, thesis, project, dissertation proposal, thesis proposal, project proposal 
-\newcommand{\documentType}{Thesis Paper}
-%\newcommand{\documentType}{Thesis Proposal}
+%\newcommand{\documentType}{Thesis Paper}
+\newcommand{\documentType}{Thesis Proposal}
 %\newcommand{\documentType}{Dissertation Proposal}
 %\newcommand{\documentType}{Dissertation}
 \newcommand{\college}{Gokongwei College of Engineering}
-\newcommand{\department}{Department of Electronics and Computer Engineering} 
+\newcommand{\department}{Department of Electronics, Computer, and Electrical Engineering}
 \newcommand{\degreeType}{Bachelor of Science}
 %\newcommand{\degreeType}{Bachelor and Master of Science}  
 %\newcommand{\degreeType}{Master of Engineering Program} 
@@ -95,9 +95,9 @@
 \defineAuthor{firstname4}{Alyssa S.}
 
 
-\newcommand{\documentTitle}{An IoT-Enabled System for Real-Time Fuel Monitoring, GPS Tracking, and Anomaly Detection in Trucks Using Non-Parametric Unsupervised Machine Learning} % put tilde (~) between words to indicate non-breaking adjacent words
+\newcommand{\documentTitle}{An IoT-Enabled System for Real-Time Fuel Monitoring, GPS Tracking, and Fuel Anomaly Detection in Trucks Using Context-Aware Non-Parametric Machine Learning} % put tilde (~) between words to indicate non-breaking adjacent words
 
-\newcommand{\keywords}{Fuel Monitoring, GPS Tracking, Anomaly Detection, Internet of Things, Unsupervised Machine Learning, Isolation Forest, Matrix Profile}
+\newcommand{\keywords}{Fuel Monitoring, GPS Tracking, Fuel Anomaly Detection, Internet of Things, Context-Aware Machine Learning, Isolation Forest, Matrix Profile}
 
 %\newcommand{\finalDefenseDate}{\usdate\today} % replace ''\usdate\today'' by your final defense date; you may need to use non-breaking space with the use of tildes (~); if so, do not remove the tildes in order to not break the date
 
@@ -119,6 +119,20 @@
 \DeclareMathAlphabet{\mathitbf}{OML}{cmm}{b}{it} % for math italic bold, but can also use \mathbfit
 \newcommand{\redtx}[1]{\textcolor[rgb]{0.65,0.16,0}{#1}} % for formatting text to have a red color
 \newcommand{\graytx}[1]{\textcolor[rgb]{0.75,0.75,0.75}{#1}} % for formatting text to have a gray color
+
+% Chapter-style heading for glossary/abbreviation/notation printterms that does NOT force a new page.
+% The default heading in datagidx is \chapter*, which triggers a clearpage and leaves the previous
+% recto page blank. This variant preserves the visual chapter-title look but keeps content on the
+% same page that was already cleared by the surrounding \cleardoublepage/\clearpage.
+\makeatletter
+\newcommand*{\gidxheading}[1]{%
+	\begin{center}%
+		{\Large\bfseries #1}%
+	\end{center}%
+	\par\vspace{2ex}%
+	\@afterheading
+}
+\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \includeonly{} is for specifying which files to include; if you only want to work on one or few chapters, you can only include those chapters, which will speed up the document build; advantage: fast if you have a large number of images in your results chapter, which you do not need when you are working on other chapters; you can still reference all the figures in the omitted chapter, as long as you have previously LaTeX-built the entire document
@@ -175,30 +189,32 @@
 		\phantomsection
 		\addcontentsline{toc}{chapter}{Abbreviations and Acronyms}
 		{
-			\printterms[database=abbreviation, style=indexalign, prelocation=dotfill, location=first, columns=1, postname=\hspace{3em}]
+			\glsaddall{abbreviation}
+			\printterms[database=abbreviation, style=indexalign, heading={\gidxheading}, prelocation=none, location=hide, columns=1, postname=\hspace{3em}]
 			\thispagestyle{plain}
-		}	
-		\cleardoublepage
-		
+		}
+		\clearpage
+
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\phantomsection
 		\addcontentsline{toc}{chapter}{Notations}
 		{
-			\printterms[database=notation, style=indexalign, prelocation=dotfill, location=first, columns=1, postname=\hspace{3em}]
+			\glsaddall{notation}
+			\printterms[database=notation, style=indexalign, heading={\gidxheading}, prelocation=none, location=hide, columns=1, postname=\hspace{3em}]
 			{
 				\vspace{3ex}
-				
+
 			}
 			\thispagestyle{plain}
 		}
-		\cleardoublepage
+		\clearpage
 		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\phantomsection
 		\addcontentsline{toc}{chapter}{Glossary}
 		{	
 			\glsaddall{glossary}
-			\printterms[database=glossary, style=indexalign, prelocation=none, location=hide, columns=1, postname=\hspace{3em}]
+			\printterms[database=glossary, style=indexalign, heading={\gidxheading}, prelocation=none, location=hide, columns=1, postname=\hspace{3em}]
 			\thispagestyle{plain}
 		}
 		\cleardoublepage

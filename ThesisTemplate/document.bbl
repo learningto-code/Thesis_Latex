@@ -43,6 +43,12 @@ Arlot, S. and Celisse, A. (2010).
   \url{https://www.adb.org/news/features/fuel-smuggling-12-things-know}.
 \newblock Accessed: 2026-06-21.
 
+\bibitem[Bangor et~al., 2009]{bangor2009sus}
+Bangor, A., Kortum, P., and Miller, J. (2009).
+\newblock Determining what individual sus scores mean: adding an adjective
+  rating scale.
+\newblock {\em Journal of Usability Studies}, 4(3):114--123.
+
 \bibitem[Barbado and Corcho, 2022]{barbado2022interpretable}
 Barbado, A. and Corcho, {\'O}. (2022).
 \newblock Interpretable machine learning models for predicting and explaining
@@ -62,6 +68,13 @@ Brooke, J. (1996).
 \newblock In Jordan, P.~W., Thomas, B., Weerdmeester, B.~A., and McClelland,
   I.~L., editors, {\em Usability Evaluation in Industry}, pages 189--194.
   Taylor \& Francis, London.
+
+\bibitem[Campos et~al., 2016]{campos2016unsupervised}
+Campos, G.~O., Zimek, A., Sander, J., Campello, R. J. G.~B., Micenkov\'{a}, B.,
+  Schubert, E., Assent, I., and Houle, M.~E. (2016).
+\newblock On the evaluation of unsupervised outlier detection: Measures,
+  datasets, and an empirical study.
+\newblock {\em Data Mining and Knowledge Discovery}, 30(4):891--927.
 
 \bibitem[Chandola et~al., 2009]{chandola2009anomaly}
 Chandola, V., Banerjee, A., and Kumar, V. (2009).
@@ -88,6 +101,11 @@ Cherdo, Y., Miramond, B., Pegatoquet, A., and Vallauri, A. (2023).
 \newblock \url{https://gma.caict.ac.cn/en/update/31}.
 \newblock Accessed: 2026-06-24.
 
+\bibitem[Coles, 2001]{coles2001evt}
+Coles, S. (2001).
+\newblock {\em An Introduction to Statistical Modeling of Extreme Values}.
+\newblock Springer Series in Statistics. Springer, London.
+
 \bibitem[Crisgar et~al., 2021]{crisgar2021gps}
 Crisgar, P.~V. et~al. (2021).
 \newblock {GPS}-based vehicle tracking and theft detection systems using google
@@ -101,6 +119,11 @@ Davis, J. and Goadrich, M. (2006).
 \newblock In {\em Proceedings of the 23rd International Conference on Machine
   Learning}, pages 233--240.
 
+\bibitem[Dem{\v{s}}ar, 2006]{demsar2006statistical}
+Dem{\v{s}}ar, J. (2006).
+\newblock Statistical comparisons of classifiers over multiple data sets.
+\newblock {\em Journal of Machine Learning Research}, 7:1--30.
+
 \bibitem[Devalal and Karthikeyan, 2018]{devalal2018lora}
 Devalal, S. and Karthikeyan, A. (2018).
 \newblock Lora technology - an overview.
@@ -113,6 +136,17 @@ Dhivyasri, G. and Mariappan, R. (2015).
 \newblock Advanced fuel level tracking system using telematic unit.
 \newblock In {\em 2015 IEEE International Conference on Electrical, Computer
   and Communication Technologies (ICECCT)}.
+
+\bibitem[Dietterich, 1998]{dietterich1998approximate}
+Dietterich, T.~G. (1998).
+\newblock Approximate statistical tests for comparing supervised classification
+  learning algorithms.
+\newblock {\em Neural Computation}, 10(7):1895--1923.
+
+\bibitem[Efron and Tibshirani, 1994]{efron1994bootstrap}
+Efron, B. and Tibshirani, R.~J. (1994).
+\newblock {\em An Introduction to the Bootstrap}.
+\newblock Chapman \& Hall/CRC, Boca Raton, FL.
 
 \bibitem[Emmott et~al., 2015]{emmott2015systematic}
 Emmott, A.~F., Das, S., Dietterich, T., Fern, A., and Wong, W.-K. (2015).
@@ -200,6 +234,12 @@ Habib, K. and Umar, A.~I. (2015).
 \newblock Anomalies calculation and detection in fuel expense through data
   mining.
 \newblock {\em Research Journal of Information Technology}, 6(4):44--50.
+
+\bibitem[Hariri et~al., 2019]{hariri2019eif}
+Hariri, S., Kind, M.~C., and Brunner, R.~J. (2019).
+\newblock Extended isolation forest.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  33(4):1479--1489.
 
 \bibitem[Hirth et~al., 2025]{hirth2025truck_survey}
 Hirth, M., Meier, D., Gehring, O., Jazdi, N., and Kasneci, E. (2025).
@@ -367,6 +407,11 @@ Joshi, P. et~al. (2024).
 \newblock In {\em 2024 International Conference on Computing, Sciences and
   Communications (ICCSC)}, pages 1--5.
 
+\bibitem[Kalman, 1960]{kalman1960new}
+Kalman, R.~E. (1960).
+\newblock {\em A new approach to linear filtering and prediction problems},
+  volume~82.
+
 \bibitem[Kanchi et~al., 2013]{kanchi2013ltea}
 Kanchi, S., Sandilya, S., Bhosale, D., Pitkar, A., and Gondhalekar, M. (2013).
 \newblock Overview of lte-a technology.
@@ -449,6 +494,12 @@ Maurya, K. e.~a.
   anti-theft tracking system.
 \newblock n.d.
 
+\bibitem[McNemar, 1947]{mcnemar1947note}
+McNemar, Q. (1947).
+\newblock Note on the sampling error of the difference between correlated
+  proportions or percentages.
+\newblock {\em Psychometrika}, 12(2):153--157.
+
 \bibitem[{Meitrack}, ]{meitrack_lora_fleet}
 {Meitrack}.
 \newblock Lora-based fleet tracking solution.
@@ -507,6 +558,11 @@ Obikoya, G.~D. (2014).
   \url{https://www.tutela.com/state-of-mobile-networks-southeast-asia/coverage}.
 \newblock Accessed: 2026-06-19.
 
+\bibitem[Oppenheim and Schafer, 2010]{oppenheim2010dsp}
+Oppenheim, A.~V. and Schafer, R.~W. (2010).
+\newblock {\em Discrete-Time Signal Processing}.
+\newblock Prentice Hall, Upper Saddle River, NJ, 3rd edition.
+
 \bibitem[{Orange Connected Objects \& Partnerships},
   2016]{orange2016lora_guide}
 {Orange Connected Objects \& Partnerships} (2016).
@@ -555,11 +611,26 @@ Prasanna, J.~L., Santhosh, C., Kumar, M.~R., and Gayathri, K. (2023).
 \newblock Iot based automatic fuel level monitoring system for automobiles.
 \newblock In {\em IET Conference Proceedings}, volume 2023, pages 56--61.
 
+\bibitem[Preiss, 1999]{preiss1999data}
+Preiss, B.~R. (1999).
+\newblock {\em Data Structures and Algorithms with Object-Oriented Design
+  Patterns in {C}{+}{+}}.
+\newblock John Wiley \& Sons, New York.
+\newblock Provides the expected-path-length result $c(n) = 2H(n{-}1) -
+  2(n{-}1)/n$ for an unsuccessful search in a random binary search tree; used
+  as the normaliser in the Isolation Forest anomaly score.
+
 \bibitem[{Robert Bosch GmbH}, 1991]{bosch1991can}
 {Robert Bosch GmbH} (1991).
 \newblock {\em {CAN} Specification Version 2.0}.
 \newblock Robert Bosch GmbH.
 \newblock Accessed: 2026-06-23.
+
+\bibitem[Rousseeuw and Croux, 1993]{rousseeuw1993mad}
+Rousseeuw, P.~J. and Croux, C. (1993).
+\newblock Alternatives to the median absolute deviation.
+\newblock {\em Journal of the American Statistical Association},
+  88(424):1273--1283.
 
 \bibitem[RS et~al., 2024]{rs2024fuel}
 RS, S., Narayanan~CS, S., G, R., S, P., Alagarsamy, M., and William, P. (2024).
@@ -626,6 +697,21 @@ Semenov, I., Świderski, A., Borucka, A., and Guzanek, P. (2024).
   detection algorithm.
 \newblock {\em Applied Sciences (Switzerland)}, 14(16).
 
+\bibitem[Simon, 2006]{simon2006optimal}
+Simon, D. (2006).
+\newblock {\em Optimal State Estimation: Kalman, H Infinity, and Nonlinear
+  Approaches}.
+\newblock John Wiley \& Sons, Hoboken, NJ.
+
+\bibitem[{Society of Automotive Engineers}, 2011]{sae_j1349}
+{Society of Automotive Engineers} (2011).
+\newblock {SAE J1349}: Engine power test code -- spark ignition and compression
+  ignition -- net power rating.
+\newblock SAE International Standard.
+\newblock Referenced for the idle-combustion upper bound used in the
+  anomaly-injection physics checks and in the Nyquist-margin argument for the
+  1.5\,s OBD polling rate.
+
 \bibitem[Tatababu et~al., 2024]{tatababu2024smart}
 Tatababu, D., Ranga, M.~R., Satyannarayana, D., Jyothi, Y., and Devi, A.~R.
   (2024).
@@ -685,6 +771,11 @@ Weiwei, Q., Longbin, L., Xingyu, W., Yulong, L., and Weiqian, D. (2024).
 \newblock Fuel control.
 \newblock \url{https://wialon.com/en/fuel-control}.
 \newblock Accessed: 2026-06-21.
+
+\bibitem[Wilcoxon, 1945]{wilcoxon1945individual}
+Wilcoxon, F. (1945).
+\newblock Individual comparisons by ranking methods.
+\newblock {\em Biometrics Bulletin}, 1(6):80--83.
 
 \bibitem[Wilson, 1927]{wilson1927probable}
 Wilson, E.~B. (1927).

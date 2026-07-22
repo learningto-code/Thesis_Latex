@@ -1,0 +1,229 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(article_forum_paper.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/ieeetran\IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/cite\cite.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cf
+g)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def)
+)) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty)
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinek
+eys.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.st
+y (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.
+sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.st
+y))) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitl
+estring.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty)
+)) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.st
+y) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.
+sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfile
+check.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqueco
+unter.sty)))
+
+Package hyperref Warning: Option `bookmarks' has already been used,
+(hyperref)                setting the option has no effect on input line 30.
+
+
+Package hyperref Warning: Option `pdfpagelabels' has already been used,
+(hyperref)                setting the option has no effect on input line 30.
+
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
+ex.def)
+No file article_forum_paper.aux.
+-- Lines per column: 58 (exact).
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
+i
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
+se.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cf
+g)) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+(article_forum_paper.out) (article_forum_paper.out)
+
+LaTeX Warning: Citation `ahmed2017fuel' on page 1 undefined on input line 59.
+
+
+LaTeX Warning: Citation `alquhali2019iot' on page 1 undefined on input line 59.
+
+
+
+LaTeX Warning: Citation `crisgar2021gps' on page 1 undefined on input line 59.
+
+
+LaTeX Warning: Citation `mumcuoglu2023fuel' on page 1 undefined on input line 5
+9.
+
+
+
+LaTeX Warning: Citation `joshi2024intelligent' on page 1 undefined on input lin
+e 68.
+
+
+LaTeX Warning: Citation `prabhu2022iot' on page 1 undefined on input line 68.
+
+
+LaTeX Warning: Citation `g2022real' on page 1 undefined on input line 68.
+
+
+LaTeX Warning: Citation `komal2018automatic' on page 1 undefined on input line 
+68.
+
+
+LaTeX Warning: Citation `mathi2024development' on page 1 undefined on input lin
+e 68.
+
+
+LaTeX Warning: Citation `tatababu2024smart' on page 1 undefined on input line 6
+8.
+
+
+LaTeX Warning: Citation `mumcuoglu2023fuel' on page 1 undefined on input line 7
+0.
+
+
+LaTeX Warning: Citation `barbado2022interpretable' on page 1 undefined on input
+ line 70.
+
+
+[1{C:/Users/Samu/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Sam
+u/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+
+LaTeX Warning: Reference `tab:article-task-summary' on page 2 undefined on inpu
+t line 77.
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
+
+LaTeX Warning: Reference `fig:conceptual-diagram' on page 2 undefined on input 
+line 101.
+
+
+LaTeX Warning: Reference `fig:end-to-end-architecture' on page 2 undefined on i
+nput line 117.
+
+
+
+LaTeX Warning: Reference `fig:article-hardware-block' on page 2 undefined on in
+put line 126.
+
+
+[2 <./figure/concep_diagram.png> <./figure/End-to-end_system_architecture.png>]
+
+LaTeX Warning: Reference `fig:article-fuel-filter' on page 3 undefined on input
+ line 134.
+
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd)
+
+LaTeX Warning: Reference `fig:article-ml-architecture' on page 3 undefined on i
+nput line 175.
+
+
+LaTeX Warning: Reference `sec:results_so4' on page 3 undefined on input line 17
+5.
+
+
+[3 <./figure/image.png> <./figure/Fuel-level_filter_cascade.png>]
+
+[4 <./figure/thesis_defense_pipeline_v3.png>]
+
+[5 <./figure/Offline-buffer_fall-through_flowchart.png> <./figure/fig_6_26_abc_
+model_performance.png>]
+Underfull \hbox (badness 1983) in paragraph at lines 264--265
+[]\OT1/ptm/m/n/10 The present la-bels were pri-mar-ily con-trolled in-jected
+
+(article_forum_paper.bbl
+[6 <./figure/fig_5_6b_state_sync.png>])
+
+[7] (article_forum_paper.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `article_forum_paper.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)<C:/Users/Samu/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Samu/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/S
+amu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/
+Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.p
+fb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr10.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmr7.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Samu/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Samu/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Samu/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Samu/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Samu/AppData/Local/Program
+s/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on article_forum_paper.pdf (7 pages, 895543 bytes).
+Transcript written on article_forum_paper.log.
+This is BibTeX, Version 0.99d (MiKTeX 24.1)
+The top-level auxiliary file: article_forum_paper.aux
+The style file: IEEEtran.bst
+Database file #1: references.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.

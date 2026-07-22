@@ -1,4 +1,4 @@
-This chapter presents the design considerations that guided the development of the implemented IoT- and AI-driven fuel monitoring and anomaly detection system. Whereas Chapter~\ref{ch:theorycon} established the theoretical foundations of IoT architectures, cyber-physical systems, signal processing, and unsupervised anomaly detection, the present chapter translates those theories into practical engineering decisions that were directly implemented in Chapter~\ref{ch:method}. 
+This chapter presents the design considerations that guided the development of the implemented IoT- and AI-driven fuel monitoring and anomaly detection system. Whereas Chapter~\ref{ch:theorycon} established the theoretical foundations of IoT architectures, cyber-physical systems, signal processing, and context-aware anomaly detection, the present chapter translates those theories into practical engineering decisions that were directly implemented in Chapter~\ref{ch:method}. 
 
 These design considerations serve as the structural “columns’’ of the system: grounded in accepted standards, ethical guidelines, and engineering best practices, but tailored to support the procedural steps carried out in Chapter~\ref{ch:method}. The discussion begins with a comprehensive account of the technical standards that ensure reliability, safety, interoperability, and data security, followed by software and hardware design decisions. Ethical considerations—including privacy, responsible AI, and driver safety—are also presented.
 
@@ -196,7 +196,7 @@ During the planning and prototype development phase, several candidate software 
 \hline
 \textbf{Candidate} & \textbf{Strengths} & \textbf{Risks / Trade-offs} & \textbf{Fit vs. Spec} \\
 \hline
-Isolation Forest (IF) & Fast, unsupervised, handles multivariate data; Model C supports contextual fuel, speed, route, driver, and fuel-economy deviation features & Limited temporal context; sensitivity to contamination parameter may affect false alarms & Very High --- selected production detector \\
+Isolation Forest (IF) & Fast, context-aware, handles multivariate data; Model C supports contextual fuel, speed, route, driver, and fuel-economy deviation features & Limited temporal context; sensitivity to contamination parameter may affect false alarms & Very High --- selected production detector \\
 Matrix Profile (MP) & Shape-based time-series discord detection; useful for slow-leak and steady-siphon subsequence patterns as a confirmatory layer & Requires window-size tuning; primarily one-dimensional unless extended for multivariate data; less robust than Model C at row-level scoring & Moderate to High --- supporting subsequence detector \\
 \hline
 \end{tabular}%

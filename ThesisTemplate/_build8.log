@@ -1,0 +1,352 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(document.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(format/preamble.ltx
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/memoir\memoir.cls
+Document Class: memoir 2025/03/10 v3.8.3b configurable book, report, article do
+cument class
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/xpatch\xpatch.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
+ex.def))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse
+.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/memoir\mem12.clo)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\dcolumn.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\delarray.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.st
+y))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitl
+estring.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty)
+))) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/base\shortvrb.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/textcase\textcase.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/ulem\ulem.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption-memoir.s
+to))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/isomath\isomath.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/fixmath\fixmath.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\mathrsfs.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xintexpr.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xintfrac.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xint.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xintcore.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xintkernel.sty)))
+) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xinttools.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xinttrig.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xint\xintlog.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/poormanlog\poormanlog.st
+y
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/poormanlog\poormanlog.
+tex))))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/breakcites\breakcites.st
+y) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cf
+g)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def)
+)) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotating.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty))
+(C:\Program Files\MiKTeX\tex/latex/placeins\placeins.sty)
+(C:\Program Files\MiKTeX\tex/latex/enumitem\enumitem.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nome
+tadata.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/mdwtools\mdwtab.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/ltablex\ltablex.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/eqparbox\eqparbox.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.st
+y)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/excludeonly\excludeonly.
+sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-pdft
+ex.def)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.cfg)
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/blindtext\blindtext.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3ke
+ys2e.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datetime\datetime.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fmtcount.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex))
+) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fcprefix.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fcnumparser.sty
+))
+
+Package fmtcount Warning: \ordinal already defined use \FCordinal instead. on i
+nput line 438.
+
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datetime\datetime-defaul
+ts.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/comment\comment.sty
+Excluding comment 'comment')
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/notoccite\notoccite.sty)
+ (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+ (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titletoc.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinek
+eys.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.st
+y
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.
+sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.st
+y) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.
+sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfile
+check.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqueco
+unter.sty)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/memoir\memhfixc.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/soul\soul.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/soul\soul-ori.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty)
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/clipboard\clipboard.sty)
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithmic.s
+ty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.s
+ty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
+common.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
+latex.def)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.c
+ode.tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex))
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.s
+ty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.s
+ty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+.code.tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.
+code.tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeysl
+ibraryfiltered.code.tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cf
+g)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+-pdftex.def
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+-common-pdf.def)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+softpath.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+protocol.code.tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+.code.tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.
+tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.c
+ode.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser
+.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.basic.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.trigonometric.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.random.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.comparison.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.base.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.round.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.misc.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.integerarithmetics.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.c
+ode.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.
+code.tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.t
+ex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+points.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathconstruct.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathusage.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+scopes.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+graphicstate.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+transformations.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+quick.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+objects.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathprocessing.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+arrows.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+shade.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+image.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+external.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+layers.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+transparency.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+patterns.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+rdf.code.tex)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodules
+hapes.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulep
+lot.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcom
+p-version-0-65.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcom
+p-version-1-18.sty))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.st
+y
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.
+code.tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.
+tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.c
+ode.tex))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+\tikz.code.tex
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
+ryplothandlers.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulem
+atrix.code.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarytopaths.code.tex)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/alphalph\alphalph.sty)
+ (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg)))
+ (format/postamble.ltx
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty)
+Writing index file document.idx 
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datagidx.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/xfor\xfor.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tracklang\tracklang.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/tracklang\tracklang.te
+x))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-base.s
+ty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-l3fp.d
+ef)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-utf8.l
+df)))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/mfirstuc\mfirstuc.sty))
+(abbreviation.tex) (notation.tex) (glossary.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookmark.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pdftex.def)
+) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\psdextra.def)
+
+Package hyperref Warning: Option `bookmarks' has already been used,
+(hyperref)                setting the option has no effect on input line 82.
+
+
+Package hyperref Warning: Option `pdfpagelabels' has already been used,
+(hyperref)                setting the option has no effect on input line 82.
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/wallpaper\wallpaper.sty)
+ (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)))
+(index_citations.tex)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd)
+(document.aux (introduction.aux) (literature_review.aux)
+(theoretical_considerations.aux) (design_considerations.aux) (methodology.aux)
+(results_and_discussions.aux) (conclusions.aux) (appendix_partner_evidence.aux)
+(appendix_survey_instrument.aux) (appendix_technical_details.aux))
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
+i
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
+se.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cf
+g)) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-ptm.cfg
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fc-english.def)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(format/pre_toc.ltx (format/titlep.ltx
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd)
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-pdfdoc.de
+f) [1{C:/Users/Samu/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/
+Samu/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./figure/../fo
+rmat/DLSU_Logo.png

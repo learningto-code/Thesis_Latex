@@ -25,14 +25,19 @@
 \input{abbreviation.tex}
 \input{notation.tex}
 \input{glossary.tex}
-% Workaround for datagidx regression: \@glsadd checks \datagidx@label before
-% parsing it from its argument; pre-parsing here fixes the ordering.
-\makeatletter
-\renewcommand*{\glsadd}[1]{%
-  \datagidx@parse@formatlabel{#1}%
-  \NoCaseChange{\@glsadd{#1}}%
-}
-\makeatother
+% \glsadd{...} markers in the chapters are inherited from an earlier
+% datagidx integration that pointed every marker at whichever DB was the
+% default at load time. Because abbreviation.tex, notation.tex, and
+% glossary.tex each reset the default DB (\DTLgidxSetDefaultDB), a
+% \glsadd{X} call issued from a chapter cannot know which DB owns X, and
+% the datagidx fallback prints the raw label (e.g. \emph{not:xt}) into the
+% body text when the lookup misses. Since the paper renders its notation,
+% abbreviation, and glossary lists directly from the \newterm definitions
+% and does not depend on the inline \glsadd markers to populate them, the
+% safest and least-intrusive fix is to make \glsadd a silent no-op: the
+% chapter markers stay in the source for future migration to a
+% single-DB glossary system, and no stray labels reach the printed body.
+\renewcommand*{\glsadd}[1]{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % the following are for setting the PDF info/properties

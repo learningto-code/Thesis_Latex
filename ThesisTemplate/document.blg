@@ -1,66 +1,80 @@
-This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: document.aux
+Reallocating 'name_of_file' (item size: 1) to 17 items.
 A level-1 auxiliary file: introduction.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
 A level-1 auxiliary file: literature_review.aux
+Reallocating 'name_of_file' (item size: 1) to 31 items.
 A level-1 auxiliary file: theoretical_considerations.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
 A level-1 auxiliary file: design_considerations.aux
+Reallocating 'name_of_file' (item size: 1) to 16 items.
 A level-1 auxiliary file: methodology.aux
+Reallocating 'name_of_file' (item size: 1) to 28 items.
 A level-1 auxiliary file: results_and_discussions.aux
+Reallocating 'name_of_file' (item size: 1) to 16 items.
 A level-1 auxiliary file: conclusions.aux
+Reallocating 'name_of_file' (item size: 1) to 8 items.
 The style file: apalike.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Reallocating 'name_of_file' (item size: 1) to 30 items.
 A level-1 auxiliary file: appendix_partner_evidence.aux
+Reallocating 'name_of_file' (item size: 1) to 31 items.
 A level-1 auxiliary file: appendix_survey_instrument.aux
+Reallocating 'name_of_file' (item size: 1) to 31 items.
 A level-1 auxiliary file: appendix_technical_details.aux
 Database file #1: references.bib
 Warning--to sort, need author or key in automatic2019fuel
 Warning--empty author in automatic2019fuel
 Warning--empty year in husak_nodate_intelligent
+Warning--can't use both volume and number fields in kalman1960new
+Warning--empty publisher in kalman1960new
 Warning--empty year in maurya_nodate_real
 Warning--empty year in meitrack_lora_fleet
 Warning--empty year in opensignal_seasia_coverage
 Warning--can't use both volume and number fields in prasanna2023iot
 Warning--empty year in scikit_learn_logo
 Warning--empty year in iec_gsm_tutorial
-You've used 111 entries,
+You've used 126 entries,
             1935 wiz_defined-function locations,
-            996 strings with 23056 characters,
-and the built_in function-call counts, 39588 in all, are:
-= -- 4068
-> -- 1371
-< -- 116
-+ -- 467
-- -- 440
-* -- 2836
-:= -- 6948
-add.period$ -- 373
-call.type$ -- 111
-change.case$ -- 762
-chr.to.int$ -- 104
-cite$ -- 121
-duplicate$ -- 1694
-empty$ -- 2766
-format.name$ -- 582
-if$ -- 7889
+            1084 strings with 25684 characters,
+and the built_in function-call counts, 44949 in all, are:
+= -- 4600
+> -- 1552
+< -- 129
++ -- 531
+- -- 498
+* -- 3284
+:= -- 7896
+add.period$ -- 420
+call.type$ -- 126
+change.case$ -- 861
+chr.to.int$ -- 119
+cite$ -- 138
+duplicate$ -- 1900
+empty$ -- 3159
+format.name$ -- 661
+if$ -- 8924
 int.to.chr$ -- 8
 int.to.str$ -- 0
-missing$ -- 58
-newline$ -- 597
-num.names$ -- 332
-pop$ -- 657
+missing$ -- 78
+newline$ -- 673
+num.names$ -- 377
+pop$ -- 738
 preamble$ -- 1
-purify$ -- 761
+purify$ -- 865
 quote$ -- 0
-skip$ -- 1303
+skip$ -- 1458
 stack$ -- 0
-substring$ -- 2443
-swap$ -- 266
-text.length$ -- 31
+substring$ -- 2832
+swap$ -- 282
+text.length$ -- 32
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 666
-warning$ -- 9
-while$ -- 339
+type$ -- 744
+warning$ -- 11
+while$ -- 385
 width$ -- 0
-write$ -- 1469
-(There were 9 warnings)
+write$ -- 1667
+(There were 11 warnings)

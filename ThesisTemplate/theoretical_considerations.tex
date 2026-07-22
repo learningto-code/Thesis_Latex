@@ -2,7 +2,7 @@ This chapter establishes the theoretical foundations underpinning the proposed I
 
 \section{Overview}
 
-The methodologies used in the system are grounded in established theories in embedded systems, time-series processing, IoT architectures, unsupervised machine learning, and vehicular telematics. These theoretical concepts justify the design choices made in the development of real-time fuel monitoring components, GPS-based tracking, and anomaly detection models. This chapter explains the foundations behind the signal models, communication processes, and machine learning algorithms that make accurate and robust system performance possible.
+The methodologies used in the system are grounded in established theories in embedded systems, time-series processing, IoT architectures, context-aware machine learning, and vehicular telematics. These theoretical concepts justify the design choices made in the development of real-time fuel monitoring components, GPS-based tracking, and anomaly detection models. This chapter explains the foundations behind the signal models, communication processes, and machine learning algorithms that make accurate and robust system performance possible.
 
 \section{Theoretical Foundations}
 
@@ -18,13 +18,19 @@ These principles justify the system’s architecture, where fuel-level signals, 
 
 \subsection{Sensor Theory and Signal Measurement}
 
-Fuel-level readings extracted through the CAN bus/OBD-II interface follow digital measurement theory. Sensor signals can exhibit noise, quantization error, and environmental fluctuation. Fuel-level readings may be stabilized using smoothing methods such as moving-average, median, and exponential moving-average filters. A Simple Moving Average (SMA\glsadd{SMA}) is a standard reference smoothing method defined as:
+Fuel-level readings extracted through the CAN bus/OBD-II interface follow digital measurement theory. Sensor signals can exhibit noise, quantization error, and environmental fluctuation. Fuel-level readings may be stabilized using smoothing methods such as moving-average, median, and exponential moving-average filters. A Simple Moving Average (SMA\glsadd{SMA}) is a standard reference smoothing method defined as
 \glsadd{not:xt}\glsadd{not:xtsmooth}\glsadd{not:N}%
 \begin{equation}
 x_{t}^{\text{smooth}} = \frac{1}{N} \sum_{i=0}^{N-1} x_{t-i}
 \label{eq:sma-ch3}
 \end{equation}
+\begin{tabular}{@{}r@{~=~}l@{}}
+$x_t^{\text{smooth}}$ & smoothed sensor value at time index $t$, \\
+$x_{t-i}$ & raw sensor value $i$ samples before $t$, \\
+$N$ & length of the smoothing window (samples).
+\end{tabular}
 
+\vspace{0.5em}
 This equation is included as the theoretical baseline for smoothing; however, the final implementation used a median + EMA + dead-band + direction-aware filter cascade because fuel-tank slosh and sender chatter include both impulse noise and slow drift. The implemented cascade is described mathematically in the following signal-filtering section and operationally in Chapter~\ref{ch:method}.
 
 \subsection{OBD-II and CAN-based Vehicle Data Acquisition}
@@ -45,15 +51,46 @@ Raw signals from physical sensors carry impulse noise, low-frequency disturbance
 x_t^{\mathrm{med}} = \mathrm{median}(x_{t-W+1}, \ldots, x_t).
 \label{eq:median-filter-ch3}
 \end{equation}
+\begin{tabular}{@{}r@{~=~}l@{}}
+$x_t^{\mathrm{med}}$ & median-filtered sensor value at time $t$, \\
+$W$ & odd-length sliding-window size (samples).
+\end{tabular}
+
+\vspace{0.5em}
 Its breakdown point is 50\%; up to half the window may be corrupted by impulse noise before the output is affected, whereas the arithmetic mean has a 0\% breakdown point.
 
 \textbf{Exponential moving average.} An EMA is a first-order recursive IIR\glsadd{IIR} low-pass filter:
 \glsadd{not:yt}\glsadd{not:alpha}\glsadd{not:tau}%
 \begin{equation}
-y_t = \alpha x_t^{\mathrm{med}} + (1 - \alpha)y_{t-1}, \qquad 0 < \alpha \leq 1,
+y_t = \alpha\, x_t^{\mathrm{med}} + (1 - \alpha)\, y_{t-1}, \qquad 0 < \alpha \leq 1,
 \label{eq:ema-ch3}
 \end{equation}
-in which past samples decay geometrically and the smoothing factor $\alpha$ sets a time constant $\tau = -1/\ln(1-\alpha)$; a smaller $\alpha$ gives heavier smoothing at the cost of responsiveness. The simple moving average, by contrast, is a finite-impulse-response filter optimal for white noise but without impulse robustness and requiring the full window in memory.
+\begin{tabular}{@{}r@{~=~}l@{}}
+$y_t$ & EMA-smoothed value at time $t$, \\
+$y_{t-1}$ & previous EMA state (recursive feedback), \\
+$\alpha$ & smoothing coefficient, \\
+$\tau$ & equivalent time constant $-1/\ln(1-\alpha)$.
+\end{tabular}
+
+\vspace{0.5em}
+Past samples decay geometrically and the smoothing factor $\alpha$ sets the time constant $\tau$; a smaller $\alpha$ gives heavier smoothing at the cost of responsiveness. The simple moving average, by contrast, is a finite-impulse-response filter optimal for white noise but without impulse robustness and requiring the full window in memory.
+
+\textbf{Kalman filter for fuel-level acquisition.} Where the moving average and EMA are model-free smoothers, the Kalman filter \cite{kalman1960new} incorporates an explicit process model into the smoothing decision, so it can distinguish measurement noise from real state change under the model. It is presented here alongside the EMA because both are candidate smoothers for the same stage of the fuel filter cascade and are compared against each other in Chapter~\ref{ch:result_discuss}. The state-space model appropriate for OBD-II fuel-level acquisition follows the physical constraint that the true fuel level $x_t$ evolves from the previous level by exactly the amount of fuel consumed during the interval, plus a small process disturbance capturing real variability the model does not encode:
+\begin{align}
+\text{Process (fuel):}    \quad & x_t     = x_{t-1} - u_t + w_t, \quad w_t \sim \mathcal{N}(0, Q_t), \label{eq:kf-process-fuel}\\
+\text{Measurement (sender):} \quad & z_t     = x_t + v_t,          \quad v_t \sim \mathcal{N}(0, R),   \label{eq:kf-meas-fuel}
+\end{align}
+where $x_t$ is the true fuel level (\%~of tank), $z_t$ is the raw OBD-II Mode 22 sender reading (\%~of tank), $u_t$ is the expected fuel burn during the interval $[t-1, t]$ derived from vehicle speed and engine-load context, $w_t$ is process noise (real variability of the state not captured by $u_t$, in units of $\%^{2}$), and $v_t$ is measurement noise from the capacitive-sender bounce (units of $\%^{2}$). The physical grounding for the process term $u_t$ is developed in Section~\ref{sec:kalman_methodology_fuel} of Chapter~\ref{ch:method}, where it is bound to the same burn envelope the physics tripwire uses so the filter and the anomaly detector share their notion of expected consumption.
+
+The predict--update recursion for the fuel-acquisition filter is
+\begin{align}
+\text{Predict:} \quad & \hat{x}_{t|t-1} = \hat{x}_{t-1|t-1} - u_t, & P_{t|t-1} = P_{t-1|t-1} + Q_t, \label{eq:kf-predict}\\
+\text{Update:}  \quad & K_t = P_{t|t-1} / (P_{t|t-1} + R),        & \notag \\
+                      & \hat{x}_{t|t}   = \hat{x}_{t|t-1} + K_t (z_t - \hat{x}_{t|t-1}), & P_{t|t}   = (1 - K_t)\, P_{t|t-1},  \label{eq:kf-update}
+\end{align}
+with the Kalman gain $K_t$ interpolating between the prediction and the measurement in proportion to their relative variances. When measurement noise dominates ($R \gg P_{t|t-1}$) the gain is small and the filter trusts the prediction, so the fuel level is smoothed toward the model's expectation and any small per-sample sender bounce is ignored. When the prediction is uncertain ($P_{t|t-1} \gg R$) the gain approaches one and the filter tracks the measurement, so an abrupt real change in fuel level is followed instead of smoothed away. This gives the Kalman filter its two theoretical advantages over the moving average: it is Bayes-optimal under linear-Gaussian assumptions, and it can adapt its smoothing intensity to per-sample uncertainty rather than applying a fixed window.
+
+The Kalman filter's downside for anomaly-preservation is that a strong process prior $u_t$ actively predicts consumption, so a real anomalous drop that matches the expected burn envelope is absorbed as ``explained by the model.'' A moving average has no such prior and therefore cannot smooth a real drop away by mistake. The four-axis comparison in Chapter~\ref{ch:result_discuss} (Section~\ref{sec:so1_filter_comparison}) quantifies this trade-off on the labelled evaluation corpus.
 
 \textbf{Dead-band (hysteresis).} A dead-band publisher emits a new value only when the smoothed signal departs from the last published value by more than a threshold:
 \glsadd{not:ypub}\glsadd{not:delta}%
@@ -61,22 +98,39 @@ in which past samples decay geometrically and the smoothing factor $\alpha$ sets
 \mathrm{publish}(y_t) \Leftrightarrow |y_t - y_{\mathrm{pub}}| \geq \delta.
 \label{eq:deadband-ch3}
 \end{equation}
+\begin{tabular}{@{}r@{~=~}l@{}}
+$y_t$ & current smoothed value, \\
+$y_{\mathrm{pub}}$ & last value actually published to the downstream sink, \\
+$\delta$ & minimum change required to publish (hysteresis).
+\end{tabular}
 
+\vspace{0.5em}
 \textbf{Direction-aware gating.} An asymmetric step rule treats increases and decreases differently according to the physical behaviour of the measured quantity. In the implemented fuel cascade, a downward update is accepted at a smaller threshold than an upward update, while upward movement during motion is suppressed unless a stationary refuel signature is present:
 \begin{equation}
+\resizebox{0.95\hsize}{!}{$\displaystyle
 y_{\mathrm{pub},t} =
 \begin{cases}
 y_t, & y_t \leq y_{\mathrm{pub},t-1} - \delta_{\downarrow}, \\
-y_t, & y_t \geq y_{\mathrm{pub},t-1} + \delta_{\uparrow}\ \land\ v_t = 0\ \land\ T_{\mathrm{stop}} \geq 60~\mathrm{s}, \\
+y_t, & y_t \geq y_{\mathrm{pub},t-1} + \delta_{\uparrow}\ \land\ v_t = 0\ \land\ T_{\mathrm{stop}} \geq 60\,\mathrm{s}, \\
 y_{\mathrm{pub},t-1}, & \text{otherwise}.
 \end{cases}
+$}
 \label{eq:direction-aware-ch3}
 \end{equation}
-Here, $\delta_{\downarrow}$ represents the downward fuel-change threshold and $\delta_{\uparrow}$ represents the larger upward refuel threshold. A warm-up guard suppresses output until the median window is populated, since earlier samples are unrepresentative.
+\begin{tabular}{@{}r@{~=~}l@{}}
+$y_{\mathrm{pub},t}$ & published fuel value at time $t$, \\
+$\delta_{\downarrow}$ & minimum drop that permits a downward update, \\
+$\delta_{\uparrow}$ & minimum rise that permits an upward update, \\
+$v_t$ & vehicle speed at time $t$ (km/h), \\
+$T_{\mathrm{stop}}$ & elapsed stationary time since last motion (s).
+\end{tabular}
+
+\vspace{0.5em}
+A warm-up guard suppresses output until the median window is populated, since earlier samples are unrepresentative.
 
 \subsection{Classification and Evaluation Metric Theory}
 
-Detectors are evaluated as binary classifiers. From the confusion matrix (TP, FP, TN, FN):
+Detectors are evaluated as binary classifiers. From the confusion matrix, the counts $TP$, $FP$, $TN$, and $FN$ (true positives, false positives, true negatives, and false negatives) define the following metrics:
 \glsadd{not:TP}\glsadd{not:FP}\glsadd{not:TN}\glsadd{not:FN}\glsadd{not:precision}%
 \begin{equation}
 \mathrm{Precision} = \frac{TP}{TP + FP}
@@ -95,23 +149,73 @@ F_1 = \frac{2 \times \mathrm{Precision} \times \mathrm{Recall}}{\mathrm{Precisio
 L_d = T_{\mathrm{detected}} - T_{\mathrm{actual}}.
 \label{eq:latency-metric-ch3}
 \end{equation}
+\begin{tabular}{@{}r@{~=~}l@{}}
+$TP$ & true positives (correctly flagged anomalies), \\
+$FP$ & false positives (normal rows flagged as anomalous), \\
+$TN$ & true negatives (correctly unflagged normal rows), \\
+$FN$ & false negatives (missed anomalies), \\
+$\mathrm{Precision}$ & fraction of flagged rows that are true anomalies, \\
+$\mathrm{Recall}$ & fraction of true anomalies that are flagged, \\
+$\mathrm{FPR}$ & fraction of normal rows incorrectly flagged, \\
+$F_1$ & harmonic mean of precision and recall, \\
+$L_d$ & detection latency (s), \\
+$T_{\mathrm{detected}}$ & timestamp at which the detector fired, \\
+$T_{\mathrm{actual}}$ & timestamp of the true anomaly onset.
+\end{tabular}
 
-Accuracy is uninformative under class imbalance, where it is dominated by the majority class \cite{powers2020evaluation}. A Receiver Operating Characteristic (ROC\glsadd{ROC}) curve plots true-positive rate against false-positive rate, and its area equals the probability that a random positive outranks a random negative \cite{fawcett2006roc}. Under heavy imbalance, however, ROC-AUC is optimistic; the Precision--Recall curve is more informative, its area collapsing toward the positive prevalence so that a modest value reflects the base rate rather than poor detection \cite{davis2006prroc,saito2015prcurve}. Detection latency is $L_{\mathrm{det}} = T_{\mathrm{detected}} - T_{\mathrm{actual}}$, where $T_{\mathrm{actual}}$ is when the anomaly occurred and $T_{\mathrm{detected}}$ is when it was flagged; the Numenta Anomaly Benchmark scores latency with a time-decaying reward \cite{lavin2015nab}. For binomial proportions estimated from few positives, the Wilson score interval is preferred over the normal-approximation (Wald) interval \cite{wilson1927probable}:
+\vspace{0.5em}
+
+Accuracy is uninformative under class imbalance, where it is dominated by the majority class \cite{powers2020evaluation}. A Receiver Operating Characteristic (ROC\glsadd{ROC}) curve plots true-positive rate against false-positive rate, and its area equals the probability that a random positive outranks a random negative \cite{fawcett2006roc}. Under heavy imbalance, however, ROC-AUC is optimistic; the Precision--Recall curve is more informative, its area collapsing toward the positive prevalence so that a modest value reflects the base rate rather than poor detection \cite{davis2006prroc,saito2015prcurve}. Detection latency $L_d$ was defined in Equation~\ref{eq:latency-metric-ch3}; the Numenta Anomaly Benchmark scores latency with a time-decaying reward \cite{lavin2015nab}. For binomial proportions estimated from few positives, the Wilson score interval is preferred over the normal-approximation (Wald) interval \cite{wilson1927probable}:
 \glsadd{not:phat}\glsadd{not:z}\glsadd{not:n}%
 \begin{equation}
-\frac{\hat{p} + z^2/(2n) \pm z\sqrt{\frac{\hat{p}(1-\hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + z^2/n}.
+\mathrm{CI}_{\mathrm{Wilson}} = \frac{\hat{p} + \dfrac{z^{2}}{2n} \pm z\sqrt{\dfrac{\hat{p}(1-\hat{p})}{n} + \dfrac{z^{2}}{4n^{2}}}}{1 + \dfrac{z^{2}}{n}}.
 \label{eq:wilson-ch3}
 \end{equation}
+\begin{tabular}{@{}r@{~=~}l@{}}
+$\hat{p}$ & observed sample proportion (e.g., precision or recall estimate), \\
+$n$ & sample size (number of trials), \\
+$z$ & standard-normal quantile for the chosen confidence level.
+\end{tabular}
+
+\vspace{0.5em}
 Leave-one-group-out cross-validation, here leave-one-trip-out, holds out each group entirely to prevent leakage from within-group correlation \cite{arlot2010survey}. Finally, evaluation against injected synthetic anomalies provides exact ground truth but bounds performance on the injected classes only, since these may not represent the full distribution of real events \cite{chandola2009anomaly}.
+
+\subsection{Statistical Tests for Classifier Comparison}
+\label{sec:stats_tests_theory}
+
+Point estimates such as precision, recall, and $F_1$ report the best guess of a detector's performance on a specific sample, but they do not answer whether an observed difference between two detectors is larger than what would be expected under sampling noise alone. Three tests are used in this study to close that gap: McNemar's $\chi^2$ for paired classifier comparison, the non-parametric bootstrap for confidence intervals around each metric, and the Wilcoxon signed-rank test for paired per-trip differences.
+
+\textbf{McNemar's $\chi^2$ test.} McNemar's test compares two classifiers on the same evaluation rows by counting only the rows on which they disagree \cite{mcnemar1947note}. Let $b$ be the number of rows where classifier $A$ is correct and $B$ is wrong, and $c$ be the number of rows where $A$ is wrong and $B$ is correct. Under the null hypothesis $H_0$ that both classifiers have the same error rate on the row distribution, disagreements are equally likely in either direction, so $b$ and $c$ are drawn from a binomial with $p = 0.5$. Dietterich (1998) recommends the continuity-corrected chi-square statistic
+\begin{equation}
+\chi^{2}_{\mathrm{McNemar}} = \frac{(|b - c| - 1)^{2}}{b + c},
+\label{eq:mcnemar-ch3}
+\end{equation}
+which follows a $\chi^{2}_{1}$ distribution under $H_0$ when $b + c \geq 25$~\cite{dietterich1998approximate}. For smaller disagreement counts the chi-square approximation is unreliable and the two-sided exact binomial $p$-value $p = 2 \cdot \Pr(X \leq \min(b, c) \mid X \sim \mathrm{Binomial}(b + c, 0.5))$ is used instead. McNemar addresses a question that summary metrics cannot: are the two detectors' error patterns different, not just their aggregate error counts.
+
+\textbf{Non-parametric bootstrap.} Where the Wilson interval assumes a binomial proportion at a single point, the bootstrap makes no distributional assumption and can produce a confidence interval for any statistic computed on the data \cite{efron1994bootstrap}. Given a labelled sample $\mathcal{D}$ of size $n$ and a metric $\theta(\mathcal{D})$ such as precision, recall, or $F_1$, the bootstrap draws $B$ samples $\mathcal{D}^{*}_{b}$ of size $n$ with replacement from $\mathcal{D}$, computes $\theta(\mathcal{D}^{*}_{b})$ on each, and uses the empirical quantile of the $B$ replicates to bracket the metric:
+\begin{equation}
+\mathrm{CI}_{1 - \alpha}(\theta) = \left[\, \theta^{*}_{(\alpha/2)},\ \theta^{*}_{(1 - \alpha/2)} \,\right],
+\label{eq:bootstrap-ci-ch3}
+\end{equation}
+where $\theta^{*}_{(q)}$ denotes the $q$-th empirical quantile of the $B$ bootstrap estimates. With $B = 2000$ resamples the bootstrap CI captures the joint variability across all four contingency-matrix cells, unlike the Wilson interval which brackets only the numerator--denominator variability of a single ratio.
+
+\textbf{Wilcoxon signed-rank test.} When paired measurements are available per group (per trip in this study), the paired difference distribution can be tested for a non-zero location without assuming normality using Wilcoxon's signed-rank test \cite{wilcoxon1945individual}. For $n$ paired observations with non-zero differences $d_i = \theta_i^{A} - \theta_i^{B}$, the test ranks the $|d_i|$, sums the ranks associated with positive differences to obtain the statistic $W$, and compares it to the null distribution under $H_0: \mathrm{median}(d) = 0$. Wilcoxon is more powerful than the sign test because it uses the magnitude information encoded in the ranks and more robust than the paired $t$-test because it does not assume Gaussian differences \cite{demsar2006statistical}. It is the appropriate paired-comparison test when each experimental unit (a trip) contributes one difference and the difference distribution is unknown.
 
 \subsection{Time-Series Synchronization Theory}
 
-Sensor streams often arrive at irregular timestamps. Synchronizing them requires interpolation theory. For two samples at timestamps $T_i$ and $T_{i+1}$, the interpolated point at $t_j$ is computed as:
+Sensor streams often arrive at irregular timestamps. Synchronizing them requires interpolation theory. For two samples at timestamps $T_i$ and $T_{i+1}$, the interpolated point at $t_j$ is computed as
 \begin{equation}
-x_j = x_i + \left( \frac{x_{i+1} - x_i}{T_{i+1} - T_i} \right)(t_j - T_i)
+x_j = x_i + \left( \frac{x_{i+1} - x_i}{T_{i+1} - T_i} \right)(t_j - T_i).
 \label{eq:interpolation-ch3}
 \end{equation}
+\begin{tabular}{@{}r@{~=~}l@{}}
+$x_j$ & interpolated sensor value at target time $t_j$, \\
+$x_i, x_{i+1}$ & measured values at the bracketing timestamps, \\
+$T_i, T_{i+1}$ & source timestamps of the bracketing samples, \\
+$t_j$ & target (query) timestamp.
+\end{tabular}
 
+\vspace{0.5em}
 This ensures aligned and consistent time-series data across fuel level, GPS speed, and distance.
 
 \subsection{IoT Communication Theory}
@@ -123,58 +227,79 @@ The communication subsystem relies on Internet of Things (IoT) principles and lo
     \item robustness to interference.
 \end{itemize}
 
-Theoretical latency between sender and cloud receiver is expressed as:
+Theoretical end-to-end latency between sender and cloud receiver is expressed as
 \glsadd{not:L}\glsadd{not:Treceived}\glsadd{not:Tsent}%
 \begin{equation}
-L = T_{\text{received}} - T_{\text{sent}}
+L = T_{\text{received}} - T_{\text{sent}}.
 \label{eq:latency-ch3}
 \end{equation}
+\begin{tabular}{@{}r@{~=~}l@{}}
+$L$ & one-way end-to-end latency (s), \\
+$T_{\text{received}}$ & backend receipt timestamp, \\
+$T_{\text{sent}}$ & device-side transmit timestamp.
+\end{tabular}
 
+\vspace{0.5em}
 Understanding latency is essential for analyzing responsiveness and real-time performance.
 
 \subsection{GPS Temporal and Spatial Theory}
 
-GPS logging follows Global Navigation Satellite System (GNSS\glsadd{GNSS}) principles. To evaluate consistency of GPS sampling, the inter-arrival interval is computed as:
+GPS logging follows Global Navigation Satellite System (GNSS\glsadd{GNSS}) principles. To evaluate consistency of GPS sampling, the inter-arrival interval is computed as
 \glsadd{not:ti}\glsadd{not:Ti}%
 \begin{equation}
-t_i = T_i - T_{i-1}
+t_i = T_i - T_{i-1}.
 \label{eq:gps-ch3}
 \end{equation}
+\begin{tabular}{@{}r@{~=~}l@{}}
+$t_i$ & inter-sample interval between fixes $i-1$ and $i$ (s), \\
+$T_i$ & timestamp of fix $i$, \\
+$T_{i-1}$ & timestamp of the preceding fix.
+\end{tabular}
 
+\vspace{0.5em}
 Maintaining a stable interval ensures accurate reconstruction of routes and distance traveled.
 
-\subsection{Unsupervised Anomaly Detection Theory}
+\subsection{Context-Aware Anomaly Detection Theory}
 
-The anomaly detection component relies on non-parametric, unsupervised machine learning, which identifies unusual behavior in multivariate time-series data without labeled training samples. Following the taxonomy adopted for vehicle anomaly detection \cite{hirth2025truck_survey}, three anomaly types are distinguished: point anomalies, or individual observations that are anomalous with respect to the data, such as a sudden fuel drop while stationary; contextual anomalies, which are anomalous only in context, such as high consumption at zero speed; and collective or subsequence anomalies, where a sequence of individually unremarkable observations forms an anomalous pattern, such as gradual siphoning. The system assigns point and contextual anomalies to Isolation Forest, operating on engineered contextual features, and collective anomalies to the Matrix Profile.
+The anomaly detection component relies on non-parametric, context-aware machine learning, which identifies unusual behavior in multivariate time-series data without labeled training samples. Following the taxonomy adopted for vehicle anomaly detection \cite{hirth2025truck_survey}, three anomaly types are distinguished: point anomalies, or individual observations that are anomalous with respect to the data, such as a sudden fuel drop while stationary; contextual anomalies, which are anomalous only in context, such as high consumption at zero speed; and collective or subsequence anomalies, where a sequence of individually unremarkable observations forms an anomalous pattern, such as gradual siphoning. The system assigns point and contextual anomalies to Isolation Forest, operating on engineered contextual features, and collective anomalies to the Matrix Profile.
 
 \subsubsection{Matrix Profile Theory}
 
-Matrix Profile computes similarity between subsequences within a time series. For a time series $T$ of length $n$ and window size $m$, the profile value is:
+Matrix Profile computes similarity between subsequences within a time series. For a time series $T$ of length $n$ and window size $m$, the profile value is
 \glsadd{not:Tseries}\glsadd{not:m}\glsadd{not:Pi}%
 \begin{equation}
-P[i] = \min_{j \neq i} \left\| T_{i:i+m-1} - T_{j:j+m-1} \right\|
+P[i] = \min_{j \neq i} \left\| T_{i:i+m-1} - T_{j:j+m-1} \right\|.
 \label{eq:mp-ch3}
 \end{equation}
+\begin{tabular}{@{}r@{~=~}l@{}}
+$P[i]$ & Matrix Profile value at index $i$ (nearest-neighbour distance), \\
+$T$ & source time series of length $n$, \\
+$T_{i:i+m-1}$ & subsequence of length $m$ starting at index $i$, \\
+$m$ & subsequence window length (samples), \\
+$\|\cdot\|$ & Euclidean ($L^{2}$) distance between two subsequences.
+\end{tabular}
 
+\vspace{0.5em}
 The subsequences with the highest $P[i]$ values, known as discords, are likely anomalies. This method is ideal for detecting sudden fuel drops or siphoning patterns.
 
 \subsubsection{Isolation Forest Theory}
 
-Isolation Forest isolates anomalies through random partitioning. An anomaly score is expressed as:
+Isolation Forest isolates anomalies through random partitioning. An anomaly score is expressed as
 \glsadd{not:xvec}\glsadd{not:sx}\glsadd{not:Ehx}\glsadd{not:cn}%
 \begin{equation}
-s(x) = 2^{-\frac{E(h(x))}{c(n)}}
+s(x) = 2^{\,-\,E(h(x))\,/\,c(n)}.
 \label{eq:iforest-ch3}
 \end{equation}
+\begin{tabular}{@{}r@{~=~}l@{}}
+$s(x)$ & anomaly score for observation $x$, bounded in $(0,1)$, \\
+$x$ & feature vector of the observation being scored, \\
+$E(h(x))$ & expected path length to isolate $x$ across all trees, \\
+$c(n)$ & normalising constant based on tree size $n$.
+\end{tabular}
 
-Where:
-\begin{itemize}
-    \item $E(h(x))$ is the expected path length for observation $x$,
-    \item $c(n)$ normalizes the tree depth by dataset size.
-\end{itemize}
-
+\vspace{0.5em}
 Higher scores indicate higher likelihood of anomalous fuel behavior.
 
 \section{Summary}
 
-This chapter presented the theoretical foundation for the system’s methodology. It discussed the key concepts supporting real-time sensing, signal preprocessing, GPS logging, IoT communication, and unsupervised anomaly detection. By establishing these theoretical pillars, this chapter clarifies the scientific basis that makes the system’s design viable, accurate, and aligned with established models in engineering and data science.
+This chapter presented the theoretical foundation for the system’s methodology. It discussed the key concepts supporting real-time sensing, signal preprocessing, GPS logging, IoT communication, and context-aware anomaly detection. By establishing these theoretical pillars, this chapter clarifies the scientific basis that makes the system’s design viable, accurate, and aligned with established models in engineering and data science.
