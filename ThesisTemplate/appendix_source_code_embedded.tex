@@ -1,0 +1,65 @@
+\section{Embedded Firmware Source Code}
+\label{sec:app_embedded_code}
+
+This section reproduces the ESP32 embedded firmware that runs on the in-vehicle HMI, the LoRa gateway, and the field-test rigs used during measurement. Each file is preceded by a compact summary block (Purpose / Inputs / Processes / Outputs) and followed by the stripped source listing.
+
+\subsection{In-Vehicle HMI Firmware}
+\label{sec:code_hmi_phase1}
+
+\begin{description}
+\item[Purpose:] Driver-facing firmware for the in-vehicle head unit. Drives a 3.5\,in touch TFT, two rest buttons, a piezo buzzer, a CAN transceiver for OBD-II, a GPS, a LoRa radio, and an LTE/GSM modem, and presents the trip state and rest-alert workflow.
+\item[Inputs:] OBD-II readings from the vehicle bus (fuel level, coolant, RPM, load, speed), GPS NMEA sentences, physical button presses, touch events, LoRa downlinks from the gateway, and HTTPS responses from the backend over WiFi, LTE, or GSM.
+\item[Processes:] Runs the UI on one core and network I/O on the other. Picks the best available link in the order LoRa, LTE, GSM, WiFi, and falls back to buffered writes on flash when everything is offline. Runs the rest-alert state machine with snooze and priority windows, smooths the fuel signal, and mirrors trip state received from the mobile app over LoRa.
+\item[Outputs:] Rendered TFT screens (dashboard, trip, rest-alert modal), buzzer patterns, LoRa uplinks with ACK sequence numbers, HTTPS \texttt{POST} bodies to the telemetry and trip-event endpoints, and flash-buffered rows for later replay.
+\end{description}
+
+\lstinputlisting[language=C++,caption={In-vehicle HMI firmware},label={lst:code_hmi_phase1}]{code_listings/hmi_phase1/main.cpp}
+
+\subsection{LoRa Gateway Firmware}
+\label{sec:code_lora_gateway}
+
+\begin{description}
+\item[Purpose:] Fixed-location ESP32 gateway that terminates the truck-to-fleet LoRa link and forwards telemetry to the backend over the depot WiFi uplink. Also handles the downlink half of the two-way protocol used to steer trip actions from the dashboard or the driver app to the in-vehicle HMI.
+\item[Inputs:] LoRa packets from trucks in range (uplinks and downlink ACKs), the WiFi setup form served on first boot, and long-poll responses from the backend's pending-actions and alerts endpoints.
+\item[Processes:] Runs a captive-portal setup on first boot, then a steady loop that listens for LoRa uplinks, forwards parsed telemetry to the backend with HMAC-signed device auth, polls for pending downlinks every 5 seconds, and retries un-ACKed downlinks up to the configured retry budget.
+\item[Outputs:] HTTPS \texttt{POST}s to the backend, LoRa downlink frames to the addressed truck, LoRa ACKs back to the sender, and a small diagnostic web page on the local WiFi.
+\end{description}
+
+\lstinputlisting[language=C++,caption={LoRa gateway firmware},label={lst:code_lora_gateway}]{code_listings/lora_gateway/main.cpp}
+
+
+\subsection{LoRa Range-Test Transmitter}
+\label{sec:code_lora_tx}
+
+\begin{description}
+\item[Purpose:] Range-test firmware flashed on the production HMI hardware and carried on foot to each measurement distance. Each button press transmits the header frame, one hundred numbered payloads, and the trailer frame for the current distance band, then advances to the next.
+\item[Inputs:] A button press to start the next band, and a compiled-in list of target distances and site descriptions.
+\item[Processes:] Configures the LoRa radio to the same RF profile as the production link (SF7, 125\,kHz, CR 4/5, 17\,dBm), then paces packets at 5\,Hz for the duration of the band.
+\item[Outputs:] LoRa packets on 433\,MHz for the paired receiver to capture, plus a serial-console progress line for the operator.
+\end{description}
+
+\lstinputlisting[language=C++,caption={LoRa range-test transmitter},label={lst:code_lora_tx}]{code_listings/lora_distance/tx.cpp}
+
+\subsection{LoRa Range-Test Receiver}
+\label{sec:code_lora_rx}
+
+\begin{description}
+\item[Purpose:] Stationary counterpart to the range-test transmitter. Flashed on the LoRa gateway hardware and tethered to a laptop that captures the serial output for later packet-delivery-ratio analysis.
+\item[Inputs:] LoRa radio packets on 433\,MHz.
+\item[Processes:] Records the receiver-side RSSI and SNR for every received packet and prints one comma-separated line per packet to the serial console.
+\item[Outputs:] One serial line per received packet in the form \texttt{RX|}\allowbreak\texttt{t=<ms>|}\allowbreak\texttt{rssi=<dBm>|}\allowbreak\texttt{snr=<dB>|}\allowbreak\texttt{<payload>}, captured on the laptop as the raw range log.
+\end{description}
+
+\lstinputlisting[language=C++,caption={LoRa range-test receiver},label={lst:code_lora_rx}]{code_listings/lora_distance/rx.cpp}
+
+\subsection{GSM/LTE Drive-Test Firmware}
+\label{sec:code_gsm_drive}
+
+\begin{description}
+\item[Purpose:] Minimal cellular-modem harness carried on the drive-test route to sample coverage, signal strength, and HTTPS round-trip time at each pre-marked stop.
+\item[Inputs:] A button press to advance to the next stop, and the modem's URC stream (signal, registration, HTTP-action lines) parsed line by line.
+\item[Processes:] At each stop it queries the modem for signal quality and registration, brings up the data context, opens an HTTPS \texttt{POST} to a fixed endpoint, and times the request end to end.
+\item[Outputs:] One CSV row per stop on the serial console with columns for stop, signal, radio type, registration, round-trip time, and HTTP status.
+\end{description}
+
+\lstinputlisting[language=C++,caption={GSM/LTE drive-test firmware},label={lst:code_gsm_drive}]{code_listings/gsm_drive/main.cpp}

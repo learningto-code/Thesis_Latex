@@ -1,0 +1,16 @@
+This appendix consolidates the source code that implements the deployed prototype. Full listings are provided for every subsystem: the ESP32 embedded firmware (Section~\ref{sec:app_embedded_code}), the Python machine-learning pipeline (Section~\ref{sec:app_ml_code}), and the Node.js backend, Postgres schema, and React web clients (Section~\ref{sec:app_web_code}).
+
+Each code entry is preceded by a compact summary block that identifies the file, its purpose, the inputs it consumes, the processing it performs, and the outputs it produces. Verbose in-source documentation has been trimmed so the listings remain readable at the reduced font used in this appendix.
+
+\section{Listings Setup}
+
+The source listings that follow use the \texttt{listings} package with line numbering, break-on-long-line formatting, and language-appropriate syntax colouring for C++, Python, JavaScript, and SQL. Compact one-line comments are retained; multi-line design notes and TODO blocks have been removed for clarity.
+
+\FloatBarrier
+\input{appendix_source_code_embedded}
+
+\FloatBarrier
+\input{appendix_source_code_ml}
+
+\FloatBarrier
+\input{appendix_source_code_web}

@@ -1,69 +1,88 @@
-Make a table with the following columns for showing the summary of revisions to the proposal based on the comments of the panel of examiners. 
-\begin{enumerate}
-	\item  Examiner
-	\item  Comment
-	\item  Summary of how the comment has been addressed
-	\item  Locations in the document where the changes have been reflected
-\end{enumerate}
-
+This chapter summarizes the revisions applied to the thesis in response to the \textit{Panel Recommendations Prior to Approval} (Appendix~P) issued after the defense held on 15~July~2026. Every modified portion in the body is displayed on a yellow-shaded background so that the panel can locate each change quickly. The table below lists each panel comment on its own row, attributed to the issuing examiner, with a summary of how each was addressed and the corresponding locations in the document.
 
 \begin{center}
 {\scriptsize
-\begin{tabularx}{\textwidth}{p{0.1\textwidth}|p{0.2\textwidth}|p{0.5\textwidth}|p{0.1\textwidth}}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{0.16\textwidth}|}
 \caption{Summary of Revisions to the \documentType} \label{tab:rev_final} \\
-\hline 
-\hline 
-\textbf{Examiner} & 
-\textbf{Comment} & 
+\hline
+\hline
+\textbf{Examiner} &
+\textbf{Comment} &
 \textbf{Summary of how the comment has been addressed} &
-\textbf{Locations} \\ 
-\hline 
+\textbf{Locations} \\
+\hline
 \endfirsthead
 \multicolumn{4}{c}%
 {\textit{Continued from previous page}} \\
 \hline
-\hline 
-\textbf{Examiner} & 
-\textbf{Comment} & 
+\hline
+\textbf{Examiner} &
+\textbf{Comment} &
 \textbf{Summary of how the comment has been addressed} &
-\textbf{Locations} \\  
-\hline 
+\textbf{Locations} \\
+\hline
 \endhead
-\hline 
-\multicolumn{4}{r}{\textit{Continued on next page}} \\ 
+\hline
+\multicolumn{4}{r}{\textit{Continued on next page}} \\
 \endfoot
-\hline 
+\hline
 \endlastfoot
 
-\documentAdviserTitle\ \documentAdviser &
-\graytx{\blindenumerate} &
-\graytx{\blindenumerate \blinddescription} &
-Sec.~\ref{sec:implement} on p.~\pageref{sec:implement}, Sec.~\ref{sec:evaluate} on p.~\pageref{sec:evaluate}, Fig.~\ref{fig:exampletc} on p.~\pageref{fig:exampletc}\\
-\hline 
+\examinerATitle\ \examinerA &
+Describe the process by which the system determines transitions among LoRa, LTE, GPRS, WiFi, and offline modes. &
+Added a dedicated \textit{Transport State Machine} subsection (Fig.~\ref{fig:channel_state_machine}) that specifies every demotion trigger (\texttt{LORA\_ACK\_TIMEOUT\_MS}, RAT renegotiation, two consecutive non-2xx \texttt{POST~/telemetry}, WiFi disconnect) and every recovery edge (HTTP~2xx retry, \texttt{loraGatewayRecentlyOk()}, \texttt{AT+CSQ}~$>$~10, \texttt{AT+CGACT?} active). Complemented by the \textit{Offline-Buffer Fall-Through Flowchart} (Fig.~\ref{fig:offline_buffer_fallthrough}) documenting the LoRa~$\rightarrow$~LTE~$\rightarrow$~GSM~2G~$\rightarrow$~WiFi~$\rightarrow$~SPIFFS priority chain. &
+Sec.~\ref{sec:communication}, Fig.~\ref{fig:channel_state_machine}, Fig.~\ref{fig:offline_buffer_fallthrough} \\
+\hline
 
-\examinerChairTitle\ \examinerChair & 
-\graytx{\blindenumerate} &
-\graytx{\blindenumerate \blinddescription} &
-Sec.~\ref{sec:implement} on p.~\pageref{sec:implement}, Sec.~\ref{sec:evaluate} on p.~\pageref{sec:evaluate}, Fig.~\ref{fig:exampletc} on p.~\pageref{fig:exampletc}\\
-\hline \\
+\examinerATitle\ \examinerA &
+Document the buffer and storage duration applicable to offline scenarios. &
+Added a subsection quantifying the offline buffer size, per-record footprint, and fill-time behaviour: the SPIFFS ring buffer holds \textasciitilde{}4~h~15~min of continuous telemetry at median row width per truck, and this figure is carried into the commercial-scale scalability projection (Table~\ref{tab:commercial_scalability}) so that offline duration is shown to be invariant with fleet size $N_v$. &
+Methodology Sec.~\ref{sec:communication}, Results Table~\ref{tab:commercial_scalability} \\
+\hline
 
-\examinerATitle\ \examinerA & 
-\graytx{\blindenumerate} &
-\graytx{\blindenumerate \blinditemize} &
-Sec.~\ref{sec:implement} on p.~\pageref{sec:implement}, Sec.~\ref{sec:evaluate} on p.~\pageref{sec:evaluate}, Fig.~\ref{fig:exampletc} on p.~\pageref{fig:exampletc}\\
-\hline 
+\examinerATitle\ \examinerA &
+Revise the diagram with corrected arrows, greater detail, and a general representation in place of Python. &
+Redrew Figures~\ref{fig:conceptual_framework}, \ref{fig:End-to-end_system_architecture}, \ref{fig:ml_anomaly_detection_architecture}, and~\ref{fig:anomaly_modeling_data_mining_pipeline} with corrected arrow directions and expanded detail. Generic algorithm names (Isolation Forest, Matrix Profile, Contextual Gate) are now used in place of Python/sklearn/stumpy iconography, so the diagrams read as a general representation of the method rather than a specific toolchain. &
+Fig.~\ref{fig:conceptual_framework}, Fig.~\ref{fig:End-to-end_system_architecture}, Fig.~\ref{fig:ml_anomaly_detection_architecture}, Fig.~\ref{fig:anomaly_modeling_data_mining_pipeline} \\
+\hline
 
-\examinerBTitle\ \examinerB & 
-\graytx{\blindenumerate} &
-\graytx{\blindenumerate} &
-Sec.~\ref{sec:implement} on p.~\pageref{sec:implement}, Sec.~\ref{sec:evaluate} on p.~\pageref{sec:evaluate}, Fig.~\ref{fig:exampletc} on p.~\pageref{fig:exampletc}\\
-\hline 
+\examinerBTitle\ \examinerB &
+Discuss the scalability of the unit alongside a clear treatment of unit identification. &
+Added the \textit{Scalability and Unit Identification} section (methodology) which derives closed-form ceilings on backend ingest, LoRa gateway occupancy, and hot-table storage growth, and the \textit{Commercial-Scale Scalability Projection} section (results) which projects the prototype at $N_v = 10$, $100$, $500$, and $1{,}000$ vehicles, identifying the LoRa gateway occupancy as the first binding constraint at the sixty-vehicle-per-depot threshold. Unit identification is handled explicitly in a companion subsection that specifies the \texttt{truck\_id}, \texttt{device\_key}, and per-node gateway assignment steps performed at provisioning time, and is carried forward to Chapter~\ref{ch:conc} as a future-work directive on hardware-anchored identity. &
+Methodology Sec.~\ref{sec:scalability_analysis}, Sec.~\ref{sec:unit_identification}, Results Sec.~\ref{sec:so_commercial_scalability}, Conclusions Sec.~\ref{sec:concluding_recommendations}, Sec.~\ref{sec:concluding_future_prospects} \\
+\hline
 
-\examinerCTitle\ \examinerC & 
-\graytx{\blindenumerate} &
-\graytx{\blindenumerate \blindmathtrue} &
-Sec.~\ref{sec:implement} on p.~\pageref{sec:implement}, Sec.~\ref{sec:evaluate} on p.~\pageref{sec:evaluate}, Fig.~\ref{fig:exampletc} on p.~\pageref{fig:exampletc}\\
-\hline 
+\examinerBTitle\ \examinerB &
+Ensure consistent technical writing conventions are applied throughout, addressing line~2129 and all comparable instances. &
+Performed a chapter-wide editorial pass on tense, hyphenation, acronym-on-first-use, code identifier styling (\texttt{typewriter} for firmware and DB identifiers), quantity formatting (SI units with non-breaking spaces), and terminology consistency. \textbf{Applied the digit-versus-spelled-out numeric convention}: all cardinal numbers greater than 10 that were previously spelled as words (e.g., ``sixty active nodes'', ``the twelve project-native trips'', ``seventeen gateways'', ``the sixty-vehicle-per-depot threshold'') have been converted to their digit form (``60'', ``12'', ``17'', ``60'') and highlighted in yellow at each converted site. The specific line-2129 finding and every comparable instance across Chapters~\ref{ch:method}--\ref{ch:conc} have been corrected. &
+Throughout Chapters~\ref{ch:method}--\ref{ch:conc}; specific digit conversions in Sec.~\ref{sec:so1_filter_comparison}, Sec.~\ref{sec:results_so4}, Sec.~\ref{sec:so_commercial_scalability} \\
+\hline
+
+\examinerChairTitle\ \examinerChair &
+Replace the term ``unsupervised'' throughout with a more specific and technically precise descriptor. &
+Replaced every occurrence of the vague label with the technically precise term \textbf{context-aware non-parametric machine learning}, which reflects both the algorithm family (non-parametric one-class detectors: Isolation Forest, Matrix Profile) and the feature-engineering strategy (context features conditioning the anomaly score on speed, RPM, load, throttle, route, driver, and motion state). The document title, keywords, PDF metadata, glossary entry, and every body-text mention have been updated accordingly. &
+Title page, Abstract, Glossary, Chapters~\ref{ch:intro}--\ref{ch:conc} \\
+\hline
+
+\examinerChairTitle\ \examinerChair &
+Provide a comparative analysis of outcomes with and without the use of MP and IF. &
+Grounded the comparative analysis in Chapter~\ref{ch:theorycon} (Sec.~\ref{sec:anomaly_detection_theory}: Matrix Profile theory, Eq.~\ref{eq:mp-ch3}; Isolation Forest theory, Eq.~\ref{eq:iforest-ch3}), defined the ablation protocol in Chapter~\ref{ch:method} (Sec.~\ref{sec:ablation_protocol}), and reported the empirical outcomes in the SO4 section of the Results chapter. Added a four-configuration detector ablation: (a)~physics-tripwire only, (b)~Matrix Profile only, (c)~Isolation Forest only (deployed), and (d)~IF~$+$~MP hybrid, all evaluated under strict leave-one-trip-out validation on the project-native partition. McNemar paired-comparison tests rejected the null of equal error rates between the Isolation Forest and every other configuration at $p<0.001$; the bootstrap $95\%$~$F_1$ CI for IF ($[88.6\%, 96.6\%]$) did not overlap the hybrid's ($[79.1\%, 90.2\%]$). Matrix Profile is retained as an audit-only signal with a narrow override path for gradual leaks. &
+Theoretical Sec.~\ref{sec:anomaly_detection_theory}, Methodology Sec.~\ref{sec:ablation_protocol}, Results Sec.~\ref{sec:results_so4}, Tables~\ref{tab:so4_stats_tests}, \ref{tab:so4_bootstrap_cis} \\
+\hline
+
+\examinerChairTitle\ \examinerChair &
+Replace the moving average filter with a Kalman filter and show the difference between the results. &
+Added the Kalman-filter theoretical foundation in Chapter~\ref{ch:theorycon} (state-space process/measurement model, predict--update recursion, and the physical grounding of the process term $u_t$) alongside the moving-average theory, and specified the Kalman-filter methodology in Chapter~\ref{ch:method} (Sec.~\ref{sec:kalman_methodology_fuel}) as an alternative to the moving-average stage of the fuel filter cascade. Compared it against the deployed moving-average cascade on two partitions: (a)~a four-axis corpus comparison over the 12 project-native trips, and (b)~a live cross-scenario field trip on an unconditioned raw sender stream across city, uphill climb, highway, idle, and refuel scenarios. The moving average produced a $9.5$-percentage-point higher downstream $F_1$ ($55.4\%$ vs $45.9\%$), $4$--$5\times$ noise reduction on driving segments (vs $1.05$--$1.4\times$ for Kalman), and the paired Wilcoxon test on per-trip $F_1$ returned $W = 3.0$, $p = 0.313$. The moving-average cascade is therefore retained as the deployed default, with the Kalman filter documented as the physics-aware alternative that would only be preferred if a future consumer required sub-sample-cadence fidelity. &
+Theoretical Chapter~\ref{ch:theorycon} (Kalman filter for fuel-level acquisition, Eqs.~\ref{eq:kf-process-fuel}--\ref{eq:kf-update}), Methodology Sec.~\ref{sec:kalman_methodology_fuel}, Results Sec.~\ref{sec:so1_filter_comparison}, Tables~\ref{tab:so1_live_filter_global}--\ref{tab:so1_filter_stats}, Figs.~\ref{fig:filter_overlay_baseline}--\ref{fig:so1_live_filter_overlay} \\
+\hline
+
+\examinerChairTitle\ \examinerChair &
+Include statistical testing results drawn from the outcome data. &
+Added the theoretical foundation for classifier-comparison statistics in Chapter~\ref{ch:theorycon} (Sec.~\ref{sec:stats_tests_theory}: McNemar's $\chi^{2}$, non-parametric bootstrap, Wilcoxon signed-rank) and the corresponding statistical-testing protocol in Chapter~\ref{ch:method} (Sec.~\ref{sec:stats_testing_protocol}), then applied formal tests to every specific objective in the Results chapter: Wilson score intervals on LoRa packet delivery, GPS fix availability, and alert-resolution proportion; a non-parametric bootstrap with $2{,}000$ resamples on per-channel latency, GPS inter-sample interval, and SO4 metric confidence intervals; a Wilcoxon signed-rank test on the paired per-trip $F_1$ for the filter comparison; McNemar's paired-comparison test on the SO4 detector ablation; and a one-sample Wilcoxon on the administrator SUS scores against the Bangor benchmark of~68. Each is reported alongside its point estimate. &
+Theoretical Sec.~\ref{sec:stats_tests_theory}, Methodology Sec.~\ref{sec:stats_testing_protocol}, Results Tables~\ref{tab:so1_stats}, \ref{tab:so2_stats}, \ref{tab:so3_stats}, \ref{tab:so4_stats_tests}, \ref{tab:so5_stats} \\
+\hline
 
 \end{tabularx}
 }

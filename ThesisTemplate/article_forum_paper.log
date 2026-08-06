@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.4)  22 JUL 2026 11:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.4)  1 AUG 2026 03:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -192,11 +192,6 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/cite\cite.sty
-LaTeX Info: Redefining \cite on input line 302.
-LaTeX Info: Redefining \nocite on input line 332.
-Package: cite 2015/02/27  v 5.5
-)
 (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 \col@sep=\dimen174
@@ -261,11 +256,78 @@ File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen194
 \Gin@req@width=\dimen195
-) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen196
+\captionmargin=\dimen197
+\caption@leftmargin=\dimen198
+\caption@rightmargin=\dimen199
+\caption@width=\dimen256
+\caption@indent=\dimen257
+\caption@parindent=\dimen258
+\caption@hangindent=\dimen259
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \@IEEEta
+blestring \footnotesize \bgroup \par \centering \@IEEEtabletopskipstrut {\norma
+lfont \footnotesize #1}\\{\normalfont \footnotesize \scshape #2}\par \addvspace
+ {0.5\baselineskip }\egroup \@IEEEtablecaptionsepspace \else \@IEEEfigurecaptio
+nsepspace \setbox \@tempboxa \hbox {\normalfont \footnotesize {#1.}\nobreakspac
+e \nobreakspace #2}\ifdim \wd \@tempboxa >\hsize \setbox \@tempboxa \hbox {\nor
+malfont \footnotesize {#1.}\nobreakspace \nobreakspace }\parbox [t]{\hsize }{\n
+ormalfont \footnotesize \noindent \unhbox \@tempboxa #2}\else \ifCLASSOPTIONcon
+ference \hbox to\hsize {\normalfont \footnotesize \hfil \box \@tempboxa \hfil }
+\else \hbox to\hsize {\normalfont \footnotesize \box \@tempboxa \hfil }\fi \fi 
+\fi  on input line 1175.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count294
+\c@continuedfloat=\count295
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count296
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count297
+) (C:\Program Files\MiKTeX\tex/latex/placeins\placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty
+Package: xurl 2022/01/09 v 0.10 modify URL breaks
+)
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
 
 (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
@@ -311,19 +373,19 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count294
+\c@section@level=\count298
 ) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count295
+\etb@tempcnta=\count299
 )
 (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.st
 y
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen196
-\Hy@linkcounter=\count296
-\Hy@pagecounter=\count297
+\@linkdim=\dimen260
+\Hy@linkcounter=\count300
+\Hy@pagecounter=\count301
  (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -332,7 +394,7 @@ Now handling font encoding PD1 ...
 (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count298
+\Hy@SavedSpaceFactor=\count302
 
 (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
@@ -346,9 +408,9 @@ Package hyperref Info: Plain pages OFF on input line 4172.
 Package hyperref Info: Backreferencing OFF on input line 4177.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4424.
-\c@Hy@tempcnt=\count299
+\c@Hy@tempcnt=\count303
 LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen197
+\XeTeXLinkMargin=\dimen261
 
 (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -358,9 +420,9 @@ sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count300
-\Field@Width=\dimen198
-\Fld@charsize=\dimen199
+\Fld@menulength=\count304
+\Field@Width=\dimen262
+\Fld@charsize=\dimen263
 Package hyperref Info: Hyper figures OFF on input line 6042.
 Package hyperref Info: Link nesting OFF on input line 6047.
 Package hyperref Info: Hyper index ON on input line 6050.
@@ -373,9 +435,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6072.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count301
-\c@Item=\count302
-\c@Hfootnote=\count303
+\Hy@abspage=\count305
+\c@Item=\count306
+\c@Hfootnote=\count307
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -387,8 +449,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count304
-\c@bookmark@seq@number=\count305
+\Fld@listcount=\count308
+\c@bookmark@seq@number=\count309
 
 (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfile
 check.sty
@@ -405,58 +467,59 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 30.
+(hyperref)                setting the option has no effect on input line 42.
 
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 30.
-Package hyperref Info: Option `plainpages' set `false' on input line 30.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 42.
+Package hyperref Info: Option `plainpages' set `false' on input line 42.
 
 Package hyperref Warning: Option `pdfpagelabels' has already been used,
-(hyperref)                setting the option has no effect on input line 30.
+(hyperref)                setting the option has no effect on input line 42.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 30.
+Package hyperref Info: Option `colorlinks' set `true' on input line 42.
+Package hyperref Info: Option `breaklinks' set `true' on input line 42.
 
 (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
 ex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count306
+\l__color_backend_stack_int=\count310
 \l__pdf_internal_box=\box58
 ) (article_forum_paper.aux)
 \openout1 = `article_forum_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
 
 -- Lines per column: 58 (exact).
 
 (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
 i
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count307
-\scratchdimen=\dimen256
+\scratchcounter=\count311
+\scratchdimen=\dimen264
 \scratchbox=\box59
-\nofMPsegments=\count308
-\nofMParguments=\count309
+\nofMPsegments=\count312
+\nofMParguments=\count313
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count310
-\MPscratchDim=\dimen257
-\MPnumerator=\count311
-\makeMPintoPDFobject=\count312
+\MPscratchCnt=\count314
+\MPscratchDim=\dimen265
+\MPnumerator=\count315
+\makeMPintoPDFobject=\count316
 \everyMPtoPDFconversion=\toks27
 )
 (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
@@ -468,21 +531,27 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cf
 g
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-)) (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
-Package: color 2024/06/23 v1.3e Standard LaTeX Color (DPC)
-
-(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 149.
-
-(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 34.
-(article_forum_paper.out) (article_forum_paper.out)
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package hyperref Info: Link coloring ON on input line 46.
+ (article_forum_paper.out) (article_forum_paper.out)
 \@outlinefile=\write3
 \openout3 = `article_forum_paper.out'.
 
 
+Underfull \hbox (badness 3375) in paragraph at lines 67--67
+\OT1/ptm/m/n/8 pines (e-mail: samuelle[]barja@dlsu.edu.ph; kon-rad[]castelo@dls
+u.edu.ph;
+ []
+
+
+
+
+Underfull \hbox (badness 4441) in paragraph at lines 126--127
+\OT1/ptm/m/n/10 to-cloud truck-monitoring sys-tem de-vel-oped with Hino
+ []
 
 
 
@@ -491,133 +560,127 @@ u/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
 ]
-(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
-(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
-<figure/concep_diagram.png, id=104, 523.9575pt x 352.31625pt>
-File: figure/concep_diagram.png Graphic file (type png)
-<use figure/concep_diagram.png>
-Package pdftex.def Info: figure/concep_diagram.png  used on input line 105.
-(pdftex.def)             Requested size: 252.0pt x 169.44855pt.
-<figure/End-to-end_system_architecture.png, id=106, 571.38469pt x 490.83376pt>
-File: figure/End-to-end_system_architecture.png Graphic file (type png)
-<use figure/End-to-end_system_architecture.png>
-Package pdftex.def Info: figure/End-to-end_system_architecture.png  used on inp
-ut line 112.
-(pdftex.def)             Requested size: 252.0pt x 216.4768pt.
-<figure/image.png, id=108, 394.47375pt x 262.40894pt>
-File: figure/image.png Graphic file (type png)
-<use figure/image.png>
-Package pdftex.def Info: figure/image.png  used on input line 121.
-(pdftex.def)             Requested size: 252.0pt x 167.63283pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 137
+.
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 137
+.
+
+(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 1436) in paragraph at lines 137--138
+[]\OT1/ptm/m/n/10 The pro-to-type was de-signed against a set of tech-ni-
+ []
 
 
-
-Underfull \hbox (badness 1406) in paragraph at lines 126--127
-\OT1/ptm/m/n/10 CAN/OBD-II ac-qui-si-tion, GPS re-cep-tion, dis-play out-put,
+Underfull \hbox (badness 1365) in paragraph at lines 137--138
+\OT1/ptm/m/n/10 low ISO 15765-4 [[]] to-gether with ISO 15031-5 and
  []
 
 
 
-[2 <./figure/concep_diagram.png> <./figure/End-to-end_system_architecture.png>]
-<figure/Fuel-level_filter_cascade.png, id=122, 1121.69063pt x 222.8325pt>
-File: figure/Fuel-level_filter_cascade.png Graphic file (type png)
-<use figure/Fuel-level_filter_cascade.png>
-Package pdftex.def Info: figure/Fuel-level_filter_cascade.png  used on input li
-ne 138.
-(pdftex.def)             Requested size: 252.0pt x 50.06033pt.
+<figure/systemArchi.png, id=138, 770.88pt x 1155.56718pt>
+File: figure/systemArchi.png Graphic file (type png)
+<use figure/systemArchi.png>
+Package pdftex.def Info: figure/systemArchi.png  used on input line 179.
+(pdftex.def)             Requested size: 252.0pt x 377.74132pt.
+
+Underfull \hbox (badness 6204) in paragraph at lines 184--185
+[]\OT1/ptm/m/it/10 Hardware. \OT1/ptm/m/n/10 An ESP32-WROOM-32 MCU (dual-core,
+ []
 
 
-<figure/thesis_defense_pipeline_v3.png, id=123, 1127.21124pt x 805.0075pt>
-File: figure/thesis_defense_pipeline_v3.png Graphic file (type png)
-<use figure/thesis_defense_pipeline_v3.png>
-Package pdftex.def Info: figure/thesis_defense_pipeline_v3.png  used on input l
-ine 170.
-(pdftex.def)             Requested size: 252.0pt x 179.96423pt.
+
+[2]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-75.
-(C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
+86.
+ (C:\Users\Samu\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 
-LaTeX Warning: Reference `sec:results_so4' on page 3 undefined on input line 17
-5.
 
-
-
-[3 <./figure/image.png> <./figure/Fuel-level_filter_cascade.png>]
-
-<figure/Offline-buffer_fall-through_flowchart.png, id=144, 612.78937pt x 549.55
-313pt>
-File: figure/Offline-buffer_fall-through_flowchart.png Graphic file (type png)
-<use figure/Offline-buffer_fall-through_flowchart.png>
-Package pdftex.def Info: figure/Offline-buffer_fall-through_flowchart.png  used
- on input line 201.
-(pdftex.def)             Requested size: 252.0pt x 225.99747pt.
-
-
-[4 <./figure/thesis_defense_pipeline_v3.png>]
-
-<figure/fig_6_26_abc_model_performance.png, id=151, 787.22679pt x 388.70935pt>
-File: figure/fig_6_26_abc_model_performance.png Graphic file (type png)
-<use figure/fig_6_26_abc_model_performance.png>
-Package pdftex.def Info: figure/fig_6_26_abc_model_performance.png  used on inp
-ut line 244.
-(pdftex.def)             Requested size: 252.0pt x 124.43105pt.
-<figure/fig_5_6b_state_sync.png, id=152, 812.03375pt x 359.3425pt>
-File: figure/fig_5_6b_state_sync.png Graphic file (type png)
-<use figure/fig_5_6b_state_sync.png>
-Package pdftex.def Info: figure/fig_5_6b_state_sync.png  used on input line 256
-.
-(pdftex.def)             Requested size: 252.0pt x 111.51016pt.
-
-Underfull \hbox (badness 1983) in paragraph at lines 264--265
-[]\OT1/ptm/m/n/10 The present la-bels were pri-mar-ily con-trolled in-jected
+Underfull \hbox (badness 7362) in paragraph at lines 194--195
+\OT1/ptm/m/n/10 median--exponential mov-ing av-er-age (EMA)--dead-band--
  []
 
 
 
-[5 <./figure/Offline-buffer_fall-through_flowchart.png> <./figure/fig_6_26_abc_
-model_performance.png>]
+[3 <./figure/systemArchi.png (PNG copy)>]
 
-(article_forum_paper.bbl)
 
-[6 <./figure/fig_5_6b_state_sync.png>] (article_forum_paper.aux)
+
+[4]
+
+
+
+[5]
+<figure/image23.jpg, id=234, 2055.68pt x 1150.2975pt>
+File: figure/image23.jpg Graphic file (type jpg)
+<use figure/image23.jpg>
+Package pdftex.def Info: figure/image23.jpg  used on input line 427.
+(pdftex.def)             Requested size: 78.1041pt x 43.70473pt.
+<figure/image7.jpg, id=235, 949.5475pt x 2053.6725pt>
+File: figure/image7.jpg Graphic file (type jpg)
+<use figure/image7.jpg>
+Package pdftex.def Info: figure/image7.jpg  used on input line 433.
+(pdftex.def)             Requested size: 39.4533pt x 85.32922pt.
+<figure/image26.jpg, id=236, 2055.68pt x 1105.12875pt>
+File: figure/image26.jpg Graphic file (type jpg)
+<use figure/image26.jpg>
+Package pdftex.def Info: figure/image26.jpg  used on input line 439.
+(pdftex.def)             Requested size: 78.1041pt x 41.98857pt.
+
+
+
+
+[6 <./figure/image23.jpg> <./figure/image7.jpg> <./figure/image26.jpg>]
+(article_forum_paper.bbl
+
+)
+
+[7] (article_forum_paper.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `article_forum_paper.out' has not changed.
-(rerunfilecheck)             Checksum: CC52D82D404C8DB680E36D74A7AA0781;3751.
+(rerunfilecheck)             Checksum: ADF61D2A829B4E3911D49B40160DDD06;4761.
  ) 
 Here is how much of TeX's memory you used:
- 11075 strings out of 473530
- 176914 string characters out of 5715278
- 591005 words of memory out of 5000000
- 34111 multiletter control sequences out of 15000+600000
- 598715 words of font info for 103 fonts, out of 8000000 for 9000
+ 12901 strings out of 473530
+ 208805 string characters out of 5715278
+ 652715 words of memory out of 5000000
+ 35886 multiletter control sequences out of 15000+600000
+ 603224 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,2338b,442s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,79p,1898b,518s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mex10.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmmi7.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmr10.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Samu/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Samu/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Samu/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Sam
-u/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Sa
-mu/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Sam
-u/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Sam
-u/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Samu
-/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on article_forum_paper.pdf (6 pages, 887726 bytes).
+mbx10.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmbx7.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmex10.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Samu/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Samu/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Samu/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Samu/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Sam
+u/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/U
+sers/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pf
+b><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+msy7.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/symbols/msbm10.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/
+urw/courier/ucrr8a.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1
+/urw/times/utmb8a.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/
+urw/times/utmbi8a.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/
+urw/times/utmr8a.pfb><C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/type1/u
+rw/times/utmri8a.pfb>
+Output written on article_forum_paper.pdf (7 pages, 1783059 bytes).
 PDF statistics:
- 241 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
- 193 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 389 PDF objects out of 1000 (max. 8388607)
+ 75 named destinations out of 1000 (max. 500000)
+ 213 words of extra memory for PDF output out of 10000 (max. 10000000)
 

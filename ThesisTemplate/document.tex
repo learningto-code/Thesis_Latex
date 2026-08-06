@@ -33,8 +33,8 @@
 % document IDs
 
 % specify if dissertation, thesis, project, dissertation proposal, thesis proposal, project proposal 
-%\newcommand{\documentType}{Thesis Paper}
-\newcommand{\documentType}{Thesis Proposal}
+\newcommand{\documentType}{Thesis Paper}
+%\newcommand{\documentType}{Thesis Proposal}
 %\newcommand{\documentType}{Dissertation Proposal}
 %\newcommand{\documentType}{Dissertation}
 \newcommand{\college}{Gokongwei College of Engineering}
@@ -54,15 +54,15 @@
 \newcommand{\documentAdviserTitle}{Dr.} 
 \newcommand{\documentAdviser}{N/A}
 
-\newcommand{\examinerChairTitle}{Dr.} 
-\newcommand{\examinerChair}{Amado Z. Hernandez}
+\newcommand{\examinerChairTitle}{Dr.}
+\newcommand{\examinerChair}{Lawrence J. Materum}
 
 % Sort in alphabetically ascending manner the surnames of the examiners
-\newcommand{\examinerATitle}{Dr.} 
-\newcommand{\examinerA}{Jose Y. Alonzo}
+\newcommand{\examinerATitle}{Dr.}
+\newcommand{\examinerA}{Gerino Mappatao}
 
-\newcommand{\examinerBTitle}{Dr.} 
-\newcommand{\examinerB}{Mariana X. Mercado}
+\newcommand{\examinerBTitle}{Dr.}
+\newcommand{\examinerB}{Gerald Arada}
 
 % Note that \examinerC and \examinerD only applies for PhD dissertations
 \newcommand{\examinerCTitle}{Dr.} 
@@ -152,9 +152,12 @@
 	appendix_partner_evidence,
 	appendix_survey_instrument,
 	appendix_technical_details,
+	appendix_gantt,
+	appendix_source_code,
+	appendix_ai_disclosure,
 	%answers_to_questions,
 	%revisions_to_the_proposal,
-	%revisions_to_the_final,
+	revisions_to_the_final,
 %	usage_examples,
 %	publication,
 %	vita,
@@ -299,8 +302,8 @@
 		\chapter{Conclusions, Recommendations, and Future Directives}
 		\label{ch:conc}
 		%\startcontents[chapters]
-		%\begin{SingleSpace}	
-		%	\Mprintcontents 
+		%\begin{SingleSpace}
+		%	\Mprintcontents
 		%\end{SingleSpace}
 		\include{conclusions}
 		%\stopcontents[chapters]
@@ -310,7 +313,9 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\renewcommand{\UrlFont}{\normalfont}
 	%\bibliographystyle{IEEEtr} % for IEEE referencing format
-	\bibliographystyle{apalike} % for APA referencing format
+	%\bibliographystyle{apalike} % for APA referencing format (ignores DOI/URL)
+	%\bibliographystyle{plainnat} % natbib author-year style (renders authors First-Last)
+	\bibliographystyle{apacite} % APA style: surname-first author formatting so alphabetical order is visually obvious
 	\nocite{*}
 	\begin{SingleSpace}
 		{\small \bibliography{references}}
@@ -363,21 +368,27 @@
 	\cleardoublepage
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\chapter{Article Paper}
-	\label{ch:appendix_article_paper}
+	\chapter{Individual Gantt Charts}
+	\label{ch:appendix_gantt}
+	\include{appendix_gantt}
 	\cleardoublepage
-	{
-		\ClearWallPaper
-		\nolinenumbers
-		\includepdf[pages=-,%
-			scale=1.0,%
-			frame,%
-			pagecommand={\thispagestyle{empty}},%
-		]
-		{article_forum_paper.pdf}
-	}
-	\cleardoublepage
-	
 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\chapter{Summary of Revisions Prior to Approval}
+	\label{ch:rev_final}
+	\include{revisions_to_the_final}
+	\cleardoublepage
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\chapter{Source Code Listings}
+	\label{ch:appendix_source_code}
+	\include{appendix_source_code}
+	\cleardoublepage
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\chapter{Generative AI Use Disclosure}
+	\label{ch:appendix_ai_disclosure}
+	\include{appendix_ai_disclosure}
+	\cleardoublepage
 
 \end{document}

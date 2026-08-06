@@ -16,7 +16,7 @@ A level-1 auxiliary file: results_and_discussions.aux
 Reallocating 'name_of_file' (item size: 1) to 16 items.
 A level-1 auxiliary file: conclusions.aux
 Reallocating 'name_of_file' (item size: 1) to 8 items.
-The style file: apalike.bst
+The style file: apacite.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Reallocating 'name_of_file' (item size: 1) to 30 items.
 A level-1 auxiliary file: appendix_partner_evidence.aux
@@ -24,57 +24,69 @@ Reallocating 'name_of_file' (item size: 1) to 31 items.
 A level-1 auxiliary file: appendix_survey_instrument.aux
 Reallocating 'name_of_file' (item size: 1) to 31 items.
 A level-1 auxiliary file: appendix_technical_details.aux
+Reallocating 'name_of_file' (item size: 1) to 19 items.
+A level-1 auxiliary file: appendix_gantt.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: revisions_to_the_final.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: appendix_source_code.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: appendix_ai_disclosure.aux
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'field_info' (item size: 4) to 10136 items.
 Database file #1: references.bib
-Warning--to sort, need author or key in automatic2019fuel
-Warning--empty author in automatic2019fuel
-Warning--empty year in husak_nodate_intelligent
-Warning--can't use both volume and number fields in kalman1960new
-Warning--empty publisher in kalman1960new
-Warning--empty year in maurya_nodate_real
-Warning--empty year in meitrack_lora_fleet
-Warning--empty year in opensignal_seasia_coverage
-Warning--can't use both volume and number fields in prasanna2023iot
-Warning--empty year in scikit_learn_logo
-Warning--empty year in iec_gsm_tutorial
-You've used 126 entries,
-            1935 wiz_defined-function locations,
-            1084 strings with 25684 characters,
-and the built_in function-call counts, 44949 in all, are:
-= -- 4600
-> -- 1552
-< -- 129
-+ -- 531
-- -- 498
-* -- 3284
-:= -- 7896
-add.period$ -- 420
-call.type$ -- 126
-change.case$ -- 861
-chr.to.int$ -- 119
-cite$ -- 138
-duplicate$ -- 1900
-empty$ -- 3159
-format.name$ -- 661
-if$ -- 8924
-int.to.chr$ -- 8
-int.to.str$ -- 0
-missing$ -- 78
-newline$ -- 673
-num.names$ -- 377
-pop$ -- 738
+apacite.bst [2013/07/21 v6.03 APA bibliography style]
+Warning--`others' not consistent with 6th ed. of the APA Manual
+Warning--`others' not consistent with 6th ed. of the APA Manual
+Warning--`others' not consistent with 6th ed. of the APA Manual
+Warning--`others' not consistent with 6th ed. of the APA Manual
+You've used 107 entries,
+            6951 wiz_defined-function locations,
+            1931 strings with 35486 characters,
+and the built_in function-call counts, 209030 in all, are:
+= -- 26091
+> -- 1761
+< -- 9770
++ -- 9526
+- -- 304
+* -- 13000
+:= -- 36720
+add.period$ -- 527
+call.type$ -- 107
+change.case$ -- 1900
+chr.to.int$ -- 0
+cite$ -- 214
+duplicate$ -- 5520
+empty$ -- 8514
+format.name$ -- 2762
+if$ -- 40458
+int.to.chr$ -- 0
+int.to.str$ -- 335
+missing$ -- 0
+newline$ -- 2866
+num.names$ -- 856
+pop$ -- 5971
 preamble$ -- 1
-purify$ -- 865
+purify$ -- 457
 quote$ -- 0
-skip$ -- 1458
+skip$ -- 12276
 stack$ -- 0
-substring$ -- 2832
-swap$ -- 282
-text.length$ -- 32
+substring$ -- 10475
+swap$ -- 3074
+text.length$ -- 450
 text.prefix$ -- 0
-top$ -- 0
-type$ -- 744
-warning$ -- 11
-while$ -- 385
+top$ -- 1
+type$ -- 10672
+warning$ -- 4
+while$ -- 986
 width$ -- 0
-write$ -- 1667
-(There were 11 warnings)
+write$ -- 3432
+(There were 4 warnings)

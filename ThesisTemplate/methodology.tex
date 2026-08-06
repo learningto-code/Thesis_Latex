@@ -63,12 +63,22 @@ SO5: To develop and integrate hardware-based rest and maintenance alert mechanis
 Table~\ref{tab:methods_per_objective} is used as the methodological roadmap for the chapter. Each row connects a thesis objective to the concrete subsystem, data source, or validation activity used to satisfy it. The table also prevents the methodology from becoming only an implementation narrative: it shows that fuel acquisition, communication, GPS logging, machine learning, and alert delivery are each tied to a measurable requirement that is later evaluated in Chapter~\ref{ch:result_discuss}.
 
 
+\section{Description and Methodology}
+\label{sec:method_description}
+
+This study employs a quantitative research paradigm combined with a data-centric, system development approach to implement an AI-driven fleet fuel monitoring and anomaly detection system. The methodology integrates theoretical foundations from Chapter~\ref{ch:theorycon} on cyber-physical systems and IoT architectures, system design principles from Chapter~\ref{ch:designcon}, and practical implementation strategies detailed throughout this chapter. The system leverages real-time vehicle data acquired through the OBD-II/CAN\glsadd{CAN} interface, GPS modules for location tracking, and embedded alert subsystems for driver safety. These components feed into a microcontroller that preprocesses signals, synchronizes time-series data, and transmits information to a cloud platform through prioritized LoRa, LTE, GSM 2G, WiFi, and offline-replay channels.
+
+Offline, historical and hybrid datasets, combining fleet telemetry and publicly available vehicle logs, are used to train context-aware non-parametric machine learning models such as Matrix Profile and Isolation Forest. These models identify anomalous fuel consumption patterns and provide context-aware alerts. In the cloud, a Python-based engine continuously evaluates incoming data, logs anomaly events, and stores synchronized measurements in a centralized database. Users access the information through an embedded HMI, a mobile driver web application, and an administrative dashboard that display real-time truck status, historical fuel usage, route playback, trip state, and operational alerts.
+
+The methodology includes signal preprocessing (smoothing via moving averages), time synchronization using linear interpolation, hybrid dataset construction, and rigorous evaluation metrics (precision, false positive rate, accuracy, detection latency) to validate system objectives. The approach follows iterative, agile development cycles, allowing continuous refinement of sensor integration, communication protocols, and anomaly detection algorithms, thereby ensuring reliability, scalability, and actionable fleet monitoring insights.
+
+
 \section{System Architecture and Conceptual Design}
 \label{sec:implement}
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=1\textwidth]{concep_diagram.png}
+	\includegraphics[width=1\textwidth]{conceptdiagram.png}
 	\caption{Conceptual Framework}
 	\label{fig:conceptual_framework}
 \end{figure}
@@ -90,7 +100,7 @@ The system architecture in Figure~\ref{fig:End-to-end_system_architecture} is an
 \FloatBarrier
 \begin{figure}[!htbp]
     \centering
-        \includegraphics[width=0.8\textwidth]{End-to-end_system_architecture.png}
+        \includegraphics[width=0.8\textwidth]{systemArchi.png}
     \caption{End-to-end System Architecture}
     \label{fig:End-to-end_system_architecture}
 \end{figure}
@@ -310,7 +320,7 @@ Vehicle Speed & Standard OBD-II & Mode 01, PID 0D & km/h & ISO~15031-5~\cite{iso
 \hline
 Odometer & Toyota OBD-II (proprietary) & Mode 22, PID DE0F & km & ISO~15765-4~\cite{iso15765_4} \\
 \hline
-GPS Position \& Speed & u-blox NEO-6M/M8N & UART NMEA GPRMC (9600~baud) & deg, km/h & NMEA~0183 \\
+GPS Position \& Speed & u-blox NEO-M8N & UART NMEA GPRMC (9600~baud) & deg, km/h & NMEA~0183 \\
 \hline
 Timestamp & ESP32 RTC / NTP-synced & System clock (epoch ms) & epoch~ms & IETF~RFC~5905 \\
 \hline
@@ -328,7 +338,7 @@ The raw OBD-II fuel reading was passed through a five-stage edge filter before p
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.95\textwidth]{Fuel-level_filter_cascade.png}
+    \includegraphics[width=0.95\textwidth]{4.png}
     \caption{Fuel-Level Filter Cascade}
     \label{fig:fuel_filter_cascade}
 \end{figure}
@@ -693,6 +703,9 @@ For the LoRa 51-byte payload at SF7, $T_{\mathrm{TX}} = 62$~ms; for WiFi the air
 
 \subsection{Communication Module Comparison}
 
+% Compensate for a phantom table-counter increment from the preceding
+% tabularx-based float, which otherwise leaves an empty slot in the LoT.
+\addtocounter{table}{-1}
 \begin{table}[!htbp]
 \centering
 \caption{Communication Module Comparison}
@@ -742,11 +755,7 @@ Figure~\ref{fig:channel_state_machine} models the intelligent-traffic-steering c
 
 \begin{figure}[!htbp]
     \centering
-    % Placeholder — will be replaced with Fig_5_10_Channel_State_Machine.png
-    % once the diagram team delivers it. Spec: diagram_revision_brief.md,
-    % Diagram A. The prose below already describes the target diagram; only
-    % the \includegraphics filename needs to be swapped when the PNG lands.
-    \includegraphics[width=0.9\textwidth]{example_gray_box.pdf}
+    \includegraphics[width=0.9\textwidth]{1.png}
     \caption[Transport State Machine]{Transport State Machine}
     \label{fig:channel_state_machine}
 \end{figure}
@@ -768,7 +777,7 @@ Figure~\ref{fig:offline_buffer_fallthrough} shows the decision tree executed by 
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{Offline-buffer_fall-through_flowchart.png}
+    \includegraphics[width=0.9\textwidth]{5.png}
     \caption{Offline-Buffer Fall-Through Flowchart}
     \label{fig:offline_buffer_fallthrough}
 \end{figure}
@@ -908,7 +917,7 @@ Each telemetry payload is signed with an HMAC\glsadd{HMAC} digest before transmi
 The LoRa physical-layer range test was conducted with the SX1278 module configured at 17\,dBm transmit power, 433\,MHz centre frequency, spreading factor seven, and 125\,kHz bandwidth. 100 telemetry-sized packets were transmitted from the in-vehicle node to a fixed gateway at each of the open line-of-sight distances of 10, 50, 100, 250, 500, 1{,}000, 2{,}000, and 5{,}000\,m, and at the urban non-line-of-sight distances of 100, 250, and 500\,m. The received-signal-strength indicator, the signal-to-noise ratio, and the successfully-received-packet count were recorded at the gateway for each distance band.
 
 \subsection{GSM / LTE Drive-test Protocol}
-Carrier-reported signal quality was logged via the AT+CSQ\glsadd{CSQ} command issued to the A7670E modem at five locations of operational interest: the depot, a Metro Manila urban environment, a highway corridor, a tunnel or underpass selected to trigger the buffer-activation path, and a provincial route in Batangas exhibiting two-gigahertz-only coverage. The per-packet upload latency was computed at the backend as the difference between the device-side \texttt{sent\_at} timestamp and the backend-side receipt timestamp; the 50th- and 95th-percentile latencies are reported per location alongside the successful-upload fraction.
+Carrier-reported signal quality was logged via the AT+CSQ\glsadd{CSQ} command issued to the A7670E modem at five locations of operational interest: the depot, a Metro Manila urban environment, a highway corridor, a tunnel or underpass selected to trigger the buffer-activation path, and a provincial route in Batangas exhibiting 2-GHz-only coverage. The per-packet upload latency was computed at the backend as the difference between the device-side \texttt{sent\_at} timestamp and the backend-side receipt timestamp; the 50th- and 95th-percentile latencies are reported per location alongside the successful-upload fraction.
 
 \subsection{Packet-delivery and Buffering Protocol}
 A drive route was executed that traversed three distinct connectivity regions: an urban region with strong LTE coverage, a highway region with marginal LTE coverage, and a confirmed no-signal dead zone. 100 packets were generated at each stage; the per-stage outcome (sent on first attempt, sent after a retry, buffered to the on-device SPIFFS log, replayed once connectivity returned, or lost) was tabulated from the firmware serial-output log and the backend-side telemetry receipt log.
@@ -921,7 +930,7 @@ Together, the LoRa range test, GSM/LTE drive test, and packet-delivery route tes
 The GPS pipeline provides three independent products: instantaneous position for driver navigation, an integrated trip-distance estimate for fuel-economy features, and an independent speed source that cross-checks the OBD-II speed PID. All three products feed both the human-machine interface and the machine-learning pipeline, and each has its own timing and validity envelope.
 
 \subsection{Physical Interface and NMEA Extraction}
-The receiver is a u-blox NEO-6M GPS module (50 channels, $-161$~dBm tracking sensitivity, datasheet cold-start of at most 27~s) connected to the ESP32 by UART at 9600~baud on GPIO16 (RX) and GPIO17 (TX). The NMEA byte stream is drained on every scheduler tick and fed to the TinyGPSPlus embedded parser. The parser maintains a finite-state machine over four sentence families:
+The receiver is a u-blox NEO-M8N GPS module (72 channels, $-167$~dBm tracking sensitivity, datasheet cold-start of at most 26~s) connected to the ESP32 by UART at 9600~baud on GPIO16 (RX) and GPIO17 (TX). The NMEA byte stream is drained on every scheduler tick and fed to the TinyGPSPlus embedded parser. The parser maintains a finite-state machine over four sentence families:
 \begin{itemize}
     \item \texttt{\$GPRMC} / \texttt{\$GNRMC} for position, ground speed, heading, and UTC;
     \item \texttt{\$GPGGA} / \texttt{\$GNGGA} for fix quality, satellites used, HDOP, and altitude;
@@ -989,7 +998,7 @@ $0.5\text{ km}$ & maximum plausible per-cycle segment cap.
 \vspace{0.5em}
 Both indicators must evaluate to 1 for the segment to be accumulated.
 
-The 3~km/h speed floor is drawn from the NEO-6M datasheet: the receiver's stationary CEP-50 velocity noise is $\pm$1.5~km/h, so 3~km/h~$= 2\times$ the noise floor. This rejects the approximately 0.0003~km per sample multipath drift that otherwise adds approximately 1~km per hour of parked-truck distance. The 0.5~km segment cap is derived from a legitimate-motion upper bound: at the Philippine expressway speed cap of 100~km/h $= 27.8$~m/s, one second at 1~Hz fix cadence produces at most 28~m~$= 0.028$~km, so 0.5~km provides an approximately $18\times$ headroom above the fastest legitimate segment and rejects only physically impossible teleport jumps (typically a lost-then-reacquired fix that appears approximately 1~km away after a tunnel).
+The 3~km/h speed floor is drawn from the NEO-M8N datasheet: the receiver's stationary CEP-50 velocity noise is $\pm$1.5~km/h, so 3~km/h~$= 2\times$ the noise floor. This rejects the approximately 0.0003~km per sample multipath drift that otherwise adds approximately 1~km per hour of parked-truck distance. The 0.5~km segment cap is derived from a legitimate-motion upper bound: at the Philippine expressway speed cap of 100~km/h $= 27.8$~m/s, one second at 1~Hz fix cadence produces at most 28~m~$= 0.028$~km, so 0.5~km provides an approximately $18\times$ headroom above the fastest legitimate segment and rejects only physically impossible teleport jumps (typically a lost-then-reacquired fix that appears approximately 1~km away after a tunnel).
 
 \subsection{OBD-II / GPS Distance Fusion}
 \label{sec:gps_fusion}
@@ -1323,6 +1332,7 @@ Hardware MAC & 48-bit ESP32 factory MAC & eFuse (immutable) & Not currently used
 \end{tabular}
 \end{table}
 
+\FloatBarrier
 \subsubsection{Enforcement at Ingest}
 \label{sec:unit_id_ingest}
 
@@ -1401,22 +1411,23 @@ O4 Refuel pattern & \texttt{time\_since\_refuel\_norm}, \texttt{post\_refuel\_fl
 
 Table~\ref{tab:constraint_mechanism_mapping} links each physical or operational constraint to an implemented mechanism in the feature pipeline, filter cascade, or contextual gate. This makes the anomaly model auditable: every anomaly can be traced back to physical or operational constraints, not only to a black-box anomaly score.
 
+\FloatBarrier
 \subsection{Machine Learning Architecture}
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.95\textwidth]{thesis_defense_pipeline_v2.png}
+    \includegraphics[width=0.95\textwidth]{3.png}
     \caption{Machine-Learning Anomaly-Detection Architecture}
     \label{fig:ml_anomaly_detection_architecture}
 \end{figure}
 
-Figure~\ref{fig:ml_anomaly_detection_architecture} illustrates the end-to-end anomaly-detection pipeline as a four-plane diagram: a data plane that converts raw sensor traffic into a persisted feature row, two inference planes that score the row with complementary detectors, and an output plane that translates a passed candidate into an operator-facing alert. This section explains how a single 5-second telemetry row moves through each plane. The \emph{data plane} captures OBD-II Mode~22 fuel, GPS, and HMI-state signals, applies the edge filter cascade (median~+~EMA, 5\,s HMAC-signed payload), ingests the row through \texttt{POST~/telemetry}, and derives the 33-dimensional Model~C feature vector plus a short fuel-window buffer. The \emph{primary inference plane} scores every row with Isolation Forest Model~C under the \texttt{if\_with\_margin} operating mode ($\text{score} \geq \tau + \delta$, with $\delta = 0.005$) and hands admitted candidates to the contextual gate. The \emph{audit-and-override inference plane} runs Matrix Profile with an $m = 4$ subsequence and reports a discord $z$-score for the same row; the score is persisted on the row as an audit signal, and additionally triggers an escalation arrow into the contextual gate when the discord exceeds the extreme-tail thresholds (\texttt{mp\_score}~$\geq 4.0$ with $\Delta\text{fuel} < 0$, or \texttt{mp\_score}~$\geq 2.0$ with $\Delta\text{fuel} \leq -2.0$\,L). The contextual gate is a five-stage cascade of one positive plausibility filter (\texttt{suspiciousContext}) and four negative suppressors (\texttt{parkedRefuel}, \texttt{postRefuel}, \texttt{loadSpikeSuppress}, \texttt{coldStartSuppress}); only rows that pass all five stages proceed to the persistence step, which sets \texttt{anomaly\_flag}, records the score and \texttt{model\_source}, tags the operational scenario from the 90\,s event window, and applies a 5-minute per-truck deduplication. The \emph{output plane} propagates the alert to the \texttt{alerts} table, drives the buzzer and banner on the driver HMI, and surfaces the event on the operator dashboard and \texttt{FleetMap} with the Matrix Profile audit column rendered as a second-opinion badge.
+Figure~\ref{fig:ml_anomaly_detection_architecture} illustrates the end-to-end anomaly-detection pipeline as a four-plane diagram: a data plane that converts raw sensor traffic into a persisted feature row, two inference planes that score the row with complementary detectors, and an output plane that translates a passed candidate into an operator-facing alert. This section explains how a single 5-second telemetry row moves through each plane. The \emph{data plane} captures OBD-II Mode~22 fuel, GPS, and HMI-state signals, applies the edge filter cascade (median~+~EMA, 5\,s HMAC-signed payload), ingests the row through \texttt{POST~/telemetry}, and derives the 33-dimensional Model~C feature vector plus a short fuel-window buffer. The \emph{primary inference plane} scores every row with Isolation Forest Model~C under the \texttt{if\_with\_margin} operating mode ($\text{score} \geq \tau + \delta$, with $\delta = 0.005$) and hands admitted candidates to the contextual gate. The \emph{audit-and-override inference plane} runs Matrix Profile on two parallel discord windows (primary $m_1 = 5$ samples for rapid-drop signatures and long $m_2 = 12$ samples for gradual-leak signatures, with a length-$4$ localisation window used only to attribute a flagged region to a specific row) and reports a discord $z$-score for the same row; the score is persisted on the row as an audit signal, and additionally triggers an escalation arrow into the contextual gate when the discord exceeds the extreme-tail thresholds (\texttt{mp\_score}~$\geq 4.0$ with $\Delta\text{fuel} < 0$, or \texttt{mp\_score}~$\geq 2.0$ with $\Delta\text{fuel} \leq -2.0$\,L). The contextual gate is a five-stage cascade of one positive plausibility filter (\texttt{suspiciousContext}) and four negative suppressors (\texttt{parkedRefuel}, \texttt{postRefuel}, \texttt{loadSpikeSuppress}, \texttt{coldStartSuppress}); only rows that pass all five stages proceed to the persistence step, which sets \texttt{anomaly\_flag}, records the score and \texttt{model\_source}, tags the operational scenario from the 90\,s event window, and applies a 5-minute per-truck deduplication. The \emph{output plane} propagates the alert to the \texttt{alerts} table, drives the buzzer and banner on the driver HMI, and surfaces the event on the operator dashboard and \texttt{FleetMap} with the Matrix Profile audit column rendered as a second-opinion badge.
 
 The data plane begins with three on-vehicle sensor streams: the OBD-II Mode~22 fuel channel for the Toyota Hilux partner-fleet unit, the GPS NMEA stream, and the HMI trip-state signal. These streams are then fed through the fuel filter cascade documented in Section~\ref{sec:fuel_preprocessing}. The filtered payload is signed with a device-side HMAC, transmitted every 5\,s through the intelligent traffic-steering chain (LoRa~$\rightarrow$~LTE~$\rightarrow$~GSM~2G~$\rightarrow$~WiFi~$\rightarrow$~SPIFFS buffer), and ingested at the backend through the \texttt{POST~/telemetry} endpoint. The ingest step validates the row, resolves the trip, computes distance deltas through a Postgres RPC call, and derives the 33-feature Model~C vector that Section~\ref{sec:ml} enumerates. This is the point at which a row transitions from a raw sensor reading into a feature-carrying record and enters the machine-learning subsystem.
 
 The primary inference plane operates row-by-row. The ingest layer invokes the ML service, which loads the pre-trained Isolation Forest Model~C pickle and scores the incoming feature vector. Under the \texttt{if\_with\_margin} operating mode the row is admitted as an anomaly candidate only when its anomaly score exceeds the per-context calibrated threshold $\tau$ by an empirical margin $\delta = 0.005$ selected during threshold calibration on the held-out clean-training-score distribution. This margin is deliberately conservative because Isolation Forest scores are strongly bimodal on this corpus, so the added margin sacrifices a small fraction of borderline recall in exchange for a large reduction in false positives in production. Candidates that clear this test enter the contextual gate; candidates that do not are recorded in \texttt{telemetry\_logs} with an \texttt{anomaly\_score} but no \texttt{anomaly\_flag}, matching the ``IF quiet, no alert'' exit shown at the top-right of the primary plane in Figure~\ref{fig:ml_anomaly_detection_architecture}.
 
-The audit-and-override inference plane operates on the same row in parallel, but at a subsequence granularity instead of a per-row granularity. The Matrix Profile subsystem maintains a rolling fuel-level buffer of the current trip's filtered fuel series and computes a $z$-score of the discord distance for the most recent length-$m = 4$ window against the calibration distribution derived from the clean reference trips in Section~\ref{sec:mp_math}. The output is a single scalar (\texttt{mp\_score}) and a companion boolean (\texttt{mp\_flag}) that is set whenever the score exceeds the calibrated tail threshold. Under the default operating mode this signal is treated as audit-only: it is persisted on the same \texttt{telemetry\_logs} row, and the dashboard uses it to display a second-opinion badge on every alert card. It does not, by itself, cause an alert to be raised. The exception is the \texttt{mpScreamOverride} escalation rule, which lets Matrix Profile trigger a primary alert when its discord score is unambiguously in the tail of the clean-trip distribution: either \texttt{mp\_score}~$\geq 4.0$ on a row with any negative $\Delta\text{fuel}$, or \texttt{mp\_score}~$\geq 2.0$ on a row whose per-row fuel loss is at least $2.0$\,L. This rule exists to catch slow gradual leaks whose per-row fuel movement is below every threshold in the primary plane but whose subsequence shape is a genuine discord. In Figure~\ref{fig:ml_anomaly_detection_architecture} the override is drawn as the arrow ascending from Matrix Profile into the contextual gate, and the rule remains gated by the same five-stage cascade that the primary path is subject to.
+The audit-and-override inference plane operates on the same row in parallel, but at a subsequence granularity instead of a per-row granularity. The Matrix Profile subsystem maintains a rolling fuel-level buffer of the current trip's filtered fuel series and computes discord $z$-scores at the two deployed detection windows against the calibration distribution derived from the clean reference trips in Section~\ref{sec:mp_math}: the primary $m_1 = 5$-sample window catches rapid drops, the long $m_2 = 12$-sample window catches gradual leaks, and a supporting length-$4$ localisation window attributes each flagged region to a specific row so the alert card can point at a concrete sample rather than at the $25$--$60$~s span. The output is a single scalar (\texttt{mp\_score}) and a companion boolean (\texttt{mp\_flag}) that is set whenever the score exceeds the calibrated tail threshold. Under the default operating mode this signal is treated as audit-only: it is persisted on the same \texttt{telemetry\_logs} row, and the dashboard uses it to display a second-opinion badge on every alert card. It does not, by itself, cause an alert to be raised. The exception is the \texttt{mpScreamOverride} escalation rule, which lets Matrix Profile trigger a primary alert when its discord score is unambiguously in the tail of the clean-trip distribution: either \texttt{mp\_score}~$\geq 4.0$ on a row with any negative $\Delta\text{fuel}$, or \texttt{mp\_score}~$\geq 2.0$ on a row whose per-row fuel loss is at least $2.0$\,L. This rule exists to catch slow gradual leaks whose per-row fuel movement is below every threshold in the primary plane but whose subsequence shape is a genuine discord. In Figure~\ref{fig:ml_anomaly_detection_architecture} the override is drawn as the arrow ascending from Matrix Profile into the contextual gate, and the rule remains gated by the same five-stage cascade that the primary path is subject to.
 
 The contextual gate is the false-positive filter that both admission paths share. It is composed of one positive plausibility gate and four negative suppressors, and a row must satisfy the positive gate and clear all four suppressors before an alert is persisted. The positive gate, \texttt{suspiciousContext}, admits the row when at least one of four physical loss signatures is present: a per-row fuel delta strictly below $-2.0$\%, a fuel-per-kilometre rate above $0.6$\% of tank per km, a stationary idle-theft signature at speed below 5\,km/h with the engine on and fuel delta below $-1.0$\%, or a physically impossible driving-fuel increase of $+2$\% or more at speed above 5\,km/h. The four suppressors are then applied in sequence. \texttt{parkedRefuel} rejects the canonical fill-up signature (fuel delta above $+10$\% while parked). \texttt{postRefuel} rejects rows within five minutes of any $+5$\% fuel jump on the same trip and communication channel, because the capacitive fuel sender takes several minutes to settle after a fill. \texttt{loadSpikeSuppress} rejects the acceleration-slosh signature in which fuel briefly reads lower during a hard load transient (engine load $\geq 55$\% with a rise $\geq 25$\%, and a small negative fuel delta). \texttt{coldStartSuppress} rejects the sender-priming interval that follows an engine ignition transition. Rows blocked by any suppressor are logged and audited but do not generate operator-facing alerts, matching the ``suppressed, no alert'' exit shown at the top-right of the gate in Figure~\ref{fig:ml_anomaly_detection_architecture}. This separation of concerns --- a context-aware statistical detector that produces candidates, followed by a domain-aware precision filter that suppresses the four families of sender artefacts that dominate the false-positive budget --- is what allows the deployed configuration to reach the 92.9\% precision reported in Chapter~\ref{ch:result_discuss}.
 
@@ -1426,11 +1437,7 @@ The output plane surfaces admitted alerts through three synchronized channels. T
 
 \begin{figure}[!htbp]
 \centering
-% TODO: swap to Fig_5_11_Anomaly_Pipeline_v3_light.png once the redrawn
-% version is delivered. Spec: diagram_revision_brief.md, Diagram B
-% (corrected arrows, five suppressor boxes inside contextual gate,
-% generic algorithm names in place of Python/sklearn/stumpy icons).
-\includegraphics[width=1\textwidth]{Fig_5_11_Anomaly_Pipeline_light.png}
+\includegraphics[width=1\textwidth]{2.png}
 \caption{Anomaly Modeling and Data-Mining Pipeline}
 \label{fig:anomaly_modeling_data_mining_pipeline}
 \end{figure}
@@ -1440,8 +1447,9 @@ Figure~\ref{fig:anomaly_modeling_data_mining_pipeline} summarizes the methodolog
 \subsection{Dataset Composition}
 The evaluation corpus merges 20{,}412 telemetry rows across 79 trips from two sources. The project-native partition contains the 634 rows captured by the prototype, on which the injected anomalies (six anomalous trips, 85 anomalous samples) were applied. The public partition is the 19{,}778-row publicly-derived corpus, retained without anomaly labels as the out-of-distribution clean-route domain.
 
-% Keep the Chapter 5 table sequence continuous after the preceding captioned TikZ figure.
-\setcounter{table}{7}
+% Compensate for a phantom table-counter increment from the preceding
+% tabularx-based float, which otherwise leaves an empty slot in the LoT.
+\addtocounter{table}{-1}
 \begin{table}[!htbp]
 \centering
 \caption{Dataset Composition for Evaluation Corpus}
@@ -1673,7 +1681,7 @@ The feature names in Table~\ref{tab:if_feature_set_variants} are kept in their b
 \tiny
 \setlength{\tabcolsep}{1.5pt}
 \renewcommand{\arraystretch}{1.12}
-\begin{longtable}{|p{0.035\textwidth}|p{0.19\textwidth}|p{0.19\textwidth}|p{0.30\textwidth}|p{0.035\textwidth}|p{0.035\textwidth}|p{0.035\textwidth}|}
+\begin{longtable}{|p{0.030\textwidth}|>{\raggedright\arraybackslash}p{0.235\textwidth}|>{\raggedright\arraybackslash}p{0.205\textwidth}|>{\raggedright\arraybackslash}p{0.245\textwidth}|p{0.030\textwidth}|p{0.030\textwidth}|p{0.030\textwidth}|}
 \caption{Feature Set Across Isolation Forest Variants (A / B / C)}
 \label{tab:if_feature_set_variants} \\
 \hline
@@ -1862,7 +1870,15 @@ $\|\cdot\|_{2}$ & Euclidean distance between two length-$m$ subsequences.
 \vspace{0.5em}
 The value $P_i$ is the distance from the subsequence at $i$ to its nearest non-trivial neighbour: small $P_i$ means the subsequence repeats often, large $P_i$ means the subsequence is a \emph{discord}~---~a candidate anomaly~\cite{yeh2016matrix_profile}.
 
-The pipeline runs two windows in parallel. The primary window $m_1 = 5$ samples corresponds to a $5 \cdot \Delta_s = 25$~s subsequence, matched to the Scenario~2 rapid-drop signature. The long window $m_2 = 12$ samples corresponds to $12 \cdot \Delta_s = 60$~s, matched to the Scenario~3 gradual-leak signature. Sweeping $m \in \{3, 5, 8, 12, 20, 30\}$ demonstrated that Scenarios~2 and~3 have disjoint optimal window lengths, justifying the two-window design over any single-$m$ compromise.
+The deployed detector runs three window sizes with distinct roles, which are documented here so that any downstream mention of ``$m$'' in this chapter and in Chapter~\ref{ch:result_discuss} can be resolved to the correct window.
+
+\begin{description}
+\item[Primary window $m_1 = 5$ samples ($25$~s at $\Delta_s = 5$~s).] The main discord-detection window. It is matched to the Scenario~2 rapid-drop signature, where a genuine siphoning or leak event is observable within a $20$--$30$~s span. The primary window emits the \texttt{mp\_score} and \texttt{mp\_flag} fields that appear on every telemetry row and drive the audit column in the dashboard.
+\item[Long window $m_2 = 12$ samples ($60$~s at $\Delta_s = 5$~s).] The gradual-leak companion window. It runs in parallel with the primary window and is matched to the Scenario~3 gradual-leak signature, whose per-row deltas lie inside the filter-cascade noise envelope and are only observable as a shape over roughly a minute of samples. The long window is the one that triggers the \texttt{mpScreamOverride} escalation into the contextual gate when its discord score is unambiguously in the tail of the clean-trip distribution.
+\item[Localisation window $m = 4$ samples ($20$~s at $\Delta_s = 5$~s).] A supporting row-level attribution window. After the primary or long window flags a discord region, the localisation window is used only to attribute the discord to the specific row within that region (i.e., to pick the peak sample), so the alert card can point at a concrete row rather than at a $25$--$60$~s span. It does not raise alerts on its own.
+\end{description}
+
+Sweeping $m \in \{3, 5, 8, 12, 20, 30\}$ demonstrated that Scenarios~2 and~3 have disjoint optimal window lengths, which is why the deployed design keeps $m_1$ and $m_2$ as two separate detection windows rather than settling on a single-$m$ compromise. The length-$4$ localisation window was retained separately as an attribution-only stage because sweeping it downward below $m = 4$ produced attribution instability without improving detection recall, and sweeping it upward past $m_1 = 5$ produced attribution that pointed at the wrong row inside a rapid-drop window.
 
 \subsubsection{Robust Discord Threshold}
 The discord threshold is applied on a Median Absolute Deviation (MAD) $z$-score rather than the standard-deviation $z$-score, because the very outliers we wish to detect would inflate the standard deviation and mask themselves:
@@ -1962,6 +1978,9 @@ All Chapter 6 SO4 numbers are produced by a leave-one-trip-out (LOTO) evaluation
 
 Table~\ref{tab:objective_protocol_metric} maps each specific objective to the evaluation protocol used to test it and the metrics reported for it.
 
+% Compensate for a phantom table-counter increment from the preceding
+% tabularx-based float, which otherwise leaves an empty slot in the LoT.
+\addtocounter{table}{-1}
 \begin{table}[!htbp]
 \centering
 \caption{Objective, Protocol, and Metric}

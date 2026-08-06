@@ -1,11 +1,12 @@
-\contentsline {chapter}{Abstract}{ii}{section*.1}%
-\contentsline {chapter}{Table of Contents}{iii}{section*.3}%
-\contentsline {chapter}{List of Figures}{xi}{section*.4}%
-\contentsline {chapter}{List of Tables}{xiii}{section*.5}%
-\contentsline {chapter}{List of Listings}{xv}{section*.6}%
-\contentsline {chapter}{Abbreviations and Acronyms}{xvi}{section*.7}%
-\contentsline {chapter}{Notations}{xx}{section*.8}%
-\contentsline {chapter}{Glossary}{xxii}{section*.9}%
+\contentsline {chapter}{Acknowledgment}{ii}{section*.1}%
+\contentsline {chapter}{Abstract}{iii}{section*.3}%
+\contentsline {chapter}{Table of Contents}{iv}{section*.5}%
+\contentsline {chapter}{List of Figures}{xiii}{section*.6}%
+\contentsline {chapter}{List of Tables}{xv}{section*.7}%
+\contentsline {chapter}{List of Listings}{xvii}{section*.8}%
+\contentsline {chapter}{Abbreviations and Acronyms}{xix}{section*.9}%
+\contentsline {chapter}{Notations}{xxiii}{section*.10}%
+\contentsline {chapter}{Glossary}{xxv}{section*.11}%
 \contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introduction}}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background of the Study}{2}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Prior Studies}{6}{section.1.2}%
@@ -25,251 +26,301 @@
 \contentsline {subsection}{\numberline {1.7.1}Assumptions}{18}{subsection.1.7.1}%
 \contentsline {subsection}{\numberline {1.7.2}Scope}{20}{subsection.1.7.2}%
 \contentsline {subsection}{\numberline {1.7.3}Delimitations}{21}{subsection.1.7.3}%
-\contentsline {section}{\numberline {1.8}Description and Methodology}{23}{section.1.8}%
-\contentsline {section}{\numberline {1.9}Research Dissemination Plan}{24}{section.1.9}%
-\contentsline {section}{\numberline {1.10}Conflict of Interest}{26}{section.1.10}%
-\contentsline {section}{\numberline {1.11}Estimated Work Schedule and Budget}{26}{section.1.11}%
-\contentsline {subsection}{\numberline {1.11.1}Gantt Chart}{26}{subsection.1.11.1}%
-\contentsline {subsection}{\numberline {1.11.2}Estimated Budget}{29}{subsection.1.11.2}%
-\contentsline {section}{\numberline {1.12}Overview of the Thesis Proposal}{29}{section.1.12}%
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Literature Review}}{31}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Systematic Literature Review}{32}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Existing Work}{33}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Vehicle Tracking and Fuel Sensing Technologies}{33}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}LoRa Technology}{35}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}LoRa Gateway}{36}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Technical Performance Metrics and Environmental Factors}{37}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}Real-World Implementation: LoRa-Based Telemetry and Fleet Management Systems}{38}{subsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.2.6}GSM and LTE Technologies}{38}{subsection.2.2.6}%
-\contentsline {subsection}{\numberline {2.2.7}Anomaly Detection}{44}{subsection.2.2.7}%
-\contentsline {subsection}{\numberline {2.2.8}Machine Learning Applications}{46}{subsection.2.2.8}%
-\contentsline {section}{\numberline {2.3}Comparison of Commercial Fleet Management Systems}{51}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Lacking in the Approaches}{53}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Summary}{57}{section.2.5}%
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Theoretical Considerations}}{59}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Overview}{60}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Theoretical Foundations}{60}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Cyber-Physical Systems (CPS)}{60}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Sensor Theory and Signal Measurement}{61}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}OBD-II and CAN-based Vehicle Data Acquisition}{62}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Signal Filtering for Fuel-Level Stabilisation}{63}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Classification and Evaluation Metric Theory}{67}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}Statistical Tests for Classifier Comparison}{68}{subsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.2.7}Time-Series Synchronization Theory}{70}{subsection.3.2.7}%
-\contentsline {subsection}{\numberline {3.2.8}IoT Communication Theory}{71}{subsection.3.2.8}%
-\contentsline {subsection}{\numberline {3.2.9}GPS Temporal and Spatial Theory}{72}{subsection.3.2.9}%
-\contentsline {subsection}{\numberline {3.2.10}Context-Aware Anomaly Detection Theory}{72}{subsection.3.2.10}%
-\contentsline {subsubsection}{\numberline {3.2.10.1}Matrix Profile Theory}{73}{subsubsection.3.2.10.1}%
-\contentsline {subsubsection}{\numberline {3.2.10.2}Isolation Forest Theory}{73}{subsubsection.3.2.10.2}%
-\contentsline {section}{\numberline {3.3}Summary}{74}{section.3.3}%
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Design Considerations}}{75}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Standards}{76}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Adherence to Technical Standards}{76}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Observance of Research Ethics}{79}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Technical Design Considerations}{80}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Hardware Selection and Integration}{83}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Software Architecture}{83}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Machine Learning and Algorithms}{84}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Communication and Security}{85}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}Alternative Software Designs and Cost Considerations}{87}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Summary}{88}{section.4.4}%
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Methodology}}{89}{chapter.5}%
-\contentsline {section}{\numberline {5.1}System Architecture and Conceptual Design}{93}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Input-Process-Output (IPO) Overview}{96}{subsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.1.1}IPO Chart}{97}{subsubsection.5.1.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}End-to-End Telemetry Data Flow}{98}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Hardware Methodology}{100}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}HMI Control Pins}{101}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Hardware Block Diagram}{101}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}OBD-II / ECU Fuel and Vehicle Data Acquisition Methodology}{102}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Physical Interface}{103}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Vehicle-Specific Fuel-Level Adapter (Toyota Mode 22 PID 21/29)}{103}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Technical Basis for the 1.5\,s OBD Polling Rate}{104}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}Co-acquired Mode 01 PIDs}{106}{subsection.5.3.4}%
-\contentsline {subsection}{\numberline {5.3.5}Validity and Confidence Fields}{107}{subsection.5.3.5}%
-\contentsline {subsection}{\numberline {5.3.6}Timestamping}{107}{subsection.5.3.6}%
-\contentsline {subsection}{\numberline {5.3.7}Field Reference Choice}{107}{subsection.5.3.7}%
-\contentsline {subsection}{\numberline {5.3.8}Raw Signal Sourcing Summary}{108}{subsection.5.3.8}%
-\contentsline {section}{\numberline {5.4}Fuel Preprocessing Methodology}{110}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Sampling Rate and Notation}{111}{subsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.1.1}Telemetry Publish-Rate Justification ($\Delta _T = 5$~s)}{112}{subsubsection.5.4.1.1}%
-\contentsline {subsection}{\numberline {5.4.2}Stage~1: Median Filter for Slosh Rejection}{113}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Stage~2: First-Order IIR Exponential Moving Average}{114}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Stage~3: State-Dependent Dead-Band Publisher}{116}{subsection.5.4.4}%
-\contentsline {subsection}{\numberline {5.4.5}Stage~4: Direction-Aware Step Rule}{117}{subsection.5.4.5}%
-\contentsline {subsection}{\numberline {5.4.6}Stage~5: Post-Refuel Quiescence Window}{119}{subsection.5.4.6}%
-\contentsline {subsection}{\numberline {5.4.7}Kalman Filter Alternative for Fuel Signal Acquisition}{119}{subsection.5.4.7}%
-\contentsline {subsubsection}{\numberline {5.4.7.1}Filter Formulation}{119}{subsubsection.5.4.7.1}%
-\contentsline {subsubsection}{\numberline {5.4.7.2}Physics-Anchored Process Term $u_t$}{120}{subsubsection.5.4.7.2}%
-\contentsline {subsubsection}{\numberline {5.4.7.3}Noise-Variance Calibration}{120}{subsubsection.5.4.7.3}%
-\contentsline {subsubsection}{\numberline {5.4.7.4}Role Within the Filter Cascade}{121}{subsubsection.5.4.7.4}%
-\contentsline {subsection}{\numberline {5.4.8}Effect on the Machine-Learning Pipeline}{121}{subsection.5.4.8}%
-\contentsline {section}{\numberline {5.5}Communication and Offline Sync Methodology}{122}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Priority Chain Rationale}{122}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Formal Channel-Selection Model}{122}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}Per-Channel Connection Detection}{123}{subsection.5.5.3}%
-\contentsline {subsubsection}{\numberline {5.5.3.1}WiFi: Four-Way Handshake and Layer-7 Probe}{123}{subsubsection.5.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.5.3.2}LTE: PDP Context Activation and Signal-Strength Refresh}{124}{subsubsection.5.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.5.3.3}GSM 2G: Legacy Fallback Reusing the LTE Predicate}{124}{subsubsection.5.5.3.3}%
-\contentsline {subsubsection}{\numberline {5.5.3.4}LoRa: Per-Packet Acknowledgment with Backoff}{124}{subsubsection.5.5.3.4}%
-\contentsline {subsection}{\numberline {5.5.4}Background Polling Cost and Cached-Handshake Argument}{125}{subsection.5.5.4}%
-\contentsline {subsection}{\numberline {5.5.5}Handshake Type and Probe Cost by Channel}{126}{subsection.5.5.5}%
-\contentsline {subsection}{\numberline {5.5.6}Per-Packet Latency Decomposition}{127}{subsection.5.5.6}%
-\contentsline {subsection}{\numberline {5.5.7}Communication Module Comparison}{128}{subsection.5.5.7}%
-\contentsline {subsection}{\numberline {5.5.8}Communication Method Comparison}{129}{subsection.5.5.8}%
-\contentsline {subsection}{\numberline {5.5.9}Channel Transition State Machine}{130}{subsection.5.5.9}%
-\contentsline {subsection}{\numberline {5.5.10}Telemetry Payload Summary}{132}{subsection.5.5.10}%
-\contentsline {subsection}{\numberline {5.5.11}Offline-Buffer Fall-Through Flowchart}{132}{subsection.5.5.11}%
-\contentsline {subsection}{\numberline {5.5.12}Fall-through Policy}{134}{subsection.5.5.12}%
-\contentsline {subsection}{\numberline {5.5.13}Offline-Buffer Capacity and Duration}{134}{subsection.5.5.13}%
-\contentsline {subsubsection}{\numberline {5.5.13.1}Storage Substrate}{134}{subsubsection.5.5.13.1}%
-\contentsline {subsubsection}{\numberline {5.5.13.2}Per-Record Footprint}{135}{subsubsection.5.5.13.2}%
-\contentsline {subsubsection}{\numberline {5.5.13.3}Duration Bound}{136}{subsubsection.5.5.13.3}%
-\contentsline {subsubsection}{\numberline {5.5.13.4}Overflow Policy}{138}{subsubsection.5.5.13.4}%
-\contentsline {subsubsection}{\numberline {5.5.13.5}Recovery and Drain Rate}{139}{subsubsection.5.5.13.5}%
-\contentsline {subsubsection}{\numberline {5.5.13.6}Failure Modes Out of Scope for the Buffer}{140}{subsubsection.5.5.13.6}%
-\contentsline {subsection}{\numberline {5.5.14}Security}{140}{subsection.5.5.14}%
-\contentsline {subsection}{\numberline {5.5.15}LoRa Range Test Protocol}{141}{subsection.5.5.15}%
-\contentsline {subsection}{\numberline {5.5.16}GSM / LTE Drive-test Protocol}{141}{subsection.5.5.16}%
-\contentsline {subsection}{\numberline {5.5.17}Packet-delivery and Buffering Protocol}{142}{subsection.5.5.17}%
-\contentsline {section}{\numberline {5.6}GPS Acquisition and Fusion Methodology}{142}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}Physical Interface and NMEA Extraction}{143}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}Haversine Great-Circle Distance}{144}{subsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.6.3}Speed-Gated Integration}{144}{subsection.5.6.3}%
-\contentsline {subsection}{\numberline {5.6.4}OBD-II / GPS Distance Fusion}{145}{subsection.5.6.4}%
-\contentsline {subsection}{\numberline {5.6.5}Freshness and Fix-Loss Envelope}{146}{subsection.5.6.5}%
-\contentsline {section}{\numberline {5.7}Backend and Database Methodology}{147}{section.5.7}%
-\contentsline {subsection}{\numberline {5.7.1}Backend Stack}{147}{subsection.5.7.1}%
-\contentsline {subsection}{\numberline {5.7.2}Database Schema Summary}{148}{subsection.5.7.2}%
-\contentsline {subsection}{\numberline {5.7.3}Entity-Relationship Diagram}{148}{subsection.5.7.3}%
-\contentsline {subsection}{\numberline {5.7.4}Cross-Interface State Synchronization}{150}{subsection.5.7.4}%
-\contentsline {subsection}{\numberline {5.7.5}Active-trip Uniqueness Enforcement}{151}{subsection.5.7.5}%
-\contentsline {subsection}{\numberline {5.7.6}Odometer and Trip-distance Methodology}{151}{subsection.5.7.6}%
-\contentsline {subsection}{\numberline {5.7.7}Alert Rule Implementation}{152}{subsection.5.7.7}%
-\contentsline {subsection}{\numberline {5.7.8}Archival Pipeline}{153}{subsection.5.7.8}%
-\contentsline {section}{\numberline {5.8}Scalability and Unit Identification}{154}{section.5.8}%
-\contentsline {subsection}{\numberline {5.8.1}Scalability Analysis}{154}{subsection.5.8.1}%
-\contentsline {subsubsection}{\numberline {5.8.1.1}Concurrent Vehicle Fan-in and Backend Ingest Ceiling}{154}{subsubsection.5.8.1.1}%
-\contentsline {subsubsection}{\numberline {5.8.1.2}LoRa Gateway Fan-in and Duty-Cycle Ceiling}{155}{subsubsection.5.8.1.2}%
-\contentsline {subsubsection}{\numberline {5.8.1.3}Per-Asset Baseline Storage Growth}{156}{subsubsection.5.8.1.3}%
-\contentsline {subsubsection}{\numberline {5.8.1.4}Primary Scaling Bottleneck}{157}{subsubsection.5.8.1.4}%
-\contentsline {subsection}{\numberline {5.8.2}Unit Identification}{158}{subsection.5.8.2}%
-\contentsline {subsubsection}{\numberline {5.8.2.1}Identifier Chain}{158}{subsubsection.5.8.2.1}%
-\contentsline {subsubsection}{\numberline {5.8.2.2}Enforcement at Ingest}{158}{subsubsection.5.8.2.2}%
-\contentsline {subsubsection}{\numberline {5.8.2.3}Trip and Driver Attribution}{160}{subsubsection.5.8.2.3}%
-\contentsline {section}{\numberline {5.9}Machine Learning Methodology}{161}{section.5.9}%
-\contentsline {subsection}{\numberline {5.9.1}Anomaly Model and Environmental Constraints}{161}{subsection.5.9.1}%
-\contentsline {subsection}{\numberline {5.9.2}Machine Learning Architecture}{162}{subsection.5.9.2}%
-\contentsline {subsection}{\numberline {5.9.3}Dataset Composition}{169}{subsection.5.9.3}%
-\contentsline {subsection}{\numberline {5.9.4}Anomaly Injection Methodology}{170}{subsection.5.9.4}%
-\contentsline {subsubsection}{\numberline {5.9.4.1}Rationale for Controlled Anomaly Injection}{170}{subsubsection.5.9.4.1}%
-\contentsline {subsubsection}{\numberline {5.9.4.2}Formal Injection Tuple}{171}{subsubsection.5.9.4.2}%
-\contentsline {subsubsection}{\numberline {5.9.4.3}Universal Symbol Dictionary for Per-Scenario Curves}{172}{subsubsection.5.9.4.3}%
-\contentsline {subsubsection}{\numberline {5.9.4.4}Scenario~1: Stationary Siphon (Overnight-Theft Signature)}{172}{subsubsection.5.9.4.4}%
-\contentsline {subsubsection}{\numberline {5.9.4.5}Scenario~2: Rapid Mid-Drive Drop (Line-Tap During Dispatch)}{174}{subsubsection.5.9.4.5}%
-\contentsline {subsubsection}{\numberline {5.9.4.6}Scenario~3: Gradual Leak (Long-Haul Rest-Stop Drilling)}{175}{subsubsection.5.9.4.6}%
-\contentsline {subsubsection}{\numberline {5.9.4.7}At-a-Glance Layer Coverage}{177}{subsubsection.5.9.4.7}%
-\contentsline {subsubsection}{\numberline {5.9.4.8}Scenario Coverage in Chapter~6 Evaluation}{177}{subsubsection.5.9.4.8}%
-\contentsline {subsection}{\numberline {5.9.5}Feature Engineering}{178}{subsection.5.9.5}%
-\contentsline {subsection}{\numberline {5.9.6}Data-Mining Layer}{181}{subsection.5.9.6}%
-\contentsline {subsubsection}{\numberline {5.9.6.1}Constraint-Violation Profiling}{181}{subsubsection.5.9.6.1}%
-\contentsline {subsubsection}{\numberline {5.9.6.2}Archetype Discovery}{181}{subsubsection.5.9.6.2}%
-\contentsline {subsection}{\numberline {5.9.7}Isolation Forest Training Methodology}{182}{subsection.5.9.7}%
-\contentsline {subsubsection}{\numberline {5.9.7.1}Score Equation and Full Symbol Definition}{182}{subsubsection.5.9.7.1}%
-\contentsline {subsubsection}{\numberline {5.9.7.2}Hyperparameter Justification}{183}{subsubsection.5.9.7.2}%
-\contentsline {subsection}{\numberline {5.9.8}Matrix Profile Methodology}{184}{subsection.5.9.8}%
-\contentsline {subsubsection}{\numberline {5.9.8.1}Matrix Profile Equation}{185}{subsubsection.5.9.8.1}%
-\contentsline {subsubsection}{\numberline {5.9.8.2}Robust Discord Threshold}{185}{subsubsection.5.9.8.2}%
-\contentsline {subsection}{\numberline {5.9.9}Contextual Gate and Alert Decision Rule}{187}{subsection.5.9.9}%
-\contentsline {subsection}{\numberline {5.9.10}Hybrid Fusion Methodology}{188}{subsection.5.9.10}%
-\contentsline {subsection}{\numberline {5.9.11}Contextual Gate Methodology}{189}{subsection.5.9.11}%
-\contentsline {subsection}{\numberline {5.9.12}Backend Inference Integration}{192}{subsection.5.9.12}%
-\contentsline {section}{\numberline {5.10}Evaluation Methodology}{193}{section.5.10}%
-\contentsline {subsection}{\numberline {5.10.1}Cross-Validation Design}{193}{subsection.5.10.1}%
-\contentsline {subsection}{\numberline {5.10.2}Objective-Based Evaluation Protocol}{193}{subsection.5.10.2}%
-\contentsline {subsection}{\numberline {5.10.3}Detector Ablation Protocol}{194}{subsection.5.10.3}%
-\contentsline {subsection}{\numberline {5.10.4}Statistical Testing Protocol}{196}{subsection.5.10.4}%
-\contentsline {subsubsection}{\numberline {5.10.4.1}McNemar's $\chi ^{2}$ for Paired Classifier Comparison}{196}{subsubsection.5.10.4.1}%
-\contentsline {subsubsection}{\numberline {5.10.4.2}Non-Parametric Bootstrap Confidence Intervals}{197}{subsubsection.5.10.4.2}%
-\contentsline {subsubsection}{\numberline {5.10.4.3}Wilcoxon Signed-Rank on Paired Per-Trip Differences}{197}{subsubsection.5.10.4.3}%
-\contentsline {subsubsection}{\numberline {5.10.4.4}Application Scope and Interpretation}{198}{subsubsection.5.10.4.4}%
-\contentsline {subsection}{\numberline {5.10.5}Evaluation Metrics}{198}{subsection.5.10.5}%
-\contentsline {section}{\numberline {5.11}Data Collection and Research-Ethics Procedure}{200}{section.5.11}%
-\contentsline {subsection}{\numberline {5.11.1}Study Procedures}{201}{subsection.5.11.1}%
-\contentsline {subsection}{\numberline {5.11.2}Risks and Discomforts}{201}{subsection.5.11.2}%
-\contentsline {subsection}{\numberline {5.11.3}Steps to Minimize Risks}{202}{subsection.5.11.3}%
-\contentsline {subsection}{\numberline {5.11.4}Benefits}{203}{subsection.5.11.4}%
-\contentsline {subsection}{\numberline {5.11.5}Compensation}{204}{subsection.5.11.5}%
-\contentsline {subsection}{\numberline {5.11.6}Data Storage, Duration, and Disposal}{204}{subsection.5.11.6}%
-\contentsline {subsection}{\numberline {5.11.7}Confidentiality}{204}{subsection.5.11.7}%
-\contentsline {subsection}{\numberline {5.11.8}Withdrawal Procedure}{205}{subsection.5.11.8}%
-\contentsline {section}{\numberline {5.12}Summary}{206}{section.5.12}%
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Results and Discussions}}{207}{chapter.6}%
-\contentsline {section}{\numberline {6.1}SO1: Fuel Measurement Accuracy}{212}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Overview of Results}{212}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Filter Comparison: Moving Average versus Kalman}{213}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Pump-Gas Validation}{220}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Drift, Noise, and Variance per Tank Level}{224}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}Figures for SO1}{225}{subsection.6.1.5}%
-\contentsline {subsection}{\numberline {6.1.6}Statistical Grounding for the SO1 Metrics}{227}{subsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.1.7}Discussion}{228}{subsection.6.1.7}%
-\contentsline {section}{\numberline {6.2}SO2: Communication Subsystem Performance}{230}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Overview of Results}{230}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}LoRa Range Characterisation}{231}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}GSM/LTE Signal and Latency by Location}{233}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}End-to-End Latency and Packet Delivery}{234}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}Statistical Grounding for the SO2 Metrics}{236}{subsection.6.2.5}%
-\contentsline {subsection}{\numberline {6.2.6}Discussion}{237}{subsection.6.2.6}%
-\contentsline {section}{\numberline {6.3}SO3: GPS Logging and Route Visualisation}{238}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Overview of Results}{238}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}GPS Acquisition Verification}{239}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Live Tracking and Mobile Companion}{240}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Behavioural Overlay: Fuel Consumption per Route Segment}{240}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}Figures for SO3}{245}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}Statistical Grounding for the SO3 Metrics}{246}{subsection.6.3.6}%
-\contentsline {subsection}{\numberline {6.3.7}Discussion}{247}{subsection.6.3.7}%
-\contentsline {section}{\numberline {6.4}SO4: Machine-Learning Anomaly Detection}{248}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Overview of Results}{248}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Model Selection Rationale: Primary Detector and Audit Signal}{248}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Detector Ablation: Physics, IF, MP, and Hybrid}{251}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}Model Performance}{253}{subsection.6.4.4}%
-\contentsline {subsection}{\numberline {6.4.5}Detector versus Baseline Comparison}{255}{subsection.6.4.5}%
-\contentsline {subsection}{\numberline {6.4.6}Extended On-Road Validation: Siphoning and Fuel Theft}{256}{subsection.6.4.6}%
-\contentsline {subsection}{\numberline {6.4.7}Constraint-Violation and Pattern-Mining Analysis}{257}{subsection.6.4.7}%
-\contentsline {subsection}{\numberline {6.4.8}Figures for SO4}{259}{subsection.6.4.8}%
-\contentsline {subsection}{\numberline {6.4.9}Statistical Tests on the Detector Ablation}{261}{subsection.6.4.9}%
-\contentsline {subsection}{\numberline {6.4.10}Discussion}{262}{subsection.6.4.10}%
-\contentsline {section}{\numberline {6.5}SO5: Alert System, HMI, and Cross-Interface Synchronisation}{264}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Overview of Results}{264}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Alert-Rule Implementation Status}{264}{subsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.5.3}Alert-Engine Operational Performance}{266}{subsection.6.5.3}%
-\contentsline {subsection}{\numberline {6.5.4}Embedded Human--Machine Interface}{267}{subsection.6.5.4}%
-\contentsline {subsection}{\numberline {6.5.5}Administrative Dashboard}{270}{subsection.6.5.5}%
-\contentsline {subsection}{\numberline {6.5.6}Administrator Acceptance Survey}{276}{subsection.6.5.6}%
-\contentsline {subsection}{\numberline {6.5.7}Cross-Interface Synchronisation Evidence}{278}{subsection.6.5.7}%
-\contentsline {subsection}{\numberline {6.5.8}Statistical Grounding for the SO5 Metrics}{279}{subsection.6.5.8}%
-\contentsline {subsection}{\numberline {6.5.9}Discussion}{279}{subsection.6.5.9}%
-\contentsline {section}{\numberline {6.6}Commercial-Scale Scalability Projection}{280}{section.6.6}%
-\contentsline {section}{\numberline {6.7}Summary}{282}{section.6.7}%
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusions, Recommendations, and Future Directives}}{285}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Concluding Remarks}{286}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Technical Limitations}{288}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Contributions}{289}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Recommendations}{291}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Future Prospects}{292}{section.7.5}%
-\contentsline {chapter}{References}{295}{chapter*.127}%
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Ethical Clearance}}{305}{appendix.A}%
-\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Partner Coordination and Prototype Demonstration}}{308}{appendix.B}%
-\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Administrator Acceptance Survey Instrument}}{317}{appendix.C}%
-\contentsline {section}{\numberline {C1}Dashboard and Real-Time Monitoring}{318}{section.C.1}%
-\contentsline {section}{\numberline {C2}Fuel Monitoring Accuracy}{318}{section.C.2}%
-\contentsline {section}{\numberline {C3}Anomaly Detection and Alerts}{318}{section.C.3}%
-\contentsline {section}{\numberline {C4}Driver Safety and Rest Alerts}{319}{section.C.4}%
-\contentsline {section}{\numberline {C5}Maintenance Monitoring}{319}{section.C.5}%
-\contentsline {section}{\numberline {C6}Overall System Usability and Satisfaction}{319}{section.C.6}%
-\contentsline {section}{\numberline {C7}Open-Ended Feedback Questions}{320}{section.C.7}%
-\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Technical Implementation Details}}{321}{appendix.D}%
-\contentsline {section}{\numberline {D1}HMI GPIO Map}{322}{section.D.1}%
-\contentsline {section}{\numberline {D2}Telemetry JSON Payload Schema}{322}{section.D.2}%
-\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Article Paper}}{324}{appendix.E}%
+\contentsline {section}{\numberline {1.8}Research Dissemination Plan}{23}{section.1.8}%
+\contentsline {section}{\numberline {1.9}Conflict of Interest}{24}{section.1.9}%
+\contentsline {section}{\numberline {1.10}Estimated Work Schedule and Budget}{25}{section.1.10}%
+\contentsline {subsection}{\numberline {1.10.1}Estimated Budget}{25}{subsection.1.10.1}%
+\contentsline {section}{\numberline {1.11}Overview of the Thesis Paper}{26}{section.1.11}%
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Literature Review}}{28}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Systematic Literature Review}{29}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Existing Work}{30}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Vehicle Tracking and Fuel Sensing Technologies}{30}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}LoRa Technology}{32}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}LoRa Gateway}{33}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Technical Performance Metrics and Environmental Factors}{34}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Real-World Implementation: LoRa-Based Telemetry and Fleet Management Systems}{35}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}GSM and LTE Technologies}{35}{subsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.7}Anomaly Detection}{41}{subsection.2.2.7}%
+\contentsline {subsection}{\numberline {2.2.8}Machine Learning Applications}{43}{subsection.2.2.8}%
+\contentsline {section}{\numberline {2.3}Comparison of Commercial Fleet Management Systems}{48}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Lacking in the Approaches}{50}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Summary}{54}{section.2.5}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Theoretical Considerations}}{56}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Overview}{57}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Theoretical Foundations}{57}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Cyber-Physical Systems (CPS)}{57}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Sensor Theory and Signal Measurement}{58}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}OBD-II and CAN-based Vehicle Data Acquisition}{59}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Signal Filtering for Fuel-Level Stabilisation}{60}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Classification and Evaluation Metric Theory}{63}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Statistical Tests for Classifier Comparison}{65}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}Time-Series Synchronization Theory}{67}{subsection.3.2.7}%
+\contentsline {subsection}{\numberline {3.2.8}IoT Communication Theory}{67}{subsection.3.2.8}%
+\contentsline {subsection}{\numberline {3.2.9}GPS Temporal and Spatial Theory}{68}{subsection.3.2.9}%
+\contentsline {subsection}{\numberline {3.2.10}Context-Aware Anomaly Detection Theory}{69}{subsection.3.2.10}%
+\contentsline {subsubsection}{\numberline {3.2.10.1}Matrix Profile Theory}{69}{subsubsection.3.2.10.1}%
+\contentsline {subsubsection}{\numberline {3.2.10.2}Isolation Forest Theory}{70}{subsubsection.3.2.10.2}%
+\contentsline {section}{\numberline {3.3}Summary}{70}{section.3.3}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Design Considerations}}{71}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Standards}{72}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Adherence to Technical Standards}{72}{subsection.4.1.1}%
+\contentsline {paragraph}{Sensors and hardware.}{76}{section*.18}%
+\contentsline {paragraph}{Data acquisition and signal processing.}{78}{section*.19}%
+\contentsline {paragraph}{Communication and transmission.}{78}{section*.20}%
+\contentsline {paragraph}{Machine learning and validation.}{79}{section*.21}%
+\contentsline {paragraph}{Software architecture and data management.}{79}{section*.22}%
+\contentsline {paragraph}{Basis of adherence.}{80}{section*.23}%
+\contentsline {subsection}{\numberline {4.1.2}Observance of Research Ethics}{80}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Technical Design Considerations}{81}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Hardware Selection and Integration}{84}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Software Architecture}{85}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Machine Learning and Algorithms}{86}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Communication and Security}{87}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Alternative Software Designs and Cost Considerations}{88}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Summary}{89}{section.4.4}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Methodology}}{91}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Description and Methodology}{95}{section.5.1}%
+\contentsline {section}{\numberline {5.2}System Architecture and Conceptual Design}{96}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Input-Process-Output (IPO) Overview}{100}{subsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.1.1}IPO Chart}{101}{subsubsection.5.2.1.1}%
+\contentsline {subsection}{\numberline {5.2.2}End-to-End Telemetry Data Flow}{102}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Hardware Methodology}{104}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}HMI Control Pins}{105}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Hardware Block Diagram}{105}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}OBD-II / ECU Fuel and Vehicle Data Acquisition Methodology}{106}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Physical Interface}{107}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Vehicle-Specific Fuel-Level Adapter (Toyota Mode 22 PID 21/29)}{107}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Technical Basis for the 1.5\,s OBD Polling Rate}{108}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Co-acquired Mode 01 PIDs}{110}{subsection.5.4.4}%
+\contentsline {subsection}{\numberline {5.4.5}Validity and Confidence Fields}{111}{subsection.5.4.5}%
+\contentsline {subsection}{\numberline {5.4.6}Timestamping}{111}{subsection.5.4.6}%
+\contentsline {subsection}{\numberline {5.4.7}Field Reference Choice}{111}{subsection.5.4.7}%
+\contentsline {subsection}{\numberline {5.4.8}Raw Signal Sourcing Summary}{112}{subsection.5.4.8}%
+\contentsline {section}{\numberline {5.5}Fuel Preprocessing Methodology}{114}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Sampling Rate and Notation}{115}{subsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.1.1}Telemetry Publish-Rate Justification ($\Delta _T = 5$~s)}{116}{subsubsection.5.5.1.1}%
+\contentsline {subsection}{\numberline {5.5.2}Stage~1: Median Filter for Slosh Rejection}{117}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Stage~2: First-Order IIR Exponential Moving Average}{118}{subsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.5.4}Stage~3: State-Dependent Dead-Band Publisher}{120}{subsection.5.5.4}%
+\contentsline {subsection}{\numberline {5.5.5}Stage~4: Direction-Aware Step Rule}{121}{subsection.5.5.5}%
+\contentsline {subsection}{\numberline {5.5.6}Stage~5: Post-Refuel Quiescence Window}{123}{subsection.5.5.6}%
+\contentsline {subsection}{\numberline {5.5.7}Kalman Filter Alternative for Fuel Signal Acquisition}{123}{subsection.5.5.7}%
+\contentsline {subsubsection}{\numberline {5.5.7.1}Filter Formulation}{123}{subsubsection.5.5.7.1}%
+\contentsline {subsubsection}{\numberline {5.5.7.2}Physics-Anchored Process Term $u_t$}{124}{subsubsection.5.5.7.2}%
+\contentsline {subsubsection}{\numberline {5.5.7.3}Noise-Variance Calibration}{124}{subsubsection.5.5.7.3}%
+\contentsline {subsubsection}{\numberline {5.5.7.4}Role Within the Filter Cascade}{125}{subsubsection.5.5.7.4}%
+\contentsline {subsection}{\numberline {5.5.8}Effect on the Machine-Learning Pipeline}{125}{subsection.5.5.8}%
+\contentsline {section}{\numberline {5.6}Communication and Offline Sync Methodology}{126}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Priority Chain Rationale}{126}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Formal Channel-Selection Model}{126}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}Per-Channel Connection Detection}{127}{subsection.5.6.3}%
+\contentsline {subsubsection}{\numberline {5.6.3.1}WiFi: Four-Way Handshake and Layer-7 Probe}{127}{subsubsection.5.6.3.1}%
+\contentsline {subsubsection}{\numberline {5.6.3.2}LTE: PDP Context Activation and Signal-Strength Refresh}{128}{subsubsection.5.6.3.2}%
+\contentsline {subsubsection}{\numberline {5.6.3.3}GSM 2G: Legacy Fallback Reusing the LTE Predicate}{128}{subsubsection.5.6.3.3}%
+\contentsline {subsubsection}{\numberline {5.6.3.4}LoRa: Per-Packet Acknowledgment with Backoff}{128}{subsubsection.5.6.3.4}%
+\contentsline {subsection}{\numberline {5.6.4}Background Polling Cost and Cached-Handshake Argument}{129}{subsection.5.6.4}%
+\contentsline {subsection}{\numberline {5.6.5}Handshake Type and Probe Cost by Channel}{130}{subsection.5.6.5}%
+\contentsline {subsection}{\numberline {5.6.6}Per-Packet Latency Decomposition}{131}{subsection.5.6.6}%
+\contentsline {subsection}{\numberline {5.6.7}Communication Module Comparison}{132}{subsection.5.6.7}%
+\contentsline {subsection}{\numberline {5.6.8}Communication Method Comparison}{133}{subsection.5.6.8}%
+\contentsline {subsection}{\numberline {5.6.9}Channel Transition State Machine}{134}{subsection.5.6.9}%
+\contentsline {subsection}{\numberline {5.6.10}Telemetry Payload Summary}{135}{subsection.5.6.10}%
+\contentsline {subsection}{\numberline {5.6.11}Offline-Buffer Fall-Through Flowchart}{136}{subsection.5.6.11}%
+\contentsline {subsection}{\numberline {5.6.12}Fall-through Policy}{136}{subsection.5.6.12}%
+\contentsline {subsection}{\numberline {5.6.13}Offline-Buffer Capacity and Duration}{138}{subsection.5.6.13}%
+\contentsline {subsubsection}{\numberline {5.6.13.1}Storage Substrate}{138}{subsubsection.5.6.13.1}%
+\contentsline {subsubsection}{\numberline {5.6.13.2}Per-Record Footprint}{139}{subsubsection.5.6.13.2}%
+\contentsline {subsubsection}{\numberline {5.6.13.3}Duration Bound}{139}{subsubsection.5.6.13.3}%
+\contentsline {subsubsection}{\numberline {5.6.13.4}Overflow Policy}{141}{subsubsection.5.6.13.4}%
+\contentsline {subsubsection}{\numberline {5.6.13.5}Recovery and Drain Rate}{143}{subsubsection.5.6.13.5}%
+\contentsline {subsubsection}{\numberline {5.6.13.6}Failure Modes Out of Scope for the Buffer}{143}{subsubsection.5.6.13.6}%
+\contentsline {subsection}{\numberline {5.6.14}Security}{144}{subsection.5.6.14}%
+\contentsline {subsection}{\numberline {5.6.15}LoRa Range Test Protocol}{144}{subsection.5.6.15}%
+\contentsline {subsection}{\numberline {5.6.16}GSM / LTE Drive-test Protocol}{145}{subsection.5.6.16}%
+\contentsline {subsection}{\numberline {5.6.17}Packet-delivery and Buffering Protocol}{145}{subsection.5.6.17}%
+\contentsline {section}{\numberline {5.7}GPS Acquisition and Fusion Methodology}{146}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Physical Interface and NMEA Extraction}{146}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Haversine Great-Circle Distance}{147}{subsection.5.7.2}%
+\contentsline {subsection}{\numberline {5.7.3}Speed-Gated Integration}{148}{subsection.5.7.3}%
+\contentsline {subsection}{\numberline {5.7.4}OBD-II / GPS Distance Fusion}{149}{subsection.5.7.4}%
+\contentsline {subsection}{\numberline {5.7.5}Freshness and Fix-Loss Envelope}{150}{subsection.5.7.5}%
+\contentsline {section}{\numberline {5.8}Backend and Database Methodology}{151}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Backend Stack}{151}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Database Schema Summary}{151}{subsection.5.8.2}%
+\contentsline {subsection}{\numberline {5.8.3}Entity-Relationship Diagram}{152}{subsection.5.8.3}%
+\contentsline {subsection}{\numberline {5.8.4}Cross-Interface State Synchronization}{153}{subsection.5.8.4}%
+\contentsline {subsection}{\numberline {5.8.5}Active-trip Uniqueness Enforcement}{154}{subsection.5.8.5}%
+\contentsline {subsection}{\numberline {5.8.6}Odometer and Trip-distance Methodology}{154}{subsection.5.8.6}%
+\contentsline {subsection}{\numberline {5.8.7}Alert Rule Implementation}{155}{subsection.5.8.7}%
+\contentsline {subsection}{\numberline {5.8.8}Archival Pipeline}{156}{subsection.5.8.8}%
+\contentsline {section}{\numberline {5.9}Scalability and Unit Identification}{157}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Scalability Analysis}{157}{subsection.5.9.1}%
+\contentsline {subsubsection}{\numberline {5.9.1.1}Concurrent Vehicle Fan-in and Backend Ingest Ceiling}{157}{subsubsection.5.9.1.1}%
+\contentsline {subsubsection}{\numberline {5.9.1.2}LoRa Gateway Fan-in and Duty-Cycle Ceiling}{158}{subsubsection.5.9.1.2}%
+\contentsline {subsubsection}{\numberline {5.9.1.3}Per-Asset Baseline Storage Growth}{159}{subsubsection.5.9.1.3}%
+\contentsline {subsubsection}{\numberline {5.9.1.4}Primary Scaling Bottleneck}{160}{subsubsection.5.9.1.4}%
+\contentsline {subsection}{\numberline {5.9.2}Unit Identification}{161}{subsection.5.9.2}%
+\contentsline {subsubsection}{\numberline {5.9.2.1}Identifier Chain}{161}{subsubsection.5.9.2.1}%
+\contentsline {subsubsection}{\numberline {5.9.2.2}Enforcement at Ingest}{163}{subsubsection.5.9.2.2}%
+\contentsline {subsubsection}{\numberline {5.9.2.3}Trip and Driver Attribution}{163}{subsubsection.5.9.2.3}%
+\contentsline {section}{\numberline {5.10}Machine Learning Methodology}{164}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Anomaly Model and Environmental Constraints}{164}{subsection.5.10.1}%
+\contentsline {subsection}{\numberline {5.10.2}Machine Learning Architecture}{166}{subsection.5.10.2}%
+\contentsline {subsection}{\numberline {5.10.3}Dataset Composition}{172}{subsection.5.10.3}%
+\contentsline {subsection}{\numberline {5.10.4}Anomaly Injection Methodology}{173}{subsection.5.10.4}%
+\contentsline {subsubsection}{\numberline {5.10.4.1}Rationale for Controlled Anomaly Injection}{173}{subsubsection.5.10.4.1}%
+\contentsline {subsubsection}{\numberline {5.10.4.2}Formal Injection Tuple}{174}{subsubsection.5.10.4.2}%
+\contentsline {subsubsection}{\numberline {5.10.4.3}Universal Symbol Dictionary for Per-Scenario Curves}{175}{subsubsection.5.10.4.3}%
+\contentsline {subsubsection}{\numberline {5.10.4.4}Scenario~1: Stationary Siphon (Overnight-Theft Signature)}{176}{subsubsection.5.10.4.4}%
+\contentsline {subsubsection}{\numberline {5.10.4.5}Scenario~2: Rapid Mid-Drive Drop (Line-Tap During Dispatch)}{177}{subsubsection.5.10.4.5}%
+\contentsline {subsubsection}{\numberline {5.10.4.6}Scenario~3: Gradual Leak (Long-Haul Rest-Stop Drilling)}{179}{subsubsection.5.10.4.6}%
+\contentsline {subsubsection}{\numberline {5.10.4.7}At-a-Glance Layer Coverage}{180}{subsubsection.5.10.4.7}%
+\contentsline {subsubsection}{\numberline {5.10.4.8}Scenario Coverage in Chapter~6 Evaluation}{181}{subsubsection.5.10.4.8}%
+\contentsline {subsection}{\numberline {5.10.5}Feature Engineering}{181}{subsection.5.10.5}%
+\contentsline {subsection}{\numberline {5.10.6}Data-Mining Layer}{184}{subsection.5.10.6}%
+\contentsline {subsubsection}{\numberline {5.10.6.1}Constraint-Violation Profiling}{185}{subsubsection.5.10.6.1}%
+\contentsline {subsubsection}{\numberline {5.10.6.2}Archetype Discovery}{185}{subsubsection.5.10.6.2}%
+\contentsline {subsection}{\numberline {5.10.7}Isolation Forest Training Methodology}{186}{subsection.5.10.7}%
+\contentsline {subsubsection}{\numberline {5.10.7.1}Score Equation and Full Symbol Definition}{186}{subsubsection.5.10.7.1}%
+\contentsline {subsubsection}{\numberline {5.10.7.2}Hyperparameter Justification}{187}{subsubsection.5.10.7.2}%
+\contentsline {subsection}{\numberline {5.10.8}Matrix Profile Methodology}{187}{subsection.5.10.8}%
+\contentsline {subsubsection}{\numberline {5.10.8.1}Matrix Profile Equation}{188}{subsubsection.5.10.8.1}%
+\contentsline {subsubsection}{\numberline {5.10.8.2}Robust Discord Threshold}{190}{subsubsection.5.10.8.2}%
+\contentsline {subsection}{\numberline {5.10.9}Contextual Gate and Alert Decision Rule}{191}{subsection.5.10.9}%
+\contentsline {subsection}{\numberline {5.10.10}Hybrid Fusion Methodology}{193}{subsection.5.10.10}%
+\contentsline {subsection}{\numberline {5.10.11}Contextual Gate Methodology}{193}{subsection.5.10.11}%
+\contentsline {subsection}{\numberline {5.10.12}Backend Inference Integration}{197}{subsection.5.10.12}%
+\contentsline {section}{\numberline {5.11}Evaluation Methodology}{197}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Cross-Validation Design}{197}{subsection.5.11.1}%
+\contentsline {subsection}{\numberline {5.11.2}Objective-Based Evaluation Protocol}{198}{subsection.5.11.2}%
+\contentsline {subsection}{\numberline {5.11.3}Detector Ablation Protocol}{199}{subsection.5.11.3}%
+\contentsline {subsection}{\numberline {5.11.4}Statistical Testing Protocol}{200}{subsection.5.11.4}%
+\contentsline {subsubsection}{\numberline {5.11.4.1}McNemar's $\chi ^{2}$ for Paired Classifier Comparison}{200}{subsubsection.5.11.4.1}%
+\contentsline {subsubsection}{\numberline {5.11.4.2}Non-Parametric Bootstrap Confidence Intervals}{201}{subsubsection.5.11.4.2}%
+\contentsline {subsubsection}{\numberline {5.11.4.3}Wilcoxon Signed-Rank on Paired Per-Trip Differences}{202}{subsubsection.5.11.4.3}%
+\contentsline {subsubsection}{\numberline {5.11.4.4}Application Scope and Interpretation}{202}{subsubsection.5.11.4.4}%
+\contentsline {subsection}{\numberline {5.11.5}Evaluation Metrics}{203}{subsection.5.11.5}%
+\contentsline {section}{\numberline {5.12}Data Collection and Research-Ethics Procedure}{205}{section.5.12}%
+\contentsline {subsection}{\numberline {5.12.1}Study Procedures}{205}{subsection.5.12.1}%
+\contentsline {subsection}{\numberline {5.12.2}Risks and Discomforts}{206}{subsection.5.12.2}%
+\contentsline {subsection}{\numberline {5.12.3}Steps to Minimize Risks}{207}{subsection.5.12.3}%
+\contentsline {subsection}{\numberline {5.12.4}Benefits}{207}{subsection.5.12.4}%
+\contentsline {subsection}{\numberline {5.12.5}Compensation}{208}{subsection.5.12.5}%
+\contentsline {subsection}{\numberline {5.12.6}Data Storage, Duration, and Disposal}{208}{subsection.5.12.6}%
+\contentsline {subsection}{\numberline {5.12.7}Confidentiality}{209}{subsection.5.12.7}%
+\contentsline {subsection}{\numberline {5.12.8}Withdrawal Procedure}{209}{subsection.5.12.8}%
+\contentsline {section}{\numberline {5.13}Summary}{210}{section.5.13}%
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Results and Discussions}}{211}{chapter.6}%
+\contentsline {section}{\numberline {6.1}SO1: Fuel Measurement Accuracy}{216}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Overview of Results}{216}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Filter Comparison: Moving Average versus Kalman}{217}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Pump-Gas Validation}{224}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Drift, Noise, and Variance per Tank Level}{228}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Figures for SO1}{229}{subsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.1.6}Statistical Grounding for the SO1 Metrics}{231}{subsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.1.7}Discussion}{232}{subsection.6.1.7}%
+\contentsline {section}{\numberline {6.2}SO2: Communication Subsystem Performance}{235}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Overview of Results}{235}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}LoRa Range Characterisation}{235}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}GSM/LTE Signal and Latency by Location}{237}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}End-to-End Latency and Packet Delivery}{238}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}Statistical Grounding for the SO2 Metrics}{241}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {6.2.6}Discussion}{241}{subsection.6.2.6}%
+\contentsline {section}{\numberline {6.3}SO3: GPS Logging and Route Visualisation}{242}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Overview of Results}{242}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}GPS Acquisition Verification}{243}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Live Tracking and Mobile Companion}{244}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Behavioural Overlay: Fuel Consumption per Route Segment}{248}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Figures for SO3}{249}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}Statistical Grounding for the SO3 Metrics}{250}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.7}Discussion}{251}{subsection.6.3.7}%
+\contentsline {section}{\numberline {6.4}SO4: Machine-Learning Anomaly Detection}{252}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Overview of Results}{252}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Model Selection Rationale: Primary Detector and Audit Signal}{253}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Detector Ablation: Physics, IF, MP, and Hybrid}{256}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}Model Performance}{257}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}Detector versus Baseline Comparison}{259}{subsection.6.4.5}%
+\contentsline {subsection}{\numberline {6.4.6}Extended On-Road Validation: Siphoning and Fuel Theft}{260}{subsection.6.4.6}%
+\contentsline {subsection}{\numberline {6.4.7}Constraint-Violation and Pattern-Mining Analysis}{262}{subsection.6.4.7}%
+\contentsline {subsection}{\numberline {6.4.8}Figures for SO4}{264}{subsection.6.4.8}%
+\contentsline {subsection}{\numberline {6.4.9}Statistical Tests on the Detector Ablation}{265}{subsection.6.4.9}%
+\contentsline {subsection}{\numberline {6.4.10}Discussion}{266}{subsection.6.4.10}%
+\contentsline {section}{\numberline {6.5}SO5: Alert System, HMI, and Cross-Interface Synchronisation}{268}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Overview of Results}{268}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Alert-Rule Implementation Status}{269}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Alert-Engine Operational Performance}{270}{subsection.6.5.3}%
+\contentsline {subsection}{\numberline {6.5.4}Embedded Human--Machine Interface}{271}{subsection.6.5.4}%
+\contentsline {subsection}{\numberline {6.5.5}Administrative Dashboard}{273}{subsection.6.5.5}%
+\contentsline {subsection}{\numberline {6.5.6}Administrator Acceptance Survey}{280}{subsection.6.5.6}%
+\contentsline {subsection}{\numberline {6.5.7}Cross-Interface Synchronisation Evidence}{282}{subsection.6.5.7}%
+\contentsline {subsection}{\numberline {6.5.8}Statistical Grounding for the SO5 Metrics}{283}{subsection.6.5.8}%
+\contentsline {subsection}{\numberline {6.5.9}Discussion}{283}{subsection.6.5.9}%
+\contentsline {section}{\numberline {6.6}Commercial-Scale Scalability Projection}{284}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Summary}{286}{section.6.7}%
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusions, Recommendations, and Future Directives}}{289}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Concluding Remarks}{290}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Technical Limitations}{292}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Contributions}{293}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Recommendations}{295}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Future Prospects}{296}{section.7.5}%
+\contentsline {chapter}{References}{299}{chapter*.132}%
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Ethical Clearance}}{309}{appendix.A}%
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Partner Coordination and Prototype Demonstration}}{312}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Administrator Acceptance Survey Instrument}}{321}{appendix.C}%
+\contentsline {section}{\numberline {C1}Dashboard and Real-Time Monitoring}{322}{section.C.1}%
+\contentsline {section}{\numberline {C2}Fuel Monitoring Accuracy}{322}{section.C.2}%
+\contentsline {section}{\numberline {C3}Anomaly Detection and Alerts}{322}{section.C.3}%
+\contentsline {section}{\numberline {C4}Driver Safety and Rest Alerts}{323}{section.C.4}%
+\contentsline {section}{\numberline {C5}Maintenance Monitoring}{323}{section.C.5}%
+\contentsline {section}{\numberline {C6}Overall System Usability and Satisfaction}{323}{section.C.6}%
+\contentsline {section}{\numberline {C7}Open-Ended Feedback Questions}{324}{section.C.7}%
+\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Technical Implementation Details}}{325}{appendix.D}%
+\contentsline {section}{\numberline {D1}HMI GPIO Map}{326}{section.D.1}%
+\contentsline {section}{\numberline {D2}Telemetry JSON Payload Schema}{326}{section.D.2}%
+\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Individual Gantt Charts}}{328}{appendix.E}%
+\contentsline {appendix}{\chapternumberline {F}\MakeTextUppercase []{Summary of Revisions Prior to Approval}}{331}{appendix.F}%
+\contentsline {appendix}{\chapternumberline {G}\MakeTextUppercase []{Source Code Listings}}{335}{appendix.G}%
+\contentsline {section}{\numberline {G1}Listings Setup}{336}{section.G.1}%
+\contentsline {section}{\numberline {G2}Embedded Firmware Source Code}{336}{section.G.2}%
+\contentsline {subsection}{\numberline {G2.1}In-Vehicle HMI Firmware}{336}{subsection.G.2.1}%
+\contentsline {subsection}{\numberline {G2.2}LoRa Gateway Firmware}{516}{subsection.G.2.2}%
+\contentsline {subsection}{\numberline {G2.3}LoRa Range-Test Transmitter}{536}{subsection.G.2.3}%
+\contentsline {subsection}{\numberline {G2.4}LoRa Range-Test Receiver}{538}{subsection.G.2.4}%
+\contentsline {subsection}{\numberline {G2.5}GSM/LTE Drive-Test Firmware}{539}{subsection.G.2.5}%
+\contentsline {section}{\numberline {G3}Machine-Learning Pipeline Source Code}{544}{section.G.3}%
+\contentsline {subsection}{\numberline {G3.1}Feature Engineering}{544}{subsection.G.3.1}%
+\contentsline {subsection}{\numberline {G3.2}Controlled Anomaly Injection}{564}{subsection.G.3.2}%
+\contentsline {subsection}{\numberline {G3.3}Matrix Profile Detector}{567}{subsection.G.3.3}%
+\contentsline {subsection}{\numberline {G3.4}Isolation Forest Detector}{580}{subsection.G.3.4}%
+\contentsline {subsection}{\numberline {G3.5}Leave-One-Trip-Out Evaluation}{588}{subsection.G.3.5}%
+\contentsline {subsection}{\numberline {G3.6}Simple-Baseline Comparisons}{598}{subsection.G.3.6}%
+\contentsline {subsection}{\numberline {G3.7}Four-Configuration Ablation}{602}{subsection.G.3.7}%
+\contentsline {subsection}{\numberline {G3.8}Statistical Tests}{608}{subsection.G.3.8}%
+\contentsline {section}{\numberline {G4}Backend, Database, and Web-Client Source Code}{614}{section.G.4}%
+\contentsline {subsection}{\numberline {G4.1}Express Server}{614}{subsection.G.4.1}%
+\contentsline {subsection}{\numberline {G4.2}Trip Rescoring Utility}{717}{subsection.G.4.2}%
+\contentsline {subsection}{\numberline {G4.3}Trip-Distance Odometer Accumulation}{722}{subsection.G.4.3}%
+\contentsline {subsection}{\numberline {G4.4}Application Root}{724}{subsection.G.4.4}%
+\contentsline {subsection}{\numberline {G4.5}Entry Point}{726}{subsection.G.4.5}%
+\contentsline {subsection}{\numberline {G4.6}Alert Stream Component}{726}{subsection.G.4.6}%
+\contentsline {subsection}{\numberline {G4.7}Analytics Charts}{731}{subsection.G.4.7}%
+\contentsline {subsection}{\numberline {G4.8}Dashboard Home}{741}{subsection.G.4.8}%
+\contentsline {subsection}{\numberline {G4.9}Fleet Map}{751}{subsection.G.4.9}%
+\contentsline {subsection}{\numberline {G4.10}Application Layout}{757}{subsection.G.4.10}%
+\contentsline {subsection}{\numberline {G4.11}Login and Sign-Up}{764}{subsection.G.4.11}%
+\contentsline {subsection}{\numberline {G4.12}Telemetry Log Inspector}{767}{subsection.G.4.12}%
+\contentsline {subsection}{\numberline {G4.13}Trip Route Replay Map}{777}{subsection.G.4.13}%
+\contentsline {subsection}{\numberline {G4.14}Route Assignment Modal}{779}{subsection.G.4.14}%
+\contentsline {subsection}{\numberline {G4.15}Settings and User Management}{787}{subsection.G.4.15}%
+\contentsline {subsection}{\numberline {G4.16}Trips History}{808}{subsection.G.4.16}%
+\contentsline {subsection}{\numberline {G4.17}Truck Detail Modal}{824}{subsection.G.4.17}%
+\contentsline {subsection}{\numberline {G4.18}Trucks List}{841}{subsection.G.4.18}%
+\contentsline {subsection}{\numberline {G4.19}Driver Application Shell}{847}{subsection.G.4.19}%
+\contentsline {subsection}{\numberline {G4.20}Driver Login}{849}{subsection.G.4.20}%
+\contentsline {subsection}{\numberline {G4.21}Driver Map}{851}{subsection.G.4.21}%
+\contentsline {subsection}{\numberline {G4.22}Driver Turn-by-Turn Navigation}{859}{subsection.G.4.22}%
+\contentsline {subsection}{\numberline {G4.23}Driver Idle Screen}{905}{subsection.G.4.23}%
+\contentsline {subsection}{\numberline {G4.24}Driver Trip Controls}{907}{subsection.G.4.24}%
+\contentsline {subsection}{\numberline {G4.25}Driver Trucks List}{914}{subsection.G.4.25}%
+\contentsline {appendix}{\chapternumberline {H}\MakeTextUppercase []{Generative AI Use Disclosure}}{922}{appendix.H}%
 \contentsfinish 

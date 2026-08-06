@@ -1,0 +1,335 @@
+\section{Backend, Database, and Web-Client Source Code}
+\label{sec:app_web_code}
+
+This section reproduces the Node.js backend server, its rescoring utility, the Postgres migrations that define the fleet-monitoring schema, and the React source for both the administrator dashboard and the driver progressive web application. Each file is preceded by a compact summary block and followed by the stripped source listing.
+
+\subsection*{Backend Server}
+
+\subsection{Express Server}
+\label{sec:code_backend_server}
+
+\noindent\textbf{Purpose.} Node.js/Express HTTP server that hosts the ingest, alert-dispatch, and RPC endpoints consumed by the in-vehicle HMI, the LoRa gateway, the driver app, and the administrator dashboard.
+
+\noindent\textbf{Inputs.} HTTPS POST payloads on the telemetry, gateway, trip, and alert endpoints; a Supabase JWT for authenticated dashboard requests; an HMAC-signed body for device-originated telemetry.
+
+\noindent\textbf{Processes.} Validates identity and payload shape, resolves the active trip, computes GPS distance deltas through a Postgres RPC, forwards each row to the ML anomaly service, and writes to the alerts table so all client surfaces see the same state.
+
+\noindent\textbf{Outputs.} JSON acknowledgement payloads, Supabase writes into the telemetry, trip-events, and alerts tables, and log lines for the deployment log.
+
+\lstinputlisting[language=JavaScript,caption={Express server},label={lst:code_backend_server}]{code_listings/backend/server.js}
+
+\subsection{Trip Rescoring Utility}
+\label{sec:code_backend_rescore}
+
+\noindent\textbf{Purpose.} One-shot script that rescores a previously stored trip against the current ML model version. Used to backfill anomaly flags after a model release.
+
+\noindent\textbf{Inputs.} A trip identifier on the command line and a Supabase service-role key from the environment.
+
+\noindent\textbf{Processes.} Reads all telemetry rows for the trip, re-invokes the ML service on each row in order, and overwrites the row's anomaly flag, score, and model source. Re-emits any alert that would fire under the current gate.
+
+\noindent\textbf{Outputs.} A progress log, updated rows in the telemetry and alerts tables, and a non-zero exit code on validation failure.
+
+\lstinputlisting[language=JavaScript,caption={Trip rescoring utility},label={lst:code_backend_rescore}]{code_listings/backend/rescore_trip.js}
+
+\subsection*{Database Schema}
+
+\subsection{Trip-Distance Odometer Accumulation}
+\label{sec:code_sql_odometer_accum}
+
+\noindent\textbf{Purpose.} Adds lifetime-mileage bookkeeping so each finished trip's distance is added exactly once to the truck's running odometer, working around the fact that the fleet's OBD-II adapter cannot read the vehicle's factory lifetime odometer directly.
+
+\noindent\textbf{Inputs.} A finalised \texttt{trip\_sessions} row with a valid \texttt{distance\_km}.
+
+\noindent\textbf{Processes.} Extends \texttt{trip\_sessions} with an accumulation flag, defines an update function that adds the trip distance to \texttt{trucks.current\_odometer\_km}, and wires a trigger that fires on trip end.
+
+\noindent\textbf{Outputs.} A schema in which every ended trip advances the truck odometer once and only once.
+
+\lstinputlisting[language=SQL,caption={Trip-distance odometer accumulation},label={lst:code_sql_odometer_accum}]{code_listings/supabase/20260622091500_trip_distance_odometer_accumulation.sql}
+
+\subsection*{Web Clients}
+
+\subsection{Application Root}
+\label{sec:code_frontend_app}
+
+\noindent\textbf{Purpose.} Top-level React component that sets up routing, authentication context, and layout scaffolding for the administrator dashboard.
+
+\noindent\textbf{Inputs.} The current URL and the Supabase auth session.
+
+\noindent\textbf{Processes.} Mounts the router, exposes the auth session to child components, and delegates rendering to the layout and route components.
+
+\noindent\textbf{Outputs.} A React element tree that renders the appropriate page for the current route.
+
+\lstinputlisting[language=JavaScript,caption={Application root},label={lst:code_frontend_app}]{code_listings/frontend/App.jsx}
+
+\subsection{Entry Point}
+\label{sec:code_frontend_main}
+
+\noindent\textbf{Purpose.} Vite entry point that mounts the React application into the DOM.
+
+\noindent\textbf{Inputs.} The compiled bundle and the browser's \texttt{index.html}.
+
+\noindent\textbf{Processes.} Creates a React root on the target element and renders the App component into it.
+
+\noindent\textbf{Outputs.} A live React application in the browser tab.
+
+\lstinputlisting[language=JavaScript,caption={Entry point},label={lst:code_frontend_main}]{code_listings/frontend/main.jsx}
+
+\subsection{Alert Stream Component}
+\label{sec:code_frontend_alerts}
+
+\noindent\textbf{Purpose.} Renders the live alert stream, acknowledgement controls, and the Matrix Profile audit badge for each alert card.
+
+\noindent\textbf{Inputs.} A Supabase realtime subscription on the alerts table and the operator's click events.
+
+\noindent\textbf{Processes.} Maps each alert to a card, groups by truck, shows the model source and score, and writes the acknowledgement back to Supabase.
+
+\noindent\textbf{Outputs.} DOM rendering of the alert list and Supabase write-backs for acknowledgements.
+
+\lstinputlisting[language=JavaScript,caption={Alert stream component},label={lst:code_frontend_alerts}]{code_listings/frontend/Alerts.jsx}
+
+\subsection{Analytics Charts}
+\label{sec:code_frontend_analytics}
+
+\noindent\textbf{Purpose.} Aggregate analytics view for the operations team, showing fuel-consumption trends, alert counts, and per-truck efficiency.
+
+\noindent\textbf{Inputs.} Aggregated queries against the trips and telemetry tables.
+
+\noindent\textbf{Processes.} Fetches the aggregate data, transforms it into chart-ready series, and renders line and bar charts.
+
+\noindent\textbf{Outputs.} A rendered charts page.
+
+\lstinputlisting[language=JavaScript,caption={Analytics charts},label={lst:code_frontend_analytics}]{code_listings/frontend/Analytics.jsx}
+
+\subsection{Dashboard Home}
+\label{sec:code_frontend_dashboard}
+
+\noindent\textbf{Purpose.} Home page that shows fleet status at a glance: active trucks, live alerts, most recent trips, and the ML service health indicator.
+
+\noindent\textbf{Inputs.} Realtime subscriptions on trucks, trips, and alerts, plus a periodic poll of the ML service health endpoint.
+
+\noindent\textbf{Processes.} Composes the summary tiles, active-trip carousel, and recent-alert list, keeping each in sync as realtime updates arrive.
+
+\noindent\textbf{Outputs.} The rendered dashboard page.
+
+\lstinputlisting[language=JavaScript,caption={Dashboard home},label={lst:code_frontend_dashboard}]{code_listings/frontend/Dashboard.jsx}
+
+\subsection{Fleet Map}
+\label{sec:code_frontend_fleetmap}
+
+\noindent\textbf{Purpose.} Live map view with per-truck markers, current-status colouring, and route polylines for trips in progress.
+
+\noindent\textbf{Inputs.} The current position and status of each truck, streamed from Supabase.
+
+\noindent\textbf{Processes.} Manages the map view, updates marker positions on new telemetry, and draws route polylines for any active trip.
+
+\noindent\textbf{Outputs.} A rendered map with live-updating markers and lines.
+
+\lstinputlisting[language=JavaScript,caption={Fleet map},label={lst:code_frontend_fleetmap}]{code_listings/frontend/FleetMap.jsx}
+
+\subsection{Application Layout}
+\label{sec:code_frontend_layout}
+
+\noindent\textbf{Purpose.} Shared layout shell with the navigation sidebar, header, and page container used across every dashboard route.
+
+\noindent\textbf{Inputs.} The current route and auth session.
+
+\noindent\textbf{Processes.} Renders the sidebar, marks the active route, and hosts the routed child component in the main pane.
+
+\noindent\textbf{Outputs.} The wrapping layout DOM.
+
+\lstinputlisting[language=JavaScript,caption={Application layout},label={lst:code_frontend_layout}]{code_listings/frontend/Layout.jsx}
+
+\subsection{Login and Sign-Up}
+\label{sec:code_frontend_login}
+
+\noindent\textbf{Purpose.} Fleet-manager login form and account-creation flow, backed by Supabase auth.
+
+\noindent\textbf{Inputs.} Email, password, and form submits.
+
+\noindent\textbf{Processes.} Calls the Supabase sign-in and sign-up APIs and surfaces validation errors inline.
+
+\noindent\textbf{Outputs.} An authenticated session on success, or an inline error message on failure.
+
+\lstinputlisting[language=JavaScript,caption={Login and sign-up},label={lst:code_frontend_login}]{code_listings/frontend/LoginSignUp.jsx}
+
+\subsection{Telemetry Log Inspector}
+\label{sec:code_frontend_logs}
+
+\noindent\textbf{Purpose.} Paginated table view over the raw telemetry log for a truck or trip, with filters and export.
+
+\noindent\textbf{Inputs.} A truck or trip filter, a time window, and a page size.
+
+\noindent\textbf{Processes.} Queries the telemetry table with the current filter, renders the paged table, and offers a CSV export of the current view.
+
+\noindent\textbf{Outputs.} A rendered table plus optional CSV download.
+
+\lstinputlisting[language=JavaScript,caption={Telemetry log inspector},label={lst:code_frontend_logs}]{code_listings/frontend/Logs.jsx}
+
+\subsection{Trip Route Replay Map}
+\label{sec:code_frontend_mapview}
+
+\noindent\textbf{Purpose.} Standalone map component for replaying a single trip's route, used inside the trip-detail modal.
+
+\noindent\textbf{Inputs.} An ordered list of GPS points for the trip.
+
+\noindent\textbf{Processes.} Fits the map to the route bounds and draws the polyline with start and end markers.
+
+\noindent\textbf{Outputs.} A rendered map with the replayed route.
+
+\lstinputlisting[language=JavaScript,caption={Trip route replay map},label={lst:code_frontend_mapview}]{code_listings/frontend/MapView.jsx}
+
+\subsection{Route Assignment Modal}
+\label{sec:code_frontend_routeassign}
+
+\noindent\textbf{Purpose.} Dialog that lets a manager assign a new route to a truck by picking origin and destination on the map.
+
+\noindent\textbf{Inputs.} Manager-selected origin and destination coordinates.
+
+\noindent\textbf{Processes.} Requests an OSRM route between the two points, previews it on the map, and writes the assignment back to Supabase on confirm.
+
+\noindent\textbf{Outputs.} A new route assignment row for the driver's app to pick up.
+
+\lstinputlisting[language=JavaScript,caption={Route assignment modal},label={lst:code_frontend_routeassign}]{code_listings/frontend/RouteAssignModal.jsx}
+
+\subsection{Settings and User Management}
+\label{sec:code_frontend_settings}
+
+\noindent\textbf{Purpose.} Settings pane that covers profile, notification preferences, and the user-management table for the fleet-manager role.
+
+\noindent\textbf{Inputs.} Operator edits to the settings form and admin edits to the user list.
+
+\noindent\textbf{Processes.} Loads the current settings and user list, validates edits, and writes changes back to Supabase.
+
+\noindent\textbf{Outputs.} Persisted settings and user updates plus inline feedback.
+
+\lstinputlisting[language=JavaScript,caption={Settings and user management},label={lst:code_frontend_settings}]{code_listings/frontend/Settings.jsx}
+
+\subsection{Trips History}
+\label{sec:code_frontend_trips}
+
+\noindent\textbf{Purpose.} Trip history page with per-trip summary rows, drill-down to the trip-detail modal, and filters on truck, driver, and date range.
+
+\noindent\textbf{Inputs.} Filter controls and a Supabase query on the trip-sessions table.
+
+\noindent\textbf{Processes.} Fetches trips matching the filters, formats summary metrics, and opens the detail modal on row click.
+
+\noindent\textbf{Outputs.} A rendered trips table with the detail modal on demand.
+
+\lstinputlisting[language=JavaScript,caption={Trips history},label={lst:code_frontend_trips}]{code_listings/frontend/Trips.jsx}
+
+\subsection{Truck Detail Modal}
+\label{sec:code_frontend_truckdetail}
+
+\noindent\textbf{Purpose.} Modal that shows all metadata and recent activity for a single truck, including live telemetry, assigned driver, current route, and edit controls.
+
+\noindent\textbf{Inputs.} A truck record and realtime subscriptions on its recent telemetry and trip.
+
+\noindent\textbf{Processes.} Renders the truck's specs, its latest telemetry snapshot, its current or last trip, and exposes edit and route-assignment actions.
+
+\noindent\textbf{Outputs.} The modal DOM and any Supabase edits confirmed by the manager.
+
+\lstinputlisting[language=JavaScript,caption={Truck detail modal},label={lst:code_frontend_truckdetail}]{code_listings/frontend/TruckDetailModal.jsx}
+
+\subsection{Trucks List}
+\label{sec:code_frontend_trucks}
+
+\noindent\textbf{Purpose.} Trucks page that lists every registered vehicle with its current status, driver, and one-click access to the detail modal.
+
+\noindent\textbf{Inputs.} A Supabase subscription on the trucks table.
+
+\noindent\textbf{Processes.} Renders each truck as a card or row and updates it as realtime changes arrive.
+
+\noindent\textbf{Outputs.} The rendered trucks list.
+
+\lstinputlisting[language=JavaScript,caption={Trucks list},label={lst:code_frontend_trucks}]{code_listings/frontend/Trucks.jsx}
+
+\subsection{Driver Application Shell}
+\label{sec:code_frontend_driver_app}
+
+\noindent\textbf{Purpose.} Top-level component for the driver progressive web app that composes the login, trip, map, and navigation views.
+
+\noindent\textbf{Inputs.} The current PIN-based session and the driver's assigned truck.
+
+\noindent\textbf{Processes.} Routes between the driver views based on the current trip state and session.
+
+\noindent\textbf{Outputs.} The driver app's rendered element tree.
+
+\lstinputlisting[language=JavaScript,caption={Driver application shell},label={lst:code_frontend_driver_app}]{code_listings/frontend/driver/DriverApp.jsx}
+
+\subsection{Driver Login}
+\label{sec:code_frontend_driver_login}
+
+\noindent\textbf{Purpose.} PIN entry screen used by drivers to authenticate on their phones without needing to type an email or password.
+
+\noindent\textbf{Inputs.} A four-digit PIN entered on the on-screen keypad.
+
+\noindent\textbf{Processes.} Verifies the PIN against the driver record via a Supabase RPC and starts a session on success.
+
+\noindent\textbf{Outputs.} An authenticated driver session or an inline retry prompt.
+
+\lstinputlisting[language=JavaScript,caption={Driver login},label={lst:code_frontend_driver_login}]{code_listings/frontend/driver/DriverLogin.jsx}
+
+\subsection{Driver Map}
+\label{sec:code_frontend_driver_map}
+
+\noindent\textbf{Purpose.} Map view for the driver app that shows the assigned route and the current position of the truck.
+
+\noindent\textbf{Inputs.} The current GPS position of the truck and the assigned OSRM route.
+
+\noindent\textbf{Processes.} Draws the route polyline, tracks the current position marker, and keeps the map centred on the driver.
+
+\noindent\textbf{Outputs.} A live-updating map view.
+
+\lstinputlisting[language=JavaScript,caption={Driver map},label={lst:code_frontend_driver_map}]{code_listings/frontend/driver/DriverMap.jsx}
+
+\subsection{Driver Turn-by-Turn Navigation}
+\label{sec:code_frontend_driver_nav}
+
+\noindent\textbf{Purpose.} Turn-by-turn navigation view for the driver app, including voice cues, distance-to-next-turn, and reroute-on-deviation.
+
+\noindent\textbf{Inputs.} The assigned OSRM route, the live GPS position, and the driver's current heading.
+
+\noindent\textbf{Processes.} Advances through the route's step list as the driver progresses, triggers voice prompts at the correct distances, and requests a fresh route when the driver strays off the polyline.
+
+\noindent\textbf{Outputs.} The rendered navigation view and audio cues.
+
+\lstinputlisting[language=JavaScript,caption={Driver turn-by-turn navigation},label={lst:code_frontend_driver_nav}]{code_listings/frontend/driver/DriverNav.jsx}
+
+\subsection{Driver Idle Screen}
+\label{sec:code_frontend_driver_notrip}
+
+\noindent\textbf{Purpose.} Screen shown to the driver when no trip is assigned. Explains the state and offers a manual refresh.
+
+\noindent\textbf{Inputs.} The realtime trip-assignment stream for the driver's truck.
+
+\noindent\textbf{Processes.} Renders the idle message and switches to the trip view as soon as an assignment arrives.
+
+\noindent\textbf{Outputs.} The idle screen DOM.
+
+\lstinputlisting[language=JavaScript,caption={Driver idle screen},label={lst:code_frontend_driver_notrip}]{code_listings/frontend/driver/DriverNoTrip.jsx}
+
+\subsection{Driver Trip Controls}
+\label{sec:code_frontend_driver_trip}
+
+\noindent\textbf{Purpose.} Trip view for the driver app that mirrors the in-vehicle HMI's controls: start, rest, resume, and end.
+
+\noindent\textbf{Inputs.} The current trip state and the driver's button presses.
+
+\noindent\textbf{Processes.} Queues each control action locally when offline and replays it once the network returns, mirroring the state back to Supabase.
+
+\noindent\textbf{Outputs.} Trip-state writes propagated to the HMI and the administrator dashboard.
+
+\lstinputlisting[language=JavaScript,caption={Driver trip controls},label={lst:code_frontend_driver_trip}]{code_listings/frontend/driver/DriverTrip.jsx}
+
+\subsection{Driver Trucks List}
+\label{sec:code_frontend_driver_trucks}
+
+\noindent\textbf{Purpose.} Truck picker used by drivers who are assigned to more than one vehicle.
+
+\noindent\textbf{Inputs.} The list of trucks the driver is authorised to operate.
+
+\noindent\textbf{Processes.} Renders each truck as a card and records the selection on the session.
+
+\noindent\textbf{Outputs.} The rendered picker and the selected-truck write.
+
+\lstinputlisting[language=JavaScript,caption={Driver trucks list},label={lst:code_frontend_driver_trucks}]{code_listings/frontend/driver/DriverTrucks.jsx}

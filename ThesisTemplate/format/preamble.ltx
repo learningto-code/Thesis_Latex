@@ -34,7 +34,8 @@
 
 \usepackage{xintexpr} % for evaluating simple math expressions with with infix operators
 
-%\usepackage{natbib} % for implementsibg both author-year and numbered references, as well as much detailed of support for other bibliography use
+\usepackage[natbibapa]{apacite} % APA-style bibliography with "Surname, F. M." formatting; also supports natbib-compatible \cite commands and prints DOI/URL fields
+\usepackage{doi} % turns DOI fields in the bibliography into clickable https://doi.org/... hyperlinks
 
 \usepackage{breakcites} % for breaking long citations
 
@@ -179,11 +180,124 @@
 
 \usepackage[]{hyperref} % for hyperlinking
 
+% \stdlink{bibkey}{display} renders `display' as a clickable link that jumps to
+% the bibliography entry for `bibkey' (used to make standard names in the
+% standards-mapping table hyperlink back to the References section). \nocite
+% ensures the key is present in the bibliography even when the discussion prose
+% below the table does not re-cite it explicitly.
+\newcommand{\stdlink}[2]{\nocite{#1}\hyperlink{cite.#1}{#2}}
+
+% \seclink{label}{display} renders `display' as a clickable link that jumps to
+% the section marked by `\label{label}'. Used in the standards-mapping table's
+% "Implemented In" column so a reader can press "Secs.~5.3, 5.4.1--5.4.4" and
+% land on the corresponding section in Chapter~5.
+\newcommand{\seclink}[2]{\hyperref[#1]{#2}}
+
 \usepackage{url} % for providing better support for handling and breaking URLs
 
-\usepackage{pdfpages} % for including multipage PDF documents, must be placed after the color package 
+% Render \doi{X} as a full clickable URL "https://doi.org/X" (matches the
+% https://doi.org/10.xxxx presentation requested in the citation-format
+% guidance), rather than the "doi:X" prefix produced by the doi package
+% defaults. Suppresses the apacite "doi:" label (\doiprefix) that would
+% otherwise appear before the URL inside the APACrefDOI environment.
+\makeatletter
+\renewcommand*{\doi}[1]{\href{https://doi.org/#1}{https://doi.org/#1}}
+\@ifundefined{doiprefix}{}{\renewcommand{\doiprefix}{}}
+\makeatother
+
+% Inside the apacite APACrefURL environment ("Retrieved from ..."), suppress
+% \url and its preceding "Retrieved from" prefix when the URL is a doi.org
+% resolver, since the DOI field already renders as an https://doi.org/... URL
+% via the \doi override above. This keeps the article's IEEEtran bibliography
+% (which reads the url field to render DOIs) working without producing a
+% duplicated "Retrieved from https://doi.org/... https://doi.org/..." line
+% in the apacite bibliography of the main thesis. Implemented with plain
+% TeX pattern matching (no xstring dependency).
+\makeatletter
+% Sentinel token used to detect "no substring match" in \SG@ifhasDoiOrg.
+% After the scan, \SG@doiTail is set to whatever follows the first "doi.org"
+% in the input, up to \SG@doiEnd. If the input contains no "doi.org", the
+% scan matches only the appended sentinel, and \SG@doiTail becomes a macro
+% whose body is a single \SG@doiSentinel token -- identical to
+% \SG@doiSentinelBody, so \ifx compares equal and the "false" branch fires.
+\def\SG@doiSentinel{}%
+\def\SG@doiSentinelBody{\SG@doiSentinel}%
+\long\def\SG@ifhasDoiOrg#1{%
+  \long\def\SG@doiScan##1doi.org##2\SG@doiEnd{\def\SG@doiTail{##2}}%
+  \SG@doiScan#1doi.org\SG@doiSentinel\SG@doiEnd
+  \ifx\SG@doiTail\SG@doiSentinelBody
+    \expandafter\@secondoftwo
+  \else
+    \expandafter\@firstoftwo
+  \fi
+}
+\renewenvironment{APACrefURL}[1][]{%
+  \def\SG@refurlDate{#1}%
+  \let\SG@origurl\url
+  \def\url##1{%
+    \SG@ifhasDoiOrg{##1}{}{%
+      \ifx\SG@refurlDate\@empty
+        \BRetrievedFrom
+      \else
+        \BRetrieved{\SG@refurlDate}%
+      \fi
+      \SG@origurl{##1}%
+    }%
+  }%
+}{}
+\makeatother
+
+\usepackage{pdfpages} % for including multipage PDF documents, must be placed after the color package
+\usepackage{pax} % preserves hyperlinks (in-text citations, figure/table refs, and https://doi.org/... URLs) from PDFs embedded via \includepdf, using annotation data extracted with the pax Java tool into a .pax sidecar file next to the source PDF
 
 \usepackage{soul} % for enabling highlight feature through \hl{ } command
+
+% Make \texttt{} content breakable at underscores, slashes, dots, and dashes so long
+% code identifiers (fuel_level_filtered, /tel_buf.log, route_segment_performance, etc.)
+% never overflow the right border of a paragraph, table cell, or shaded revhl block.
+\makeatletter
+\let\SG@origtexttt\texttt
+\renewcommand*{\texttt}[1]{%
+  \begingroup
+    \def\_{\discretionary{}{}{}\char`_\discretionary{}{}{}}%
+    \SG@origtexttt{#1}%
+  \endgroup
+}
+\makeatother
+
+% Give LaTeX permission to stretch inter-word spacing on the last line of a
+% paragraph before it overflows the right margin. This catches the residual
+% cases where camelCase identifiers (postRefuel, coldStartSuppress) and other
+% unbreakable inline code names would otherwise push into or past the border.
+\setlength{\emergencystretch}{3em}
+\soulregister{\ref}{1}
+\soulregister{\cite}{1}
+\soulregister{\pageref}{1}
+\soulregister{\eqref}{1}
+\soulregister{\gls}{1}
+\soulregister{\glsadd}{1}
+\soulregister{\texttt}{1}
+
+% Yellow-shaded block environment for large revision blocks. Uses mdframed
+% for mid-paragraph page splitting. lineno's per-line numbering interacts
+% badly with framed environments (each numbered line becomes its own
+% page-break candidate, producing one-line-per-page rendering), so revhl
+% suspends lineno inside the block and restores it after.
+\usepackage{mdframed}
+\definecolor{revhlcolor}{RGB}{255,241,153}
+\newmdenv[
+  hidealllines=true,
+  backgroundcolor=revhlcolor,
+  innertopmargin=1pt,
+  innerbottommargin=1pt,
+  innerleftmargin=2pt,
+  innerrightmargin=2pt,
+  skipabove=2pt,
+  skipbelow=2pt
+]{revhl@inner}
+\newenvironment{revhl}%
+  {\par\nolinenumbers\begin{revhl@inner}\sloppy}%
+  {\end{revhl@inner}\linenumbers\par}
 
 \usepackage{clipboard} % for providing a basic framework for copying and pasting text and commands into and across multiple documents
 
@@ -210,6 +324,32 @@
 \lstset{basicstyle=\scriptsize\ttfamily}
 \lstset{tabsize=3}
 \lstset{xleftmargin=20pt}
+
+% JavaScript / JSX language definition for listings (not built into base listings).
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, class, const, continue, debugger, default,
+            delete, do, else, export, extends, false, finally, for, from,
+            function, if, import, in, instanceof, let, new, null, of, return,
+            static, super, switch, this, throw, true, try, typeof, var, void,
+            while, with, yield, async, await},
+  keywordstyle=\color{blue!60!black}\bfseries,
+  ndkeywords={console, Math, JSON, Date, Array, Object, Promise, Set, Map,
+              undefined, NaN, Infinity, document, window, process, require,
+              module, exports, useState, useEffect, useMemo, useRef, useContext},
+  ndkeywordstyle=\color{teal!60!black},
+  identifierstyle=\color{black},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{gray!70!black}\itshape,
+  stringstyle=\color{purple!70!black},
+  string=[b]',
+  morestring=[b]",
+  morestring=[b]`
+}
+\lstalias{JSX}{JavaScript}
+\lstalias{javascript}{JavaScript}
+\lstalias{jsx}{JavaScript}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % the following are memoir-dependent commands for fomatting the document

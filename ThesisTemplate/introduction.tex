@@ -29,7 +29,7 @@ Because partner HINO in the Philippines do not permit tank-cap or sender-loom mo
 \begin{itemize}
     \item \textbf{Scalability Constraints:} Many existing solutions are limited to small-scale deployments or specific vehicle types (e.g., motorcycles, generators) and have not been validated for large truck fleets in diverse environments \cite{rs2024fuel, tatababu2024smart}.
     
-    \item \textbf{Data and Sensor Limitations:} Several studies rely on basic sensors (resistance, ultrasonic) that may lack the accuracy and robustness needed for high-volume commercial operations. Furthermore, datasets used are often small or simulated, limiting generalizability \cite{nada2017design, automatic2019fuel}.
+    \item \textbf{Data and Sensor Limitations:} Several studies rely on basic sensors (resistance, ultrasonic) that may lack the accuracy and robustness needed for high-volume commercial operations. Furthermore, datasets used are often small or simulated, limiting generalizability \cite{nada2017design, krishnasamy2019}.
     
     \item \textbf{Fragmented Solutions:} Many systems only address a single issue — fuel monitoring, GPS tracking, or theft detection — without offering a comprehensive, unified solution integrating these components using AI and IoT \cite{g2022real, crisgar2021gps}.
 \end{itemize}
@@ -125,7 +125,7 @@ Accurate location tracking and reporting via web interface. &
 Dependent on GSM/GPS reliability; lacks IoT integration and anomaly detection. \\
 \hline
 
-Automatic Fuel Monitoring System \cite{automatic2019fuel} &
+Automatic Fuel Monitoring System \cite{krishnasamy2019} &
 Accurate fuel monitoring and theft prevention. &
 Fuel sensors and GSM module with SMS\glsadd{SMS} alerts. &
 Monitors fuel, triggers alarms, and sends GPS alerts. &
@@ -149,7 +149,7 @@ Only analyzed individual feature relevance; not fully integrated in real-time sy
 
 A review of existing literature in fuel monitoring and anomaly detection for logistics and fleet management reveals persistent gaps that point to a need for more robust, integrated solutions. Although many systems incorporate IoT elements—such as sensors, GSM, and GPS—these are often limited in scope, typically designed for specific applications like diesel generators or motorcycles, rather than being adaptable for broader fleet use.
 
-For example, systems like the Smart Fuel Monitoring System for Diesel Generators \cite{tatababu2024smart} and the Automatic Fuel Monitoring System \cite{automatic2019fuel} demonstrate basic real-time monitoring and theft detection capabilities. However, these systems heavily rely on elementary sensor technology and offer minimal integration with advanced analytics or anomaly detection methods. Similarly, the machine learning-based approach in \cite{mumcuoglu2023fuel} was limited in its use of data and did not incorporate real-time or context-aware learning techniques.
+For example, systems like the Smart Fuel Monitoring System for Diesel Generators \cite{tatababu2024smart} and the Automatic Fuel Monitoring System \cite{krishnasamy2019} demonstrate basic real-time monitoring and theft detection capabilities. However, these systems heavily rely on elementary sensor technology and offer minimal integration with advanced analytics or anomaly detection methods. Similarly, the machine learning-based approach in \cite{mumcuoglu2023fuel} was limited in its use of data and did not incorporate real-time or context-aware learning techniques.
 
 While \cite{barbado2022interpretable} explored the potential of interpretable machine learning and unsupervised anomaly detection, their models were evaluated on constrained datasets and not integrated into real-time operational systems. \cite{fortela2023unsupervised} also demonstrated effective anomaly detection using unsupervised learning in emissions and fuel economy testing, but again, their data was static and gathered in controlled environments. These findings were not validated using on-vehicle, operational data, which limits their applicability in dynamic, real-world conditions.
 
@@ -447,20 +447,12 @@ The scope of the study encompasses the development and implementation of a smart
 
 \end{enumerate}
 
-\section{Description and Methodology}
-This study employs a quantitative research paradigm combined with a data-centric, system development approach to implement an AI-driven fleet fuel monitoring and anomaly detection system. The methodology integrates theoretical foundations from Chapter~\ref{ch:theorycon} on cyber-physical systems and IoT architectures, system design principles from Chapter~\ref{ch:designcon}, and practical implementation strategies detailed in Chapter~\ref{ch:method}. The system leverages real-time vehicle data acquired through the OBD-II/CAN\glsadd{CAN} interface, GPS modules for location tracking, and embedded alert subsystems for driver safety. These components feed into a microcontroller that preprocesses signals, synchronizes time-series data, and transmits information to a cloud platform through prioritized LoRa, LTE, GSM 2G, WiFi, and offline-replay channels.
-
-Offline, historical and hybrid datasets, combining fleet telemetry and publicly available vehicle logs, are used to train context-aware non-parametric machine learning models such as Matrix Profile and Isolation Forest. These models identify anomalous fuel consumption patterns and provide context-aware alerts. In the cloud, a Python-based engine continuously evaluates incoming data, logs anomaly events, and stores synchronized measurements in a centralized database. Users access the information through an embedded HMI, a mobile driver web application, and an administrative dashboard that display real-time truck status, historical fuel usage, route playback, trip state, and operational alerts. 
-
-The methodology includes signal preprocessing (smoothing via moving averages), time synchronization using linear interpolation, hybrid dataset construction, and rigorous evaluation metrics (precision, false positive rate, accuracy, detection latency) to validate system objectives, as elaborated in Chapter~\ref{ch:method}. The approach follows iterative, agile development cycles, allowing continuous refinement of sensor integration, communication protocols, and anomaly detection algorithms, thereby ensuring reliability, scalability, and actionable fleet monitoring insights.
-
-
 \section{Research Dissemination Plan}
 The findings of this study will be disseminated to relevant academic, industrial, and technical stakeholders to promote the adoption and further development of intelligent fleet monitoring technologies. Upon approval of the study, the final manuscript will be submitted to the institutional repository of De La Salle University, including the Animo Repository, in accordance with university research archiving policies. Primary target audiences include the research partner Hino Paranaque Subic GS Auto Inc. (SGSA), fleet managers, logistics operators, academic researchers, engineering students, and faculty members within the field of IoT, transportation systems, and machine learning.
 
 The dissemination process will occur in multiple stages. During the implementation and testing phase, progress updates and preliminary findings will be presented to SGSA representatives and thesis advisers for technical evaluation and operational feedback. Upon completion of the study, the final results, including system performance metrics, anomaly detection accuracy, latency measurements, and operational observations, will be formally presented through the thesis defense at De La Salle University. A digital and printed copy of the approved manuscript will also be submitted to the institutional repository of De La Salle University, Animo Repository, in accordance with institutional requirements. In addition, the proponents may present selected findings in future academic conferences, research exhibits, or technology demonstrations related to IoT systems, intelligent transportation, or artificial intelligence applications.
 
-The dissemination timeline will follow the project completion schedule presented in Section 1.9, including the individual Gantt charts of the proponents. Preliminary technical findings and prototype demonstrations will be shared during the system testing and validation phase. Final dissemination activities, including the thesis defense, manuscript submission, and partner presentation, will occur after the completion of data analysis, evaluation, and manuscript revisions. Any future publication or presentation derived from the study will only use anonymized and non-sensitive operational data to preserve confidentiality and comply with ethical and data privacy standards.
+The dissemination timeline will follow the project completion schedule detailed in Appendix~\ref{ch:appendix_gantt}, including the individual Gantt charts of the proponents. Preliminary technical findings and prototype demonstrations will be shared during the system testing and validation phase. Final dissemination activities, including the thesis defense, manuscript submission, and partner presentation, will occur after the completion of data analysis, evaluation, and manuscript revisions. Any future publication or presentation derived from the study will only use anonymized and non-sensitive operational data to preserve confidentiality and comply with ethical and data privacy standards.
 
 The effectiveness of the dissemination activities will be evaluated through several criteria, including feedback from thesis panel members, adviser evaluations, partner company assessments, and audience engagement during presentations and demonstrations. Additional indicators of dissemination effectiveness include successful acceptance of the manuscript, utilization of recommendations by the partner company, and the potential application or continuation of the proposed system in future research or operational deployments.
 
@@ -477,42 +469,11 @@ The authors declare that they have no financial, personal, or professional relat
 
 %\graytx{\blindtext}
 
-\subsection{Gantt Chart}
-\FloatBarrier 
-\begin{figure}[!htbp]
-	\centering
-	\large % Change text size for entire figure
-	\includegraphics[width=0.8\textwidth]{BARJA.png}
-		\caption{Individual Gantt Chart -- Barja}
-		\label{fig:gantt_barja}
-\end{figure}
-\begin{figure}[!htbp]
-	\centering
-	\large % Change text size for entire figure
-	\includegraphics[width=0.8\textwidth]{CASTELO.png}
-		\caption{Individual Gantt Chart -- Castelo}
-		\label{fig:gantt_castelo}
-\end{figure}
-\begin{figure}[!htbp]
-	\centering
-	\large % Change text size for entire figure
-	\includegraphics[width=0.8\textwidth]{DELAROSA.png}
-		\caption{Individual Gantt Chart -- De La Rosa}
-		\label{fig:gantt_delarosa}
-\end{figure}
-\begin{figure}[!htbp]
-	\centering
-	\large % Change text size for entire figure
-	\includegraphics[width=0.8\textwidth]{MONTEMAYOR.png}
-		\caption{Individual Gantt Chart -- Montemayor}
-		\label{fig:gantt_montemayor}
-\end{figure}
-
-\clearpage  % Forces everything before moving on
+The individual Gantt charts for each proponent are provided in Appendix~\ref{ch:appendix_gantt}.
 
 \subsection{Estimated Budget}
 
-\FloatBarrier  % Ensures the Gantt chart is placed before proceeding
+\FloatBarrier
 
 \begin{SingleSpace} % single spacing
 \renewcommand{\arraystretch}{1} % single row spacing

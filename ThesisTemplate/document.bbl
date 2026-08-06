@@ -1,799 +1,3188 @@
 \begin{thebibliography}{}
 
-\bibitem[aut, 2019]{automatic2019fuel}
- (2019).
-\newblock Automatic fuel monitoring system.
-\newblock {\em International Journal of Recent Technology and Engineering},
-  8(4S2):348--352.
-
-\bibitem[Ahmed et~al., 2017]{ahmed2017fuel}
-Ahmed, A. A.~I., Mohammed, S. A.~E., and Satte, M. A. M.~H. (2017).
-\newblock Fuel management system.
-\newblock In {\em 2017 International Conference on Communication, Control,
-  Computing and Electronics Engineering (ICCCCEE)}, pages 1--7.
-
-\bibitem[Alquhali et~al., 2019]{alquhali2019iot}
-Alquhali, A.~H., Roslee, M., Alias, M.~Y., and Mohamed, K.~S. (2019).
-\newblock {IoT} based real-time vehicle tracking system.
-\newblock In {\em 2019 IEEE Conference on Sustainable Utilization and
-  Development in Engineering and Technologies (CSUDET)}, pages 265--270.
-
-\bibitem[Alsanad et~al., 2020]{alsanad2020real}
-Alsanad, H.~R., Ucan, O.~N., Ilyas, M., Khan, A. U.~R., and Bayat, O. (2020).
-\newblock Real-time fuel truck detection algorithm based on deep convolutional
-  neural network.
-\newblock {\em IEEE Access}, 8:118808--118817.
-
-\bibitem[Aquize et~al., 2017]{aquize2017self}
-Aquize, V.~G., Emery, E., and de~Lima~Neto, F.~B. (2017).
-\newblock Self-organizing maps for anomaly detection in fuel consumption. case
-  study: Illegal fuel storage in bolivia.
-\newblock In {\em 2017 IEEE Latin American Conference on Computational
-  Intelligence (LA-CCI)}, pages 1--6.
-
-\bibitem[Arlot and Celisse, 2010]{arlot2010survey}
-Arlot, S. and Celisse, A. (2010).
-\newblock A survey of cross-validation procedures for model selection.
-\newblock {\em Statistics Surveys}, 4:40--79.
-
-\bibitem[{Asian Development Bank}, 2016]{adb2016fuel_smuggling}
-{Asian Development Bank} (2016).
-\newblock Fuel smuggling: 12 things to know.
+\bibitem [\protect \citeauthoryear {%
+Ahmed%
+, Mohammed%
+\BCBL {}\ \BBA {} Satte%
+}{%
+Ahmed%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+ahmed2017fuel}
+\APACinsertmetastar {%
+ahmed2017fuel}%
+\begin{APACrefauthors}%
+Ahmed, A\BPBI A\BPBI I.%
+, Mohammed, S\BPBI A\BPBI E.%
+\BCBL {}\ \BBA {} Satte, M\BPBI A\BPBI M\BPBI H.%
+\end{APACrefauthors}%
+\unskip\
 \newblock
-  \url{https://www.adb.org/news/features/fuel-smuggling-12-things-know}.
-\newblock Accessed: 2026-06-21.
-
-\bibitem[Bangor et~al., 2009]{bangor2009sus}
-Bangor, A., Kortum, P., and Miller, J. (2009).
-\newblock Determining what individual sus scores mean: adding an adjective
-  rating scale.
-\newblock {\em Journal of Usability Studies}, 4(3):114--123.
-
-\bibitem[Barbado and Corcho, 2022]{barbado2022interpretable}
-Barbado, A. and Corcho, {\'O}. (2022).
-\newblock Interpretable machine learning models for predicting and explaining
-  vehicle fuel consumption anomalies.
-\newblock {\em Engineering Applications of Artificial Intelligence},
-  115:105222.
-
-\bibitem[Beteto et~al., 2022]{beteto2022anomaly}
-Beteto, A. et~al. (2022).
-\newblock Anomaly and cyber fraud detection in pipelines and supply chains for
-  liquid fuels.
-\newblock {\em Environment Systems and Decisions}, 42(2):306--324.
-
-\bibitem[Brooke, 1996]{brooke1996sus}
-Brooke, J. (1996).
-\newblock {SUS}: A quick and dirty usability scale.
-\newblock In Jordan, P.~W., Thomas, B., Weerdmeester, B.~A., and McClelland,
-  I.~L., editors, {\em Usability Evaluation in Industry}, pages 189--194.
-  Taylor \& Francis, London.
-
-\bibitem[Campos et~al., 2016]{campos2016unsupervised}
-Campos, G.~O., Zimek, A., Sander, J., Campello, R. J. G.~B., Micenkov\'{a}, B.,
-  Schubert, E., Assent, I., and Houle, M.~E. (2016).
-\newblock On the evaluation of unsupervised outlier detection: Measures,
-  datasets, and an empirical study.
-\newblock {\em Data Mining and Knowledge Discovery}, 30(4):891--927.
-
-\bibitem[Chandola et~al., 2009]{chandola2009anomaly}
-Chandola, V., Banerjee, A., and Kumar, V. (2009).
-\newblock Anomaly detection.
-\newblock {\em ACM Computing Surveys}, 41(3):1--58.
-
-\bibitem[{Chengdu Ebyte Electronic Technology Co., Ltd.},
-  2024]{ebyte2024lora_range}
-{Chengdu Ebyte Electronic Technology Co., Ltd.} (2024).
-\newblock Lora module range: Key factors affecting lora communication.
-\newblock \url{https://www.cdebyte.com/news/622}.
-\newblock Accessed: 2026-06-19.
-
-\bibitem[Cherdo et~al., 2023]{cherdo2023can_anomaly}
-Cherdo, Y., Miramond, B., Pegatoquet, A., and Vallauri, A. (2023).
-\newblock Unsupervised anomaly detection for cars can sensors time series using
-  small recurrent and convolutional neural networks.
-\newblock {\em Sensors}, 23(11):5013--5013.
-
-\bibitem[{China Academy of Information and Communications Technology},
-  2025]{ntc2025legacy_network_phaseout}
-{China Academy of Information and Communications Technology} (2025).
-\newblock Certification updates of {NTC} certification of philippines.
-\newblock \url{https://gma.caict.ac.cn/en/update/31}.
-\newblock Accessed: 2026-06-24.
-
-\bibitem[Coles, 2001]{coles2001evt}
-Coles, S. (2001).
-\newblock {\em An Introduction to Statistical Modeling of Extreme Values}.
-\newblock Springer Series in Statistics. Springer, London.
-
-\bibitem[Crisgar et~al., 2021]{crisgar2021gps}
-Crisgar, P.~V. et~al. (2021).
-\newblock {GPS}-based vehicle tracking and theft detection systems using google
-  cloud {IoT} core \& firebase.
-\newblock In {\em 2021 International Symposium on Electronics and Smart Devices
-  (ISESD)}, pages 1--6.
-
-\bibitem[Davis and Goadrich, 2006]{davis2006prroc}
-Davis, J. and Goadrich, M. (2006).
-\newblock The relationship between precision-recall and {ROC} curves.
-\newblock In {\em Proceedings of the 23rd International Conference on Machine
-  Learning}, pages 233--240.
-
-\bibitem[Dem{\v{s}}ar, 2006]{demsar2006statistical}
-Dem{\v{s}}ar, J. (2006).
-\newblock Statistical comparisons of classifiers over multiple data sets.
-\newblock {\em Journal of Machine Learning Research}, 7:1--30.
-
-\bibitem[Devalal and Karthikeyan, 2018]{devalal2018lora}
-Devalal, S. and Karthikeyan, A. (2018).
-\newblock Lora technology - an overview.
-\newblock In {\em 2018 Second International Conference on Electronics,
-  Communication and Aerospace Technology (ICECA)}, pages 284--290, Coimbatore,
-  India.
-
-\bibitem[Dhivyasri and Mariappan, 2015]{dhivyasri2015advanced}
-Dhivyasri, G. and Mariappan, R. (2015).
-\newblock Advanced fuel level tracking system using telematic unit.
-\newblock In {\em 2015 IEEE International Conference on Electrical, Computer
-  and Communication Technologies (ICECCT)}.
-
-\bibitem[Dietterich, 1998]{dietterich1998approximate}
-Dietterich, T.~G. (1998).
-\newblock Approximate statistical tests for comparing supervised classification
-  learning algorithms.
-\newblock {\em Neural Computation}, 10(7):1895--1923.
-
-\bibitem[Efron and Tibshirani, 1994]{efron1994bootstrap}
-Efron, B. and Tibshirani, R.~J. (1994).
-\newblock {\em An Introduction to the Bootstrap}.
-\newblock Chapman \& Hall/CRC, Boca Raton, FL.
-
-\bibitem[Emmott et~al., 2015]{emmott2015systematic}
-Emmott, A.~F., Das, S., Dietterich, T., Fern, A., and Wong, W.-K. (2015).
-\newblock A systematic construction of anomaly detection benchmarks from real
-  data.
-\newblock In {\em Proceedings of the ACM SIGKDD Workshop on Outlier Detection
-  and Description}, pages 16--21.
-
-\bibitem[{European Commission}, 2022]{cecert}
-{European Commission} (2022).
-\newblock Ce marking – obtaining the certificate, eu requirements.
+\APACrefYearMonthDay{2017}{}{}.
 \newblock
-  \url{https://europa.eu/youreurope/business/product-requirements/labels-markings/ce-marking/index_en.htm}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[Farzana, 2020]{farzana2020real}
-Farzana, F. e.~a. (2020).
-\newblock A real-time motion based fuel monitoring technique for vehicle
-  tracking systems.
-\newblock In {\em 2020 Emerging Technology in Computing, Communication and
-  Electronics (ETCCE)}, pages 1--6.
-
-\bibitem[Fawcett, 2006]{fawcett2006roc}
-Fawcett, T. (2006).
-\newblock An introduction to {ROC} analysis.
-\newblock {\em Pattern Recognition Letters}, 27(8):861--874.
-
-\bibitem[{Federal Communications Commission}, 2025]{fcc}
-{Federal Communications Commission} (2025).
-\newblock Equipment authorization.
-\newblock \url{https://www.fcc.gov/oet/ea}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{Fleet Complete}, 2026]{fleetcomplete2026fuel}
-{Fleet Complete} (2026).
-\newblock Fleet management and fuel reporting.
-\newblock \url{https://www.fleetcomplete.com/}.
-\newblock Accessed: 2026-06-21.
-
-\bibitem[{Fleetio}, 2026]{fleetio2026fuel_management}
-{Fleetio} (2026).
-\newblock Fuel management system.
-\newblock \url{https://www.fleetio.com/solutions/fuel-management-software}.
-\newblock Accessed: 2026-06-08.
-
-\bibitem[Fortela et~al., 2023]{fortela2023unsupervised}
-Fortela, D. L.~B. et~al. (2023).
-\newblock Unsupervised machine learning to detect impending anomalies in
-  testing of fuel economy and emissions of light-duty vehicles.
-\newblock {\em Clean Technologies}, 5(1):418--435.
-
-\bibitem[G et~al., 2022]{g2022real}
-G, P. et~al. (2022).
-\newblock Real time automatic vehicle monitoring system using {IoT}.
-\newblock In {\em 2022 8th International Conference on Smart Structures and
-  Systems (ICSSS)}, pages 1--6.
-
-\bibitem[G, 2023]{g2023fuel}
-G, Y. e.~a. (2023).
-\newblock Fuel monitoring in bike vehicles based on iot.
-\newblock In {\em 2023 Intelligent Computing and Control for Engineering and
-  Business Systems (ICCEBS)}, pages 1--5.
-
-\bibitem[Garcia~Vega, 2022]{garcia2022development}
-Garcia~Vega, P. (2022).
-\newblock Development of a method for anomaly detection in time series applied
-  to vehicle monitoring.
-\newblock Master's thesis, Polytechnique Montréal.
-
-\bibitem[{Geotab}, 2024]{geotab2024fuel_management}
-{Geotab} (2024).
-\newblock Fleet fuel management systems.
+{\BBOQ}\APACrefatitle {Fuel management system} {Fuel management system}.{\BBCQ}
 \newblock
-  \url{https://www.geotab.com/fleet-management-solutions/fleet-fuel-management/}.
-\newblock Accessed: 2026-06-09.
-
-\bibitem[{GSMA}, 2026]{gsma2026coverage}
-{GSMA} (2026).
-\newblock Network coverage maps.
-\newblock \url{https://www.gsma.com/coverage/#433}.
-\newblock Accessed: 2026-06-19.
-
-\bibitem[Habib and Umar, 2015]{habib2015anomalies}
-Habib, K. and Umar, A.~I. (2015).
-\newblock Anomalies calculation and detection in fuel expense through data
-  mining.
-\newblock {\em Research Journal of Information Technology}, 6(4):44--50.
-
-\bibitem[Hariri et~al., 2019]{hariri2019eif}
-Hariri, S., Kind, M.~C., and Brunner, R.~J. (2019).
-\newblock Extended isolation forest.
-\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
-  33(4):1479--1489.
-
-\bibitem[Hirth et~al., 2025]{hirth2025truck_survey}
-Hirth, M., Meier, D., Gehring, O., Jazdi, N., and Kasneci, E. (2025).
-\newblock Unsupervised deep learning for anomaly detection in automotive
-  trucks: A survey.
-\newblock {\em ACM Computing Surveys}, 58(5).
-
-\bibitem[Husak, ]{husak_nodate_intelligent}
-Husak, V. e.~a.
-\newblock Intelligent real-time vehicle tracking information system.
-\newblock n.d.
-
-\bibitem[{IEEE Standards Association}, 2024a]{ieee1451}
-{IEEE Standards Association} (2024a).
-\newblock Ieee 1451.0-2024: Ieee standard for a smart transducer interface for
-  sensors, actuators, and devices.
-\newblock \url{https://standards.ieee.org/ieee/1451.0/11001/}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{IEEE Standards Association}, 2024b]{ieeep7003}
-{IEEE Standards Association} (2024b).
-\newblock Ieee p7003: Algorithmic bias considerations.
-\newblock \url{https://standards.ieee.org/ieee/7003/11357/}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{IEEE Standards Association}, 2025]{ieee80211}
-{IEEE Standards Association} (2025).
-\newblock The evolution of wi-fi technology and standards.
+\BIn{} \APACrefbtitle {2017 International Conference on Communication, Control,
+  Computing and Electronics Engineering (ICCCCEE)} {2017 international
+  conference on communication, control, computing and electronics engineering
+  (iccccee)}\ (\BPGS\ 1--7).
 \newblock
-  \url{https://standards.ieee.org/beyond-standards/the-evolution-of-wi-fi-technology-and-standards/}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{International Electrotechnical Commission}, 2017]{iec61131}
-{International Electrotechnical Commission} (2017).
-\newblock Iec 61131-2:2017.
-\newblock \url{https://webstore.iec.ch/en/publication/31007}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{International Organization for Standardization}, 2011a]{iso26262}
-{International Organization for Standardization} (2011a).
-\newblock Iso 26262-1:2011.
-\newblock \url{https://www.iso.org/standard/43464.html}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{International Organization for Standardization}, 2011b]{iso7637}
-{International Organization for Standardization} (2011b).
-\newblock Iso 7637-2:2011.
-\newblock \url{https://www.iso.org/standard/50925.html}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{International Organization for Standardization}, 2012]{iso39001}
-{International Organization for Standardization} (2012).
-\newblock Iso 39001:2012.
-\newblock \url{https://www.iso.org/standard/44958.html}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{International Organization for Standardization}, 2013]{iso19510}
-{International Organization for Standardization} (2013).
-\newblock Iso/iec 19510:2013.
-\newblock \url{https://www.iso.org/standard/62652.html}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{International Organization for Standardization}, 2015a]{iso14001}
-{International Organization for Standardization} (2015a).
-\newblock Iso 14001:2015 environmental management systems.
-\newblock \url{https://www.iso.org/standard/60857.html}.
-\newblock ISO.
-
-\bibitem[{International Organization for Standardization}, 2015b]{iso15031_5}
-{International Organization for Standardization} (2015b).
-\newblock {ISO} 15031-5:2015 road vehicles -- communication between vehicle and
-  external equipment for emissions-related diagnostics -- part 5:
-  Emissions-related diagnostic services.
-\newblock \url{https://www.iso.org/standard/66368.html}.
-
-\bibitem[{International Organization for Standardization}, 2018]{iso45001}
-{International Organization for Standardization} (2018).
-\newblock Iso 45001:2018.
-\newblock \url{https://www.iso.org/standard/63787.html}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{International Organization for Standardization}, 2020]{iso15143}
-{International Organization for Standardization} (2020).
-\newblock Iso/ts 15143-3:2020: Earth-moving machinery and mobile machines —
-  worksite data exchange — part 3: Telematics data.
-\newblock \url{https://www.iso.org/standard/76394.html}.
-\newblock ISO.
-
-\bibitem[{International Organization for Standardization}, 2021]{iso15765_4}
-{International Organization for Standardization} (2021).
-\newblock {ISO} 15765-4:2021 road vehicles -- diagnostic communication over
-  controller area network ({DoCAN}) -- part 4: Requirements for
-  emissions-related systems.
-\newblock \url{https://www.iso.org/standard/78384.html}.
-
-\bibitem[{International Organization for Standardization}, 2022a]{iso27001}
-{International Organization for Standardization} (2022a).
-\newblock Iso/iec 27001:2022 information security management systems.
-\newblock \url{https://www.iso.org/standard/27001}.
-\newblock ISO.
-
-\bibitem[{International Organization for Standardization}, 2022b]{iso29119}
-{International Organization for Standardization} (2022b).
-\newblock Iso/iec/ieee 29119-1:2022 software and systems engineering —
-  software testing.
-\newblock \url{https://www.iso.org/standard/81291.html}.
-\newblock ISO.
-
-\bibitem[{International Organization for Standardization}, 2022c]{iso42010}
-{International Organization for Standardization} (2022c).
-\newblock Iso/iec/ieee 42010:2022.
-\newblock \url{https://www.iso.org/standard/74393.html}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{International Organization for Standardization}, 2023]{iso50001}
-{International Organization for Standardization} (2023).
-\newblock Iso 50001 — energy management systems.
-\newblock \url{https://www.iso.org/iso-50001-energy-management.html}.
-\newblock ISO.
-
-\bibitem[{International Organization for Standardization}, 2024a]{iso11898_1}
-{International Organization for Standardization} (2024a).
-\newblock {ISO} 11898-1:2024 road vehicles -- controller area network ({CAN})
-  -- part 1: Data link layer and physical coding sublayer.
-\newblock \url{https://www.iso.org/standard/86384.html}.
-\newblock Accessed: 2026-06-23.
-
-\bibitem[{International Organization for Standardization}, 2024b]{iso8800}
-{International Organization for Standardization} (2024b).
-\newblock Iso/pas 8800:2024 road vehicles — safety and artificial
-  intelligence.
-\newblock \url{https://www.iso.org/standard/83303.html}.
-\newblock ISO.
-
-\bibitem[{International Organization for Standardization}, 2025]{iso27018}
-{International Organization for Standardization} (2025).
-\newblock Iso/iec 27018:2025.
-\newblock \url{https://www.iso.org/standard/27018}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{Japan International Cooperation Agency}, 2022]{jica2022metro_traffic}
-{Japan International Cooperation Agency} (2022).
-\newblock The project for comprehensive traffic management plan for metro
-  manila final report main text.
-\newblock Technical report, Japan International Cooperation Agency.
-
-\bibitem[{Japan International Cooperation Agency}, 2025]{jica2025mmda_its}
-{Japan International Cooperation Agency} (2025).
-\newblock Jica and mmda commence a project on intelligent transportation system
-  in line with the comprehensive traffic management plan for metro manila.
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICCCCEE.2017.7867671}
+  \end{APACrefURL}
 \newblock
-  \url{https://www.jica.go.jp/english/overseas/philippine/information/press/2024/rdsigningctmp02212025.html}.
-\newblock Accessed: 2026-06-21.
+\begin{APACrefDOI} \doi{10.1109/ICCCCEE.2017.7867671} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Jose, 2015]{jose2015intelligent}
-Jose, D. e.~a. (2015).
-\newblock Intelligent vehicle monitoring using global positioning system and
-  cloud computing.
-\newblock {\em Procedia Computer Science}, 50:440--446.
-
-\bibitem[Joshi et~al., 2024]{joshi2024intelligent}
-Joshi, P. et~al. (2024).
-\newblock Intelligent {IoT}-enabled real-time monitoring system for logistics
-  management.
-\newblock In {\em 2024 International Conference on Computing, Sciences and
-  Communications (ICCSC)}, pages 1--5.
-
-\bibitem[Kalman, 1960]{kalman1960new}
-Kalman, R.~E. (1960).
-\newblock {\em A new approach to linear filtering and prediction problems},
-  volume~82.
-
-\bibitem[Kanchi et~al., 2013]{kanchi2013ltea}
-Kanchi, S., Sandilya, S., Bhosale, D., Pitkar, A., and Gondhalekar, M. (2013).
-\newblock Overview of lte-a technology.
-\newblock In {\em 2013 IEEE Global High Tech Congress on Electronics}, pages
-  195--200, Shenzhen, China.
-
-\bibitem[Komal Shoukat~Ali et~al., 2018]{komal2018automatic}
-Komal Shoukat~Ali, K. et~al. (2018).
-\newblock Automatic fuel tank monitoring, tracking \& theft detection system.
-\newblock In {\em MATEC Web of Conferences}, volume 184.
-
-\bibitem[Krishnasamy, 2019]{krishnasamy2019}
-Krishnasamy, R. (2019).
-\newblock Automatic fuel monitoring system.
-\newblock {\em International Journal of Recent Technology and Engineering
-  (IJRTE)}, 8(4S2):348--352.
-\newblock Accessed: 2025-11-18.
-
-\bibitem[Lavin and Ahmad, 2015]{lavin2015nab}
-Lavin, A. and Ahmad, S. (2015).
-\newblock Evaluating real-time anomaly detection algorithms -- the {Numenta}
-  anomaly benchmark.
-\newblock In {\em 2015 IEEE 14th International Conference on Machine Learning
-  and Applications}, pages 38--44.
-
-\bibitem[Lee et~al., 2007]{lee2007wireless_protocols}
-Lee, J.~S., Su, Y.~W., and Shen, C.~C. (2007).
-\newblock A comparative study of wireless protocols: Bluetooth, uwb, zigbee,
-  and wi-fi.
-\newblock In {\em Proceedings of the 33rd Annual Conference of the IEEE
-  Industrial Electronics Society}, China.
-
-\bibitem[Liu et~al., 2008]{liu2008isolation_forest}
-Liu, F.~T., Ting, K.~M., and Zhou, Z.-H. (2008).
-\newblock Isolation forest.
-\newblock In {\em 2008 Eighth IEEE International Conference on Data Mining},
-  pages 413--422, Pisa, Italy.
-
-\bibitem[Llanto, 2017]{llanto2017truck_ban}
-Llanto, G. (2017).
-\newblock Cargo truck ban: Bad timing, faulty analysis, policy failure.
-\newblock Technical report, Philippine Institute for Development Studies.
-
-\bibitem[Lu et~al., 2022]{lu2022matrix_profile_xxiv}
-Lu, Y., Wu, R., Mueen, A., Zuluaga, M.~A., and Keogh, E. (2022).
-\newblock Matrix profile xxiv: Scaling time series anomaly detection to
-  trillions of datapoints and ultra-fast arriving data streams.
-\newblock In {\em Proceedings of the 28th ACM SIGKDD Conference on Knowledge
-  Discovery and Data Mining}.
-
-\bibitem[M, 2021]{m2021digital}
-M, S. e.~a. (2021).
-\newblock Digital fuel monitoring system for automobiles.
-\newblock In {\em 2021 Second International Conference on Electronics and
-  Sustainable Communication Systems (ICESC)}, pages 6--10.
-
-\bibitem[Majeed, 2015]{majeed2015comparative}
-Majeed, A. (2015).
-\newblock Comparative studies of 3g, 4g \& 5g mobile network \& data offloading
-  method a survey.
-\newblock {\em International Journal of Research in Information Technology}.
-
-\bibitem[Manalu et~al., 2023]{manalu2023lora_performance}
-Manalu, I.~P., Sigiro, M. M.~T., Wowiling, G.~I., and Simatupang, F. (2023).
-\newblock Lora performance analysis with study case a moving object.
-\newblock {\em International Journal of Engineering Research in Computer
-  Science and Engineering}, 10(12):11--16.
-
-\bibitem[Mathi et~al., 2024]{mathi2024development}
-Mathi, S.~C. et~al. (2024).
-\newblock Development of an intelligent fuel monitoring and theft detection
-  system equipped with {GPS} \& {GSM} integration, state of charge monitoring
-  and realtime alarm generation.
-\newblock In {\em 2024 International Conference on Innovative Computing and
-  Communication Technologies (ICICT)}, pages 2095--2102.
-
-\bibitem[Maurya, ]{maurya_nodate_real}
-Maurya, K. e.~a.
-\newblock Real time vehicle tracking system using gsm and gps technology- an
-  anti-theft tracking system.
-\newblock n.d.
-
-\bibitem[McNemar, 1947]{mcnemar1947note}
-McNemar, Q. (1947).
-\newblock Note on the sampling error of the difference between correlated
-  proportions or percentages.
-\newblock {\em Psychometrika}, 12(2):153--157.
-
-\bibitem[{Meitrack}, ]{meitrack_lora_fleet}
-{Meitrack}.
-\newblock Lora-based fleet tracking solution.
-\newblock \url{https://www.meitrack.com/lora-based-fleet-tracking-solution/}.
-\newblock Accessed: 2026-06-19.
-
-\bibitem[Miyim and Wakili, 2019]{miyim2019lte_performance}
-Miyim, A. and Wakili, A. (2019).
-\newblock Performance evaluation of lte networks.
-\newblock In {\em 2019 15th International Conference on Electronics, Computer
-  and Computation (ICECCO)}.
-
-\bibitem[Mukesh, 2010]{mukesh2010real}
-Mukesh, P.~R. (2010).
-\newblock Real time web based vehicle tracking using gps.
-
-\bibitem[Mumcuoglu et~al., 2023]{mumcuoglu2023fuel}
-Mumcuoglu, M.~E. et~al. (2023).
-\newblock Fuel consumption classification for heavy-duty vehicles: A novel
-  approach to identifying driver behavior and system anomalies.
-\newblock In {\em 2023 AEIT International Conference on Electrical and
-  Electronic Technologies for Automotive (AEIT AUTOMOTIVE)}, pages 1--6.
-
-\bibitem[Nada, 2017]{nada2017design}
-Nada, Y.~A. (2017).
-\newblock Design and implementation for trucks tracking system using gps based
-  on semantic web.
-\newblock {\em International Journal of Trend in Scientific Research and
-  Development}, 1(4).
-
-\bibitem[{NASA EarthData}, 2025]{gpsstd}
-{NASA EarthData} (2025).
-\newblock Global navigation satellite system.
+\bibitem [\protect \citeauthoryear {%
+Alquhali%
+, Roslee%
+, Alias%
+\BCBL {}\ \BBA {} Mohamed%
+}{%
+Alquhali%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+alquhali2019iot}
+\APACinsertmetastar {%
+alquhali2019iot}%
+\begin{APACrefauthors}%
+Alquhali, A\BPBI H.%
+, Roslee, M\BPBI B.%
+, Alias, M\BPBI Y\BPBI B.%
+\BCBL {}\ \BBA {} Mohamed, K\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
 \newblock
-  \url{https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[{Navixy}, 2026]{navixy2026fuel_sensors}
-{Navixy} (2026).
-\newblock Sensors setup and configuration.
+\APACrefYearMonthDay{2019}{}{}.
 \newblock
-  \url{https://www.navixy.com/docs/expert-center/vehicle-telematics-technology/fuel-management/fuel-control-in-navixy/sensors-setup-and-configuration}.
-\newblock Accessed: 2026-06-08.
-
-\bibitem[Obikoya, 2014]{obikoya2014design}
-Obikoya, G.~D. (2014).
-\newblock Design, construction, and implementation of a remote fuel-level
-  monitoring system.
-\newblock {\em EURASIP Journal on Wireless Communications and Networking},
-  2014(1):76.
-
-\bibitem[{Opensignal}, ]{opensignal_seasia_coverage}
-{Opensignal}.
-\newblock Se asia - coverage.
+{\BBOQ}\APACrefatitle {{IoT} Based Real-Time Vehicle Tracking System} {{IoT}
+  based real-time vehicle tracking system}.{\BBCQ}
 \newblock
-  \url{https://www.tutela.com/state-of-mobile-networks-southeast-asia/coverage}.
-\newblock Accessed: 2026-06-19.
-
-\bibitem[Oppenheim and Schafer, 2010]{oppenheim2010dsp}
-Oppenheim, A.~V. and Schafer, R.~W. (2010).
-\newblock {\em Discrete-Time Signal Processing}.
-\newblock Prentice Hall, Upper Saddle River, NJ, 3rd edition.
-
-\bibitem[{Orange Connected Objects \& Partnerships},
-  2016]{orange2016lora_guide}
-{Orange Connected Objects \& Partnerships} (2016).
-\newblock {\em LoRa Device Developer Guide}.
-
-\bibitem[Patalinghug et~al., 2015a]{patalinghug2015port_congestion}
-Patalinghug, E. et~al. (2015a).
-\newblock Port congestion and underutilization in the greater capital region:
-  Unpacking the issues.
-\newblock Technical report, Philippine Institute for Development Studies.
-
-\bibitem[Patalinghug et~al., 2015b]{patalinghug2015logistics}
-Patalinghug, E. et~al. (2015b).
-\newblock A system-wide study of the logistics industry in the greater capital
-  region.
-\newblock Technical report, Philippine Institute for Development Studies.
-
-\bibitem[Patil and Patil, 2024]{patil2024iot}
-Patil, A. and Patil, S. (2024).
-\newblock Iot enabled vehicle monitoring and theft prevention system (i-vmtps).
-\newblock In {\em 2024 2nd International Conference on Advancements and Key
-  Challenges in Green Energy and Computing (AKGEC)}, pages 1--7.
-
-\bibitem[Postel, 1981]{rfc791}
-Postel, J. (1981).
-\newblock Rfc 791: Internet protocol.
-\newblock \url{https://datatracker.ietf.org/doc/html/rfc791}.
-\newblock Accessed: 2025-11-27.
-
-\bibitem[Powers, 2020]{powers2020evaluation}
-Powers, D. M.~W. (2020).
-\newblock Evaluation: From precision, recall and {F}-measure to {ROC},
-  informedness, markedness and correlation.
-\newblock {\em arXiv}.
-\newblock Accessed: 2026-06-24.
-
-\bibitem[Prabhu et~al., 2022]{prabhu2022iot}
-Prabhu, S.~B., Deepa, K., and Nithya, M. (2022).
-\newblock {IoT} enabled fuel level monitoring and automatic fuel theft
-  detection system.
-\newblock In {\em 2022 13th International Conference on Computing Communication
-  and Networking Technologies (ICCCNT)}.
-
-\bibitem[Prasanna et~al., 2023]{prasanna2023iot}
-Prasanna, J.~L., Santhosh, C., Kumar, M.~R., and Gayathri, K. (2023).
-\newblock Iot based automatic fuel level monitoring system for automobiles.
-\newblock In {\em IET Conference Proceedings}, volume 2023, pages 56--61.
-
-\bibitem[Preiss, 1999]{preiss1999data}
-Preiss, B.~R. (1999).
-\newblock {\em Data Structures and Algorithms with Object-Oriented Design
-  Patterns in {C}{+}{+}}.
-\newblock John Wiley \& Sons, New York.
-\newblock Provides the expected-path-length result $c(n) = 2H(n{-}1) -
-  2(n{-}1)/n$ for an unsuccessful search in a random binary search tree; used
-  as the normaliser in the Isolation Forest anomaly score.
-
-\bibitem[{Robert Bosch GmbH}, 1991]{bosch1991can}
-{Robert Bosch GmbH} (1991).
-\newblock {\em {CAN} Specification Version 2.0}.
-\newblock Robert Bosch GmbH.
-\newblock Accessed: 2026-06-23.
-
-\bibitem[Rousseeuw and Croux, 1993]{rousseeuw1993mad}
-Rousseeuw, P.~J. and Croux, C. (1993).
-\newblock Alternatives to the median absolute deviation.
-\newblock {\em Journal of the American Statistical Association},
-  88(424):1273--1283.
-
-\bibitem[RS et~al., 2024]{rs2024fuel}
-RS, S., Narayanan~CS, S., G, R., S, P., Alagarsamy, M., and William, P. (2024).
-\newblock Fuel quantity and quality detection in automobiles using {IoT}.
-\newblock In {\em 2024 4th International Conference on Innovative Practices in
-  Technology and Management (ICIPTM)}, pages 1--6.
-
-\bibitem[S et~al., 2024]{s2024iot}
-S, S., Sowmya, J.~M., Siva, M.~V., Rishitha, N., Sagar, M. K. G.~S., and
-  Ganesh, M. (2024).
-\newblock Iot enabled smart fuel station management system.
-\newblock In {\em 2024 2nd International Conference on Networking and
-  Communications (ICNWC)}, pages 1--5.
-
-\bibitem[{SAE International}, 2016]{sae_j1962}
-{SAE International} (2016).
-\newblock {J1962\_201607}: Diagnostic connector.
-\newblock \url{https://www.sae.org/standards/content/j1962_201607/}.
-\newblock Accessed: 2026-06-23.
-
-\bibitem[{SAE International}, 2017]{sae_j1979}
-{SAE International} (2017).
-\newblock {J1979\_201702}: {E/E} diagnostic test modes.
+\BIn{} \APACrefbtitle {2019 IEEE Conference on Sustainable Utilization and
+  Development in Engineering and Technologies (CSUDET)} {2019 ieee conference
+  on sustainable utilization and development in engineering and technologies
+  (csudet)}\ (\BPGS\ 265--270).
 \newblock
-  \url{https://saemobilus.sae.org/standards/j1979_201702-e-e-diagnostic-test-modes}.
-\newblock Accessed: 2026-06-23.
-
-\bibitem[{SAE International}, 2023]{sae_j1939}
-{SAE International} (2023).
-\newblock {SAE} {J1939}: Serial control and communications heavy duty vehicle
-  network.
+\begin{APACrefURL} \url{https://doi.org/10.1109/CSUDET47057.2019.9214633}
+  \end{APACrefURL}
 \newblock
-  \url{https://www.sae.org/standards/j1939_202306-serial-control-communications-heavy-duty-vehicle-network-top-level-document}.
+\begin{APACrefDOI} \doi{10.1109/CSUDET47057.2019.9214633} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[{SAE International}, 2024]{sae_j1939da}
-{SAE International} (2024).
-\newblock {SAE} {J1939DA}: Digital annex of serial control and communications
-  heavy duty vehicle network.
-
-\bibitem[Saito and Rehmsmeier, 2015]{saito2015prcurve}
-Saito, T. and Rehmsmeier, M. (2015).
-\newblock The precision-recall plot is more informative than the {ROC} plot
-  when evaluating binary classifiers on imbalanced datasets.
-\newblock {\em PLOS ONE}, 10(3):e0118432.
-
-\bibitem[{Samsara}, 2026]{samsara2026fuel_management}
-{Samsara} (2026).
-\newblock Fleet fuel management.
+\bibitem [\protect \citeauthoryear {%
+Aquize%
+, Emery%
+\BCBL {}\ \BBA {} de Lima~Neto%
+}{%
+Aquize%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+aquize2017self}
+\APACinsertmetastar {%
+aquize2017self}%
+\begin{APACrefauthors}%
+Aquize, V\BPBI G.%
+, Emery, E.%
+\BCBL {}\ \BBA {} de Lima~Neto, F\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
 \newblock
-  \url{https://www.samsara.com/products/telematics/fleet-fuel-management-system}.
-\newblock Accessed: 2026-06-09.
-
-\bibitem[{scikit-learn developers}, ]{scikit_learn_logo}
-{scikit-learn developers}.
-\newblock Leaveonegroupout.
+\APACrefYearMonthDay{2017}{}{}.
 \newblock
-  \url{https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneGroupOut.html}.
-\newblock Accessed: 2026-06-25.
+{\BBOQ}\APACrefatitle {Self-organizing maps for anomaly detection in fuel
+  consumption. Case study: Illegal fuel storage in Bolivia} {Self-organizing
+  maps for anomaly detection in fuel consumption. case study: Illegal fuel
+  storage in bolivia}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2017 IEEE Latin American Conference on Computational
+  Intelligence (LA-CCI)} {2017 ieee latin american conference on computational
+  intelligence (la-cci)}\ (\BPGS\ 1--6).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/LA-CCI.2017.8285697}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/LA-CCI.2017.8285697} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Semenov et~al., 2024]{semenov2024concept}
-Semenov, I., Świderski, A., Borucka, A., and Guzanek, P. (2024).
-\newblock Concept of early prediction and identification of truck vehicle
-  failures supported by in-vehicle telematics platform based on abnormality
-  detection algorithm.
-\newblock {\em Applied Sciences (Switzerland)}, 14(16).
+\bibitem [\protect \citeauthoryear {%
+Arlot%
+\ \BBA {} Celisse%
+}{%
+Arlot%
+\ \BBA {} Celisse%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+arlot2010survey}
+\APACinsertmetastar {%
+arlot2010survey}%
+\begin{APACrefauthors}%
+Arlot, S.%
+\BCBT {}\ \BBA {} Celisse, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A survey of cross-validation procedures for model
+  selection} {A survey of cross-validation procedures for model
+  selection}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Statistics Surveys}{4}{}{40--79}.
+\newblock
+\begin{APACrefURL} \url{http://dx.doi.org/10.1214/09-SS054} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1214/09-SS054} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Simon, 2006]{simon2006optimal}
-Simon, D. (2006).
-\newblock {\em Optimal State Estimation: Kalman, H Infinity, and Nonlinear
-  Approaches}.
-\newblock John Wiley \& Sons, Hoboken, NJ.
+\bibitem [\protect \citeauthoryear {%
+{Asian Development Bank}%
+}{%
+{Asian Development Bank}%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+adb2016fuel_smuggling}
+\APACinsertmetastar {%
+adb2016fuel_smuggling}%
+\begin{APACrefauthors}%
+{Asian Development Bank}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{04}}}{}.
+\newblock
+\APACrefbtitle {Fuel Smuggling: 12 Things to Know.} {Fuel smuggling: 12 things
+  to know.}
+\newblock
+\APAChowpublished
+  {\url{https://www.adb.org/news/features/fuel-smuggling-12-things-know}}.
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[{Society of Automotive Engineers}, 2011]{sae_j1349}
-{Society of Automotive Engineers} (2011).
-\newblock {SAE J1349}: Engine power test code -- spark ignition and compression
-  ignition -- net power rating.
-\newblock SAE International Standard.
-\newblock Referenced for the idle-combustion upper bound used in the
-  anomaly-injection physics checks and in the Nyquist-margin argument for the
-  1.5\,s OBD polling rate.
+\bibitem [\protect \citeauthoryear {%
+Bangor%
+, Kortum%
+\BCBL {}\ \BBA {} Miller%
+}{%
+Bangor%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2009}}%
+}]{%
+bangor2009sus}
+\APACinsertmetastar {%
+bangor2009sus}%
+\begin{APACrefauthors}%
+Bangor, A.%
+, Kortum, P\BPBI T.%
+\BCBL {}\ \BBA {} Miller, J\BPBI T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Determining what individual SUS scores mean: adding an
+  adjective rating scale} {Determining what individual sus scores mean: adding
+  an adjective rating scale}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Usability Studies}{4}{3}{114--123}.
+\newblock
+\begin{APACrefURL} \url{https://api.semanticscholar.org/CorpusID:7812093}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Tatababu et~al., 2024]{tatababu2024smart}
-Tatababu, D., Ranga, M.~R., Satyannarayana, D., Jyothi, Y., and Devi, A.~R.
-  (2024).
-\newblock Smart fuel monitoring system for diesel generator.
-\newblock In {\em 2024 International Conference on Computational Intelligence
-  for Green and Sustainable Technologies (ICCIGST)}, pages 1--6.
+\bibitem [\protect \citeauthoryear {%
+Barbado~Gonz\'{a}lez%
+\ \BBA {} Corcho%
+}{%
+Barbado~Gonz\'{a}lez%
+\ \BBA {} Corcho%
+}{%
+{\protect \APACyear {2022}}%
+}]{%
+barbado2022interpretable}
+\APACinsertmetastar {%
+barbado2022interpretable}%
+\begin{APACrefauthors}%
+Barbado~Gonz\'{a}lez, A.%
+\BCBT {}\ \BBA {} Corcho, O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Interpretable machine learning models for predicting and
+  explaining vehicle fuel consumption anomalies} {Interpretable machine
+  learning models for predicting and explaining vehicle fuel consumption
+  anomalies}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Engineering Applications of Artificial
+  Intelligence}{115}{}{105222}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1016/j.engappai.2022.105222}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.engappai.2022.105222} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Thajudheen et~al., 2023]{thajudheen2023vehicular}
-Thajudheen, S., Shanmugarathinum, G., and Jesudoss, A.~G. (2023).
-\newblock Vehicular data retrieval system.
-\newblock In {\em 2023 International Conference on New Frontiers in
-  Communication, Automation, Management and Security (ICCAMS)}.
+\bibitem [\protect \citeauthoryear {%
+Beteto%
+\ \protect \BOthers {.}}{%
+Beteto%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2022}}%
+}]{%
+beteto2022anomaly}
+\APACinsertmetastar {%
+beteto2022anomaly}%
+\begin{APACrefauthors}%
+Beteto, A.%
+\BCBT {}\ \BOthersPeriod {.}
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Anomaly and cyber fraud detection in pipelines and
+  supply chains for liquid fuels} {Anomaly and cyber fraud detection in
+  pipelines and supply chains for liquid fuels}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Environment Systems and Decisions}{42}{2}{306--324}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1007/s10669-022-09843-5}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1007/s10669-022-09843-5} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[{The International Engineering Consortium}, ]{iec_gsm_tutorial}
-{The International Engineering Consortium}.
-\newblock {\em Global System for Mobile Communication (GSM)}.
-\newblock Web ProForum Tutorials.
-\newblock Tutorial.
+\bibitem [\protect \citeauthoryear {%
+Brooke%
+}{%
+Brooke%
+}{%
+{\protect \APACyear {1996}}%
+}]{%
+brooke1996sus}
+\APACinsertmetastar {%
+brooke1996sus}%
+\begin{APACrefauthors}%
+Brooke, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1996}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{SUS}: A Quick and Dirty Usability Scale} {{SUS}: A
+  quick and dirty usability scale}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Usability Evaluation in Industry} {Usability evaluation
+  in industry}\ (\BPGS\ 189--194).
+\newblock
+\begin{APACrefURL}
+  \url{https://www.researchgate.net/publication/319394819_SUS_--_a_quick_and_dirty_usability_scale}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Turan et~al., 2024]{turan2024detecting}
-Turan, B.~B., Gene, E., Akcig, I.~N., Goztepe, N., Mumeuoglu, M.~E., and Unel,
-  M. (2024).
-\newblock Detecting high fuel consumption in hdvs with ensemble of anomaly
-  detection models.
-\newblock In {\em 2024 IEEE 22nd International Conference on Industrial
-  Informatics (INDIN)}, pages 1--6.
+\bibitem [\protect \citeauthoryear {%
+Campos%
+\ \protect \BOthers {.}}{%
+Campos%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+campos2016unsupervised}
+\APACinsertmetastar {%
+campos2016unsupervised}%
+\begin{APACrefauthors}%
+Campos, G.%
+, Zimek, A.%
+, Sander, J.%
+, Campello, R.%
+, Micenkov{\'a}, B.%
+, Schubert, E.%
+\BDBL {}Houle, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {On the Evaluation of Unsupervised Outlier Detection:
+  Measures, Datasets, and an Empirical Study} {On the evaluation of
+  unsupervised outlier detection: Measures, datasets, and an empirical
+  study}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Data Mining and Knowledge Discovery}{30}{4}{891--927}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1007/s10618-015-0444-8}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1007/s10618-015-0444-8} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Uddin et~al., 2017]{uddin2017smart}
-Uddin, M.~S., Ahmed, M.~M., Alam, J.~B., and Islam, M. (2017).
-\newblock Smart anti-theft vehicle tracking system for bangladesh based on
-  internet of things.
-\newblock In {\em 2017 4th International Conference on Advances in Electrical
-  Engineering (ICAEE)}, pages 624--628.
+\bibitem [\protect \citeauthoryear {%
+Chandola%
+, Banerjee%
+\BCBL {}\ \BBA {} Kumar%
+}{%
+Chandola%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2009}}%
+}]{%
+chandola2009anomaly}
+\APACinsertmetastar {%
+chandola2009anomaly}%
+\begin{APACrefauthors}%
+Chandola, V.%
+, Banerjee, A.%
+\BCBL {}\ \BBA {} Kumar, V.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Anomaly Detection: A Survey} {Anomaly detection: A
+  survey}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{ACM Computing Surveys}{41}{3}{1--58}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1145/1541880.1541882}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1145/1541880.1541882} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Usama et~al., 2019]{usama2019unsupervised}
-Usama, M., Qadir, J., Raza, A., Arif, H., Yau, K.-L.~A., Elkhatib, Y., Hussain,
-  A., and Al-Fuqaha, A. (2019).
-\newblock Unsupervised machine learning for networking: Techniques,
-  applications and research challenges.
-\newblock {\em IEEE Access}, 7:65579--65615.
+\bibitem [\protect \citeauthoryear {%
+{Chengdu Ebyte Electronic Technology Co., Ltd.}%
+}{%
+{Chengdu Ebyte Electronic Technology Co., Ltd.}%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+ebyte2024lora_range}
+\APACinsertmetastar {%
+ebyte2024lora_range}%
+\begin{APACrefauthors}%
+{Chengdu Ebyte Electronic Technology Co., Ltd.}%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{{\APACmonth{02}}}{}.
+\newblock
+\APACrefbtitle {LORA Module Range: Key Factors Affecting LORA Communication.}
+  {Lora module range: Key factors affecting lora communication.}
+\newblock
+\APAChowpublished {\url{https://www.cdebyte.com/news/622}}.
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Vigneshwaran et~al., 2020]{vigneshwaran2020design}
-Vigneshwaran, S., Nithya, B., Raghul, K., Nivas, B., and Kishore, V.~M. (2020).
-\newblock Design of bus tracking and fuel monitoring system.
-\newblock In {\em 2020 6th International Conference on Advanced Computing and
-  Communication Systems (ICACCS)}, pages 348--351.
+\bibitem [\protect \citeauthoryear {%
+Cherdo%
+, Miramond%
+, Pegatoquet%
+\BCBL {}\ \BBA {} Vallauri%
+}{%
+Cherdo%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+cherdo2023can_anomaly}
+\APACinsertmetastar {%
+cherdo2023can_anomaly}%
+\begin{APACrefauthors}%
+Cherdo, Y.%
+, Miramond, B.%
+, Pegatoquet, A.%
+\BCBL {}\ \BBA {} Vallauri, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{{\APACmonth{05}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Unsupervised Anomaly Detection for Cars CAN Sensors Time
+  Series Using Small Recurrent and Convolutional Neural Networks} {Unsupervised
+  anomaly detection for cars can sensors time series using small recurrent and
+  convolutional neural networks}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Sensors}{23}{11}{5013--5013}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.3390/s23115013} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.3390/s23115013} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Weiwei et~al., 2024]{weiwei2024research}
-Weiwei, Q., Longbin, L., Xingyu, W., Yulong, L., and Weiqian, D. (2024).
-\newblock Research on diesel consumption prediction and early warning analysis
-  of dump trucks in smart mines.
-\newblock In {\em 2024 IEEE 22nd International Conference on Industrial
-  Informatics (INDIN)}, pages 1--6.
+\bibitem [\protect \citeauthoryear {%
+{China Academy of Information and Communications Technology}%
+}{%
+{China Academy of Information and Communications Technology}%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+ntc2025legacy_network_phaseout}
+\APACinsertmetastar {%
+ntc2025legacy_network_phaseout}%
+\begin{APACrefauthors}%
+{China Academy of Information and Communications Technology}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{{\APACmonth{09}}}{}.
+\newblock
+\APACrefbtitle {Certification Updates of {NTC} Certification of Philippines.}
+  {Certification updates of {NTC} certification of philippines.}
+\newblock
+\APAChowpublished {\url{https://gma.caict.ac.cn/en/update/31}}.
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[{Wialon}, 2026]{wialon2026fuel_control}
-{Wialon} (2026).
-\newblock Fuel control.
-\newblock \url{https://wialon.com/en/fuel-control}.
-\newblock Accessed: 2026-06-21.
+\bibitem [\protect \citeauthoryear {%
+Coles%
+}{%
+Coles%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+coles2001evt}
+\APACinsertmetastar {%
+coles2001evt}%
+\begin{APACrefauthors}%
+Coles, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2001}.
+\newblock
+\APACrefbtitle {An Introduction to Statistical Modeling of Extreme Values} {An
+  introduction to statistical modeling of extreme values}.
+\newblock
+\APACaddressPublisher{London}{Springer}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1007/978-1-4471-3675-0}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1007/978-1-4471-3675-0} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Wilcoxon, 1945]{wilcoxon1945individual}
-Wilcoxon, F. (1945).
-\newblock Individual comparisons by ranking methods.
-\newblock {\em Biometrics Bulletin}, 1(6):80--83.
+\bibitem [\protect \citeauthoryear {%
+Crisgar%
+, Wijaya%
+, Pakpahan%
+, Syamsuddin%
+\BCBL {}\ \BBA {} Hasanuddin%
+}{%
+Crisgar%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2021}}%
+}]{%
+crisgar2021gps}
+\APACinsertmetastar {%
+crisgar2021gps}%
+\begin{APACrefauthors}%
+Crisgar, P.%
+, Wijaya, R.%
+, Pakpahan, M.%
+, Syamsuddin, E.%
+\BCBL {}\ \BBA {} Hasanuddin, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{GPS}-Based Vehicle Tracking and Theft Detection Systems
+  Using Google Cloud {IoT} Core \& Firebase} {{GPS}-based vehicle tracking and
+  theft detection systems using google cloud {IoT} core \& firebase}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2021 International Symposium on Electronics and Smart
+  Devices (ISESD)} {2021 international symposium on electronics and smart
+  devices (isesd)}\ (\BPGS\ 1--6).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ISESD53023.2021.9501928}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ISESD53023.2021.9501928} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Wilson, 1927]{wilson1927probable}
-Wilson, E.~B. (1927).
-\newblock Probable inference, the law of succession, and statistical inference.
-\newblock {\em Journal of the American Statistical Association},
-  22(158):209--212.
+\bibitem [\protect \citeauthoryear {%
+Davis%
+\ \BBA {} Goadrich%
+}{%
+Davis%
+\ \BBA {} Goadrich%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+davis2006prroc}
+\APACinsertmetastar {%
+davis2006prroc}%
+\begin{APACrefauthors}%
+Davis, J.%
+\BCBT {}\ \BBA {} Goadrich, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Relationship Between Precision-Recall and {ROC}
+  Curves} {The relationship between precision-recall and {ROC} curves}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 23rd International Conference on
+  Machine Learning} {Proceedings of the 23rd international conference on
+  machine learning}\ (\BPGS\ 233--240).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1145/1143844.1143874}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1145/1143844.1143874} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Yeh et~al., 2016]{yeh2016matrix_profile}
-Yeh, C.-C.~M. et~al. (2016).
-\newblock Matrix profile i: All pairs similarity joins for time series: A
-  unifying view that includes motifs, discords and shapelets.
-\newblock In {\em 2016 IEEE 16th International Conference on Data Mining
-  (ICDM)}, pages 1317--1322, Barcelona, Spain.
+\bibitem [\protect \citeauthoryear {%
+Dem{\v{s}}ar%
+}{%
+Dem{\v{s}}ar%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+demsar2006statistical}
+\APACinsertmetastar {%
+demsar2006statistical}%
+\begin{APACrefauthors}%
+Dem{\v{s}}ar, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Statistical comparisons of classifiers over multiple
+  data sets} {Statistical comparisons of classifiers over multiple data
+  sets}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Machine Learning Research}{7}{1}{1--30}.
+\newblock
+\begin{APACrefURL} \url{http://jmlr.org/papers/v7/demsar06a.html}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
 
-\bibitem[Yeh et~al., 2024]{yeh2024matrix_profile_multidim}
-Yeh, C.-C.~M. et~al. (2024).
-\newblock Matrix profile for anomaly detection on multidimensional time series.
-\newblock In {\em 2024 IEEE International Conference on Data Mining (ICDM)},
-  pages 911--916, Abu Dhabi, United Arab Emirates.
+\bibitem [\protect \citeauthoryear {%
+Devalal%
+\ \BBA {} Karthikeyan%
+}{%
+Devalal%
+\ \BBA {} Karthikeyan%
+}{%
+{\protect \APACyear {2018}}%
+}]{%
+devalal2018lora}
+\APACinsertmetastar {%
+devalal2018lora}%
+\begin{APACrefauthors}%
+Devalal, S.%
+\BCBT {}\ \BBA {} Karthikeyan, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {LoRa Technology - An Overview} {Lora technology - an
+  overview}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2018 Second International Conference on Electronics,
+  Communication and Aerospace Technology (ICECA)} {2018 second international
+  conference on electronics, communication and aerospace technology (iceca)}\
+  (\BPGS\ 284--290).
+\newblock
+\APACaddressPublisher{Coimbatore, India}{}.
+\newblock
+\begin{APACrefURL} \url{https://api.semanticscholar.org/CorpusID:52916833}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICECA.2018.8474715} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Dhivyasri%
+\ \BBA {} Mariappan%
+}{%
+Dhivyasri%
+\ \BBA {} Mariappan%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+dhivyasri2015advanced}
+\APACinsertmetastar {%
+dhivyasri2015advanced}%
+\begin{APACrefauthors}%
+Dhivyasri, G.%
+\BCBT {}\ \BBA {} Mariappan, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Advanced fuel level tracking system using telematic
+  unit} {Advanced fuel level tracking system using telematic unit}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2015 IEEE International Conference on Electrical,
+  Computer and Communication Technologies (ICECCT)} {2015 ieee international
+  conference on electrical, computer and communication technologies (icecct)}\
+  (\BPGS\ 1--6).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICECCT.2015.7226119}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICECCT.2015.7226119} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Dietterich%
+}{%
+Dietterich%
+}{%
+{\protect \APACyear {1998}}%
+}]{%
+dietterich1998approximate}
+\APACinsertmetastar {%
+dietterich1998approximate}%
+\begin{APACrefauthors}%
+Dietterich, T\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1998}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Approximate statistical tests for comparing supervised
+  classification learning algorithms} {Approximate statistical tests for
+  comparing supervised classification learning algorithms}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Neural Computation}{10}{7}{1895--1923}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1162/089976698300017197}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1162/089976698300017197} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Efron%
+\ \BBA {} Tibshirani%
+}{%
+Efron%
+\ \BBA {} Tibshirani%
+}{%
+{\protect \APACyear {1994}}%
+}]{%
+efron1994bootstrap}
+\APACinsertmetastar {%
+efron1994bootstrap}%
+\begin{APACrefauthors}%
+Efron, B.%
+\BCBT {}\ \BBA {} Tibshirani, R\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1994}.
+\newblock
+\APACrefbtitle {An Introduction to the Bootstrap} {An introduction to the
+  bootstrap}.
+\newblock
+\APACaddressPublisher{Boca Raton, FL}{Chapman \& Hall/CRC}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1201/9780429246593} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1201/9780429246593} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Emmott%
+, Das%
+, Dietterich%
+, Fern%
+\BCBL {}\ \BBA {} Wong%
+}{%
+Emmott%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+emmott2015systematic}
+\APACinsertmetastar {%
+emmott2015systematic}%
+\begin{APACrefauthors}%
+Emmott, A.%
+, Das, S.%
+, Dietterich, T.%
+, Fern, A.%
+\BCBL {}\ \BBA {} Wong, W\BHBI K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Systematic Construction of Anomaly Detection
+  Benchmarks from Real Data} {A systematic construction of anomaly detection
+  benchmarks from real data}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the ACM SIGKDD Workshop on Outlier
+  Detection and Description} {Proceedings of the acm sigkdd workshop on outlier
+  detection and description}\ (\BPGS\ 16--21).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1145/2500853.2500858}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1145/2500853.2500858} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{European Commission}%
+}{%
+{European Commission}%
+}{%
+{\protect \APACyear {2022}}%
+}]{%
+cecert}
+\APACinsertmetastar {%
+cecert}%
+\begin{APACrefauthors}%
+{European Commission}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{}{}.
+\newblock
+\APACrefbtitle {CE marking - obtaining the certificate, EU requirements.} {Ce
+  marking - obtaining the certificate, eu requirements.}
+\newblock
+\APAChowpublished
+  {\url{https://europa.eu/youreurope/business/product-requirements/labels-markings/ce-marking/index_en.htm}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Farzana%
+\ \protect \BOthers {.}}{%
+Farzana%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+farzana2020real}
+\APACinsertmetastar {%
+farzana2020real}%
+\begin{APACrefauthors}%
+Farzana, F.%
+, Hossain, M\BPBI M.%
+, Imtiaze, M\BPBI M.%
+, Hossain, M\BPBI T.%
+, Jameel, A\BPBI S\BPBI M\BPBI M.%
+\BCBL {}\ \BBA {} Islam, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Real-Time Motion Based Fuel Monitoring Technique For
+  Vehicle Tracking Systems} {A real-time motion based fuel monitoring technique
+  for vehicle tracking systems}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2020 Emerging Technology in Computing, Communication and
+  Electronics (ETCCE)} {2020 emerging technology in computing, communication
+  and electronics (etcce)}\ (\BPGS\ 1--6).
+\newblock
+\APACaddressPublisher{Bangladesh}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ETCCE51779.2020.9350860}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ETCCE51779.2020.9350860} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Fawcett%
+}{%
+Fawcett%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+fawcett2006roc}
+\APACinsertmetastar {%
+fawcett2006roc}%
+\begin{APACrefauthors}%
+Fawcett, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Introduction to {ROC} analysis} {Introduction to {ROC}
+  analysis}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Pattern Recognition Letters}{27}{8}{861--874}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1016/j.patrec.2005.10.010}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.patrec.2005.10.010} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Federal Communications Commission}%
+}{%
+{Federal Communications Commission}%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+fcc}
+\APACinsertmetastar {%
+fcc}%
+\begin{APACrefauthors}%
+{Federal Communications Commission}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+\APACrefbtitle {Equipment Authorization.} {Equipment authorization.}
+\newblock
+\APAChowpublished {\url{https://www.fcc.gov/oet/ea}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Fillone%
+\ \protect \BOthers {.}}{%
+Fillone%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+patalinghug2015logistics}
+\APACinsertmetastar {%
+patalinghug2015logistics}%
+\begin{APACrefauthors}%
+Fillone, A.%
+, Patalinghug, E.%
+, Llanto, G.%
+, Tiglao, N\BPBI C.%
+, Salazar, C.%
+, Madriaga, C.%
+\BCBL {}\ \BBA {} Arbo, M\BPBI D\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{03}}}{}.
+\newblock
+\APACrefbtitle {A System-Wide Study of the Logistics Industry in the Greater
+  Capital Region} {A system-wide study of the logistics industry in the greater
+  capital region}\ \APACbVolEdTR{}{\BTR{}}.
+\newblock
+\APACaddressInstitution{}{Philippine Institute for Development Studies}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.13140/RG.2.1.2029.5847}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.13140/RG.2.1.2029.5847} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Fleet Complete}%
+}{%
+{Fleet Complete}%
+}{%
+{\protect \APACyear {2026}}%
+}]{%
+fleetcomplete2026fuel}
+\APACinsertmetastar {%
+fleetcomplete2026fuel}%
+\begin{APACrefauthors}%
+{Fleet Complete}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2026}{}{}.
+\newblock
+\APACrefbtitle {Fleet Management and Fuel Reporting.} {Fleet management and
+  fuel reporting.}
+\newblock
+\APAChowpublished {\url{https://www.fleetcomplete.com/}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Fleetio}%
+}{%
+{Fleetio}%
+}{%
+{\protect \APACyear {2026}}%
+}]{%
+fleetio2026fuel_management}
+\APACinsertmetastar {%
+fleetio2026fuel_management}%
+\begin{APACrefauthors}%
+{Fleetio}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2026}{}{}.
+\newblock
+\APACrefbtitle {Fuel Management System.} {Fuel management system.}
+\newblock
+\APAChowpublished
+  {\url{https://www.fleetio.com/solutions/fuel-management-software}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Fortela%
+\ \protect \BOthers {.}}{%
+Fortela%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+fortela2023unsupervised}
+\APACinsertmetastar {%
+fortela2023unsupervised}%
+\begin{APACrefauthors}%
+Fortela, D\BPBI L.%
+, Fremin, A.%
+, Sharp, W.%
+, Mikolajczyk, A.%
+, Revellame, E.%
+, Holmes, W.%
+\BDBL {}Zappi, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Unsupervised Machine Learning to Detect Impending
+  Anomalies in Testing of Fuel Economy and Emissions of Light-Duty Vehicles}
+  {Unsupervised machine learning to detect impending anomalies in testing of
+  fuel economy and emissions of light-duty vehicles}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Clean Technologies}{5}{1}{418--435}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.3390/cleantechnol5010021}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.3390/cleantechnol5010021} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+P.~G%
+\ \protect \BOthers {.}}{%
+P.~G%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2022}}%
+}]{%
+g2022real}
+\APACinsertmetastar {%
+g2022real}%
+\begin{APACrefauthors}%
+G, P.%
+, S, S.%
+, A, T.%
+, N, V.%
+, S, C.%
+\BCBL {}\ \BBA {} Ponnusamy, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Real Time Automatic Vehicle Monitoring System Using
+  {IoT}} {Real time automatic vehicle monitoring system using {IoT}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2022 8th International Conference on Smart Structures
+  and Systems (ICSSS)} {2022 8th international conference on smart structures
+  and systems (icsss)}\ (\BPGS\ 1--6).
+\newblock
+\APACaddressPublisher{Chennai, India}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICSSS54381.2022.9782293}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICSSS54381.2022.9782293} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Y.~G%
+\ \protect \BOthers {.}}{%
+Y.~G%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+g2023fuel}
+\APACinsertmetastar {%
+g2023fuel}%
+\begin{APACrefauthors}%
+G, Y.%
+, M, N.%
+, A, S.%
+, S, L.%
+, A, V.%
+\BCBL {}\ \BBA {} M, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Fuel Monitoring in Bike Vehicles Based on IoT} {Fuel
+  monitoring in bike vehicles based on iot}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2023 Intelligent Computing and Control for Engineering
+  and Business Systems (ICCEBS)} {2023 intelligent computing and control for
+  engineering and business systems (iccebs)}\ (\BPGS\ 1--5).
+\newblock
+\APACaddressPublisher{Chennai, India}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICCEBS58601.2023.10448685}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICCEBS58601.2023.10448685} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Garcia~Vega%
+}{%
+Garcia~Vega%
+}{%
+{\protect \APACyear {2022}}%
+}]{%
+garcia2022development}
+\APACinsertmetastar {%
+garcia2022development}%
+\begin{APACrefauthors}%
+Garcia~Vega, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2022}.
+\unskip\
+\newblock
+\APACrefbtitle {Development of a Method for Anomaly Detection in Time Series
+  Applied to Vehicle Monitoring} {Development of a method for anomaly detection
+  in time series applied to vehicle monitoring}\ \APACtypeAddressSchool
+  {\BMTh}{}{Polytechnique Montr\'{e}al}.
+\unskip\
+\newblock
+\begin{APACrefURL} \url{https://publications.polymtl.ca/10478/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Geotab}%
+}{%
+{Geotab}%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+geotab2024fuel_management}
+\APACinsertmetastar {%
+geotab2024fuel_management}%
+\begin{APACrefauthors}%
+{Geotab}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {Fleet Fuel Management Systems.} {Fleet fuel management
+  systems.}
+\newblock
+\APAChowpublished
+  {\url{https://www.geotab.com/fleet-management-solutions/fleet-fuel-management/}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{GSMA}%
+}{%
+{GSMA}%
+}{%
+{\protect \APACyear {2026}}%
+}]{%
+gsma2026coverage}
+\APACinsertmetastar {%
+gsma2026coverage}%
+\begin{APACrefauthors}%
+{GSMA}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2026}{}{}.
+\newblock
+\APACrefbtitle {Network Coverage Maps.} {Network coverage maps.}
+\newblock
+\APAChowpublished {\url{https://www.gsma.com/coverage/#433}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Habib%
+\ \BBA {} Umar%
+}{%
+Habib%
+\ \BBA {} Umar%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+habib2015anomalies}
+\APACinsertmetastar {%
+habib2015anomalies}%
+\begin{APACrefauthors}%
+Habib, K.%
+\BCBT {}\ \BBA {} Umar, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Anomalies Calculation and Detection in Fuel Expense
+  through Data Mining} {Anomalies calculation and detection in fuel expense
+  through data mining}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Research Journal of Information
+  Technology}{6}{4}{44--50}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.19026/rjit.6.2165} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.19026/rjit.6.2165} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hariri%
+, Kind%
+\BCBL {}\ \BBA {} Brunner%
+}{%
+Hariri%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2021}}%
+}]{%
+hariri2019eif}
+\APACinsertmetastar {%
+hariri2019eif}%
+\begin{APACrefauthors}%
+Hariri, S.%
+, Kind, M\BPBI C.%
+\BCBL {}\ \BBA {} Brunner, R\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Extended Isolation Forest} {Extended isolation
+  forest}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{IEEE Transactions on Knowledge and Data
+  Engineering}{33}{4}{1479--1489}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/TKDE.2019.2947676}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/TKDE.2019.2947676} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hirth%
+, Meier%
+, Gehring%
+, Jazdi%
+\BCBL {}\ \BBA {} Kasneci%
+}{%
+Hirth%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2025}}%
+}]{%
+hirth2025truck_survey}
+\APACinsertmetastar {%
+hirth2025truck_survey}%
+\begin{APACrefauthors}%
+Hirth, M.%
+, Meier, D.%
+, Gehring, O.%
+, Jazdi, N.%
+\BCBL {}\ \BBA {} Kasneci, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{{\APACmonth{11}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Unsupervised Deep Learning for Anomaly Detection in
+  Automotive Trucks: A Survey} {Unsupervised deep learning for anomaly
+  detection in automotive trucks: A survey}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{ACM Computing Surveys}{58}{5}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1145/3771089} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1145/3771089} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{IEEE Standards Association}%
+}{%
+{IEEE Standards Association}%
+}{%
+{\protect \APACyear {2024}}%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+ieee1451}
+\APACinsertmetastar {%
+ieee1451}%
+\begin{APACrefauthors}%
+{IEEE Standards Association}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024{\protect \BCnt {1}}}{}{}.
+\newblock
+\APACrefbtitle {IEEE 1451.0-2024: IEEE Standard for a Smart Transducer
+  Interface for Sensors, Actuators, and Devices.} {Ieee 1451.0-2024: Ieee
+  standard for a smart transducer interface for sensors, actuators, and
+  devices.}
+\newblock
+\APAChowpublished {\url{https://standards.ieee.org/ieee/1451.0/11001/}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{IEEE Standards Association}%
+}{%
+{IEEE Standards Association}%
+}{%
+{\protect \APACyear {2024}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+ieeep7003}
+\APACinsertmetastar {%
+ieeep7003}%
+\begin{APACrefauthors}%
+{IEEE Standards Association}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024{\protect \BCnt {2}}}{}{}.
+\newblock
+\APACrefbtitle {IEEE P7003: Algorithmic Bias Considerations.} {Ieee p7003:
+  Algorithmic bias considerations.}
+\newblock
+\APAChowpublished {\url{https://standards.ieee.org/ieee/7003/11357/}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{IEEE Standards Association}%
+}{%
+{IEEE Standards Association}%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+ieee80211}
+\APACinsertmetastar {%
+ieee80211}%
+\begin{APACrefauthors}%
+{IEEE Standards Association}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{{\APACmonth{07}}}{}.
+\newblock
+\APACrefbtitle {The evolution of Wi-Fi technology and standards.} {The
+  evolution of wi-fi technology and standards.}
+\newblock
+\APAChowpublished
+  {\url{https://standards.ieee.org/beyond-standards/the-evolution-of-wi-fi-technology-and-standards/}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{International Electrotechnical Commission}%
+}{%
+{International Electrotechnical Commission}%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+iec61131}
+\APACinsertmetastar {%
+iec61131}%
+\begin{APACrefauthors}%
+{International Electrotechnical Commission}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+\APACrefbtitle {IEC 61131-2:2017.} {Iec 61131-2:2017.}
+\newblock
+\APAChowpublished {\url{https://webstore.iec.ch/en/publication/31007}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{International Organization for Standardization}%
+}{%
+{International Organization for Standardization}%
+}{%
+{\protect \APACyear {2011}}%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+iso26262}
+\APACinsertmetastar {%
+iso26262}%
+\begin{APACrefauthors}%
+{International Organization for Standardization}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011{\protect \BCnt {1}}}{}{}.
+\newblock
+\APACrefbtitle {ISO 26262-1:2011.} {Iso 26262-1:2011.}
+\newblock
+\APAChowpublished {\url{https://www.iso.org/standard/43464.html}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{International Organization for Standardization}%
+}{%
+{International Organization for Standardization}%
+}{%
+{\protect \APACyear {2011}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+iso7637}
+\APACinsertmetastar {%
+iso7637}%
+\begin{APACrefauthors}%
+{International Organization for Standardization}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011{\protect \BCnt {2}}}{}{}.
+\newblock
+\APACrefbtitle {ISO 7637-2:2011.} {Iso 7637-2:2011.}
+\newblock
+\APAChowpublished {\url{https://www.iso.org/standard/50925.html}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{International Organization for Standardization}%
+}{%
+{International Organization for Standardization}%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+iso39001}
+\APACinsertmetastar {%
+iso39001}%
+\begin{APACrefauthors}%
+{International Organization for Standardization}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+\APACrefbtitle {ISO 39001:2012.} {Iso 39001:2012.}
+\newblock
+\APAChowpublished {\url{https://www.iso.org/standard/44958.html}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{International Organization for Standardization}%
+}{%
+{International Organization for Standardization}%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+iso15031_5}
+\APACinsertmetastar {%
+iso15031_5}%
+\begin{APACrefauthors}%
+{International Organization for Standardization}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+\APACrefbtitle {{ISO} 15031-5:2015 Road vehicles -- Communication between
+  vehicle and external equipment for emissions-related diagnostics -- Part 5:
+  Emissions-related diagnostic services.} {{ISO} 15031-5:2015 road vehicles --
+  communication between vehicle and external equipment for emissions-related
+  diagnostics -- part 5: Emissions-related diagnostic services.}
+\newblock
+\APAChowpublished {\url{https://www.iso.org/standard/66368.html}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{International Organization for Standardization}%
+}{%
+{International Organization for Standardization}%
+}{%
+{\protect \APACyear {2018}}%
+}]{%
+iso45001}
+\APACinsertmetastar {%
+iso45001}%
+\begin{APACrefauthors}%
+{International Organization for Standardization}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+\APACrefbtitle {ISO 45001:2018.} {Iso 45001:2018.}
+\newblock
+\APAChowpublished {\url{https://www.iso.org/standard/63787.html}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{International Organization for Standardization}%
+}{%
+{International Organization for Standardization}%
+}{%
+{\protect \APACyear {2021}}%
+}]{%
+iso15765_4}
+\APACinsertmetastar {%
+iso15765_4}%
+\begin{APACrefauthors}%
+{International Organization for Standardization}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+\APACrefbtitle {{ISO} 15765-4:2021 Road vehicles -- Diagnostic communication
+  over Controller Area Network ({DoCAN}) -- Part 4: Requirements for
+  emissions-related systems.} {{ISO} 15765-4:2021 road vehicles -- diagnostic
+  communication over controller area network ({DoCAN}) -- part 4: Requirements
+  for emissions-related systems.}
+\newblock
+\APAChowpublished {\url{https://www.iso.org/standard/78384.html}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{International Organization for Standardization}%
+}{%
+{International Organization for Standardization}%
+}{%
+{\protect \APACyear {2022}}%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+iso27001}
+\APACinsertmetastar {%
+iso27001}%
+\begin{APACrefauthors}%
+{International Organization for Standardization}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022{\protect \BCnt {1}}}{}{}.
+\newblock
+\APACrefbtitle {ISO/IEC 27001:2022 Information Security Management Systems.}
+  {Iso/iec 27001:2022 information security management systems.}
+\newblock
+\APAChowpublished {\url{https://www.iso.org/standard/27001}}.
+\newblock
+\APACrefnote{ISO}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{International Organization for Standardization}%
+}{%
+{International Organization for Standardization}%
+}{%
+{\protect \APACyear {2022}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+iso29119}
+\APACinsertmetastar {%
+iso29119}%
+\begin{APACrefauthors}%
+{International Organization for Standardization}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022{\protect \BCnt {2}}}{}{}.
+\newblock
+\APACrefbtitle {ISO/IEC/IEEE 29119-1:2022 Software and systems engineering --
+  Software testing.} {Iso/iec/ieee 29119-1:2022 software and systems
+  engineering -- software testing.}
+\newblock
+\APAChowpublished {\url{https://www.iso.org/standard/81291.html}}.
+\newblock
+\APACrefnote{ISO}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{International Organization for Standardization}%
+}{%
+{International Organization for Standardization}%
+}{%
+{\protect \APACyear {2022}}%
+{\protect \APACexlab {{\protect \BCnt {3}}}}}]{%
+iso42010}
+\APACinsertmetastar {%
+iso42010}%
+\begin{APACrefauthors}%
+{International Organization for Standardization}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022{\protect \BCnt {3}}}{}{}.
+\newblock
+\APACrefbtitle {ISO/IEC/IEEE 42010:2022.} {Iso/iec/ieee 42010:2022.}
+\newblock
+\APAChowpublished {\url{https://www.iso.org/standard/74393.html}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{International Organization for Standardization}%
+}{%
+{International Organization for Standardization}%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+iso11898_1}
+\APACinsertmetastar {%
+iso11898_1}%
+\begin{APACrefauthors}%
+{International Organization for Standardization}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {{ISO} 11898-1:2024 Road vehicles -- Controller area network
+  ({CAN}) -- Part 1: Data link layer and physical coding sublayer.} {{ISO}
+  11898-1:2024 road vehicles -- controller area network ({CAN}) -- part 1: Data
+  link layer and physical coding sublayer.}
+\newblock
+\APAChowpublished {\url{https://www.iso.org/standard/86384.html}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{International Organization for Standardization}%
+}{%
+{International Organization for Standardization}%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+iso27018}
+\APACinsertmetastar {%
+iso27018}%
+\begin{APACrefauthors}%
+{International Organization for Standardization}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+\APACrefbtitle {ISO/IEC 27018:2025.} {Iso/iec 27018:2025.}
+\newblock
+\APAChowpublished {\url{https://www.iso.org/standard/27018}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Japan International Cooperation Agency}%
+}{%
+{Japan International Cooperation Agency}%
+}{%
+{\protect \APACyear {2022}}%
+}]{%
+jica2022metro_traffic}
+\APACinsertmetastar {%
+jica2022metro_traffic}%
+\begin{APACrefauthors}%
+{Japan International Cooperation Agency}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{{\APACmonth{12}}}{}.
+\newblock
+\APACrefbtitle {The Project for Comprehensive Traffic Management Plan for Metro
+  Manila Final Report Main Text} {The project for comprehensive traffic
+  management plan for metro manila final report main text}\
+  \APACbVolEdTR{}{\BTR{}}.
+\newblock
+\APACaddressInstitution{}{Japan International Cooperation Agency}.
+\newblock
+\begin{APACrefURL} \url{https://openjicareport.jica.go.jp/pdf/12374856_04.pdf}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Japan International Cooperation Agency}%
+}{%
+{Japan International Cooperation Agency}%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+jica2025mmda_its}
+\APACinsertmetastar {%
+jica2025mmda_its}%
+\begin{APACrefauthors}%
+{Japan International Cooperation Agency}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{{\APACmonth{02}}}{}.
+\newblock
+\APACrefbtitle {JICA and MMDA Commence a Project on Intelligent Transportation
+  System in Line with the Comprehensive Traffic Management Plan for Metro
+  Manila.} {Jica and mmda commence a project on intelligent transportation
+  system in line with the comprehensive traffic management plan for metro
+  manila.}
+\newblock
+\APAChowpublished
+  {\url{https://www.jica.go.jp/english/overseas/philippine/information/press/2024/rdsigningctmp02212025.html}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Joshi%
+\ \protect \BOthers {.}}{%
+Joshi%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+joshi2024intelligent}
+\APACinsertmetastar {%
+joshi2024intelligent}%
+\begin{APACrefauthors}%
+Joshi, P.%
+, Singh, V.%
+, Thapliyal, N.%
+, Joshi, K.%
+, Bhatt, A.%
+\BCBL {}\ \BBA {} Mahur, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Intelligent {IoT}-Enabled Real-Time Monitoring System
+  for Logistics Management} {Intelligent {IoT}-enabled real-time monitoring
+  system for logistics management}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2024 International Conference on Computing, Sciences and
+  Communications (ICCSC)} {2024 international conference on computing, sciences
+  and communications (iccsc)}\ (\BPGS\ 1--5).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICCSC62048.2024.10830332}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICCSC62048.2024.10830332} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kalman%
+}{%
+Kalman%
+}{%
+{\protect \APACyear {1960}}%
+}]{%
+kalman1960new}
+\APACinsertmetastar {%
+kalman1960new}%
+\begin{APACrefauthors}%
+Kalman, R\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1960}.
+\newblock
+\APACrefbtitle {A new approach to linear filtering and prediction problems} {A
+  new approach to linear filtering and prediction problems}\ (\BVOL~82)\
+  (\BNUM~1).
+\newblock
+\begin{APACrefURL}
+  \url{https://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/k/Kalman1960.pdf}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kanchi%
+, Sandilya%
+, Bhosale%
+, Pitkar%
+\BCBL {}\ \BBA {} Gondhalekar%
+}{%
+Kanchi%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+kanchi2013ltea}
+\APACinsertmetastar {%
+kanchi2013ltea}%
+\begin{APACrefauthors}%
+Kanchi, S.%
+, Sandilya, S.%
+, Bhosale, D.%
+, Pitkar, A.%
+\BCBL {}\ \BBA {} Gondhalekar, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Overview of LTE-A Technology} {Overview of lte-a
+  technology}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2013 IEEE Global High Tech Congress on Electronics}
+  {2013 ieee global high tech congress on electronics}\ (\BPGS\ 195--200).
+\newblock
+\APACaddressPublisher{Shenzhen, China}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/GHTCE.2013.6767272}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/GHTCE.2013.6767272} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Komal D/o Shoukat~Ali%
+, Arif~Ali%
+, Mihalca%
+\BCBL {}\ \BBA {} Radu~C\u{a}t\u{a}lin%
+}{%
+Komal D/o Shoukat~Ali%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+komal2018automatic}
+\APACinsertmetastar {%
+komal2018automatic}%
+\begin{APACrefauthors}%
+Komal D/o Shoukat~Ali, K.%
+, Arif~Ali, B.%
+, Mihalca, V\BPBI O.%
+\BCBL {}\ \BBA {} Radu~C\u{a}t\u{a}lin, {\c T}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Automatic fuel tank monitoring, tracking \& theft
+  detection system} {Automatic fuel tank monitoring, tracking \& theft
+  detection system}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {MATEC Web of Conferences} {Matec web of conferences}\
+  (\BVOL~184, \BPG~02011).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1051/matecconf/201818402011}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1051/matecconf/201818402011} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Krishnasamy%
+}{%
+Krishnasamy%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+krishnasamy2019}
+\APACinsertmetastar {%
+krishnasamy2019}%
+\begin{APACrefauthors}%
+Krishnasamy, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Automatic Fuel Monitoring System} {Automatic fuel
+  monitoring system}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Journal of Recent Technology and
+  Engineering}{8}{4S2}{348--352}.
+\newblock
+\begin{APACrefURL} \url{https://www.ijrte.org/portfolio-item/d10781284s219/}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.35940/ijrte.D1078.1284S219} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lavin%
+\ \BBA {} Ahmad%
+}{%
+Lavin%
+\ \BBA {} Ahmad%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+lavin2015nab}
+\APACinsertmetastar {%
+lavin2015nab}%
+\begin{APACrefauthors}%
+Lavin, A.%
+\BCBT {}\ \BBA {} Ahmad, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Evaluating Real-Time Anomaly Detection Algorithms -- The
+  {Numenta} Anomaly Benchmark} {Evaluating real-time anomaly detection
+  algorithms -- the {Numenta} anomaly benchmark}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2015 IEEE 14th International Conference on Machine
+  Learning and Applications} {2015 ieee 14th international conference on
+  machine learning and applications}\ (\BPGS\ 38--44).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICMLA.2015.141}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICMLA.2015.141} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lee%
+, Su%
+\BCBL {}\ \BBA {} Shen%
+}{%
+Lee%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2007}}%
+}]{%
+lee2007wireless_protocols}
+\APACinsertmetastar {%
+lee2007wireless_protocols}%
+\begin{APACrefauthors}%
+Lee, J\BHBI S.%
+, Su, Y\BHBI W.%
+\BCBL {}\ \BBA {} Shen, C\BHBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{{\APACmonth{11}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Comparative Study of Wireless Protocols: Bluetooth,
+  UWB, ZigBee, and Wi-Fi} {A comparative study of wireless protocols:
+  Bluetooth, uwb, zigbee, and wi-fi}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {IECON Proceedings (Industrial Electronics Conference)}
+  {Iecon proceedings (industrial electronics conference)}\ (\BPG~46 - 51).
+\newblock
+\APACaddressPublisher{China}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/IECON.2007.4460126}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/IECON.2007.4460126} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Liu%
+, Ting%
+\BCBL {}\ \BBA {} Zhou%
+}{%
+Liu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2009}}%
+}]{%
+liu2008isolation_forest}
+\APACinsertmetastar {%
+liu2008isolation_forest}%
+\begin{APACrefauthors}%
+Liu, F\BPBI T.%
+, Ting, K.%
+\BCBL {}\ \BBA {} Zhou, Z\BHBI H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Isolation Forest} {Isolation forest}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2008 Eighth IEEE International Conference on Data
+  Mining} {2008 eighth ieee international conference on data mining}\ (\BPG~413
+  - 422).
+\newblock
+\APACaddressPublisher{Pisa, Italy}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICDM.2008.17} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICDM.2008.17} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Llanto%
+}{%
+Llanto%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+llanto2017truck_ban}
+\APACinsertmetastar {%
+llanto2017truck_ban}%
+\begin{APACrefauthors}%
+Llanto, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{{\APACmonth{01}}}{}.
+\newblock
+\APACrefbtitle {Cargo Truck Ban: Bad Timing, Faulty Analysis, Policy Failure}
+  {Cargo truck ban: Bad timing, faulty analysis, policy failure}\
+  \APACbVolEdTR{}{\BTR{}}.
+\newblock
+\APACaddressInstitution{}{Philippine Institute for Development Studies}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.62986/dp2016.52} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.62986/dp2016.52} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lu%
+, Wu%
+, Mueen%
+, Zuluaga%
+\BCBL {}\ \BBA {} Keogh%
+}{%
+Lu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2022}}%
+}]{%
+lu2022matrix_profile_xxiv}
+\APACinsertmetastar {%
+lu2022matrix_profile_xxiv}%
+\begin{APACrefauthors}%
+Lu, Y.%
+, Wu, R.%
+, Mueen, A.%
+, Zuluaga, M.%
+\BCBL {}\ \BBA {} Keogh, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Matrix Profile XXIV: Scaling Time Series Anomaly
+  Detection to Trillions of Datapoints and Ultra-Fast Arriving Data Streams}
+  {Matrix profile xxiv: Scaling time series anomaly detection to trillions of
+  datapoints and ultra-fast arriving data streams}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 28th ACM SIGKDD Conference on
+  Knowledge Discovery and Data Mining} {Proceedings of the 28th acm sigkdd
+  conference on knowledge discovery and data mining}\ (\BPGS\ 1173--1182).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1145/3534678.3539271}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1145/3534678.3539271} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Majeed%
+\ \BBA {} Phil%
+}{%
+Majeed%
+\ \BBA {} Phil%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+majeed2015comparative}
+\APACinsertmetastar {%
+majeed2015comparative}%
+\begin{APACrefauthors}%
+Majeed, A.%
+\BCBT {}\ \BBA {} Phil, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{05}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Comparative Studies of 3G, 4G \& 5G Mobile Network \&
+  Data Offloading Method a Survey} {Comparative studies of 3g, 4g \& 5g mobile
+  network \& data offloading method a survey}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{IJRIT International Journal of Research in Information
+  Technology, Volume 3, Issue 5, May 2015, Pg. 421-427}{3}{}{421--427}.
+\newblock
+\begin{APACrefURL}
+  \url{https://www.researchgate.net/publication/277817220_Comparative_Studies_of_3G_4G_5G_Mobile_Network_Data_Offloading_Method_a_Survey}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Manalu%
+\ \protect \BOthers {.}}{%
+Manalu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+manalu2023lora_performance}
+\APACinsertmetastar {%
+manalu2023lora_performance}%
+\begin{APACrefauthors}%
+Manalu, I.%
+, Silalahi, S\BPBI M.%
+, Wowiling, G.%
+, Sigiro, M.%
+, Sinambela, E.%
+\BCBL {}\ \BBA {} Simatupang, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Performance Analysis of LoRa in IoT Application of
+  Suburban Area} {Performance analysis of lora in iot application of suburban
+  area}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2023 International Conference on ICT for Smart Society
+  (ICISS)} {2023 international conference on ict for smart society (iciss)}\
+  (\BPGS\ 1--4).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICT60153.2023.10374037}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICT60153.2023.10374037} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mathi%
+\ \protect \BOthers {.}}{%
+Mathi%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+mathi2024development}
+\APACinsertmetastar {%
+mathi2024development}%
+\begin{APACrefauthors}%
+Mathi, S\BPBI C.%
+, Jambula, S.%
+, Surat, D.%
+, Madhu~Charan, M.%
+, Manitha, P.%
+\BCBL {}\ \BBA {} Sailaja, V.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Development of an Intelligent Fuel Monitoring and Theft
+  Detection System Equipped with {GPS} \& {GSM} Integration, State of Charge
+  Monitoring and Realtime Alarm Generation} {Development of an intelligent fuel
+  monitoring and theft detection system equipped with {GPS} \& {GSM}
+  integration, state of charge monitoring and realtime alarm
+  generation}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2024 International Conference on Innovative Computing
+  and Communication Technologies (ICICT)} {2024 international conference on
+  innovative computing and communication technologies (icict)}\ (\BPGS\
+  2095--2102).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICICT60155.2024.10544646}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICICT60155.2024.10544646} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+McNemar%
+}{%
+McNemar%
+}{%
+{\protect \APACyear {1947}}%
+}]{%
+mcnemar1947note}
+\APACinsertmetastar {%
+mcnemar1947note}%
+\begin{APACrefauthors}%
+McNemar, Q.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1947}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Note on the sampling error of the difference between
+  correlated proportions or percentages} {Note on the sampling error of the
+  difference between correlated proportions or percentages}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychometrika}{12}{2}{153--157}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1007/BF02295996} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1007/BF02295996} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Meitrack}%
+}{%
+{Meitrack}%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+meitrack_lora_fleet}
+\APACinsertmetastar {%
+meitrack_lora_fleet}%
+\begin{APACrefauthors}%
+{Meitrack}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACrefbtitle {LoRa-Based Fleet Tracking Solution.} {Lora-based fleet tracking
+  solution.}
+\newblock
+\APAChowpublished
+  {\url{https://www.meitrack.com/lora-based-fleet-tracking-solution/}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Miyim%
+\ \BBA {} Wakili%
+}{%
+Miyim%
+\ \BBA {} Wakili%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+miyim2019lte_performance}
+\APACinsertmetastar {%
+miyim2019lte_performance}%
+\begin{APACrefauthors}%
+Miyim, A.%
+\BCBT {}\ \BBA {} Wakili, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Performance Evaluation of LTE Networks} {Performance
+  evaluation of lte networks}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2019 15th International Conference on Electronics,
+  Computer and Computation (ICECCO)} {2019 15th international conference on
+  electronics, computer and computation (icecco)}\ (\BPGS\ 1--6).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICECCO48375.2019.9043271}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICECCO48375.2019.9043271} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mumcuoglu%
+\ \protect \BOthers {.}}{%
+Mumcuoglu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+mumcuoglu2023fuel}
+\APACinsertmetastar {%
+mumcuoglu2023fuel}%
+\begin{APACrefauthors}%
+Mumcuoglu, M\BPBI E.%
+\BCBT {}\ \BOthersPeriod {.}
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Fuel consumption classification for heavy-duty vehicles:
+  A novel approach to identifying driver behavior and system anomalies} {Fuel
+  consumption classification for heavy-duty vehicles: A novel approach to
+  identifying driver behavior and system anomalies}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2023 AEIT International Conference on Electrical and
+  Electronic Technologies for Automotive (AEIT AUTOMOTIVE)} {2023 aeit
+  international conference on electrical and electronic technologies for
+  automotive (aeit automotive)}\ (\BPGS\ 1--6).
+\newblock
+\begin{APACrefURL}
+  \url{https://doi.org/10.23919/AEITAUTOMOTIVE58986.2023.10217234}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.23919/AEITAUTOMOTIVE58986.2023.10217234}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Nada%
+}{%
+Nada%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+nada2017design}
+\APACinsertmetastar {%
+nada2017design}%
+\begin{APACrefauthors}%
+Nada, Y\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Design and Implementation for Trucks Tracking System
+  Using GPS Based on Semantic Web} {Design and implementation for trucks
+  tracking system using gps based on semantic web}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Journal of Trend in Scientific Research
+  and Development}{Volume-1}{4}{2456--6470}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.31142/ijtsrd169} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.31142/ijtsrd169} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{NASA EarthData}%
+}{%
+{NASA EarthData}%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+gpsstd}
+\APACinsertmetastar {%
+gpsstd}%
+\begin{APACrefauthors}%
+{NASA EarthData}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{{\APACmonth{07}}}{}.
+\newblock
+\APACrefbtitle {Global Navigation Satellite System.} {Global navigation
+  satellite system.}
+\newblock
+\APAChowpublished
+  {\url{https://www.earthdata.nasa.gov/data/space-geodesy-techniques/gnss}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Navixy}%
+}{%
+{Navixy}%
+}{%
+{\protect \APACyear {2026}}%
+}]{%
+navixy2026fuel_sensors}
+\APACinsertmetastar {%
+navixy2026fuel_sensors}%
+\begin{APACrefauthors}%
+{Navixy}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2026}{{\APACmonth{05}}}{}.
+\newblock
+\APACrefbtitle {Sensors Setup and Configuration.} {Sensors setup and
+  configuration.}
+\newblock
+\APAChowpublished
+  {\url{https://www.navixy.com/docs/expert-center/vehicle-telematics-technology/fuel-management/fuel-control-in-navixy/sensors-setup-and-configuration}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Obikoya%
+}{%
+Obikoya%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+obikoya2014design}
+\APACinsertmetastar {%
+obikoya2014design}%
+\begin{APACrefauthors}%
+Obikoya, G\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Design, construction, and implementation of a remote
+  fuel-level monitoring system} {Design, construction, and implementation of a
+  remote fuel-level monitoring system}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{EURASIP Journal on Wireless Communications and
+  Networking}{2014}{1}{76}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1186/1687-1499-2014-76}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1186/1687-1499-2014-76} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Opensignal}%
+}{%
+{Opensignal}%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+opensignal_seasia_coverage}
+\APACinsertmetastar {%
+opensignal_seasia_coverage}%
+\begin{APACrefauthors}%
+{Opensignal}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACrefbtitle {SE Asia - Coverage.} {Se asia - coverage.}
+\newblock
+\APAChowpublished
+  {\url{https://www.tutela.com/state-of-mobile-networks-southeast-asia/coverage}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Oppenheim%
+\ \BBA {} Schafer%
+}{%
+Oppenheim%
+\ \BBA {} Schafer%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+oppenheim2010dsp}
+\APACinsertmetastar {%
+oppenheim2010dsp}%
+\begin{APACrefauthors}%
+Oppenheim, A\BPBI V.%
+\BCBT {}\ \BBA {} Schafer, R\BPBI W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2010}.
+\newblock
+\APACrefbtitle {Discrete-Time Signal Processing} {Discrete-time signal
+  processing}\ (\PrintOrdinal{3rd}\ \BEd).
+\newblock
+\APACaddressPublisher{Upper Saddle River, NJ}{Prentice Hall}.
+\newblock
+\begin{APACrefURL}
+  \url{https://api.pageplace.de/preview/DT0400.9781292038155_A24581738/preview-9781292038155_A24581738.pdf}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Orange Connected Objects \& Partnerships}%
+}{%
+{Orange Connected Objects \& Partnerships}%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+orange2016lora_guide}
+\APACinsertmetastar {%
+orange2016lora_guide}%
+\begin{APACrefauthors}%
+{Orange Connected Objects \& Partnerships}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{04}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {LoRa Device Developer Guide} {Lora device developer
+  guide}{\BBCQ}\ [\bibcomputersoftwaremanual].
+\newblock
+\APAChowpublished
+  {\url{https://www.mouser.com/pdfdocs/LoRa-Device-Developer-Guide-Orange.pdf}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Patalinghug%
+\ \protect \BOthers {.}}{%
+Patalinghug%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+patalinghug2015port_congestion}
+\APACinsertmetastar {%
+patalinghug2015port_congestion}%
+\begin{APACrefauthors}%
+Patalinghug, E.%
+\BCBT {}\ \BOthersPeriod {.}
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{03}}}{}.
+\newblock
+\APACrefbtitle {Port Congestion and Underutilization in the Greater Capital
+  Region: Unpacking the Issues} {Port congestion and underutilization in the
+  greater capital region: Unpacking the issues}\ \APACbVolEdTR{}{\BTR{}}.
+\newblock
+\APACaddressInstitution{}{Philippine Institute for Development Studies}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.62986/pn2015.07} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.62986/pn2015.07} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Patil%
+\ \BBA {} Patil%
+}{%
+Patil%
+\ \BBA {} Patil%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+patil2024iot}
+\APACinsertmetastar {%
+patil2024iot}%
+\begin{APACrefauthors}%
+Patil, A.%
+\BCBT {}\ \BBA {} Patil, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {IoT Enabled Vehicle Monitoring and Theft Prevention
+  System (I-VMTPS)} {Iot enabled vehicle monitoring and theft prevention system
+  (i-vmtps)}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2024 2nd International Conference on Advancements and
+  Key Challenges in Green Energy and Computing (AKGEC)} {2024 2nd international
+  conference on advancements and key challenges in green energy and computing
+  (akgec)}\ (\BPGS\ 1--7).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/AKGEC62572.2024.10869260}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/AKGEC62572.2024.10869260} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Postel%
+}{%
+Postel%
+}{%
+{\protect \APACyear {1981}}%
+}]{%
+rfc791}
+\APACinsertmetastar {%
+rfc791}%
+\begin{APACrefauthors}%
+Postel, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1981}{}{}.
+\newblock
+\APACrefbtitle {RFC 791: Internet Protocol.} {Rfc 791: Internet protocol.}
+\newblock
+\APAChowpublished {\url{https://datatracker.ietf.org/doc/html/rfc791}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Powers%
+}{%
+Powers%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+powers2020evaluation}
+\APACinsertmetastar {%
+powers2020evaluation}%
+\begin{APACrefauthors}%
+Powers, D\BPBI M\BPBI W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+\APACrefbtitle {Evaluation: From Precision, Recall and {F}-Measure to {ROC},
+  Informedness, Markedness and Correlation.} {Evaluation: From precision,
+  recall and {F}-measure to {ROC}, informedness, markedness and correlation.}
+\newblock
+\begin{APACrefURL} \url{https://arxiv.org/abs/2010.16061} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Prabhu%
+, Kaliyaperumal%
+\BCBL {}\ \BBA {} Nithya%
+}{%
+Prabhu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2022}}%
+}]{%
+prabhu2022iot}
+\APACinsertmetastar {%
+prabhu2022iot}%
+\begin{APACrefauthors}%
+Prabhu, S.%
+, Kaliyaperumal, D.%
+\BCBL {}\ \BBA {} Nithya, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{IoT} Enabled Fuel Level Monitoring and Automatic Fuel
+  Theft Detection System} {{IoT} enabled fuel level monitoring and automatic
+  fuel theft detection system}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2022 13th International Conference on Computing
+  Communication and Networking Technologies (ICCCNT).} {2022 13th international
+  conference on computing communication and networking technologies (icccnt).}
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICCCNT54827.2022.9984515}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICCCNT54827.2022.9984515} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Preiss%
+}{%
+Preiss%
+}{%
+{\protect \APACyear {1999}}%
+}]{%
+preiss1999data}
+\APACinsertmetastar {%
+preiss1999data}%
+\begin{APACrefauthors}%
+Preiss, B\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1999}.
+\newblock
+\APACrefbtitle {Data Structures and Algorithms with Object-Oriented Design
+  Patterns in {C}{+}{+}} {Data structures and algorithms with object-oriented
+  design patterns in {C}{+}{+}}.
+\newblock
+\APACaddressPublisher{New York}{John Wiley \& Sons}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Robert Bosch GmbH}%
+}{%
+{Robert Bosch GmbH}%
+}{%
+{\protect \APACyear {1991}}%
+}]{%
+bosch1991can}
+\APACinsertmetastar {%
+bosch1991can}%
+\begin{APACrefauthors}%
+{Robert Bosch GmbH}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1991}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{CAN} Specification Version 2.0} {{CAN} specification
+  version 2.0}{\BBCQ}\ [\bibcomputersoftwaremanual].
+\newblock
+\APAChowpublished {\url{https://www.sciepub.com/reference/32118}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Rousseeuw%
+\ \BBA {} Croux%
+}{%
+Rousseeuw%
+\ \BBA {} Croux%
+}{%
+{\protect \APACyear {1993}}%
+}]{%
+rousseeuw1993mad}
+\APACinsertmetastar {%
+rousseeuw1993mad}%
+\begin{APACrefauthors}%
+Rousseeuw, P.%
+\BCBT {}\ \BBA {} Croux, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1993}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Alternatives to the Median Absolute Deviation}
+  {Alternatives to the median absolute deviation}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of the American Statistical
+  Association}{88}{424}{1273--1283}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1080/01621459.1993.10476408}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1080/01621459.1993.10476408} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+RS%
+\ \protect \BOthers {.}}{%
+RS%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+rs2024fuel}
+\APACinsertmetastar {%
+rs2024fuel}%
+\begin{APACrefauthors}%
+RS, S.%
+, Narayanan~CS, S.%
+, G, R.%
+, S, P.%
+, Alagarsamy, M.%
+\BCBL {}\ \BBA {} William, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Fuel Quantity and Quality Detection in Automobiles Using
+  {IoT}} {Fuel quantity and quality detection in automobiles using
+  {IoT}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2024 4th International Conference on Innovative
+  Practices in Technology and Management (ICIPTM)} {2024 4th international
+  conference on innovative practices in technology and management (iciptm)}\
+  (\BPGS\ 1--6).
+\newblock
+\APACaddressPublisher{Noida, India}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICIPTM59628.2024.10563735}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICIPTM59628.2024.10563735} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+S%
+\ \protect \BOthers {.}}{%
+S%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+s2024iot}
+\APACinsertmetastar {%
+s2024iot}%
+\begin{APACrefauthors}%
+S, S.%
+, Sowmya, J\BPBI M.%
+, Siva, M.%
+, Rishitha, N.%
+, Sagar, M\BPBI K\BPBI G\BPBI S.%
+\BCBL {}\ \BBA {} Ganesh, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {IOT Enabled Smart Fuel Station Management System} {Iot
+  enabled smart fuel station management system}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2024 2nd International Conference on Networking and
+  Communications (ICNWC)} {2024 2nd international conference on networking and
+  communications (icnwc)}\ (\BPGS\ 1--5).
+\newblock
+\begin{APACrefURL} \url{https://api.semanticscholar.org/CorpusID:270096993}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICNWC60771.2024.10537573} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{SAE International}%
+}{%
+{SAE International}%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+sae_j1962}
+\APACinsertmetastar {%
+sae_j1962}%
+\begin{APACrefauthors}%
+{SAE International}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+\APACrefbtitle {{J1962\_201607}: Diagnostic Connector.} {{J1962\_201607}:
+  Diagnostic connector.}
+\newblock
+\APAChowpublished {\url{https://www.sae.org/standards/content/j1962_201607/}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{SAE International}%
+}{%
+{SAE International}%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+sae_j1979}
+\APACinsertmetastar {%
+sae_j1979}%
+\begin{APACrefauthors}%
+{SAE International}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+\APACrefbtitle {{J1979\_201702}: {E/E} Diagnostic Test Modes.}
+  {{J1979\_201702}: {E/E} diagnostic test modes.}
+\newblock
+\APAChowpublished
+  {\url{https://saemobilus.sae.org/standards/j1979_201702-e-e-diagnostic-test-modes}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{SAE International}%
+}{%
+{SAE International}%
+}{%
+{\protect \APACyear {2023}}%
+}]{%
+sae_j1939}
+\APACinsertmetastar {%
+sae_j1939}%
+\begin{APACrefauthors}%
+{SAE International}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+\APACrefbtitle {{SAE} {J1939}: Serial Control and Communications Heavy Duty
+  Vehicle Network.} {{SAE} {J1939}: Serial control and communications heavy
+  duty vehicle network.}
+\newblock
+\APAChowpublished
+  {\url{https://www.sae.org/standards/j1939_202306-serial-control-communications-heavy-duty-vehicle-network-top-level-document}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Saito%
+\ \BBA {} Rehmsmeier%
+}{%
+Saito%
+\ \BBA {} Rehmsmeier%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+saito2015prcurve}
+\APACinsertmetastar {%
+saito2015prcurve}%
+\begin{APACrefauthors}%
+Saito, T.%
+\BCBT {}\ \BBA {} Rehmsmeier, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Precision-Recall Plot Is More Informative than the
+  {ROC} Plot When Evaluating Binary Classifiers on Imbalanced Datasets} {The
+  precision-recall plot is more informative than the {ROC} plot when evaluating
+  binary classifiers on imbalanced datasets}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PLOS ONE}{10}{3}{e0118432}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1371/journal.pone.0118432}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1371/journal.pone.0118432} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Sakthimohan%
+, G%
+, Ramprasad%
+, Challa%
+\BCBL {}\ \BBA {} Prasad%
+}{%
+Sakthimohan%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2021}}%
+}]{%
+m2021digital}
+\APACinsertmetastar {%
+m2021digital}%
+\begin{APACrefauthors}%
+Sakthimohan, M.%
+, G, E.%
+, Ramprasad, P.%
+, Challa, V.%
+\BCBL {}\ \BBA {} Prasad, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Digital Fuel Monitoring System For Automobiles} {Digital
+  fuel monitoring system for automobiles}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2021 Second International Conference on Electronics and
+  Sustainable Communication Systems (ICESC)} {2021 second international
+  conference on electronics and sustainable communication systems (icesc)}\
+  (\BPGS\ 6--10).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICESC51422.2021.9532604}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICESC51422.2021.9532604} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Samsara}%
+}{%
+{Samsara}%
+}{%
+{\protect \APACyear {2026}}%
+}]{%
+samsara2026fuel_management}
+\APACinsertmetastar {%
+samsara2026fuel_management}%
+\begin{APACrefauthors}%
+{Samsara}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2026}{}{}.
+\newblock
+\APACrefbtitle {Fleet Fuel Management.} {Fleet fuel management.}
+\newblock
+\APAChowpublished
+  {\url{https://www.samsara.com/products/telematics/fleet-fuel-management-system}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Semenov%
+, {\'S}widerski%
+, Borucka%
+\BCBL {}\ \BBA {} Guzanek%
+}{%
+Semenov%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+semenov2024concept}
+\APACinsertmetastar {%
+semenov2024concept}%
+\begin{APACrefauthors}%
+Semenov, I.%
+, {\'S}widerski, A.%
+, Borucka, A.%
+\BCBL {}\ \BBA {} Guzanek, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Concept of Early Prediction and Identification of Truck
+  Vehicle Failures Supported by In-Vehicle Telematics Platform Based on
+  Abnormality Detection Algorithm} {Concept of early prediction and
+  identification of truck vehicle failures supported by in-vehicle telematics
+  platform based on abnormality detection algorithm}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Applied Sciences (Switzerland)}{14}{16}{7191}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.3390/app14167191} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.3390/app14167191} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Simon%
+}{%
+Simon%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+simon2006optimal}
+\APACinsertmetastar {%
+simon2006optimal}%
+\begin{APACrefauthors}%
+Simon, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2006}.
+\newblock
+\APACrefbtitle {Optimal State Estimation: Kalman, H Infinity, and Nonlinear
+  Approaches} {Optimal state estimation: Kalman, h infinity, and nonlinear
+  approaches}.
+\newblock
+\APACaddressPublisher{Hoboken, NJ}{John Wiley \& Sons}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1002/0470045345} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1002/0470045345} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Society of Automotive Engineers}%
+}{%
+{Society of Automotive Engineers}%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+sae_j1349}
+\APACinsertmetastar {%
+sae_j1349}%
+\begin{APACrefauthors}%
+{Society of Automotive Engineers}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+\APACrefbtitle {{SAE J1349}: Engine Power Test Code -- Spark Ignition and
+  Compression Ignition -- Net Power Rating.} {{SAE J1349}: Engine power test
+  code -- spark ignition and compression ignition -- net power rating.}
+\newblock
+\APAChowpublished {SAE International Standard}.
+\newblock
+\begin{APACrefURL} \url{https://www.sae.org/standards/content/j1349_201109/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Tatababu%
+, Ranga%
+, Satyannarayana%
+, Yakkanti%
+\BCBL {}\ \BBA {} Devi%
+}{%
+Tatababu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+tatababu2024smart}
+\APACinsertmetastar {%
+tatababu2024smart}%
+\begin{APACrefauthors}%
+Tatababu, D.%
+, Ranga, M.%
+, Satyannarayana, D.%
+, Yakkanti, J.%
+\BCBL {}\ \BBA {} Devi, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Smart Fuel Monitoring System For Diesel Generator}
+  {Smart fuel monitoring system for diesel generator}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2024 International Conference on Computational
+  Intelligence for Green and Sustainable Technologies (ICCIGST)} {2024
+  international conference on computational intelligence for green and
+  sustainable technologies (iccigst)}\ (\BPGS\ 1--6).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICCIGST60741.2024.10717583}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICCIGST60741.2024.10717583} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{The International Engineering Consortium}%
+}{%
+{The International Engineering Consortium}%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+iec_gsm_tutorial}
+\APACinsertmetastar {%
+iec_gsm_tutorial}%
+\begin{APACrefauthors}%
+{The International Engineering Consortium}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Global System for Mobile Communication (GSM)} {Global
+  system for mobile communication (gsm)}{\BBCQ}\ [\bibcomputersoftwaremanual].
+\newblock
+\APAChowpublished {\url{https://ics.uci.edu/~dsm/cs234/GSM.pdf}}.
+\newblock
+\APACrefnote{Tutorial}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Turan%
+\ \protect \BOthers {.}}{%
+Turan%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+turan2024detecting}
+\APACinsertmetastar {%
+turan2024detecting}%
+\begin{APACrefauthors}%
+Turan, B.%
+, Gene, E.%
+, Ak{\c c}{\i}{\u g}, {\.I}.%
+, Goztepe, N.%
+, Mumeuoglu, M.%
+\BCBL {}\ \BBA {} Unel, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Detecting High Fuel Consumption in HDVs with Ensemble of
+  Anomaly Detection Models} {Detecting high fuel consumption in hdvs with
+  ensemble of anomaly detection models}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2024 IEEE 22nd International Conference on Industrial
+  Informatics (INDIN)} {2024 ieee 22nd international conference on industrial
+  informatics (indin)}\ (\BPGS\ 1--6).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/INDIN58382.2024.10774415}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/INDIN58382.2024.10774415} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Vigneshwaran%
+, Nithya%
+, Raghul%
+, Nivas%
+\BCBL {}\ \BBA {} Kishore%
+}{%
+Vigneshwaran%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+vigneshwaran2020design}
+\APACinsertmetastar {%
+vigneshwaran2020design}%
+\begin{APACrefauthors}%
+Vigneshwaran, S.%
+, Nithya, B.%
+, Raghul, K.%
+, Nivas, B.%
+\BCBL {}\ \BBA {} Kishore, V\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Design of Bus Tracking and Fuel Monitoring System}
+  {Design of bus tracking and fuel monitoring system}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2020 6th International Conference on Advanced Computing
+  and Communication Systems (ICACCS)} {2020 6th international conference on
+  advanced computing and communication systems (icaccs)}\ (\BPGS\ 348--351).
+\newblock
+\APACaddressPublisher{Coimbatore, India}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICACCS48705.2020.9074177}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICACCS48705.2020.9074177} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wilcoxon%
+}{%
+Wilcoxon%
+}{%
+{\protect \APACyear {1945}}%
+}]{%
+wilcoxon1945individual}
+\APACinsertmetastar {%
+wilcoxon1945individual}%
+\begin{APACrefauthors}%
+Wilcoxon, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1945}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Individual comparisons by ranking methods} {Individual
+  comparisons by ranking methods}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Biometrics Bulletin}{1}{6}{80--83}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.2307/3001968} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.2307/3001968} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wilson%
+}{%
+Wilson%
+}{%
+{\protect \APACyear {1927}}%
+}]{%
+wilson1927probable}
+\APACinsertmetastar {%
+wilson1927probable}%
+\begin{APACrefauthors}%
+Wilson, E\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1927}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Probable inference, the law of succession, and
+  statistical inference} {Probable inference, the law of succession, and
+  statistical inference}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of the American Statistical
+  Association}{22}{158}{209--212}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1080/01621459.1927.10502953}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1080/01621459.1927.10502953} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Yeh%
+\ \protect \BOthers {.}}{%
+Yeh%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2026}}%
+}]{%
+yeh2024matrix_profile_multidim}
+\APACinsertmetastar {%
+yeh2024matrix_profile_multidim}%
+\begin{APACrefauthors}%
+Yeh, C\BHBI C\BPBI M.%
+\BCBT {}\ \BOthersPeriod {.}
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2026}{}{}.
+\newblock
+\APACrefbtitle {Matrix Profile for Anomaly Detection on Multidimensional Time
+  Series.} {Matrix profile for anomaly detection on multidimensional time
+  series.}
+\newblock
+\begin{APACrefURL} \url{https://arxiv.org/abs/2409.09298} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Yeh%
+\ \protect \BOthers {.}}{%
+Yeh%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+yeh2016matrix_profile}
+\APACinsertmetastar {%
+yeh2016matrix_profile}%
+\begin{APACrefauthors}%
+Yeh, C\BHBI C\BPBI M.%
+, Zhu, Y.%
+, Ulanova, L.%
+, Begum, N.%
+, Ding, Y.%
+, Dau, A.%
+\BDBL {}Keogh, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Matrix Profile I: All Pairs Similarity Joins for Time
+  Series: A Unifying View That Includes Motifs, Discords and Shapelets} {Matrix
+  profile i: All pairs similarity joins for time series: A unifying view that
+  includes motifs, discords and shapelets}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2016 IEEE 16th International Conference on Data Mining
+  (ICDM)} {2016 ieee 16th international conference on data mining (icdm)}\
+  (\BPGS\ 1317--1322).
+\newblock
+\APACaddressPublisher{Barcelona, Spain}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1109/ICDM.2016.0179}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICDM.2016.0179} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
 
 \end{thebibliography}

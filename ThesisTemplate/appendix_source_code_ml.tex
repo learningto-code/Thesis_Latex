@@ -1,0 +1,114 @@
+\section{Machine-Learning Pipeline Source Code}
+\label{sec:app_ml_code}
+
+This section reproduces the Python source that implements the anomaly-detection pipeline: feature engineering, detector configuration, and the ablation and statistical-test scripts. Each file is preceded by a compact summary block (Purpose / Inputs / Processes / Outputs) and followed by the stripped source listing.
+
+\subsection*{Feature Engineering}
+
+\subsection{Feature Engineering}
+\label{sec:code_preprocess}
+
+\noindent\textbf{Purpose.} Builds the 33-feature vector used by the Isolation Forest and Matrix Profile detectors, along with the reduced 9-feature and 17-feature variants used in the ablation. Also runs the moving-average and median filters that the pipeline applies before any feature is computed.
+
+\noindent\textbf{Inputs.} A cleaned telemetry CSV with per-row fuel level, GPS, speed, engine RPM, engine load, and throttle position, plus the trip-sessions CSV with per-trip metadata.
+
+\noindent\textbf{Processes.} Standardises the schema, smooths noisy channels, derives fuel-rate and distance-per-fuel channels, computes route-segment and driver-behaviour scores, builds idle-context features, and pins the column order for each model variant.
+
+\noindent\textbf{Outputs.} A feature-engineered pandas DataFrame ready for scoring, plus module-level constants that name the exact columns each variant expects.
+
+\lstinputlisting[language=Python,caption={Feature engineering},label={lst:preprocess}]{code_listings/ml/preprocess.py}
+
+\subsection{Controlled Anomaly Injection}
+\label{sec:code_inject_anomalies}
+
+\noindent\textbf{Purpose.} Injects the five ground-truth anomaly types (sudden fuel drop, gradual leak, idle theft, refuel during drive, and abnormal rapid decrease) onto a fraction of clean trips so the detectors can be measured against known positives.
+
+\noindent\textbf{Inputs.} A cleaned telemetry DataFrame and a random seed for reproducibility.
+
+\noindent\textbf{Processes.} For each selected trip picks an injection point in the middle 35\%--70\% of the trip, mutates the fuel column according to the chosen anomaly template, and labels the affected window as ground-truth positives.
+
+\noindent\textbf{Outputs.} An augmented DataFrame with anomaly label, anomaly type, and injection flag columns populated, later persisted as the evaluation dataset.
+
+\lstinputlisting[language=Python,caption={Controlled anomaly injection},label={lst:inject_anomalies}]{code_listings/ml/inject_anomalies.py}
+
+\subsection*{Detector Configuration}
+
+\subsection{Matrix Profile Detector}
+\label{sec:code_matrix_profile}
+
+\noindent\textbf{Purpose.} Discord-based unsupervised detector that scores each trip's fuel sequence against a reference corpus of normal trips. Trip-level and row-level discord windows are kept separate so trip decisions stay stable while row-level localisation stays responsive.
+
+\noindent\textbf{Inputs.} Ordered fuel-level sequences from the calibration corpus, and per-row fuel values at inference time.
+
+\noindent\textbf{Processes.} Calibrates a reference distance distribution over normal-trip subsequences (using \texttt{stumpy} if available, otherwise a lighter pure-numpy implementation), then at inference computes row-level and trip-level discord scores and gates them against the calibrated quantile threshold.
+
+\noindent\textbf{Outputs.} A detector object that can be pickled and reloaded, plus per-row and per-trip discord scores emitted during inference.
+
+\lstinputlisting[language=Python,caption={Matrix Profile detector},label={lst:matrix_profile}]{code_listings/ml/matrix_profile.py}
+
+\subsection{Isolation Forest Detector}
+\label{sec:code_iforest}
+
+\noindent\textbf{Purpose.} Fits and calibrates the Isolation Forest anomaly detector used as the primary alert-firing model. Handles the three feature-set variants (9-D Model~A, 17-D Model~B, and 33-D Model~C) so the ablation can compare them under identical settings.
+
+\noindent\textbf{Inputs.} A feature-engineered DataFrame from the feature-engineering module, the target feature-set variant, and an optional random seed.
+
+\noindent\textbf{Processes.} Selects the feature columns for the chosen variant, fits an Isolation Forest with a fixed contamination and estimator count, computes the calibration threshold as a high quantile of the clean-row score distribution, and packages the fitted estimator with its threshold and column list.
+
+\noindent\textbf{Outputs.} A serialisable detector object (fitted forest, calibrated threshold, and feature-column manifest) and a text report of the calibration quantile, threshold, and score distribution.
+
+\lstinputlisting[language=Python,caption={Isolation Forest detector},label={lst:iforest}]{code_listings/ml/train_iforest.py}
+
+\subsection*{Detector Ablation and Statistical Tests}
+
+\subsection{Leave-One-Trip-Out Evaluation}
+\label{sec:code_loto_evaluate}
+
+\noindent\textbf{Purpose.} Out-of-sample re-evaluation of the Isolation Forest and Matrix Profile detectors under a per-trip leave-one-out regime, so headline metrics are not inflated by scoring the same rows the threshold was calibrated on.
+
+\noindent\textbf{Inputs.} The cleaned telemetry CSV, the injected evaluation CSV, and the trip-source category tagged on each trip.
+
+\noindent\textbf{Processes.} For each project-native trip, refits the detectors on the clean rows of every other project-native trip, recomputes the score threshold as the 0.995-quantile of the held-out clean scores, and scores the held-out trip with that fold's models. Public-route trips are scored once by a single model trained on all project-native clean rows.
+
+\noindent\textbf{Outputs.} Per-fold prediction CSVs and JSON metric summaries under the reports directory.
+
+\lstinputlisting[language=Python,caption={Leave-one-trip-out evaluation},label={lst:loto_evaluate}]{code_listings/ml/loto_evaluate.py}
+
+\subsection{Simple-Baseline Comparisons}
+\label{sec:code_loto_baselines}
+
+\noindent\textbf{Purpose.} Evaluates four non-ML and simpler-ML baselines under the same leave-one-out regime so the value of the ML detectors is measured against static thresholds and per-truck rules.
+
+\noindent\textbf{Inputs.} The evaluation CSV, the per-trip fold splits, and the full feature vector for the LOF baseline.
+
+\noindent\textbf{Processes.} Runs a static 1\% fuel-delta threshold, per-truck Tukey-boxplot rules on fuel-per-km and fuel-delta, and an LOF novelty detector on the full feature vector.
+
+\noindent\textbf{Outputs.} A baseline-comparison CSV with precision, recall, F1, and false-positive rate for each baseline alongside the ML detector numbers.
+
+\lstinputlisting[language=Python,caption={Simple-baseline comparisons},label={lst:loto_baselines}]{code_listings/ml/loto_baselines.py}
+
+\subsection{Four-Configuration Ablation}
+\label{sec:code_loto_ablation}
+
+\noindent\textbf{Purpose.} Compares detection outcomes across four configurations: physics tripwire only, Isolation Forest only, Matrix Profile only, and the hybrid union of Isolation Forest and Matrix Profile. Reuses the leave-one-out prediction CSVs so no model refitting is needed.
+
+\noindent\textbf{Inputs.} Per-fold prediction CSVs and the deployed physics-tripwire constants.
+
+\noindent\textbf{Processes.} Runs each configuration's decision rule over the same labelled rows, and records the confusion matrix and per-configuration metric summary.
+
+\noindent\textbf{Outputs.} JSON and CSV metric summaries, plus a merged ablation-predictions CSV consumed by the statistical tests.
+
+\lstinputlisting[language=Python,caption={Four-configuration ablation},label={lst:loto_ablation}]{code_listings/ml/loto_ablation.py}
+
+\subsection{Statistical Tests}
+\label{sec:code_stats_tests}
+
+\noindent\textbf{Purpose.} Runs paired significance tests and bootstrap confidence intervals so the ablation numbers are backed by more than point estimates.
+
+\noindent\textbf{Inputs.} The ablation-predictions CSV.
+
+\noindent\textbf{Processes.} McNemar's chi-square test on paired flags between every pair of detector configurations, and bootstrap 95\% confidence intervals on precision, recall, and F1 for each configuration (2000 resamples over labelled project-native rows).
+
+\noindent\textbf{Outputs.} A JSON file with all test statistics and p-values, plus a LaTeX table ready for direct inclusion.
+
+\lstinputlisting[language=Python,caption={Statistical tests},label={lst:stats_tests}]{code_listings/ml/stats_tests.py}

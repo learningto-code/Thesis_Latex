@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex article_forum_paper"] 1784688831.44422 "article_forum_paper.aux" "article_forum_paper.bbl" "article_forum_paper" 1784691925.63171 0
+["bibtex article_forum_paper"] 1784783728.57804 "article_forum_paper.aux" "article_forum_paper.bbl" "article_forum_paper" 1784783732.50815 0
   "./references.bib" 1784478356.48629 42787 ec421b4e6e409a3bc17236968011ddd6 ""
   "C:/Users/Samu/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "article_forum_paper.aux" 1784691924.44558 6539 a9a2e72dc8f5bfa630042581b6140dec "pdflatex"
+  "article_forum_paper.aux" 1784783730.98891 5835 8b5291d186ed57cac41a25dd91e8d84e "pdflatex"
   (generated)
   "article_forum_paper.bbl"
   "article_forum_paper.blg"
   (rewritten before read)
-["pdflatex"] 1784691922.26002 "article_forum_paper.tex" "article_forum_paper.pdf" "article_forum_paper" 1784691925.63306 0
+["pdflatex"] 1784783729.12572 "article_forum_paper.tex" "article_forum_paper.pdf" "article_forum_paper" 1784783732.51099 0
   "C:/Users/Samu/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1762198032.13558 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Samu/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1762198093.73934 12015059 0d4f239a2c995df2346baa610ccf7de1 ""
   "C:/Users/Samu/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 1194fb36dfcb11d9ae9802f2b00b60a3 ""
@@ -105,18 +105,18 @@
   "C:/Users/Samu/AppData/Local/Programs/MiKTeX/tex/latex/tools/array.sty" 1730400552 14552 27664839421e418b87f56fa4c6f66b1a ""
   "C:/Users/Samu/AppData/Local/Programs/MiKTeX/tex/latex/tools/tabularx.sty" 1730400552 7243 e5dac1240636811edb77568b81818372 ""
   "C:/Users/Samu/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "article_forum_paper.aux" 1784691924.44558 6539 a9a2e72dc8f5bfa630042581b6140dec "pdflatex"
-  "article_forum_paper.bbl" 1784688831.90194 3946 cfe5d1a785f24de894110104563a6d5e "bibtex article_forum_paper"
-  "article_forum_paper.out" 1784691924.44759 3751 cc52d82d404c8db680e36d74a7aa0781 "pdflatex"
-  "article_forum_paper.tex" 1784690872.90635 31151 1780ece66f949c1680aefffeedf7b2a0 ""
-  "figure/End-to-end_system_architecture.png" 1783779203.64412 120388 d0d785fb58b553b98ee37309dd64e539 ""
-  "figure/Fuel-level_filter_cascade.png" 1783779203.64643 158644 d279909c3e71a52833c0306651862e72 ""
-  "figure/Offline-buffer_fall-through_flowchart.png" 1783779203.65955 144547 9e0810b746ce26b11c12786cc2b52a96 ""
-  "figure/concep_diagram.png" 1763445000.15255 69984 f4dcaf720329eaba7e7c8661edb2cee2 ""
+  "article_forum_paper.aux" 1784783730.98891 5835 8b5291d186ed57cac41a25dd91e8d84e "pdflatex"
+  "article_forum_paper.bbl" 1784783728.99296 3946 cfe5d1a785f24de894110104563a6d5e "bibtex article_forum_paper"
+  "article_forum_paper.out" 1784783730.99388 3751 cc52d82d404c8db680e36d74a7aa0781 "pdflatex"
+  "article_forum_paper.tex" 1784783567.86309 30695 9db47d7303f0d6c9526d0169fc9fd837 ""
+  "figure/3.png" 1784780964.71812 159314 ffe3d5a4481f5114aca423827779cfdc ""
+  "figure/4.png" 1784780964.73553 96024 f32308d2dc4ce6447cdb612e19780511 ""
+  "figure/5.png" 1784780962.41995 148177 99552428bcd25b7a789ef667da21dd32 ""
+  "figure/conceptdiagram.png" 1784691910.60659 106964 96f07ba1593b092c9464c265daf5c1e2 ""
   "figure/fig_5_6b_state_sync.png" 1783779203.71081 55738 6c2c6da2bb502d6e868f48e3e3d6367b ""
   "figure/fig_6_26_abc_model_performance.png" 1783779203.71348 56236 e89dd1296e0ebb721b5c04fa490c9361 ""
   "figure/image.png" 1783779203.71669 167558 a2e2e25194e2eab1deb5d0d73ae8320a ""
-  "figure/thesis_defense_pipeline_v3.png" 1784067604.47733 96689 2779abfc168a7147cafeddf3496b78c3 ""
+  "figure/systemArchi.png" 1784780885.71628 1028736 de3d0c7a6ae85eb5e4a756c1cf8fd1bd ""
   (generated)
   "article_forum_paper.aux"
   "article_forum_paper.log"

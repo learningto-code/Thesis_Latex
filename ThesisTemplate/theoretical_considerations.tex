@@ -260,6 +260,7 @@ $T_{i-1}$ & timestamp of the preceding fix.
 Maintaining a stable interval ensures accurate reconstruction of routes and distance traveled.
 
 \subsection{Context-Aware Anomaly Detection Theory}
+\label{sec:anomaly_detection_theory}
 
 The anomaly detection component relies on non-parametric, context-aware machine learning, which identifies unusual behavior in multivariate time-series data without labeled training samples. Following the taxonomy adopted for vehicle anomaly detection \cite{hirth2025truck_survey}, three anomaly types are distinguished: point anomalies, or individual observations that are anomalous with respect to the data, such as a sudden fuel drop while stationary; contextual anomalies, which are anomalous only in context, such as high consumption at zero speed; and collective or subsequence anomalies, where a sequence of individually unremarkable observations forms an anomalous pattern, such as gradual siphoning. The system assigns point and contextual anomalies to Isolation Forest, operating on engineered contextual features, and collective anomalies to the Matrix Profile.
 
